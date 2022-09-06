@@ -1,0 +1,15 @@
+.link {
+  font-size: "0.75rem";
+  color: "#494763";
+}
+
+.socialIconsWrapper {
+  display: flex;
+  flex-direction: row;
+}
+
+.socialIconsLabel {
+  font-size: "1.125rem";
+  color: #494763;
+  text-decoration: underline;
+}

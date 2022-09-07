@@ -1,4 +1,4 @@
-import { Box, Link, Typography } from "@mui/material";
+import { Box, Grid, Link, Typography } from "@mui/material";
 import Image from "next/image";
 
 const contactData = [
@@ -23,9 +23,9 @@ const contactData = [
 ];
 
 const Contact = () => (
-  <Box display="flex" flexDirection="row" alignItems="flex-start" justifyContent="space-evenly" mt={32} mb={13} maxWidth="90%" marginX="auto">
+  <Grid container paddingX={6.25} mt={32} mb={13} justifyContent="center">
     {contactData.map((item, idx) => (
-      <Box key={idx} flex={1} display="flex" flexDirection="row" alignItems="flex-start" maxWidth="26%">
+      <Grid item xs={12} md={3} key={idx} display="flex" flexDirection="row" alignItems="flex-start">
         <Image src="/icons/location.svg" alt="location" width="15" height="18" />
 
         <Box ml={2.5}>
@@ -45,9 +45,9 @@ const Contact = () => (
             {item.email}
           </Link>
         </Box>
-      </Box>
+      </Grid>
     ))}
-  </Box>
+  </Grid>
 );
 
 export default Contact;

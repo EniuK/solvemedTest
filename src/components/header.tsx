@@ -16,14 +16,14 @@ const Header = () => {
   const router = useRouter();
 
   return (
-    <Box paddingX={6.25} display="flex" flexDirection="row" justifyContent="space-between" alignItems="flex-start">
+    <Box paddingX={6.25} display="flex" flexDirection="row" justifyContent="space-between" alignItems="flex-start" mb="145px">
       <Link href="/" passHref>
         <a>
           <Image src="/icons/logo.svg" alt="logo" width="234" height="34.5" />
         </a>
       </Link>
 
-      <Box display="flex" flexDirection="column">
+      <Box display="flex" flexDirection="column" position="fixed" top={38} right={50} bgcolor="#fff" zIndex={1}>
         {menuItems.map((item) => {
           const isCurrentPath = item.link === router.pathname;
           return (

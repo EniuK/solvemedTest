@@ -20,7 +20,21 @@ export const theme = createTheme({
   },
   typography: {
     h1: {
-      fontSize: "7.75rem",
+      fontSize: "124px",
+      fontWeight: "300",
+      "@media (max-width:900px)": {
+        fontSize: "96px",
+      },
+      "@media (max-width:600px)": {
+        fontSize: "64px",
+      },
+    },
+    h4: {
+      fontSize: "42px",
+      fontWeight: "300",
+      "@media (max-width:900px)": {
+        fontSize: "30px",
+      },
     },
   },
   components: {

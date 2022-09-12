@@ -29,12 +29,39 @@ export const theme = createTheme({
         fontSize: "64px",
       },
     },
+    h2: {
+      fontSize: "100px",
+      fontWeight: "300",
+      "@media (max-width:900px)": {
+        fontSize: "96px",
+      },
+      "@media (max-width:600px)": {
+        fontSize: "64px",
+      },
+    },
+    h3: {
+      fontSize: "92px",
+      fontWeight: "300",
+      "@media (max-width:900px)": {
+        fontSize: "64px",
+      },
+    },
     h4: {
       fontSize: "42px",
       fontWeight: "300",
+      lineHeight: "46.2px",
       "@media (max-width:900px)": {
         fontSize: "30px",
+        lineHeight: "36px",
       },
+    },
+    h5: {
+      fontSize: "21px",
+      lineHeight: "24px",
+    },
+    h6: {
+      fontSize: "18px",
+      lineHeight: "24.3px",
     },
   },
   components: {

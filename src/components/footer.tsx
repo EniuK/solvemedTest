@@ -1,9 +1,8 @@
 import { Box, Link, Typography } from "@mui/material";
 import Image from "next/image";
-import styles from "./Footer.module.css";
 
 const Footer = () => (
-  <Box paddingX={6.25}>
+  <Box>
     <Image src="/icons/logo-small.svg" alt="logo" width="35" height="46" />
 
     <Typography color="primary.light" fontSize="0.75rem" mt={3}>
@@ -13,34 +12,34 @@ const Footer = () => (
       All Rights reserved
     </Typography>
 
-    <Box display="flex" justifyContent="space-between" alignItems="center" mt={3.5}>
+    <Box display="flex" flexDirection={{ xs: "column", sm: "row" }} justifyContent="space-between" alignItems={{ xs: "flex-start", sm: "center" }} mt={3.5}>
       <div>
-        <Link href="#" underline="none" color="primary.light" fontSize="0.75rem" mr={5}>
+        <Link href="#" underline="none" color="primary.light" fontSize="0.75rem" mr="29px">
           Privacy Policy
         </Link>
-        <Link href="#" underline="none" color="primary.light" fontSize="0.75rem" mr={5}>
+        <Link href="#" underline="none" color="primary.light" fontSize="0.75rem" mr="29px">
           Terms of Use
         </Link>
-        <Link href="#" underline="none" color="primary.light" fontSize="0.75rem" mr={5}>
+        <Link href="#" underline="none" color="primary.light" fontSize="0.75rem">
           Cookie Policy
         </Link>
       </div>
 
-      <div className={styles.socialIconsWrapper}>
-        <Link href="https://www.linkedin.com/" className={styles.socialIconsWrapper} target="_blank" rel="noopener">
+      <Box display="flex" flexDirection="row" mt={{ xs: 2, sm: 0 }}>
+        <Link href="https://www.linkedin.com/" display="flex" flexDirection="row" target="_blank" rel="noopener">
           <Typography fontSize="1.125rem" color="primary.light" mr={1}>
             Linkedin
           </Typography>
           <Image src="/icons/linkedin.svg" alt="linkedin" width="23" height="23" />
         </Link>
 
-        <Link href="https://twitter.com/" className={styles.socialIconsWrapper} ml={5} target="_blank" rel="noopener">
+        <Link href="https://twitter.com/" display="flex" flexDirection="row" ml={5} target="_blank" rel="noopener">
           <Typography fontSize="1.125rem" color="primary.light" mr={1}>
             Twitter
           </Typography>
           <Image src="/icons/twitter.svg" alt="twitter" width="23" height="23" />
         </Link>
-      </div>
+      </Box>
     </Box>
   </Box>
 );

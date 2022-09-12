@@ -1,7 +1,10 @@
-import { Box, Grid, Typography } from "@mui/material";
-import { NextPage } from "next";
-import Image from "next/image";
 import React from "react";
+import Image from "next/image";
+import { NextPage } from "next";
+import Slider from "react-slick";
+import { Box, Grid, Typography } from "@mui/material";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const collaborators = [
   { name: "kings college hospital", icon: "/icons/logos/kings-college-hospital.svg" },
@@ -12,7 +15,90 @@ const collaborators = [
   { name: "massachusetts general hospital", icon: "/icons/logos/massachusetts-general-hospital.svg" },
 ];
 
+const selectedLiterature = [
+  {
+    id: "1",
+    title: "Executive function deficits in mild cognitive impairment: evidence from saccade tasks",
+    author: "Negin Chehrehnegar",
+    publishDate: "2021",
+    source: "Aging & Mental Health Journal",
+    label: "Alzheimer's disease",
+  },
+  {
+    id: "2",
+    title: "Understanding the effects of mild traumatic brain injury on the pupillary light reflex",
+    author: "Kenneth J Ciuffreda",
+    publishDate: "2017",
+    source: "Concussion Journal",
+    label: "Mild Traumatic Brain Injury",
+  },
+  {
+    id: "3",
+    title: "Pupillometry and 123I-DaTSCAN imaging in Parkinson's Disease: A Comparison Study",
+    author: "Evangelia Giza",
+    publishDate: "2012",
+    source: "International Journal of Neuroscience",
+    label: "Parkinson's disease",
+  },
+  {
+    id: "4",
+    title: "Executive function deficits in mild cognitive impairment: evidence from saccade tasks",
+    author: "Negin Chehrehnegar",
+    publishDate: "2021",
+    source: "Aging & Mental Health Journal",
+    label: "Alzheimer's disease",
+  },
+  {
+    id: "5",
+    title: "Understanding the effects of mild traumatic brain injury on the pupillary light reflex",
+    author: "Kenneth J Ciuffreda",
+    publishDate: "2017",
+    source: "Concussion Journal",
+    label: "Mild Traumatic Brain Injury",
+  },
+  {
+    id: "6",
+    title: "Pupillometry and 123I-DaTSCAN imaging in Parkinson's Disease: A Comparison Study",
+    author: "Evangelia Giza",
+    publishDate: "2012",
+    source: "International Journal of Neuroscience",
+    label: "Parkinson's disease",
+  },
+];
+
+const NextArrow = (props: any) => {
+  const { className, style, onClick } = props;
+  return (
+    <div
+      className={className}
+      style={{
+        ...style,
+        width: 48,
+        height: 48,
+        border: "1px solid rgba(49, 41, 55, 0.2)",
+        borderRadius: 24,
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        zIndex: 1,
+      }}
+      onClick={onClick}
+    >
+      <Image src="/icons/arrow-right.svg" alt="Next button" width="5px" height="7px" />
+    </div>
+  );
+};
+
 const Science: NextPage = () => {
+  const settings = {
+    dots: false,
+    infinite: false,
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    nextArrow: <NextArrow />,
+    prevArrow: <NextArrow />,
+  };
+
   return (
     <Box paddingX={6.25} textAlign="center">
       <Typography variant="h1" mb="80px">
@@ -130,6 +216,47 @@ const Science: NextPage = () => {
           ))}
         </Grid>
       </Grid>
+
+      <Typography fontSize="30px" fontWeight="600" mb="90px" mt="120px">
+        Selected literature
+      </Typography>
+
+      <div>
+        <Slider {...settings}>
+          {selectedLiterature.map((item, idx) => (
+            <div key={item.id}>
+              <Box
+                height="378px"
+                p="16px 30px"
+                maxWidth="261px"
+                borderRadius="24px"
+                bgcolor="#fff"
+                border="1px solid black"
+                justifyContent="space-between"
+                display={"flex"}
+                flexDirection={"column"}
+              >
+                <Typography fontSize="12px">{item.source}</Typography>
+                <Typography fontSize="23px" lineHeight="25.3px" fontWeight="300">
+                  {item.title}
+                </Typography>
+
+                <div>
+                  <Box bgcolor="#FBEDFF" borderRadius="40px" padding="4px 8px" mb="9px" display={"inline-block"}>
+                    <Typography fontSize="12px" color="#65426F">
+                      {item.label}
+                    </Typography>
+                  </Box>
+                  <Typography fontSize="12px">{item.author}</Typography>
+                  <Typography fontSize="12px" color="#494763">
+                    Published: {item.publishDate}
+                  </Typography>
+                </div>
+              </Box>
+            </div>
+          ))}
+        </Slider>
+      </div>
     </Box>
   );
 };

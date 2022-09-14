@@ -5,6 +5,9 @@ import Slider from "react-slick";
 import { Box, Grid, Typography } from "@mui/material";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import styles from "./science.module.css";
+import { useParallax } from "react-scroll-parallax";
+import { ParallaxProps } from "react-scroll-parallax/dist/components/Parallax/types";
 
 const collaborators = [
   { name: "kings college hospital", icon: "/icons/logos/kings-college-hospital.svg" },
@@ -13,6 +16,10 @@ const collaborators = [
   { name: "oftalmika", icon: "/icons/logos/oftalmika.svg" },
   { name: "hope", icon: "/icons/logos/hope.svg" },
   { name: "massachusetts general hospital", icon: "/icons/logos/massachusetts-general-hospital.svg" },
+  { name: "oxford hospitals", icon: "/icons/logos/oxford-hospitals.svg" },
+  { name: "queen mary", icon: "/icons/logos/queen-mary.svg" },
+  { name: "loughborough", icon: "/icons/logos/loughborough.svg" },
+  { name: "intermountain", icon: "/icons/logos/intermountain.svg" },
 ];
 
 const selectedLiterature = [
@@ -90,7 +97,7 @@ const NextArrow = (props: any) => {
 };
 
 const Science: NextPage = () => {
-  const settings = {
+  const sliderSettings = {
     dots: false,
     infinite: false,
     slidesToShow: 4,
@@ -99,8 +106,14 @@ const Science: NextPage = () => {
     prevArrow: <NextArrow />,
   };
 
+  const parallaxSettings: ParallaxProps = { speed: -50, translateY: [0, -50] };
+
+  const parallax = useParallax<HTMLDivElement>(parallaxSettings);
+  const parallax2 = useParallax<HTMLDivElement>(parallaxSettings);
+  const parallax3 = useParallax<HTMLDivElement>(parallaxSettings);
+
   return (
-    <Box paddingX={6.25} textAlign="center">
+    <Box textAlign="center">
       <Typography variant="h1" mb="80px">
         Science
       </Typography>
@@ -108,7 +121,7 @@ const Science: NextPage = () => {
         Our research advances the frontier of <br />
         digital biomarker science.
       </Typography>
-      <Typography fontSize="18px" lineHeight="24.3px" mb="165px">
+      <Typography variant="h6" mb="165px">
         We bring to the world the most advanced camera-enabled data <br />
         collection and analytical tools in the field of neurology and <br />
         ophthalmology.
@@ -117,25 +130,33 @@ const Science: NextPage = () => {
       <Grid container justifyContent="center" mb="200px">
         <Grid container item xs={12} lg={10} justifyContent="space-between" alignItems="center">
           <Grid item container xs={12} justifyContent="space-between">
-            <Grid item xs={12} md={5.5}>
-              <Image src="/images/science1.png" alt="science1" width={440} height={632} />
+            <Grid item xs={12} md={5.5} position="relative">
+              <picture>
+                <source srcSet="/images/pink.svg" type="image/svg+xml" />
+                <img src="/images/pink.svg" alt="Background pink" className={styles.bg} />
+              </picture>
+              <div ref={parallax.ref}>
+                <Image src="/images/science1.png" alt="science1" width={440} height={632} />
+              </div>
             </Grid>
-            <Grid item xs={12} md={5.5}>
-              <Typography fontSize="21px" mb="60px" align="left">
+            <Grid item xs={12} md={5.5} textAlign="left">
+              <Typography variant="body1" mb="60px">
                 Technology validation
               </Typography>
-              <Typography fontSize="42px" fontWeight="300" align="left" letterSpacing={-2} mb="57px">
+              <Typography variant="h4" mb="57px">
                 Our Software as Medical Devices undergo extensive testing validation against current standard of care and gold standard methods and devices.
               </Typography>
-              <Typography fontSize="18px" align="left" mb="20px">
-                High precision biomarker parameter capture
-              </Typography>
-              <Typography fontSize="18px" align="left" mb="20px">
-                Real-world relevance and utility
-              </Typography>
-              <Typography fontSize="18px" align="left">
-                Developed in collaboration with clinicians and researchers
-              </Typography>
+              <ul>
+                <li className={styles.listItem}>
+                  <Typography variant="h6">High precision biomarker parameter capture</Typography>
+                </li>
+                <li className={styles.listItem}>
+                  <Typography variant="h6">Real-world relevance and utility</Typography>
+                </li>
+                <li className={styles.listItem}>
+                  <Typography variant="h6">Developed in collaboration with clinicians and researchers</Typography>
+                </li>
+              </ul>
             </Grid>
           </Grid>
 
@@ -146,25 +167,33 @@ const Science: NextPage = () => {
           </Grid>
 
           <Grid item container xs={12} justifyContent="space-between">
-            <Grid item xs={12} md={5.5}>
-              <Typography fontSize="21px" mb="60px" align="left">
+            <Grid item xs={12} md={5.5} textAlign="left">
+              <Typography variant="body1" mb="60px">
                 Biomarker discovery
               </Typography>
-              <Typography fontSize="42px" fontWeight="300" align="left" letterSpacing={-2} mb="57px">
+              <Typography variant="h4" mb="57px">
                 Our world-class biomarker studies, conducted in collaborations with some of the most renowned research institutions, hold promise of novel disease biomarkers.
               </Typography>
-              <Typography fontSize="18px" align="left" mb="20px">
-                Collection of multi-biomarker panels enabled
-              </Typography>
-              <Typography fontSize="18px" align="left" mb="20px">
-                Novel protocols for information-rich signals
-              </Typography>
-              <Typography fontSize="18px" align="left">
-                Proprietary machine learning analytics
-              </Typography>
+              <ul>
+                <li className={styles.listItem}>
+                  <Typography variant="h6">Collection of multi-biomarker panels enabled</Typography>
+                </li>
+                <li className={styles.listItem}>
+                  <Typography variant="h6">Novel protocols for information-rich signals</Typography>
+                </li>
+                <li className={styles.listItem}>
+                  <Typography variant="h6">Proprietary machine learning analytics</Typography>
+                </li>
+              </ul>
             </Grid>
-            <Grid item xs={12} md={5.5}>
-              <Image src="/images/science2.png" alt="science2" width={440} height={632} />
+            <Grid item xs={12} md={5.5} position="relative">
+              <picture>
+                <source srcSet="/images/yellow.svg" type="image/svg+xml" />
+                <img src="/images/yellow.svg" alt="Background yellow" className={styles.bg2} />
+              </picture>
+              <div ref={parallax2.ref}>
+                <Image src="/images/science2.png" alt="science2" width={440} height={632} />
+              </div>
             </Grid>
           </Grid>
 
@@ -175,67 +204,70 @@ const Science: NextPage = () => {
           </Grid>
 
           <Grid item container xs={12} justifyContent="space-between">
-            <Grid item xs={12} md={5.5}>
-              <Image src="/images/science3.png" alt="science3" width={440} height={632} />
+            <Grid item xs={12} md={5.5} position="relative">
+              <picture>
+                <source srcSet="/images/blue.svg" type="image/svg+xml" />
+                <img src="/images/blue.svg" alt="Background blue" className={styles.bg3} />
+              </picture>
+              <div ref={parallax3.ref}>
+                <Image src="/images/science3.png" alt="science3" width={440} height={632} />
+              </div>
             </Grid>
-            <Grid item xs={12} md={5.5}>
-              <Typography fontSize="21px" mb="60px" align="left">
+            <Grid item xs={12} md={5.5} textAlign="left">
+              <Typography variant="body1" mb="60px">
                 Machine learning
               </Typography>
-              <Typography fontSize="42px" fontWeight="300" align="left" letterSpacing={-2} mb="57px">
+              <Typography variant="h4" mb="57px">
                 We combine cutting-edge computer vision algorithms with predictive analytics for novel scientific insights and technological breakthroughs.
               </Typography>
-              <Typography fontSize="18px" align="left" mb="20px">
-                De-risk clinical development and reduce trial duration and costs
-              </Typography>
-              <Typography fontSize="18px" align="left" mb="20px">
-                Track disease progression and demonstrate drug efficacy
-              </Typography>
-              <Typography fontSize="18px" align="left">
-                Use novel endpoints and stratify patient cohorts
-              </Typography>
+              <ul>
+                <li className={styles.listItem}>
+                  <Typography variant="h6">De-risk clinical development and reduce trial duration and costs</Typography>
+                </li>
+                <li className={styles.listItem}>
+                  <Typography variant="h6">Track disease progression and demonstrate drug efficacy</Typography>
+                </li>
+                <li className={styles.listItem}>
+                  <Typography variant="h6">Use novel endpoints and stratify patient cohorts</Typography>
+                </li>
+              </ul>
             </Grid>
           </Grid>
         </Grid>
       </Grid>
 
-      <Typography fontSize="30px" lineHeight="36px" fontWeight="600" mb="20px">
+      <Typography variant="h5" mb="20px">
         Research collaborations
       </Typography>
-      <Typography fontSize="18px" lineHeight="24.3px" mb="60px">
+      <Typography variant="h6" mb="60px">
         We collaborate with partners at some of the most prominent clinical <br />
         and industrial life science organisations.
       </Typography>
 
-      <Grid container justifyContent="center">
-        <Grid container item columns={{ sm: 12, md: 10 }} sm={12} md={8}>
-          {collaborators.map((item) => (
-            <Grid item xs={2} key={item.name} height={66} width={202} position="relative">
+      <Grid container justifyContent="space-evenly">
+        {collaborators.map((item) => (
+          <Grid item key={item.name} position="relative">
+            <Box height={66} width={202} marginBottom={2}>
               <Image src={item.icon} alt={item.name} layout="fill" objectFit="scale-down" />
-            </Grid>
-          ))}
-        </Grid>
+            </Box>
+          </Grid>
+        ))}
       </Grid>
 
-      <Typography fontSize="30px" fontWeight="600" mb="90px" mt="120px">
-        Selected literature
-      </Typography>
+      <Box position="relative">
+        <picture>
+          <source srcSet="/images/blue2.svg" type="image/svg+xml" />
+          <img src="/images/blue2.svg" alt="Background blue" className={styles.bg4} />
+        </picture>
 
-      <div>
-        <Slider {...settings}>
-          {selectedLiterature.map((item, idx) => (
+        <Typography variant="h5" mb="90px" mt="120px">
+          Selected literature
+        </Typography>
+
+        <Slider {...sliderSettings}>
+          {selectedLiterature.map((item) => (
             <div key={item.id}>
-              <Box
-                height="378px"
-                p="16px 30px"
-                maxWidth="261px"
-                borderRadius="24px"
-                bgcolor="#fff"
-                border="1px solid black"
-                justifyContent="space-between"
-                display={"flex"}
-                flexDirection={"column"}
-              >
+              <Box height="378px" p="16px 30px" maxWidth="261px" borderRadius="24px" bgcolor="#fff" justifyContent="space-between" display={"flex"} flexDirection={"column"}>
                 <Typography fontSize="12px">{item.source}</Typography>
                 <Typography fontSize="23px" lineHeight="25.3px" fontWeight="300">
                   {item.title}
@@ -256,7 +288,7 @@ const Science: NextPage = () => {
             </div>
           ))}
         </Slider>
-      </div>
+      </Box>
     </Box>
   );
 };

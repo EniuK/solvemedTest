@@ -1,0 +1,48 @@
+.bg {
+  filter: blur(600px);
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: -1;
+}
+
+.bg2 {
+  filter: blur(600px);
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: -1;
+}
+
+.bg3 {
+  filter: blur(600px);
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: -1;
+}
+
+.bg4 {
+  filter: blur(600px);
+  position: absolute;
+  top: -30%;
+  right: 0;
+  z-index: -1;
+}
+
+.listItem {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.listItem::before {
+  content: "";
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 3px solid #5242ee;
+  margin-right: 20px;
+  box-sizing: border-box;
+  margin-top: 7px;
+}

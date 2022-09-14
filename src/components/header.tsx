@@ -35,7 +35,7 @@ const Header = () => {
         </a>
       </Link>
 
-      <Box display="flex" flexDirection="column" position="fixed" top={38} right={50} bgcolor="#fff" zIndex={1}>
+      <Box display="flex" flexDirection="column" position="fixed" top={38} right={50} zIndex={1}>
         {matches ? (
           <>
             <div style={{ width: "20px" }} onClick={handleClick}>

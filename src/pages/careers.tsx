@@ -2,6 +2,8 @@ import React, { Fragment } from "react";
 import { NextPage } from "next";
 import { Box, Grid, Link, Typography } from "@mui/material";
 import Image from "next/image";
+import styles from "./careers.module.css";
+import { useParallax } from "react-scroll-parallax";
 
 const careers = [
   {
@@ -52,18 +54,32 @@ const careers = [
 ];
 
 const Careers: NextPage = () => {
+  const parallax = useParallax<HTMLDivElement>({ speed: -20, translateY: [10, -50] });
+
   return (
     <Grid container xs={10} lg={8} columns={10} margin="auto" alignItems="center">
-      <Grid item xs={10} textAlign="center">
+      <Grid item xs={10} textAlign="center" position="relative">
+        <img src="/images/green1.svg" alt="Background green" className={styles.bg} />
+        <img src="/images/green2.svg" alt="Background green" className={styles.bg} />
+
+        <img src="/images/pink1.svg" alt="Background pink" className={styles.bg2} />
+        <img src="/images/pink2.svg" alt="Background pink" className={styles.bg2} />
+
+        <img src="/images/blue3.svg" alt="Background blue" className={styles.bg3} />
+
         <Typography variant="h3" mb="80px">
           Join Solvemed
         </Typography>
-        <Typography variant="h4" mb="30px">
+        <Typography variant="h4" width={{ xs: "100%", sm: "70%" }} margin="0 auto 30px auto">
           Digital mapping of the human brain is an interdisciplinary challenge.
         </Typography>
-        <Typography fontSize="18px" lineHeight="24.3px">
+        <Typography variant="h6" width={{ xs: "100%", sm: "70%", md: "50%" }} margin="auto">
           We are looking to hire a wide range of people with diverse engineering, scientific, operations expertise.
         </Typography>
+
+        <div ref={parallax.ref}>
+          <img src="/images/eye.png" alt="Eye" className={styles.eyeImg} />
+        </div>
       </Grid>
 
       {careers.map((sectionItem) => (
@@ -77,10 +93,10 @@ const Careers: NextPage = () => {
           {sectionItem.positions.map((item, idx) => (
             <Fragment key={item.title}>
               <Grid item xs={10} sm={7} md={8} zeroMinWidth>
-                <Typography fontSize="21px" fontWeight="600">
+                <Typography variant="body1" fontWeight="600">
                   Head of Research
                 </Typography>
-                <Typography fontSize="18px" paragraph>
+                <Typography variant="h6" paragraph>
                   Remote (preferred locations for the remote role: Boston, MA; San Francisco Bay Area)
                 </Typography>
               </Grid>

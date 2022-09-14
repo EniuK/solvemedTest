@@ -56,12 +56,17 @@ export const theme = createTheme({
       },
     },
     h5: {
-      fontSize: "21px",
-      lineHeight: "24px",
+      fontSize: "30px",
+      lineHeight: "36px",
+      fontWeight: "600",
     },
     h6: {
       fontSize: "18px",
       lineHeight: "24.3px",
+    },
+    body1: {
+      fontSize: "21px",
+      lineHeight: "24px",
     },
   },
   components: {

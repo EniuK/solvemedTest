@@ -1,5 +1,4 @@
 import { Box, Grid, Link, Typography } from "@mui/material";
-import Image from "next/image";
 
 const contactData = [
   {
@@ -26,10 +25,10 @@ const Contact = () => (
   <Grid container mt={32} mb={13} justifyContent="space-between">
     {contactData.map((item, idx) => (
       <Grid key={idx} item xs={12} md={4} mb={{ xs: 6, md: 0 }} display="flex" flexDirection="row" alignItems="flex-start">
-        <Image src="/icons/location.svg" alt="location" width="15" height="18" />
+        <img src="/icons/location.svg" alt="Location" />
 
         <Box display="flex" flexDirection="column" justifyContent="flex-start" ml={2}>
-          <Typography fontSize="1.875rem" fontWeight="300" color="primary" mb={5} mt={-1}>
+          <Typography fontSize="1.875rem" fontWeight="300" color="primary" mb={5}>
             {item.city}
           </Typography>
 

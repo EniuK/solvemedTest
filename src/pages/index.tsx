@@ -31,7 +31,7 @@ const Home: NextPage = () => {
         </Typography>
       </Box>
 
-      <Grid container xs={12} mb="120px" mt="96px" justifyContent="space-between">
+      <Grid container mb="120px" mt="96px" justifyContent="space-between">
         <Grid item xs={12} md={6} position="relative" marginBottom={{ xs: 20, md: 0 }}>
           <img src="/images/women.png" alt="Women" className={styles.womenImg} />
           <img src="/images/blue5.svg" alt="Background blue" className={styles.bg4} />

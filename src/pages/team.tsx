@@ -1,10 +1,12 @@
-import { Box, Dialog, DialogContent, Grid, Link, Typography } from "@mui/material";
+import { Box, Grid, Link, Typography } from "@mui/material";
 import type { NextPage } from "next";
 import Image from "next/image";
+import { useState } from "react";
 import { useParallax } from "react-scroll-parallax";
+import TeamMemberDetailsModal from "../components/TeamMemberDetailsModal";
 import styles from "./team.module.css";
 
-type TeamMember = {
+export type TeamMember = {
   name: string;
   position: string;
   photo: string;
@@ -69,8 +71,12 @@ const investors = [
 ];
 
 const Team: NextPage = () => {
+  const parallax = useParallax<HTMLDivElement>({ speed: -20 });
+  const [memberDetails, setMemberDetails] = useState<TeamMember | null>(null);
+
   const MemberListItem = ({ member }: { member: TeamMember }) => (
     <Box
+      onClick={() => setMemberDetails(member)}
       style={{
         backgroundColor: "#fff",
         borderRadius: 12,
@@ -80,6 +86,7 @@ const Team: NextPage = () => {
         margin: "auto",
         display: "flex",
         flexDirection: "column",
+        cursor: "pointer",
       }}
     >
       <Box style={{ width: 120, height: 120, borderRadius: 60, backgroundColor: "#F0F6FA", position: "relative" }}>
@@ -121,8 +128,6 @@ const Team: NextPage = () => {
       </Box>
     </Box>
   );
-
-  const parallax = useParallax<HTMLDivElement>({ speed: -20 });
 
   return (
     <div>
@@ -268,69 +273,7 @@ const Team: NextPage = () => {
         </Grid>
       </Grid>
 
-      <Dialog open={false} onClose={() => {}} maxWidth="md" scroll="paper">
-        <DialogContent>
-          <Grid container columns={12}>
-            <Grid item xs={4}>
-              <Box style={{ width: 120, height: 120, borderRadius: 60, backgroundColor: "#F0F6FA" }} />
-
-              <Typography fontSize="18px" fontWeight="600" mt="30px">
-                Hugo Chrost
-              </Typography>
-
-              <Typography fontSize="18px" lineHeight="24.12px" mb="20px">
-                Chief Executive Officer, Co-founder
-              </Typography>
-
-              <Box display="flex" flexDirection="row">
-                <Box style={{ backgroundColor: "#FFEDED", padding: "5px 12px 5px 12px", width: "fit-content", borderRadius: "1000px" }} mr={1}>
-                  <Typography fontSize="12px">Leadership</Typography>
-                </Box>
-
-                <Box style={{ backgroundColor: "#F4EDFD", padding: "5px 12px 5px 12px", width: "fit-content", borderRadius: "1000px" }}>
-                  <Typography fontSize="12px">Board member</Typography>
-                </Box>
-              </Box>
-
-              <Box display="flex" flexDirection="row" alignItems="center" justifyContent="flex-start" mt="auto">
-                <Link href="https://www.linkedin.com/" target="_blank" rel="noopener" underline="none" display="flex" flexDirection="row" alignItems="center">
-                  <Image src="/icons/linkedin-outlined.svg" alt="linkedin" width="23" height="23" />
-                  <Typography fontSize="14px" color="secondary.main" ml={1}>
-                    Linkedin
-                  </Typography>
-                </Link>
-
-                <Link href="https://twitter.com/" ml={1} target="_blank" rel="noopener" underline="none" display="flex" flexDirection="row" alignItems="center">
-                  <Image src="/icons/twitter-outlined.svg" alt="twitter" width="23" height="23" />
-                  <Typography fontSize="14px" color="secondary.main" ml={1}>
-                    Twitter
-                  </Typography>
-                </Link>
-              </Box>
-            </Grid>
-
-            <Grid item xs={7}>
-              <Typography fontSize="30px" lineHeight="33px" fontWeight="300" mb="30px">
-                Cambridge JBS, University Collage London, 500 Global, Harvard Ventures, Kairos Society
-              </Typography>
-              <Typography fontSize="16px" lineHeight="21.6px" mb={3}>
-                Hugo is the founder & CEO of Solvemed Group which develops proprietary ocular biomarkers to revolutionise neurology care and drug development. He is also a Venture
-                Partner at 500 Global.
-              </Typography>
-              <Typography fontSize="16px" lineHeight="21.6px">
-                His passion for leadership and bridging science to business brings him to frequently shares his experience as a keynote speaker and guest lecturer at the University
-                College London, University of Warsaw, and international conferences.
-              </Typography>
-            </Grid>
-
-            <Grid item xs={1} container justifyContent="flex-end">
-              <Box width="56px" height="56px" borderRadius={56 / 2} bgcolor="#F4F4F4" display="flex" alignItems="center" justifyContent="center">
-                <Image src="/icons/close.svg" alt="close" width="16" height="16" />
-              </Box>
-            </Grid>
-          </Grid>
-        </DialogContent>
-      </Dialog>
+      <TeamMemberDetailsModal isOpen={!!memberDetails} onClose={() => setMemberDetails(null)} member={memberDetails} />
     </div>
   );
 };

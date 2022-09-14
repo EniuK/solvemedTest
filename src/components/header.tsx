@@ -1,8 +1,8 @@
+import { useState } from "react";
 import { Box, Menu, MenuItem, useMediaQuery } from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { useState } from "react";
 
 const menuItems = [
   { title: "Home", link: "/" },
@@ -19,7 +19,7 @@ const Header = () => {
   const open = Boolean(anchorEl);
   const matches = useMediaQuery("(max-width:900px)");
 
-  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+  const handleClick = (event: React.MouseEvent<HTMLDivElement>) => {
     setAnchorEl(event.currentTarget);
   };
 

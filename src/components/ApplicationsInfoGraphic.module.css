@@ -1,0 +1,110 @@
+.infoGraphicContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  height: 815px;
+}
+
+.infoGraphicInternalContainer {
+  height: 526px;
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+.infoGraphicContainerBlock {
+  width: 50%;
+  height: 50%;
+  position: relative;
+}
+
+.infoGraphicCore {
+  width: 60%;
+  height: 70%;
+  background-color: #fff;
+  border-radius: 300px;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  z-index: 1;
+}
+
+.infoGraphicItem {
+  width: 260px;
+  height: 291px;
+  background-color: #fff;
+  border-radius: 12px;
+  position: absolute;
+  top: -50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 22px;
+  z-index: 3;
+}
+
+.infoGraphicBottomItem {
+  width: 215px;
+  height: 252px;
+  background-color: #fff;
+  border-radius: 12px;
+  position: absolute;
+  bottom: -50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 22px;
+}
+
+.infoGraphicIcon {
+  width: 36px;
+  max-height: 49px;
+}
+
+.infoGraphicArrowIcon {
+  width: 40%;
+  height: 50%;
+  position: absolute;
+  bottom: 0;
+}
+
+.infoGraphicArrowBottomIcon {
+  width: 60%;
+  height: 50%;
+  position: absolute;
+  bottom: 0;
+}
+
+.bg {
+  filter: blur(600px);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.bg4 {
+  filter: blur(600px);
+  position: absolute;
+  top: 20%;
+  left: 30%;
+  z-index: -1;
+}
+
+.bg5 {
+  filter: blur(600px);
+  position: absolute;
+  bottom: -20%;
+  right: 0;
+  z-index: -1;
+}

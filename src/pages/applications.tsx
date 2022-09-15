@@ -5,6 +5,7 @@ import { Box, Grid, Typography } from "@mui/material";
 import styles from "./applications.module.css";
 import { useParallax } from "react-scroll-parallax";
 import { ParallaxProps } from "react-scroll-parallax/dist/components/Parallax/types";
+import ApplicationsInfoGraphic from "../components/ApplicationsInfoGraphic";
 
 const Applications: NextPage = () => {
   const parallaxSettings: ParallaxProps = { speed: -50, translateY: [0, -30] };
@@ -15,14 +16,14 @@ const Applications: NextPage = () => {
 
   return (
     <Box>
-      <Typography variant="h2" align="center" mb="100px">
+      <Typography variant="h2" align="center" mb="20px">
         Applications
       </Typography>
 
+      <ApplicationsInfoGraphic />
+
       <Grid container>
         <Grid item container xs={12} alignItems="center" columnSpacing={2} rowSpacing={4} position="relative">
-          <img src="/images/blue6.svg" alt="Background blue" className={styles.bg} />
-
           <Grid item xs={12} md={2}>
             <ol className={styles.list}>
               <li className={styles.listItem}>Clinicians</li>

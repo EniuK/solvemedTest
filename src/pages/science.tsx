@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 import { NextPage } from "next";
 import Slider from "react-slick";
-import { Box, Grid, Typography } from "@mui/material";
+import { Box, Grid, Typography, useMediaQuery, useTheme } from "@mui/material";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import styles from "./science.module.css";
@@ -74,39 +74,38 @@ const selectedLiterature = [
 ];
 
 const NextArrow = (props: any) => {
-  const { className, style, onClick } = props;
+  const { className, onClick } = props;
   return (
-    <div
-      className={className}
-      style={{
-        ...style,
-        width: 48,
-        height: 48,
-        border: "1px solid rgba(49, 41, 55, 0.2)",
-        borderRadius: 24,
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        zIndex: 1,
-      }}
-      onClick={onClick}
-    >
-      <Image src="/icons/arrow-right.svg" alt="Next button" width="5px" height="7px" />
+    <div className={`${className} ${styles.sliderArrow}`} onClick={onClick}>
+      <img src="/images/chevronRight.svg" alt="Next button" />
+    </div>
+  );
+};
+
+const PrevArrow = (props: any) => {
+  const { className, onClick } = props;
+  return (
+    <div className={`${className} ${styles.sliderArrow}`} onClick={onClick}>
+      <img src="/images/chevronLeft.svg" alt="Previous button" />
     </div>
   );
 };
 
 const Science: NextPage = () => {
+  const theme = useTheme();
+  const tablet = useMediaQuery(theme.breakpoints.up("md"));
+  const desktop = useMediaQuery(theme.breakpoints.up("lg"));
+
   const sliderSettings = {
     dots: false,
     infinite: false,
-    slidesToShow: 4,
+    slidesToShow: desktop ? 4 : tablet ? 3 : 2,
     slidesToScroll: 1,
     nextArrow: <NextArrow />,
-    prevArrow: <NextArrow />,
+    prevArrow: <PrevArrow />,
   };
 
-  const parallaxSettings: ParallaxProps = { speed: -50, translateY: [0, -50] };
+  const parallaxSettings: ParallaxProps = { speed: -20, translateY: [10, -30] };
 
   const parallax = useParallax<HTMLDivElement>(parallaxSettings);
   const parallax2 = useParallax<HTMLDivElement>(parallaxSettings);
@@ -267,7 +266,7 @@ const Science: NextPage = () => {
         <Slider {...sliderSettings}>
           {selectedLiterature.map((item) => (
             <div key={item.id}>
-              <Box height="378px" p="16px 30px" maxWidth="261px" borderRadius="24px" bgcolor="#fff" justifyContent="space-between" display={"flex"} flexDirection={"column"}>
+              <Box height="378px" p="16px 30px" maxWidth="261px" mr={3} borderRadius="24px" bgcolor="#fff" justifyContent="space-between" display="flex" flexDirection="column">
                 <Typography fontSize="12px">{item.source}</Typography>
                 <Typography fontSize="23px" lineHeight="25.3px" fontWeight="300">
                   {item.title}

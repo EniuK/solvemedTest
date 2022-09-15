@@ -24,9 +24,9 @@
 .bg {
   filter: blur(600px);
   position: absolute;
-  top: -50%;
+  top: 0;
   bottom: 0;
-  left: -20%;
+  left: 0;
   z-index: -1;
 }
 

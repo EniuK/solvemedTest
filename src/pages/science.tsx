@@ -95,11 +95,12 @@ const Science: NextPage = () => {
   const theme = useTheme();
   const tablet = useMediaQuery(theme.breakpoints.up("md"));
   const desktop = useMediaQuery(theme.breakpoints.up("lg"));
+  const mobile = useMediaQuery(theme.breakpoints.down("sm"));
 
   const sliderSettings = {
     dots: false,
     infinite: false,
-    slidesToShow: desktop ? 4 : tablet ? 3 : 2,
+    slidesToShow: desktop ? 4 : tablet ? 3 : mobile ? 1 : 2,
     slidesToScroll: 1,
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
@@ -265,26 +266,26 @@ const Science: NextPage = () => {
 
         <Slider {...sliderSettings}>
           {selectedLiterature.map((item) => (
-            <div key={item.id}>
-              <Box height="378px" p="16px 30px" maxWidth="261px" mr={3} borderRadius="24px" bgcolor="#fff" justifyContent="space-between" display="flex" flexDirection="column">
+            <Box key={item.id} maxWidth="261px">
+              <Box justifyContent="space-between" display="flex" flexDirection="column" height="378px" p="16px 30px" mr={0} borderRadius="24px" bgcolor="#fff">
                 <Typography fontSize="12px">{item.source}</Typography>
                 <Typography fontSize="23px" lineHeight="25.3px" fontWeight="300">
                   {item.title}
                 </Typography>
 
                 <div>
-                  <Box bgcolor="#FBEDFF" borderRadius="40px" padding="4px 8px" mb="9px" display={"inline-block"}>
+                  <Box bgcolor="info.dark" borderRadius="40px" padding="4px 8px" mb="9px" display={"inline-block"}>
                     <Typography fontSize="12px" color="#65426F">
                       {item.label}
                     </Typography>
                   </Box>
                   <Typography fontSize="12px">{item.author}</Typography>
-                  <Typography fontSize="12px" color="#494763">
+                  <Typography fontSize="12px" color="primary.light">
                     Published: {item.publishDate}
                   </Typography>
                 </div>
               </Box>
-            </div>
+            </Box>
           ))}
         </Slider>
       </Box>

@@ -57,7 +57,7 @@ const Careers: NextPage = () => {
   const parallax = useParallax<HTMLDivElement>({ speed: -20, translateY: [10, -50] });
 
   return (
-    <Grid container xs={10} lg={8} columns={10} margin="auto" alignItems="center">
+    <Grid container item xs={10} lg={8} columns={10} margin="auto" alignItems="center">
       <Grid item xs={10} textAlign="center" position="relative">
         <img src="/images/green1.svg" alt="Background green" className={styles.bg} />
         <img src="/images/green2.svg" alt="Background green" className={styles.bg} />

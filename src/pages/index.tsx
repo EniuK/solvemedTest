@@ -1,5 +1,6 @@
 import { Box, Grid, Typography } from "@mui/material";
 import type { NextPage } from "next";
+import Link from "next/link";
 import { useParallax } from "react-scroll-parallax";
 import styles from "./index.module.css";
 
@@ -63,16 +64,20 @@ const Home: NextPage = () => {
         </Typography>
       </Box>
 
-      <Box position="relative">
+      <Box position="relative" textAlign="center">
         <img src="/images/yellow2.svg" alt="Background yellow" className={styles.bg} />
 
-        <Typography variant="h5" fontWeight="600" mb="22px" align="center" mt="160px">
+        <Typography variant="h5" fontWeight="600" mb="22px" mt="160px">
           Our Research and Development
         </Typography>
-        <Typography variant="body1" align="center" width={{ xs: "100%", md: "50%" }} margin="auto">
+        <Typography variant="body1" width={{ xs: "100%", md: "50%" }} mx="auto" mb={4} color="primary.light">
           We are rapidly evolving our internal Research and Development team relying on synergy between AI, neuroscience and imaging expertise, to deliver unique portfolio of
           diagnostic with health evaluation methods for neurological disorders.
         </Typography>
+
+        <Link href="/science">
+          <a style={{ fontSize: "21px", textDecoration: "underline", color: "#494763" }}>View Science</a>
+        </Link>
       </Box>
     </Box>
   );

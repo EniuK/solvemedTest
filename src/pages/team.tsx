@@ -3,15 +3,18 @@ import type { NextPage } from "next";
 import Image from "next/image";
 import { useState } from "react";
 import { useParallax } from "react-scroll-parallax";
-import TeamMemberDetailsModal from "../components/TeamMemberDetailsModal";
+import TeamMemberModal from "../components/TeamMemberModal/TeamMemberModal";
 import styles from "./team.module.css";
 
 export type TeamMember = {
   name: string;
   position: string;
   photo: string;
-  roles: string[];
-  links: { twitter?: string; linkedin?: string };
+  roles: { title: string; color: string }[];
+  linkedinUrl: string | null;
+  twitterUrl: string | null;
+  bio: { title: string; description: string };
+  memberIndex?: number;
 };
 
 const team: TeamMember[] = [
@@ -19,43 +22,97 @@ const team: TeamMember[] = [
     name: "Hugo Chrost",
     position: "Chief Executive Officer, Co-founder",
     photo: "/images/team1.png",
-    roles: ["Leadership", "Board member"],
-    links: { twitter: "", linkedin: "" },
+    roles: [
+      { title: "Leadership", color: "#ffeded" },
+      { title: "Board member", color: "#F4EDFD" },
+    ],
+    linkedinUrl: "https://www.linkedin.com",
+    twitterUrl: "https://twitter.com",
+    bio: {
+      title: "Cambridge JBS, University Collage London, 500 Global, Harvard Ventures, Kairos Society",
+      description:
+        "Hugo is the founder & CEO of Solvemed Group which develops proprietary ocular biomarkers to revolutionise neurology care and drug development. He is also a Venture Partner at 500 Global. His passion for leadership and bridging science to business brings him to frequently shares his experience as a keynote speaker and guest lecturer at the University College London, University of Warsaw, and international conferences. Hugo is the founder & CEO of Solvemed Group which develops proprietary ocular biomarkers to revolutionise neurology care and drug development. He is also a Venture Partner at 500 Global. His passion for leadership and bridging science to business brings him to frequently shares his experience as a keynote speaker and guest lecturer at the University College London, University of Warsaw, and international conferences. Hugo is the founder & CEO of Solvemed Group which develops proprietary ocular biomarkers to revolutionise neurology care and drug development. He is also a Venture Partner at 500 Global. His passion for leadership and bridging science to business brings him to frequently shares his experience as a keynote speaker and guest lecturer at the University College London, University of Warsaw, and international conferences. Hugo is the founder & CEO of Solvemed Group which develops proprietary ocular biomarkers to revolutionise neurology care and drug development. He is also a Venture Partner at 500 Global. His passion for leadership and bridging science to business brings him to frequently shares his experience as a keynote speaker and guest lecturer at the University College London, University of Warsaw, and international conferences. Hugo is the founder & CEO of Solvemed Group which develops proprietary ocular biomarkers to revolutionise neurology care and drug development. He is also a Venture Partner at 500 Global. His passion for leadership and bridging science to business brings him to frequently shares his experience as a keynote speaker and guest lecturer at the University College London, University of Warsaw, and international conferences. Hugo is the founder & CEO of Solvemed Group which develops proprietary ocular biomarkers to revolutionise neurology care and drug development. He is also a Venture Partner at 500 Global. His passion for leadership and bridging science to business brings him to frequently shares his experience as a keynote speaker and guest lecturer at the University College London, University of Warsaw, and international conferences.",
+    },
   },
   {
     name: "DR Michal Wlodarski",
     position: "Chief Operations Officer, Co-founder",
     photo: "/images/team2.png",
-    roles: ["Leadership", "Board member"],
-    links: { twitter: "", linkedin: "" },
+    roles: [
+      { title: "Leadership", color: "#ffeded" },
+      { title: "Board member", color: "#F4EDFD" },
+    ],
+    linkedinUrl: "https://www.linkedin.com",
+    twitterUrl: "https://twitter.com",
+    bio: {
+      title: "Cambridge JBS, University Collage London, 500 Global, Harvard Ventures, Kairos Society",
+      description:
+        "Hugo is the founder & CEO of Solvemed Group which develops proprietary ocular biomarkers to revolutionise neurology care and drug development. He is also a Venture Partner at 500 Global. His passion for leadership and bridging science to business brings him to frequently shares his experience as a keynote speaker and guest lecturer at the University College London, University of Warsaw, and international conferences.",
+    },
   },
   {
     name: "Marcin Zukowski",
     position: "Board Member",
     photo: "/images/team3.png",
-    roles: ["Leadership", "Board member"],
-    links: { twitter: "", linkedin: "" },
+    roles: [
+      { title: "Leadership", color: "#ffeded" },
+      { title: "Board member", color: "#F4EDFD" },
+    ],
+    linkedinUrl: "https://www.linkedin.com",
+    twitterUrl: "https://twitter.com",
+    bio: {
+      title: "Cambridge JBS, University Collage London, 500 Global, Harvard Ventures, Kairos Society",
+      description:
+        "Hugo is the founder & CEO of Solvemed Group which develops proprietary ocular biomarkers to revolutionise neurology care and drug development. He is also a Venture Partner at 500 Global. His passion for leadership and bridging science to business brings him to frequently shares his experience as a keynote speaker and guest lecturer at the University College London, University of Warsaw, and international conferences.",
+    },
   },
   {
     name: "Wojtek Walniczek",
     position: "OTB Ventures, Board Member",
     photo: "/images/team1.png",
-    roles: ["Leadership", "Board member"],
-    links: { linkedin: "" },
+    roles: [
+      { title: "Leadership", color: "#ffeded" },
+      { title: "Board member", color: "#F4EDFD" },
+    ],
+    linkedinUrl: "https://www.linkedin.com",
+    twitterUrl: null,
+    bio: {
+      title: "Cambridge JBS, University Collage London, 500 Global, Harvard Ventures, Kairos Society",
+      description:
+        "Hugo is the founder & CEO of Solvemed Group which develops proprietary ocular biomarkers to revolutionise neurology care and drug development. He is also a Venture Partner at 500 Global. His passion for leadership and bridging science to business brings him to frequently shares his experience as a keynote speaker and guest lecturer at the University College London, University of Warsaw, and international conferences.",
+    },
   },
   {
     name: "Dr Marcus Erken",
     position: "Partner at Sunfish Partners",
     photo: "/images/team2.png",
-    roles: ["Leadership", "Board member"],
-    links: { linkedin: "" },
+    roles: [
+      { title: "Leadership", color: "#ffeded" },
+      { title: "Board member", color: "#F4EDFD" },
+    ],
+    linkedinUrl: null,
+    twitterUrl: null,
+    bio: {
+      title: "Cambridge JBS, University Collage London, 500 Global, Harvard Ventures, Kairos Society",
+      description:
+        "Hugo is the founder & CEO of Solvemed Group which develops proprietary ocular biomarkers to revolutionise neurology care and drug development. He is also a Venture Partner at 500 Global. His passion for leadership and bridging science to business brings him to frequently shares his experience as a keynote speaker and guest lecturer at the University College London, University of Warsaw, and international conferences.",
+    },
   },
   {
     name: "Dominik Andrzejczuk",
     position: "Partner at Atmos Ventures",
     photo: "/images/team3.png",
-    roles: ["Leadership", "Board member"],
-    links: { twitter: "" },
+    roles: [
+      { title: "Leadership", color: "#ffeded" },
+      { title: "Board member", color: "#F4EDFD" },
+    ],
+    linkedinUrl: null,
+    twitterUrl: "https://twitter.com",
+    bio: {
+      title: "Cambridge JBS, University Collage London, 500 Global, Harvard Ventures, Kairos Society",
+      description:
+        "Hugo is the founder & CEO of Solvemed Group which develops proprietary ocular biomarkers to revolutionise neurology care and drug development. He is also a Venture Partner at 500 Global. His passion for leadership and bridging science to business brings him to frequently shares his experience as a keynote speaker and guest lecturer at the University College London, University of Warsaw, and international conferences.",
+    },
   },
 ];
 
@@ -77,17 +134,15 @@ const Team: NextPage = () => {
   const MemberListItem = ({ member }: { member: TeamMember }) => (
     <Box
       onClick={() => setMemberDetails(member)}
-      style={{
-        backgroundColor: "#fff",
-        borderRadius: 12,
-        height: 452,
-        padding: "60px 30px 30px 50px",
-        maxWidth: 328,
-        margin: "auto",
-        display: "flex",
-        flexDirection: "column",
-        cursor: "pointer",
-      }}
+      bgcolor="#fff"
+      borderRadius="12px"
+      height={452}
+      maxWidth={328}
+      marginX="auto"
+      display="flex"
+      flexDirection="column"
+      p="60px 30px 30px 50px"
+      style={{ cursor: "pointer" }}
     >
       <Box style={{ width: 120, height: 120, borderRadius: 60, backgroundColor: "#F0F6FA", position: "relative" }}>
         <Image src={member.photo} layout="fill" alt={member.name} />
@@ -147,7 +202,7 @@ const Team: NextPage = () => {
 
         {team.map((member, idx) => (
           <Grid item xs={12} sm={6} md={4} lg={3} key={idx}>
-            <MemberListItem member={member} />
+            <MemberListItem member={{ ...member, memberIndex: idx }} />
           </Grid>
         ))}
 
@@ -273,7 +328,7 @@ const Team: NextPage = () => {
         </Grid>
       </Grid>
 
-      <TeamMemberDetailsModal isOpen={!!memberDetails} onClose={() => setMemberDetails(null)} member={memberDetails} />
+      {!!memberDetails && <TeamMemberModal isOpen={!!memberDetails} onClose={() => setMemberDetails(null)} member={memberDetails} members={team} />}
     </div>
   );
 };

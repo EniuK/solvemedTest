@@ -1,0 +1,140 @@
+.modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  height: 100%;
+  background-color: transparent;
+}
+
+.modal > * {
+  outline: 0;
+}
+
+.sliderWrapper {
+  position: relative;
+  box-shadow: 0px 2px 40px rgba(0, 0, 0, 0.06);
+  border-radius: 24px;
+  height: 80%;
+  width: 70%;
+}
+
+.closeBtn {
+  width: 56px;
+  height: 56px;
+  border-radius: 28px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+  background-color: #f4f4f4;
+}
+
+.avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 60px;
+  background-color: #f0f6fa;
+  position: relative;
+}
+
+.roleChip {
+  width: fit-content;
+  border-radius: 1000px;
+  padding: 5px 12px;
+  margin-right: 8px;
+}
+
+.socialIconsWrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: 70px;
+}
+
+.socialIcon {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-decoration: none;
+}
+
+.logoIconWrapper {
+  width: 92px;
+  height: 36px;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0px 1.40474px 29.9677px rgba(42, 10, 171, 0.08);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px;
+  margin-bottom: 60px;
+  margin-right: 10px;
+}
+
+.slider {
+  height: 100%;
+}
+
+.slider > div:nth-child(2) {
+  border-radius: 24px;
+  height: 100%;
+}
+
+.slider > div:nth-child(2) > div:nth-child(1) {
+  height: 100%;
+}
+
+.slider > div:nth-child(2) > div:nth-child(1) > div > div {
+  height: 100%;
+}
+
+.sliderDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 4px;
+  margin: 0 2px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.sliderArrow {
+  width: 58px;
+  height: 58px;
+  border-radius: 29px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  background-color: #fff;
+  box-shadow: 0px 2px 40px rgba(0, 0, 0, 0.06);
+}
+
+.sliderArrow::before {
+  display: none;
+}
+
+.sliderArrow:hover {
+  background-color: #fff;
+}
+
+.sliderArrowNext {
+  right: -10%;
+}
+
+.sliderArrowPrev {
+  left: -10%;
+}
+
+.sliderArrowDisabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+.slick-active {
+  background-color: #000;
+}

@@ -47,6 +47,11 @@
   margin-top: 7px;
 }
 
+.slider {
+  width: calc(100% - 96px);
+  margin: auto;
+}
+
 .sliderArrow {
   width: 48px;
   height: 48px;
@@ -60,4 +65,12 @@
 
 .sliderArrow::before {
   display: none;
+}
+
+.sliderArrowNext {
+  right: -48px;
+}
+
+.sliderArrowPrev {
+  left: -48px;
 }

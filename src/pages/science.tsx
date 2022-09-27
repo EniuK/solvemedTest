@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 import { NextPage } from "next";
 import Slider from "react-slick";
-import { Box, Grid, Typography, useMediaQuery, useTheme } from "@mui/material";
+import { Box, Grid, Stack, Typography, useMediaQuery, useTheme } from "@mui/material";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import styles from "./science.module.css";
@@ -76,7 +76,7 @@ const selectedLiterature = [
 const NextArrow = (props: any) => {
   const { className, onClick } = props;
   return (
-    <div className={`${className} ${styles.sliderArrow}`} onClick={onClick}>
+    <div className={`${className} ${styles.sliderArrow} ${styles.sliderArrowNext}`} onClick={onClick}>
       <img src="/images/chevronRight.svg" alt="Next button" />
     </div>
   );
@@ -85,7 +85,7 @@ const NextArrow = (props: any) => {
 const PrevArrow = (props: any) => {
   const { className, onClick } = props;
   return (
-    <div className={`${className} ${styles.sliderArrow}`} onClick={onClick}>
+    <div className={`${className} ${styles.sliderArrow} ${styles.sliderArrowPrev}`} onClick={onClick}>
       <img src="/images/chevronLeft.svg" alt="Previous button" />
     </div>
   );
@@ -99,11 +99,15 @@ const Science: NextPage = () => {
 
   const sliderSettings = {
     dots: false,
-    infinite: false,
-    slidesToShow: desktop ? 4 : tablet ? 3 : mobile ? 1 : 2,
+    infinite: true,
+    autoplay: true,
+    autoplaySpeed: 2000,
+    pauseOnHover: true,
+    slidesToShow: desktop ? 5 : tablet ? 3 : mobile ? 1 : 2,
     slidesToScroll: 1,
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
+    className: styles.slider,
   };
 
   const parallaxSettings: ParallaxProps = { speed: -20, translateY: [10, -30] };
@@ -266,16 +270,18 @@ const Science: NextPage = () => {
 
         <Slider {...sliderSettings}>
           {selectedLiterature.map((item) => (
-            <Box key={item.id} maxWidth="261px">
-              <Box justifyContent="space-between" display="flex" flexDirection="column" height="378px" p="16px 30px" mr={0} borderRadius="24px" bgcolor="#fff">
-                <Typography fontSize="12px">{item.source}</Typography>
-                <Typography fontSize="23px" lineHeight="25.3px" fontWeight="300">
+            <Box key={item.id} maxWidth="90%">
+              <Stack justifyContent="space-between" spacing={2} height="378px" p="16px" borderRadius="24px" bgcolor="#fff">
+                <Typography fontSize="12px" lineHeight="16.2px">
+                  {item.source}
+                </Typography>
+                <Typography fontSize={{ xs: 16, lg: 23 }} lineHeight="25.3px" fontWeight="300">
                   {item.title}
                 </Typography>
 
                 <div>
-                  <Box bgcolor="info.dark" borderRadius="40px" padding="4px 8px" mb="9px" display={"inline-block"}>
-                    <Typography fontSize="12px" color="#65426F">
+                  <Box bgcolor="info.dark" borderRadius="40px" padding="4px 8px" mb="9px" display="inline-block">
+                    <Typography fontSize="12px" lineHeight="14.4px" color="#65426F">
                       {item.label}
                     </Typography>
                   </Box>
@@ -284,7 +290,7 @@ const Science: NextPage = () => {
                     Published: {item.publishDate}
                   </Typography>
                 </div>
-              </Box>
+              </Stack>
             </Box>
           ))}
         </Slider>

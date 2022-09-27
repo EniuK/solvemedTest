@@ -27,9 +27,9 @@ const Header = () => {
   const handleMenuClose = () => setMenuAnchorEl(null);
 
   return (
-    <Stack flexDirection="row" justifyContent="flex-start" alignItems="center" mb="145px" flexWrap="wrap">
+    <Stack flexDirection="row" justifyContent="flex-start" alignItems="center" mb="145px" flexWrap="wrap" position="relative">
       <Link href="/" passHref>
-        <a>
+        <a style={{ zIndex: 101 }}>
           <Image src="/icons/logo.svg" alt="logo" width="234" height="34.5" />
         </a>
       </Link>
@@ -39,6 +39,8 @@ const Header = () => {
           href="https://google.com"
           display="flex"
           justifyContent="space-between"
+          alignItems="center"
+          textAlign="center"
           px={3}
           py={2}
           border={`1px solid ${theme.palette.secondary.main}`}
@@ -47,13 +49,19 @@ const Header = () => {
           target="_blank"
           rel="noopener"
           mx="auto"
+          position="absolute"
+          left={0}
+          right={0}
+          top={{ xs: 50, lg: 0 }}
+          maxWidth="578px"
+          zIndex={101}
         >
-          <Typography fontSize="12px" color="secondary.light">
-            Nov 29, 2021
-          </Typography>
-          <Typography variant="h6" ml={6} mr={3}>
-            Clinical Key Opinion Leaders Banquet in Oxford.
-          </Typography>
+          <Stack mr={2} flexDirection={{ xs: "column", md: "row" }} alignItems="center">
+            <Typography fontSize="12px" color="secondary.light" mr={1}>
+              Nov 29, 2021
+            </Typography>
+            <Typography variant="h6">Clinical Key Opinion Leaders Banquet in Oxford.</Typography>
+          </Stack>
           <Image src="/icons/arrow-top-right.svg" alt="Arrow top right" width="13" height="12" />
         </LinkMUI>
       )}

@@ -15,10 +15,10 @@
 }
 
 .bg3 {
-  filter: blur(600px);
+  filter: blur(800px);
   position: absolute;
-  top: 30%;
-  left: 30%;
+  top: 40%;
+  left: 20%;
   z-index: -1;
 }
 
@@ -53,10 +53,12 @@
   z-index: -1;
 }
 
-.brain {
-  filter: grayscale(80%) invert(100%);
-  width: 100%;
-  transform: scale(1.2);
+.introImage {
+  width: 120vw;
+  margin-left: 55%;
+  margin-top: -25%;
+  margin-bottom: -10%;
+  transform: translateX(-50%);
 }
 
 .womenImg {
@@ -71,4 +73,10 @@
   .bg4 {
     margin-left: -50px;
   }
+}
+
+.scienceLink {
+  font-size: 21px;
+  text-decoration: underline;
+  color: #494763;
 }

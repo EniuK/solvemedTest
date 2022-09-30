@@ -3,6 +3,7 @@ import { Box, Menu, MenuItem, Typography, useMediaQuery, Link as LinkMUI, useThe
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import styles from "./header.module.css";
 
 const menuItems = [
   { title: "Home", link: "/" },
@@ -27,46 +28,26 @@ const Header = () => {
   const handleMenuClose = () => setMenuAnchorEl(null);
 
   return (
-    <Stack flexDirection="row" justifyContent="flex-start" alignItems="center" mb="145px" flexWrap="wrap" position="relative">
+    <div className={styles.header}>
       <Link href="/" passHref>
-        <a style={{ zIndex: 101 }}>
+        <a className={styles.logoLinkContainer}>
           <Image src="/icons/logo.svg" alt="logo" width="234" height="34.5" />
         </a>
       </Link>
 
       {router.pathname === "/" && (
-        <LinkMUI
-          href="https://google.com"
-          display="flex"
-          justifyContent="space-between"
-          alignItems="center"
-          textAlign="center"
-          px={3}
-          py={2}
-          border={`1px solid ${theme.palette.secondary.main}`}
-          borderRadius={24}
-          underline="none"
-          target="_blank"
-          rel="noopener"
-          mx="auto"
-          position="absolute"
-          left={0}
-          right={0}
-          top={{ xs: 50, lg: 0 }}
-          maxWidth="578px"
-          zIndex={101}
-        >
-          <Stack mr={2} flexDirection={{ xs: "column", md: "row" }} alignItems="center">
+        <LinkMUI href="https://google.com" target="_blank" rel="noopener" className={styles.externalLinkContainer}>
+          <div className={styles.externalLinkContent}>
             <Typography fontSize="12px" color="secondary.light" mr={1}>
               Nov 29, 2021
             </Typography>
             <Typography variant="h6">Clinical Key Opinion Leaders Banquet in Oxford.</Typography>
-          </Stack>
+          </div>
           <Image src="/icons/arrow-top-right.svg" alt="Arrow top right" width="13" height="12" />
         </LinkMUI>
       )}
 
-      <Stack zIndex={100} alignItems="flex-end" position="fixed" top={38} right={50} left={0} maxWidth="1467px" mx="auto">
+      <div className={styles.menu}>
         {isMobileView ? (
           <>
             <Stack justifyContent="center" width={20} height={34.5} onClick={handleMenuOpen}>
@@ -81,15 +62,7 @@ const Header = () => {
                 return (
                   <MenuItem key={item.title} onClick={handleMenuClose}>
                     <Link href={item.link}>
-                      <a
-                        style={{
-                          textDecoration: "none",
-                          fontSize: 13,
-                          textTransform: "uppercase",
-                          marginBottom: 8,
-                          color: isCurrentPath ? theme.palette.secondary.main : theme.palette.primary.main,
-                        }}
-                      >
+                      <a className={styles.menuItem} style={{ color: isCurrentPath ? theme.palette.secondary.main : theme.palette.primary.main }}>
                         {item.title}
                       </a>
                     </Link>
@@ -104,15 +77,7 @@ const Header = () => {
               const isCurrentPath = item.link === router.pathname;
               return (
                 <Link key={item.title} href={item.link}>
-                  <a
-                    style={{
-                      textDecoration: "none",
-                      fontSize: 13,
-                      textTransform: "uppercase",
-                      marginBottom: 8,
-                      color: isCurrentPath ? theme.palette.secondary.main : theme.palette.primary.main,
-                    }}
-                  >
+                  <a className={styles.menuItem} style={{ color: isCurrentPath ? theme.palette.secondary.main : theme.palette.primary.main }}>
                     {item.title}
                   </a>
                 </Link>
@@ -120,8 +85,8 @@ const Header = () => {
             })}
           </Stack>
         )}
-      </Stack>
-    </Stack>
+      </div>
+    </div>
   );
 };
 

@@ -1,15 +1,12 @@
 import { Box, Grid, Typography } from "@mui/material";
 import type { NextPage } from "next";
 import Link from "next/link";
-import { useParallax } from "react-scroll-parallax";
 import styles from "./index.module.css";
 
 const Home: NextPage = () => {
-  const parallax = useParallax<HTMLDivElement>({ speed: -50, translateY: ["-200px", "400px"] });
-
   return (
     <Box>
-      <Box position="relative" mb="20%">
+      <Box position="relative">
         <img src="/images/pink4.svg" alt="Background pink" className={styles.bg3} />
         <img src="/images/green5.svg" alt="Background green" className={styles.bg5} />
 
@@ -17,9 +14,7 @@ const Home: NextPage = () => {
           Meet breakthrough digital technology for brain health.
         </Typography>
 
-        <div ref={parallax.ref}>
-          <img src="/images/brain.png" alt="Brain" className={styles.brain} />
-        </div>
+        <img src="/images/brainWithHand.png" alt="Intro image" className={styles.introImage} />
         <img src="/images/blue7.svg" alt="Background blue" className={styles.bg7} />
       </Box>
 
@@ -76,7 +71,7 @@ const Home: NextPage = () => {
         </Typography>
 
         <Link href="/science">
-          <a style={{ fontSize: "21px", textDecoration: "underline", color: "#494763" }}>View Science</a>
+          <a className={styles.scienceLink}>View Science</a>
         </Link>
       </Box>
     </Box>

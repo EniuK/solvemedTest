@@ -46,11 +46,11 @@ const Footer = () => (
                 {item.address}
               </Typography>
 
-              <Link href={`tel:${item.phone}`} underline="hover" color="primary.light" display="block" variant="body3">
+              <Link href={`tel:${item.phone}`} underline="hover" color="primary.light" display="block" variant="body3" mb={4.75} >
                 {item.phone}
               </Link>
 
-              <Link href={`mailto:${item.email}`} color="primary.light" display="block" variant="body3">
+              <Link href={`mailto:${item.email}`} color="primary.light" display="block" variant="body3" mb={4.75} >
                 {item.email}
               </Link>
             </Box>

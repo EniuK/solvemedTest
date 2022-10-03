@@ -1,30 +1,33 @@
 import { Box, Link, Typography, Grid } from "@mui/material";
 import Image from "next/image";
+import styles from "./footer.module.css";
 
 const contactData = [
   {
-    city: "Palo Alto, USA",
-    phone: "+1 (866) 898-9087",
-    address: "Coming soon!",
-    email: "pa@solvemed.ai",
+    city: "London",
+    address: ["Millbank Tower", "21-24 Millbank", " London SW1P 4QP", "UK"],
+    enquiries: "For all London enquiries",
+    email: ["ldn@huma.com"],
   },
   {
-    city: "Cambridge, UK",
-    phone: "+44 7857823182",
-    address: "C/O Stone King Llp Bateman House, 82-88 Hills Road, Cambridge, United Kingdom, CB2 1LQ",
-    email: "cam@solvemed.ai",
+    city: "New York",
+
+    address: ["The Genome Center", "101 6th Avenue", " New Your NY 10013", "USA"],
+    enquiries: "For all New York enquiries",
+    email: ["nyc@huma.com"],
   },
   {
-    city: "Warsaw, Poland",
-    phone: "+48 795496397",
-    address: "Święty Marcin 29 / 8, 61-806 Poznan, Polska",
-    email: "ws@solvemed.ai",
+    city: "Shanghai",
+    address: ["Room 123, 13th floor", "Shanghai Tower", "No. 501 Yincheng Middle", " Road", "China"],
+    enquiries: "For all China enquiries",
+    email: ["shg@huma.com"],
   },
   {
-    city: "Hong Kong",
-    phone: "+44 7857823182",
-    address: "C/O Stone King Llp Bateman House, 82-88 Hills Road, Cambridge, United Kingdom, CB2 1LQ",
-    email: "hk@solvemed.ai",
+    city: "Hamburg",
+
+    address: ["(DACH-Region)", "Huma Therapeutics Gmhb", "Raboisen 32", "20095 Hamburg"],
+    enquiries: "For all enquiries",
+    email: ["germany@huma.com", "austria@huma.com", "switzerland@huma.com"],
   },
 ];
 
@@ -32,27 +35,34 @@ const contactData = [
 
 const Footer = () => (
   <>
+    <Box textAlign="center" >
+      <img src="/images/pink1.svg" alt="Background pink" className={styles.bg} />
+      <img src="/images/pink2.svg" alt="Background pink" className={styles.bg} />
+    </Box>
     <Grid container mt={32} mb={13} justifyContent="space-between" columnSpacing={2} rowSpacing={8}>
       {contactData.map((item, idx) => (
         <Grid key={idx} item xs={12} sm={6} lg={2.5}>
-          <Typography variant="subtitle2" color="primary" mb={7.5}>
+          <Typography fontSize="1.562rem" fontWeight="300" color="primary" mb={7.5}>
             {item.city}
           </Typography>
 
           <Box display="flex" alignItems="flex-start">
             <img src="/icons/location.svg" alt="Location" />
             <Box ml={0.75}>
-              <Typography variant="body3" color="primary.light" mb={4.75} mt={-0.2}>
-                {item.address}
-              </Typography>
-
-              <Link href={`tel:${item.phone}`} underline="hover" color="primary.light" display="block" variant="body3" mb={4.75} >
-                {item.phone}
-              </Link>
-
-              <Link href={`mailto:${item.email}`} color="primary.light" display="block" variant="body3" mb={4.75} >
-                {item.email}
-              </Link>
+              {item.address.map((text: any, inx: any) => {
+                return (
+                  <Typography fontSize="0.937rem" marginBottom="0" color="primary.light" mb={4.75} mt={-0.2} key={inx} className="p">
+                    {text}
+                  </Typography>
+                );
+              })}
+              {item.email.map((em, indx) => {
+                return (
+                  <Link href={`mailto:${em}`} fontSize="0.937rem" color="primary.light" display="block" key={indx}>
+                    {em}
+                  </Link>
+                );
+              })}
             </Box>
           </Box>
         </Grid>

@@ -27,8 +27,8 @@ const team: TeamMember[] = [
       { title: "Leadership", color: "#ffeded" },
       { title: "Board member", color: "#F4EDFD" },
     ],
-    linkedinUrl: "https://www.linkedin.com",
-    twitterUrl: "https://twitter.com",
+    linkedinUrl: "https://www.linkedin.com/in/chrosthugo/",
+    twitterUrl: null,
     bio: {
       title: "Cambridge JBS, University Collage London, 500 Global, Harvard Ventures, Kairos Society",
       description:
@@ -43,8 +43,8 @@ const team: TeamMember[] = [
       { title: "Leadership", color: "#ffeded" },
       { title: "Board member", color: "#F4EDFD" },
     ],
-    linkedinUrl: "https://www.linkedin.com",
-    twitterUrl: "https://twitter.com",
+    linkedinUrl: "https://www.linkedin.com/in/mwlodarski/",
+    twitterUrl: null,
     bio: {
       title: "Cambridge JBS, University Collage London, 500 Global, Harvard Ventures, Kairos Society",
       description:
@@ -59,8 +59,8 @@ const team: TeamMember[] = [
       { title: "Leadership", color: "#ffeded" },
       { title: "Board member", color: "#F4EDFD" },
     ],
-    linkedinUrl: "https://www.linkedin.com",
-    twitterUrl: "https://twitter.com",
+    linkedinUrl: null,
+    twitterUrl: null,
     bio: {
       title: "Cambridge JBS, University Collage London, 500 Global, Harvard Ventures, Kairos Society",
       description:
@@ -75,7 +75,7 @@ const team: TeamMember[] = [
       { title: "Leadership", color: "#ffeded" },
       { title: "Board member", color: "#F4EDFD" },
     ],
-    linkedinUrl: "https://www.linkedin.com",
+    linkedinUrl: "https://www.linkedin.com/in/wojtekwalniczek/",
     twitterUrl: null,
     bio: {
       title: "Cambridge JBS, University Collage London, 500 Global, Harvard Ventures, Kairos Society",
@@ -91,7 +91,7 @@ const team: TeamMember[] = [
       { title: "Leadership", color: "#ffeded" },
       { title: "Board member", color: "#F4EDFD" },
     ],
-    linkedinUrl: null,
+    linkedinUrl: "https://www.linkedin.com/in/erken/",
     twitterUrl: null,
     bio: {
       title: "Cambridge JBS, University Collage London, 500 Global, Harvard Ventures, Kairos Society",
@@ -107,8 +107,8 @@ const team: TeamMember[] = [
       { title: "Leadership", color: "#ffeded" },
       { title: "Board member", color: "#F4EDFD" },
     ],
-    linkedinUrl: null,
-    twitterUrl: "https://twitter.com",
+    linkedinUrl: "https://www.linkedin.com/in/dominikand/",
+    twitterUrl: null,
     bio: {
       title: "Cambridge JBS, University Collage London, 500 Global, Harvard Ventures, Kairos Society",
       description:
@@ -168,19 +168,23 @@ const Team: NextPage = () => {
       </Box>
 
       <Box display="flex" flexDirection="row" alignItems="center" justifyContent="flex-start" mt="auto">
-        <Link href="https://www.linkedin.com/" target="_blank" rel="noopener" underline="none" display="flex" flexDirection="row" alignItems="center">
-          <Image src="/icons/linkedin-outlined.svg" alt="linkedin" width="23" height="23" />
-          <Typography variant="body4Wide" color="secondary.main" ml={1}>
-            Linkedin
-          </Typography>
-        </Link>
+        {member.linkedinUrl && (
+          <Link href={member.linkedinUrl} target="_blank" rel="noopener" underline="none" display="flex" flexDirection="row" alignItems="center">
+            <Image src="/icons/linkedin-outlined.svg" alt="linkedin" width="23" height="23" />
+            <Typography variant="body4Wide" color="secondary.main" ml={1}>
+              Linkedin
+            </Typography>
+          </Link>
+        )}
 
-        <Link href="https://twitter.com/" ml={1} target="_blank" rel="noopener" underline="none" display="flex" flexDirection="row" alignItems="center">
-          <Image src="/icons/twitter-outlined.svg" alt="twitter" width="23" height="23" />
-          <Typography variant="body4Wide" color="secondary.main" ml={1}>
-            Twitter
-          </Typography>
-        </Link>
+        {member.twitterUrl && (
+          <Link href={member.twitterUrl} ml={1} target="_blank" rel="noopener" underline="none" display="flex" flexDirection="row" alignItems="center">
+            <Image src="/icons/twitter-outlined.svg" alt="twitter" width="23" height="23" />
+            <Typography variant="body4Wide" color="secondary.main" ml={1}>
+              Twitter
+            </Typography>
+          </Link>
+        )}
       </Box>
     </Box>
   );

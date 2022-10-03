@@ -8,7 +8,7 @@ import styles from "./header.module.css";
 const menuItems = [
   { title: "Home", link: "/" },
   { title: "Science", link: "/science" },
-  { title: "Application", link: "/applications" },
+  { title: "Applications", link: "/applications" },
   { title: "Team", link: "/team" },
   { title: "Careers", link: "/careers" },
   { title: "Contact", link: "/contact" },

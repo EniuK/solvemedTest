@@ -61,9 +61,9 @@ const Home: NextPage = () => {
 
         <Box display="flex" flexDirection={{ xs: "column", sm: "row" }} width={{ xs: "100%", md: "80%" }} margin="auto">
           <Typography variant="body1" mr={{ xs: 0, md: 3 }} mb={{ xs: 3, md: 0 }}>
-            Assessment of the eye can provide important diagnostic information to the clinician about ophthalmic or neurological health.
+          Assessment of the eye can provide important information to the clinician about the patient’s ophthalmological and neurological health.
           </Typography>
-          <Typography variant="body1">However, in the past it has only been possible to measure the eye movements using specialist equipment that is not available to.</Typography>
+          <Typography variant="body1">However, up till now precise ocular measurements have required specialist equipment not available to most clinicians.</Typography>
         </Box>
 
         <Box position="relative" textAlign="center">
@@ -73,8 +73,7 @@ const Home: NextPage = () => {
             Our Research and Development
           </Typography>
           <Typography variant="body1" width={{ xs: "100%", md: "50%" }} mx="auto" mb={4} color="primary.light">
-            We are rapidly evolving our internal Research and Development team relying on synergy between AI, neuroscience and imaging expertise, to deliver unique portfolio of
-            diagnostic with health evaluation methods for neurological disorders.
+            We are constantly developing our internal Research and Development capabilities leveraging the synergy between AI, neuroscience, and optical physics, to build a unique portfolio of health evaluation tools for some of the most challenging neurological disorders.
           </Typography>
 
           <Link href="/science">

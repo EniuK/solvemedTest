@@ -12,9 +12,6 @@ const ApplicationsInfoGraphic = () => {
         <Box className={styles.infoGraphicCore}>
           <img src="/images/logoVertical.svg" alt="Logo" />
           <Typography variant="body4" color="#494763" mb={2} mt={5}>
-            Data pooling and cleaning
-          </Typography>
-          <Typography variant="body4" color="#494763" mb={2}>
             Novel computer vision analytics
           </Typography>
           <Typography variant="body4" color="#494763">
@@ -66,7 +63,7 @@ const ApplicationsInfoGraphic = () => {
             <img src="/images/applicationsIcon3.svg" alt="Clinical Evaluation" style={{ width: 71, height: 107 }} />
 
             <Typography variant="body6Wide" color="#494763">
-              Screening and Dx models
+              Assessments, screening, and Dx models
             </Typography>
           </Box>
           <img src="/images/arrowLongBottomLeft.svg" alt="Arrow bottom left" className={styles.infoGraphicArrowBottomIcon} style={{ right: 0 }} />

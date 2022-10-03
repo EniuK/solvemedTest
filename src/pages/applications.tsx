@@ -19,9 +19,9 @@ const Applications: NextPage = () => {
     <>
       <div>
         <Head>
-          <title>Solvemed Application</title>
-          <meta property="og:title" content="Solvemed Application" key="title" />
-          <meta name="description" content="Solvemed Application Page" key="title" />
+          <title>Solvemed Applications</title>
+          <meta property="og:title" content="Solvemed Applications" key="title" />
+          <meta name="description" content="Solvemed Applications Page" key="title" />
         </Head>
       </div>
       <Box>
@@ -72,7 +72,7 @@ const Applications: NextPage = () => {
               </Typography>
               <ul>
                 <li className={styles.listItemRow}>
-                  <Typography variant="body2">Replace expensive equipment with cost-effective camera-enabled tools with access to data directly from your phone.</Typography>
+                  <Typography variant="body2">Replace expensive equipment with cost-effective camera-enabled tools.</Typography>
                 </li>
                 <li className={styles.listItemRow}>
                   <Typography variant="body2">Improve clinical decision-making with data analytics and visualisation platform</Typography>

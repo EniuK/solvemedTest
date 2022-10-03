@@ -34,8 +34,11 @@ const Contact: NextPage<any> = () => {
         <Typography variant="subtitle1" mb="30px" fontSize={42} style={{ margin: "0 auto", marginBottom: "2.5%" }} width={{ xs: "100%", md: "40%" }}>
           Let’s partner up and make groundbreaking discoveries together
         </Typography>
-        <Typography variant="body2" mb="165px" style={{ margin: "0 auto", marginBottom: "10%" }} width={{ xs: "100%", md: "40%" }}>
+        <Typography variant="body2" mb="165px" style={{ margin: "0 auto", marginBottom: "5%" }} width={{ xs: "100%", md: "40%" }}>
           We are always on a look out of people with diverse engineering, scientific, operations expertise.
+        </Typography>
+        <Typography variant="body2" mb="165px" style={{ margin: "0 auto", marginBottom: "10%" }} width={{ xs: "100%", md: "40%" }}>
+          Send your CV or LinkedIn profile and the position you are interested in.
         </Typography>
 
         <Formik

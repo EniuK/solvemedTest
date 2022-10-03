@@ -13,27 +13,12 @@ const careers = [
       {
         title: "Head of Research",
         description: "Remote (preferred locations for the remote role: Boston, MA; San Francisco Bay Area)",
-        url: "https://google.com",
+        url: "/contact",
       },
       {
-        title: "Head of R&D Partnerships",
-        description: "Remote (preferred locations for the remote role: London , UK; Boston, MA; San Francisco Bay Area)",
-        url: "https://google.com",
-      },
-    ],
-  },
-  {
-    category: "Operations",
-    positions: [
-      {
-        title: "Head of Research",
-        description: "Remote (preferred locations for the remote role: Boston, MA; San Francisco Bay Area)",
-        url: "https://google.com",
-      },
-      {
-        title: "Head of R&D Partnerships",
-        description: "Remote (preferred locations for the remote role: London , UK; Boston, MA; San Francisco Bay Area)",
-        url: "https://google.com",
+        title: "Computational Neuroscientist",
+        description: "Remote (preferred locations for the remote role: Boston, MA; London & Oxbridge, UK)",
+        url: "/contact",
       },
     ],
   },
@@ -41,14 +26,64 @@ const careers = [
     category: "Commercial",
     positions: [
       {
-        title: "Head of Research",
-        description: "Remote (preferred locations for the remote role: Boston, MA; San Francisco Bay Area)",
-        url: "https://google.com",
+        title: "Head of R&D Partnerships",
+        description: "Remote (preferred locations for the remote role: Boston, MA; London & Oxbridge, UK)",
+        url: "/contact",
       },
       {
-        title: "Head of R&D Partnerships",
-        description: "Remote (preferred locations for the remote role: London , UK; Boston, MA; San Francisco Bay Area)",
-        url: "https://google.com",
+        title: "Head of Commercial Partnerships",
+        description: "Remote (preferred locations for the remote role: Boston, MA; London & Oxbridge, UK)",
+        url: "/contact",
+      },
+      {
+        title: "Strategy Researcher",
+        description: "Remote (no preferences)",
+        url: "/contact",
+      },
+    ],
+  },
+  {
+    category: "Operations",
+    positions: [
+      {
+        title: "Clinical Operations Manager",
+        description: "Remote (preferred locations for the remote role: Boston, MA; London & Oxbridge, UK)",
+        url: "/contact",
+      },
+    ],
+  },
+  {
+    category: "Technical",
+    positions: [
+      {
+        title: "Senior CV Researcher",
+        description: "Remote (preferred locations for the remote role: US, UK, Poland, or Israel)",
+        url: "/contact",
+      },
+      {
+        title: "Senior NLP Researcher",
+        description: "Remote (preferred locations for the remote role: US, UK, Poland, or Israel)",
+        url: "/contact",
+      },
+      {
+        title: "Senior Data Scientist",
+        description: "Remote (preferred locations for the remote role: US, UK, Poland, or Israel)",
+        url: "/contact",
+      },
+      {
+        title: "Senior Clinical Data Scientist",
+        description: "Remote (preferred locations for the remote role: US, UK, Poland, or Israel)",
+        url: "/contact",
+      },
+      {
+        title: "Mid Clinical Data Scientist",
+        description: "Remote (preferred locations for the remote role: US, UK, Poland, or Israel)",
+        url: "/contact",
+      },
+      {
+        title: "Senior Software Engineer",
+        description: "Remote (preferred locations for the remote role: US, UK, Poland, or Israel)",
+        url: "/contact",
       },
     ],
   },

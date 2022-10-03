@@ -17,7 +17,7 @@
   align-items: center;
   text-align: center;
   text-decoration: none;
-  margin: 0 auto;
+  margin: 0 auto !important;
   position: absolute;
   left: 0;
   max-width: 578px;

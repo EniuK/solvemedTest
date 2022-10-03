@@ -36,7 +36,7 @@ const Header = () => {
       </Link>
 
       {router.pathname === "/" && (
-        <LinkMUI href="https://google.com" target="_blank" rel="noopener" className={styles.externalLinkContainer}>
+        <LinkMUI href="https://www.linkedin.com/posts/solvemed-group_recently-solvemed-group-had-the-pleasure-activity-6955474167458598912-ws8-/" target="_blank" rel="noopener" className={styles.externalLinkContainer}>
           <div className={styles.externalLinkContent}>
             <Typography variant="body6Wide" color="secondary.light" mr={1}>
               Nov 29, 2021

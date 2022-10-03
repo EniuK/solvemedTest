@@ -82,14 +82,14 @@ const Footer = () => (
         </div>
 
         <Box display="flex" flexDirection="row" mt={{ xs: 2, sm: 0 }}>
-          <Link href="https://www.linkedin.com/" display="flex" flexDirection="row" target="_blank" rel="noopener">
+          <Link href="https://www.linkedin.com/company/solvemed-group/" display="flex" flexDirection="row" target="_blank" rel="noopener">
             <Typography variant="body2Wide" color="primary.light" mr={1}>
               Linkedin
             </Typography>
             <Image src="/icons/linkedin.svg" alt="linkedin" width="23" height="23" />
           </Link>
 
-          <Link href="https://twitter.com/" display="flex" flexDirection="row" ml={5} target="_blank" rel="noopener">
+          <Link href="https://twitter.com/solvemed" display="flex" flexDirection="row" ml={5} target="_blank" rel="noopener">
             <Typography variant="body2Wide" color="primary.light" mr={1}>
               Twitter
             </Typography>

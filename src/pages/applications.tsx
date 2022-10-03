@@ -1,7 +1,7 @@
 import React from "react";
 import { NextPage } from "next";
 import Image from "next/image";
-import { Box, Grid, Typography } from "@mui/material";
+import { Box, Grid, Typography, Link as LinkMUI, Button } from "@mui/material";
 import styles from "./applications.module.css";
 import { useParallax } from "react-scroll-parallax";
 import { ParallaxProps } from "react-scroll-parallax/dist/components/Parallax/types";
@@ -56,11 +56,11 @@ const Applications: NextPage = () => {
                 For intensive care specialists, paramedics, ophthalmologists, neurologists, among others.
               </Typography>
 
-              <Box bgcolor="#5242EE" borderRadius="100px" py="20px" px="32px" textAlign="center">
-                <Typography color="#fff" variant="body5" textTransform="uppercase">
+              <LinkMUI href="/contact" rel="noopener" className={styles.externalLinkContainer}>
+                <Button color="primary" variant="contained" size="large">
                   Get early access to Solvemed medical devices
-                </Typography>
-              </Box>
+                </Button>
+              </LinkMUI>
             </Grid>
 
             <Grid item xs={12} sm={6} md={5} mt={{ xs: 8, sm: 0 }}>
@@ -137,11 +137,11 @@ const Applications: NextPage = () => {
               <Typography variant="body3" letterSpacing="-0.04em" mb="30px">
                 For intensive care specialists, paramedics, neuro-ophthalmologists, neurologists, among others.
               </Typography>
-              <Box bgcolor="#5242EE" borderRadius="100px" py="20px" px="32px" textAlign="center">
-                <Typography color="#fff" variant="body5" textTransform="uppercase">
+              <LinkMUI href="/contact" rel="noopener" className={styles.externalLinkContainer}>
+                <Button color="primary" variant="contained" size="large">
                   Get early access to Solvemed medical devices
-                </Typography>
-              </Box>
+                </Button>
+              </LinkMUI>
             </Grid>
           </Grid>
 
@@ -174,11 +174,11 @@ const Applications: NextPage = () => {
               <Typography variant="body3" letterSpacing="-0.04em" mb="30px">
                 For research-based life science companies active in neurology and ophthalmology.
               </Typography>
-              <Box bgcolor="#5242EE" borderRadius="100px" py="20px" px="32px" textAlign="center">
-                <Typography color="#fff" variant="body5" textTransform="uppercase">
+              <LinkMUI href="/contact" rel="noopener" className={styles.externalLinkContainer}>
+                <Button color="primary" variant="contained" size="large">
                   Get early access to Solvemed medical devices
-                </Typography>
-              </Box>
+                </Button>
+              </LinkMUI>
             </Grid>
 
             <Grid item xs={12} sm={6} md={5} mt={{ xs: 8, sm: 0 }}>

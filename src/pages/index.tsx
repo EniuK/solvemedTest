@@ -60,7 +60,7 @@ const Home: NextPage = () => {
       <Box position="relative" textAlign="center">
         <img src="/images/yellow2.svg" alt="Background yellow" className={styles.bg} />
 
-        <Typography variant="subtitle2" fontWeight="600" mb="22px" mt="160px">
+        <Typography variant="subtitle3" mb="22px" mt="160px">
           Our Research and Development
         </Typography>
         <Typography variant="body1" width={{ xs: "100%", md: "50%" }} mx="auto" mb={4} color="primary.light">

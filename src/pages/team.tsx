@@ -245,7 +245,7 @@ const Team: NextPage = () => {
           <img src="/images/pink3.svg" alt="Background pink" className={styles.bg2} />
         </picture>
 
-        <Typography variant="subtitle2" fontWeight="600" textAlign="center" mb="60px">
+        <Typography variant="subtitle3" textAlign="center" mb="60px">
           Solvemed investors
         </Typography>
 

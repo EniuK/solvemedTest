@@ -2,6 +2,7 @@ import { createTheme } from "@mui/material";
 
 declare module "@mui/material/styles" {
   interface TypographyVariants {
+    subtitle3: React.CSSProperties;
     body3: React.CSSProperties;
     body4: React.CSSProperties;
     body5: React.CSSProperties;
@@ -12,6 +13,7 @@ declare module "@mui/material/styles" {
     body6Wide: React.CSSProperties;
   }
   interface TypographyVariantsOptions {
+    subtitle3?: React.CSSProperties;
     body3?: React.CSSProperties;
     body4?: React.CSSProperties;
     body5?: React.CSSProperties;
@@ -24,6 +26,7 @@ declare module "@mui/material/styles" {
 }
 declare module "@mui/material/Typography" {
   interface TypographyPropsVariantOverrides {
+    subtitle3: true;
     body3: true;
     body4: true;
     body5: true;
@@ -99,6 +102,13 @@ export const theme = createTheme({
       fontSize: "30px",
       lineHeight: "33px",
       fontWeight: "300",
+      letterSpacing: "-0.02em",
+    },
+    subtitle3: {
+      fontFamily: "SuisseIntl",
+      fontSize: "30px",
+      lineHeight: "36px",
+      fontWeight: "600",
       letterSpacing: "-0.02em",
     },
     body1: {
@@ -197,6 +207,7 @@ export const theme = createTheme({
       defaultProps: {
         variant: "h1",
         variantMapping: {
+          subtitle3: "h6",
           body3: "p",
           body4: "p",
           body5: "p",

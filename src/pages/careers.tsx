@@ -85,9 +85,7 @@ const Careers: NextPage = () => {
       {careers.map((sectionItem) => (
         <Fragment key={sectionItem.category}>
           <Grid item xs={10} mt="100px" mb="42px">
-            <Typography variant="subtitle2" fontWeight="600">
-              {sectionItem.category}
-            </Typography>
+            <Typography variant="subtitle3">{sectionItem.category}</Typography>
           </Grid>
 
           {sectionItem.positions.map((item, idx) => (
@@ -104,7 +102,7 @@ const Careers: NextPage = () => {
               <Grid item xs={10} sm={3} md={2}>
                 <Link
                   href={item.url}
-                  border="1px solid #5242EE"
+                  border="1px solid rgba(82, 66, 238, 0.2)"
                   ml={{ xs: "0", sm: "auto" }}
                   borderRadius="100px"
                   height="54px"

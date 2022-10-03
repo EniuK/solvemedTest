@@ -240,7 +240,7 @@ const Science: NextPage = () => {
         </Grid>
       </Grid>
 
-      <Typography variant="subtitle2" fontWeight="600" mb="20px">
+      <Typography variant="subtitle3" mb="20px">
         Research collaborations
       </Typography>
       <Typography variant="body2" mb="60px">
@@ -264,7 +264,7 @@ const Science: NextPage = () => {
           <img src="/images/blue2.svg" alt="Background blue" className={styles.bg4} />
         </picture>
 
-        <Typography variant="subtitle2" fontWeight="600" mb="90px" mt="120px">
+        <Typography variant="subtitle3" mb="90px" mt="120px">
           Selected literature
         </Typography>
 

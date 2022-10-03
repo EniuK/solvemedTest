@@ -5,6 +5,7 @@
   line-height: 15.6px;
   font-weight: 600;
   font-family: "SuisseIntl";
+  letter-spacing: normal;
   text-transform: uppercase;
 }
 
@@ -20,6 +21,19 @@
 .listItemRow {
   display: flex;
   margin-bottom: 24px;
+}
+
+.listItemRow::before {
+  content: "";
+  display: inline-block;
+  min-width: 10px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 3px solid #5242ee;
+  margin-right: 20px;
+  box-sizing: border-box;
+  margin-top: 7px;
 }
 
 .bg {
@@ -45,16 +59,4 @@
   bottom: 0;
   left: 50%;
   z-index: -1;
-}
-
-.listItemRow::before {
-  content: "";
-  display: inline-block;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  border: 3px solid #5242ee;
-  margin-right: 20px;
-  box-sizing: border-box;
-  margin-top: 7px;
 }

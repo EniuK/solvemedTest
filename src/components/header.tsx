@@ -11,7 +11,7 @@ const menuItems = [
   { title: "Application", link: "/applications" },
   { title: "Team", link: "/team" },
   { title: "Careers", link: "/careers" },
-  { title: "Contact", link: "#" },
+  { title: "Contact", link: "/contact" },
 ];
 
 const Header = () => {

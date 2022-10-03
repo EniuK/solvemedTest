@@ -1,5 +1,6 @@
 import { Box, Grid, Link, Typography } from "@mui/material";
 import type { NextPage } from "next";
+import Head from "next/head";
 import Image from "next/image";
 import { useState } from "react";
 import { useParallax } from "react-scroll-parallax";
@@ -21,7 +22,7 @@ const team: TeamMember[] = [
   {
     name: "Hugo Chrost",
     position: "Chief Executive Officer, Co-founder",
-    photo: "/images/team1.png",
+    photo: "/images/Hugo Chrost.png",
     roles: [
       { title: "Leadership", color: "#ffeded" },
       { title: "Board member", color: "#F4EDFD" },
@@ -37,7 +38,7 @@ const team: TeamMember[] = [
   {
     name: "DR Michal Wlodarski",
     position: "Chief Operations Officer, Co-founder",
-    photo: "/images/team2.png",
+    photo: "/images/Michaê Wlodarski.png",
     roles: [
       { title: "Leadership", color: "#ffeded" },
       { title: "Board member", color: "#F4EDFD" },
@@ -53,7 +54,7 @@ const team: TeamMember[] = [
   {
     name: "Marcin Zukowski",
     position: "Board Member",
-    photo: "/images/team3.png",
+    photo: "/images/Marcin Zukowski.png",
     roles: [
       { title: "Leadership", color: "#ffeded" },
       { title: "Board member", color: "#F4EDFD" },
@@ -69,7 +70,7 @@ const team: TeamMember[] = [
   {
     name: "Wojtek Walniczek",
     position: "OTB Ventures, Board Member",
-    photo: "/images/team1.png",
+    photo: "/images/Wojtek Walniczek.png",
     roles: [
       { title: "Leadership", color: "#ffeded" },
       { title: "Board member", color: "#F4EDFD" },
@@ -85,7 +86,7 @@ const team: TeamMember[] = [
   {
     name: "Dr Marcus Erken",
     position: "Partner at Sunfish Partners",
-    photo: "/images/team2.png",
+    photo: "/images/Dr Marcus Erken.png",
     roles: [
       { title: "Leadership", color: "#ffeded" },
       { title: "Board member", color: "#F4EDFD" },
@@ -101,7 +102,7 @@ const team: TeamMember[] = [
   {
     name: "Dominik Andrzejczuk",
     position: "Partner at Atmos Ventures",
-    photo: "/images/team3.png",
+    photo: "/images/Dominik Andrzejczuk.png",
     roles: [
       { title: "Leadership", color: "#ffeded" },
       { title: "Board member", color: "#F4EDFD" },
@@ -144,8 +145,8 @@ const Team: NextPage = () => {
       p="60px 30px 30px 50px"
       style={{ cursor: "pointer" }}
     >
-      <Box style={{ width: 120, height: 120, borderRadius: 60, backgroundColor: "#F0F6FA", position: "relative" }}>
-        <Image src={member.photo} layout="fill" alt={member.name} />
+      <Box style={{ width: 120, height: 120, backgroundColor: "#F0F6FA", position: "relative" }}>
+        <Image style={{ borderRadius: 60 }} src={member.photo} layout="fill" alt={member.name} />
       </Box>
 
       <Typography variant="body2Wide" fontWeight="600" mt="30px">
@@ -185,151 +186,160 @@ const Team: NextPage = () => {
   );
 
   return (
-    <div>
-      <Typography variant="h3" mb={10} textAlign="center">
-        Our People
-      </Typography>
-      <Typography variant="subtitle1" mb={23.25} textAlign="center">
-        Working together to overcome <br />
-        neurological diseases.
-      </Typography>
-
-      <Grid container rowSpacing={1.25} columnSpacing={1.25} mb="214px" position="relative">
-        <picture>
-          <source srcSet="/images/blue4.svg" type="image/svg+xml" />
-          <img src="/images/blue4.svg" alt="Background blue" className={styles.bg} />
-        </picture>
-
-        {team.map((member, idx) => (
-          <Grid item xs={12} sm={6} md={4} lg={3} key={idx}>
-            <MemberListItem member={{ ...member, memberIndex: idx }} />
-          </Grid>
-        ))}
-
-        <Grid item xs={12} sm={6} md={4} lg={3} mt={{ xs: 2, sm: 0 }} display="flex" justifyContent="center" flexDirection="column">
-          <Typography variant="body1" textAlign="center">
-            and many more...
-          </Typography>
-        </Grid>
-      </Grid>
-
-      <Typography variant="subtitle1" mb="30px" textAlign="center">
-        We come from
-      </Typography>
-
-      <Typography variant="body1" mb="60px" width={{ xs: "100%", md: "40%" }} mx="auto" textAlign="center">
-        Our team members bring wealth of experience from the world’s most innovative institutions and companies.
-      </Typography>
-
-      <Grid container alignItems="center" justifyContent="space-evenly" mb="169px" spacing={2}>
-        <Grid item>
-          <Image src="/icons/harvard-logo.svg" alt="harvard" width="126" height="30" />
-        </Grid>
-        <Grid item>
-          <Image src="/icons/cambridge-logo.svg" alt="cambridge" width="113" height="23" />
-        </Grid>
-        <Grid item>
-          <Image src="/icons/imperial-college-logo.svg" alt="imperial college" width="107" height="27" />
-        </Grid>
-        <Grid item>
-          <Image src="/icons/ucl-logo.svg" alt="ucl" width="107" height="41" />
-        </Grid>
-        <Grid item>
-          <Image src="/icons/stanford-logo.svg" alt="stanford" width="103" height="33" />
-        </Grid>
-      </Grid>
-
-      <Box position="relative">
-        <picture>
-          <source srcSet="/images/pink3.svg" type="image/svg+xml" />
-          <img src="/images/pink3.svg" alt="Background pink" className={styles.bg2} />
-        </picture>
-
-        <Typography variant="subtitle3" textAlign="center" mb="60px">
-          Solvemed investors
+    <>
+      <div>
+        <Head>
+          <title>Solvemed Team</title>
+          <meta property="og:title" content="Solvemed Team" key="title" />
+          <meta name="description" content="Solvemed Team Page" key="title" />
+        </Head>
+      </div>
+      <div>
+        <Typography variant="h3" mb={10} textAlign="center">
+          Our People
+        </Typography>
+        <Typography variant="subtitle1" mb={23.25} textAlign="center">
+          Working together to overcome <br />
+          neurological diseases.
         </Typography>
 
-        <Grid container justifyContent="space-evenly" position="relative" spacing={2}>
-          {investors.map((investor) => (
-            <Grid item key={investor.id}>
-              <Image src={investor.image} alt={investor.id} width="129px" height="77px" />
+        <Grid container rowSpacing={1.25} columnSpacing={1.25} mb="214px" position="relative">
+          <picture>
+            <source srcSet="/images/blue4.svg" type="image/svg+xml" />
+            <img src="/images/blue4.svg" alt="Background blue" className={styles.bg} />
+          </picture>
+
+          {team.map((member, idx) => (
+            <Grid item xs={12} sm={6} md={4} lg={3} key={idx}>
+              <MemberListItem member={{ ...member, memberIndex: idx }} />
             </Grid>
           ))}
-        </Grid>
-      </Box>
 
-      <Grid container justifyContent="flex-end" mt="190px" position="relative">
-        <Grid item xs={12} md={6} position="relative">
-          <div ref={parallax.ref}>
+          <Grid item xs={12} sm={6} md={4} lg={3} mt={{ xs: 2, sm: 0 }} display="flex" justifyContent="center" flexDirection="column">
+            <Typography variant="body1" textAlign="center">
+              and many more...
+            </Typography>
+          </Grid>
+        </Grid>
+
+        <Typography variant="subtitle1" mb="30px" textAlign="center">
+          We come from
+        </Typography>
+
+        <Typography variant="body1" mb="60px" width={{ xs: "100%", md: "40%" }} mx="auto" textAlign="center">
+          Our team members bring wealth of experience from the world’s most innovative institutions and companies.
+        </Typography>
+
+        <Grid container alignItems="center" justifyContent="space-evenly" mb="169px" spacing={2}>
+          <Grid item>
+            <Image src="/icons/harvard-logo.svg" alt="harvard" width="126" height="30" />
+          </Grid>
+          <Grid item>
+            <Image src="/icons/cambridge-logo.svg" alt="cambridge" width="113" height="23" />
+          </Grid>
+          <Grid item>
+            <Image src="/icons/imperial-college-logo.svg" alt="imperial college" width="107" height="27" />
+          </Grid>
+          <Grid item>
+            <Image src="/icons/ucl-logo.svg" alt="ucl" width="107" height="41" />
+          </Grid>
+          <Grid item>
+            <Image src="/icons/stanford-logo.svg" alt="stanford" width="103" height="33" />
+          </Grid>
+        </Grid>
+
+        <Box position="relative">
+          <picture>
+            <source srcSet="/images/pink3.svg" type="image/svg+xml" />
+            <img src="/images/pink3.svg" alt="Background pink" className={styles.bg2} />
+          </picture>
+
+          <Typography variant="subtitle3" textAlign="center" mb="60px">
+            Solvemed investors
+          </Typography>
+
+          <Grid container justifyContent="space-evenly" position="relative" spacing={2}>
+            {investors.map((investor) => (
+              <Grid item key={investor.id}>
+                <Image src={investor.image} alt={investor.id} width="129px" height="77px" />
+              </Grid>
+            ))}
+          </Grid>
+        </Box>
+
+        <Grid container justifyContent="flex-end" mt="190px" position="relative">
+          <Grid item xs={12} md={6} position="relative">
+            <div ref={parallax.ref}>
+              <picture>
+                <source srcSet="/images/brain2.png" type="image/svg+xml" />
+                <img src="/images/brain2.png" alt="Brain" className={styles.brainImg} />
+              </picture>
+            </div>
+
             <picture>
-              <source srcSet="/images/brain2.png" type="image/svg+xml" />
-              <img src="/images/brain2.png" alt="Brain" className={styles.brainImg} />
+              <source srcSet="/images/green4.svg" type="image/svg+xml" />
+              <img src="/images/green4.svg" alt="Background green" className={styles.bg4} />
             </picture>
-          </div>
 
-          <picture>
-            <source srcSet="/images/green4.svg" type="image/svg+xml" />
-            <img src="/images/green4.svg" alt="Background green" className={styles.bg4} />
-          </picture>
-
-          <picture>
-            <source srcSet="/images/green3.svg" type="image/svg+xml" />
-            <img src="/images/green3.svg" alt="Background green" className={styles.bg3} />
-          </picture>
-        </Grid>
-
-        <Grid item container xs={12} md={6} marginTop={{ xs: 16, md: 0 }}>
-          <Grid item xs={12}>
-            <Typography variant="body1" fontWeight="600" mb="60px">
-              About Solvemed
-            </Typography>
-            <Typography variant="subtitle1" mb="116px">
-              Solvemed champions digital-first care, where cutting-edge technology supports clinicians and empowers patients.
-            </Typography>
+            <picture>
+              <source srcSet="/images/green3.svg" type="image/svg+xml" />
+              <img src="/images/green3.svg" alt="Background green" className={styles.bg3} />
+            </picture>
           </Grid>
 
-          <Grid item xs={12} container spacing={4} textAlign={{ xs: "center", sm: "left" }}>
-            <Grid item xs={12} sm={6}>
-              <Typography fontSize="144px" lineHeight="138.24px" fontWeight="300">
-                40+
+          <Grid item container xs={12} md={6} marginTop={{ xs: 16, md: 0 }}>
+            <Grid item xs={12}>
+              <Typography variant="body1" fontWeight="600" mb="60px">
+                About Solvemed
               </Typography>
-              <Typography variant="body2" fontWeight="600">
-                People
-              </Typography>
-            </Grid>
-
-            <Grid item xs={12} sm={6}>
-              <Typography fontSize="144px" lineHeight="138.24px" fontWeight="300">
-                8
-              </Typography>
-              <Typography variant="body2" fontWeight="600">
-                PhDs
+              <Typography variant="subtitle1" mb="116px">
+                Solvemed champions digital-first care, where cutting-edge technology supports clinicians and empowers patients.
               </Typography>
             </Grid>
 
-            <Grid item xs={12} sm={6}>
-              <Typography fontSize="144px" lineHeight="138.24px" fontWeight="300">
-                10
-              </Typography>
-              <Typography variant="body2" fontWeight="600">
-                MDs
-              </Typography>
-            </Grid>
+            <Grid item xs={12} container spacing={4} textAlign={{ xs: "center", sm: "left" }}>
+              <Grid item xs={12} sm={6}>
+                <Typography fontSize="144px" lineHeight="138.24px" fontWeight="300">
+                  40+
+                </Typography>
+                <Typography variant="body2" fontWeight="600">
+                  People
+                </Typography>
+              </Grid>
 
-            <Grid item xs={12} sm={6}>
-              <Typography fontSize="144px" lineHeight="138.24px" fontWeight="300">
-                2
-              </Typography>
-              <Typography variant="body2" fontWeight="600">
-                MBAs
-              </Typography>
+              <Grid item xs={12} sm={6}>
+                <Typography fontSize="144px" lineHeight="138.24px" fontWeight="300">
+                  8
+                </Typography>
+                <Typography variant="body2" fontWeight="600">
+                  PhDs
+                </Typography>
+              </Grid>
+
+              <Grid item xs={12} sm={6}>
+                <Typography fontSize="144px" lineHeight="138.24px" fontWeight="300">
+                  10
+                </Typography>
+                <Typography variant="body2" fontWeight="600">
+                  MDs
+                </Typography>
+              </Grid>
+
+              <Grid item xs={12} sm={6}>
+                <Typography fontSize="144px" lineHeight="138.24px" fontWeight="300">
+                  2
+                </Typography>
+                <Typography variant="body2" fontWeight="600">
+                  MBAs
+                </Typography>
+              </Grid>
             </Grid>
           </Grid>
         </Grid>
-      </Grid>
 
-      {!!memberDetails && <TeamMemberModal isOpen={!!memberDetails} onClose={() => setMemberDetails(null)} member={memberDetails} members={team} />}
-    </div>
+        {!!memberDetails && <TeamMemberModal isOpen={!!memberDetails} onClose={() => setMemberDetails(null)} member={memberDetails} members={team} />}
+      </div>
+    </>
   );
 };
 

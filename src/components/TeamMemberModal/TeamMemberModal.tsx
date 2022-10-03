@@ -91,18 +91,18 @@ const TeamMemberModal: React.FC<Props> = ({ isOpen, onClose, member, members }) 
                 <Grid item xs={12} md={4} display="flex" flexDirection="column">
                   <div className={styles.avatar}>{item?.photo && <Image src={item?.photo} layout="fill" alt={item?.name} />}</div>
 
-                  <Typography variant="h6" fontWeight="600" mt="30px">
+                  <Typography variant="body2Wide" fontWeight="600" mt="30px">
                     {item?.name}
                   </Typography>
 
-                  <Typography variant="h6" mb="20px">
+                  <Typography variant="body2Wide" mb="20px">
                     {item?.position}
                   </Typography>
 
                   <Box display="flex" flexDirection="row" flexWrap="wrap" mb={3}>
                     {item.roles.map((role) => (
                       <Box key={role.title} className={styles.roleChip} bgcolor={role.color}>
-                        <Typography fontSize="12px">{role.title}</Typography>
+                        <Typography variant="body6">{role.title}</Typography>
                       </Box>
                     ))}
                   </Box>
@@ -112,7 +112,7 @@ const TeamMemberModal: React.FC<Props> = ({ isOpen, onClose, member, members }) 
                       {item?.linkedinUrl && (
                         <Link href={item.linkedinUrl} target="_blank" rel="noopener" className={styles.socialIcon}>
                           <Image src="/icons/linkedin-outlined.svg" alt="linkedin" width="23" height="23" />
-                          <Typography fontSize="14px" color="secondary.main" ml={1}>
+                          <Typography variant="body4Wide" color="secondary.main" ml={1}>
                             Linkedin
                           </Typography>
                         </Link>
@@ -121,7 +121,7 @@ const TeamMemberModal: React.FC<Props> = ({ isOpen, onClose, member, members }) 
                       {item?.twitterUrl && (
                         <Link href={item.twitterUrl} ml={1} target="_blank" rel="noopener" className={styles.socialIcon}>
                           <Image src="/icons/twitter-outlined.svg" alt="twitter" width="23" height="23" />
-                          <Typography fontSize="14px" color="secondary.main" ml={1}>
+                          <Typography variant="body4Wide" color="secondary.main" ml={1}>
                             Twitter
                           </Typography>
                         </Link>
@@ -132,7 +132,7 @@ const TeamMemberModal: React.FC<Props> = ({ isOpen, onClose, member, members }) 
 
                 <Grid item xs={12} md={8} height="100%">
                   <Box width="80%">
-                    <Typography variant="h5" fontWeight="300" mb="30px">
+                    <Typography variant="subtitle2" mb="30px">
                       {item.bio.title}
                     </Typography>
 
@@ -145,9 +145,7 @@ const TeamMemberModal: React.FC<Props> = ({ isOpen, onClose, member, members }) 
                       </div>
                     </Box>
 
-                    <Typography fontSize="16px" lineHeight="21.6px">
-                      {item.bio.description}
-                    </Typography>
+                    <Typography variant="body3">{item.bio.description}</Typography>
                   </Box>
                 </Grid>
               </Grid>

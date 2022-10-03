@@ -11,13 +11,13 @@ const ApplicationsInfoGraphic = () => {
       <Box width={{ xs: "80%", md: "60%" }} className={styles.infoGraphicInternalContainer}>
         <Box className={styles.infoGraphicCore}>
           <img src="/images/logoVertical.svg" alt="Logo" />
-          <Typography fontSize="14px" lineHeight="16px" color="#494763" mb={2} mt={5}>
+          <Typography variant="body4" color="#494763" mb={2} mt={5}>
             Data pooling and cleaning
           </Typography>
-          <Typography fontSize="14px" lineHeight="16px" color="#494763" mb={2}>
+          <Typography variant="body4" color="#494763" mb={2}>
             Novel computer vision analytics
           </Typography>
-          <Typography fontSize="14px" lineHeight="16px" color="#494763">
+          <Typography variant="body4" color="#494763">
             Proprietary predictive machine <br />
             learning
           </Typography>
@@ -29,10 +29,10 @@ const ApplicationsInfoGraphic = () => {
               <img src="/images/applicationsIcon1.svg" alt="High-precision neuro-ocular biomarkers" style={{ width: 74, height: 74 }} />
             </Box>
             <Box>
-              <Typography fontSize="14px" lineHeight="16px" fontWeight="600" mb={1.5}>
+              <Typography variant="body4" fontWeight="600" mb={1.5}>
                 High-precision neuro-ocular biomarkers
               </Typography>
-              <Typography fontSize="12px" lineHeight="14px" color="#494763">
+              <Typography variant="body6Wide" color="#494763">
                 We provide medical and scientific camera-based tools for data capture
               </Typography>
             </Box>
@@ -46,10 +46,10 @@ const ApplicationsInfoGraphic = () => {
               <img src="/images/applicationsIcon2.svg" alt="Meta-data" style={{ width: 88, height: 83 }} />
             </Box>
             <Box>
-              <Typography fontSize="14px" lineHeight="16px" fontWeight="600" mb={1.5}>
+              <Typography variant="body4" fontWeight="600" mb={1.5}>
                 Meta-data
               </Typography>
-              <Typography fontSize="12px" lineHeight="14px" color="#494763">
+              <Typography variant="body6Wide" color="#494763">
                 Our proprietary ML technology combines EHR, demograpic and other data types for unprecedented insight
               </Typography>
             </Box>
@@ -59,13 +59,13 @@ const ApplicationsInfoGraphic = () => {
 
         <Box className={styles.infoGraphicContainerBlock}>
           <Box right={{ xs: "50%", md: "60%" }} className={styles.infoGraphicBottomItem}>
-            <Typography fontSize="14px" lineHeight="16px" fontWeight="600" mb={1.5}>
+            <Typography variant="body4" fontWeight="600" mb={1.5}>
               Clinical Evaluation
             </Typography>
 
             <img src="/images/applicationsIcon3.svg" alt="Clinical Evaluation" style={{ width: 71, height: 107 }} />
 
-            <Typography fontSize="12px" lineHeight="14px" color="#494763">
+            <Typography variant="body6Wide" color="#494763">
               Screening and Dx models
             </Typography>
           </Box>
@@ -74,28 +74,28 @@ const ApplicationsInfoGraphic = () => {
 
         <Box className={styles.infoGraphicContainerBlock}>
           <Box left={{ xs: "50%", md: "60%" }} className={styles.infoGraphicBottomItem}>
-            <Typography fontSize="14px" lineHeight="16px" fontWeight="600" mb={1.5}>
+            <Typography variant="body4" fontWeight="600" mb={1.5}>
               Research <br />
               applications
             </Typography>
 
             <Box display="flex" alignItems="center">
               <img src="/images/applicationsIcon4.svg" alt="Disease progression tracking" className={styles.infoGraphicIcon} />
-              <Typography fontSize="12px" lineHeight="14px" color="#494763" ml={2}>
+              <Typography variant="body6Wide" color="#494763" ml={2}>
                 Disease progression tracking
               </Typography>
             </Box>
 
             <Box display="flex" alignItems="center">
               <img src="/images/applicationsIcon5.svg" alt="Patient stratification" className={styles.infoGraphicIcon} />
-              <Typography fontSize="12px" lineHeight="14px" color="#494763" ml={2}>
+              <Typography variant="body6Wide" color="#494763" ml={2}>
                 Patient stratification
               </Typography>
             </Box>
 
             <Box display="flex" alignItems="center">
               <img src="/images/applicationsIcon6.svg" alt="Drug efficacy demonstration" className={styles.infoGraphicIcon} />
-              <Typography fontSize="12px" lineHeight="14px" color="#494763" ml={2}>
+              <Typography variant="body6Wide" color="#494763" ml={2}>
                 Drug efficacy demonstration
               </Typography>
             </Box>

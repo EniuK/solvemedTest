@@ -1,5 +1,40 @@
 import { createTheme } from "@mui/material";
 
+declare module "@mui/material/styles" {
+  interface TypographyVariants {
+    body3: React.CSSProperties;
+    body4: React.CSSProperties;
+    body5: React.CSSProperties;
+    body6: React.CSSProperties;
+    body1Wide: React.CSSProperties;
+    body2Wide: React.CSSProperties;
+    body4Wide: React.CSSProperties;
+    body6Wide: React.CSSProperties;
+  }
+  interface TypographyVariantsOptions {
+    body3?: React.CSSProperties;
+    body4?: React.CSSProperties;
+    body5?: React.CSSProperties;
+    body6?: React.CSSProperties;
+    body1Wide?: React.CSSProperties;
+    body2Wide?: React.CSSProperties;
+    body4Wide?: React.CSSProperties;
+    body6Wide?: React.CSSProperties;
+  }
+}
+declare module "@mui/material/Typography" {
+  interface TypographyPropsVariantOverrides {
+    body3: true;
+    body4: true;
+    body5: true;
+    body6: true;
+    body1Wide: true;
+    body2Wide: true;
+    body4Wide: true;
+    body6Wide: true;
+  }
+}
+
 export const theme = createTheme({
   palette: {
     primary: {
@@ -19,9 +54,11 @@ export const theme = createTheme({
     },
   },
   typography: {
+    fontFamily: "FinancierDisplay",
     h1: {
       fontSize: "124px",
       fontWeight: "300",
+      letterSpacing: "-0.03em",
       "@media (max-width:900px)": {
         fontSize: "96px",
       },
@@ -32,6 +69,7 @@ export const theme = createTheme({
     h2: {
       fontSize: "100px",
       fontWeight: "300",
+      letterSpacing: "-0.02em",
       "@media (max-width:900px)": {
         fontSize: "96px",
       },
@@ -42,34 +80,134 @@ export const theme = createTheme({
     h3: {
       fontSize: "92px",
       fontWeight: "300",
+      letterSpacing: "-0.02em",
       "@media (max-width:900px)": {
         fontSize: "64px",
       },
     },
-    h4: {
+    subtitle1: {
       fontSize: "42px",
-      fontWeight: "300",
       lineHeight: "46.2px",
+      fontWeight: "300",
+      letterSpacing: "-0.02em",
       "@media (max-width:900px)": {
         fontSize: "30px",
         lineHeight: "36px",
       },
     },
-    h5: {
+    subtitle2: {
       fontSize: "30px",
-      lineHeight: "36px",
-      fontWeight: "600",
-    },
-    h6: {
-      fontSize: "18px",
-      lineHeight: "24.3px",
+      lineHeight: "33px",
+      fontWeight: "300",
+      letterSpacing: "-0.02em",
     },
     body1: {
+      fontFamily: "SuisseIntl",
+      fontSize: "21px",
+      lineHeight: "28.14px",
+      letterSpacing: "-0.02em",
+      fontWeight: "400",
+    },
+    body1Wide: {
+      fontFamily: "SuisseIntl",
       fontSize: "21px",
       lineHeight: "24px",
+      letterSpacing: "-0.04em",
+      fontWeight: "400",
+    },
+    body2: {
+      fontFamily: "SuisseIntl",
+      fontSize: "18px",
+      lineHeight: "24.3px",
+      letterSpacing: "-0.02em",
+      fontWeight: "400",
+    },
+    body2Wide: {
+      fontFamily: "SuisseIntl",
+      fontSize: "18px",
+      lineHeight: "24.3px",
+      letterSpacing: "-0.04em",
+      fontWeight: "400",
+    },
+    body3: {
+      fontFamily: "SuisseIntl",
+      fontSize: "16px",
+      lineHeight: "21.6px",
+      letterSpacing: "-0.01em",
+      fontWeight: "400",
+    },
+    body4: {
+      fontFamily: "SuisseIntl",
+      fontSize: "14px",
+      lineHeight: "15.93px",
+      letterSpacing: "-0.01em",
+      fontWeight: "400",
+    },
+    body4Wide: {
+      fontFamily: "SuisseIntl",
+      fontSize: "14px",
+      lineHeight: "18.2px",
+      letterSpacing: "-0.04em",
+      fontWeight: "400",
+    },
+    body5: {
+      fontFamily: "SuisseIntl",
+      fontSize: "13px",
+      lineHeight: "15.6px",
+      fontWeight: "600",
+    },
+    body6: {
+      fontFamily: "SuisseIntl",
+      fontSize: "12px",
+      lineHeight: "16.32px",
+      fontWeight: "400",
+    },
+    body6Wide: {
+      fontFamily: "SuisseIntl",
+      fontSize: "12px",
+      lineHeight: "14.4px",
+      fontWeight: "400",
+      letterSpacing: "-0.01em",
     },
   },
   components: {
+    MuiCssBaseline: {
+      styleOverrides: `
+        @font-face {
+          font-family: 'FinancierDisplay';
+          font-style: normal;
+          font-weight: 300;
+          src: url('/fonts/Financier-Display-Light.woff2');
+        }
+        @font-face {
+          font-family: 'SuisseIntl';
+          font-style: normal;
+          font-weight: 400;
+          src: url('/fonts/SuisseIntl-Regular.ttf');
+        }
+        @font-face {
+          font-family: 'SuisseIntl';
+          font-style: normal;
+          font-weight: 600;
+          src: url('/fonts/SuisseIntl-SemiBold.ttf');
+        }
+      `,
+    },
+    MuiTypography: {
+      defaultProps: {
+        variant: "h1",
+        variantMapping: {
+          body3: "p",
+          body4: "p",
+          body5: "p",
+          body6: "p",
+          body1Wide: "p",
+          body2Wide: "p",
+          body4Wide: "p",
+          body6Wide: "p",
+        },
+      },
+    },
     MuiButton: {
       styleOverrides: {
         root: {

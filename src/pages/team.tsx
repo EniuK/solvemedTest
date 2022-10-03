@@ -148,35 +148,35 @@ const Team: NextPage = () => {
         <Image src={member.photo} layout="fill" alt={member.name} />
       </Box>
 
-      <Typography fontSize="18px" fontWeight="600" mt="30px">
+      <Typography variant="body2Wide" fontWeight="600" mt="30px">
         {member.name}
       </Typography>
 
-      <Typography fontSize="18px" lineHeight="24.12px" mb="20px">
+      <Typography variant="body2Wide" mb="20px">
         {member.position}
       </Typography>
 
       <Box display="flex" flexDirection="row">
         <Box style={{ backgroundColor: "#FFEDED", padding: "5px 12px 5px 12px", width: "fit-content", borderRadius: "1000px" }} mr={1}>
-          <Typography fontSize="12px">Leadership</Typography>
+          <Typography variant="body6">Leadership</Typography>
         </Box>
 
         <Box style={{ backgroundColor: "#F4EDFD", padding: "5px 12px 5px 12px", width: "fit-content", borderRadius: "1000px" }}>
-          <Typography fontSize="12px">Board member</Typography>
+          <Typography variant="body6">Board member</Typography>
         </Box>
       </Box>
 
       <Box display="flex" flexDirection="row" alignItems="center" justifyContent="flex-start" mt="auto">
         <Link href="https://www.linkedin.com/" target="_blank" rel="noopener" underline="none" display="flex" flexDirection="row" alignItems="center">
           <Image src="/icons/linkedin-outlined.svg" alt="linkedin" width="23" height="23" />
-          <Typography fontSize="14px" color="secondary.main" ml={1}>
+          <Typography variant="body4Wide" color="secondary.main" ml={1}>
             Linkedin
           </Typography>
         </Link>
 
         <Link href="https://twitter.com/" ml={1} target="_blank" rel="noopener" underline="none" display="flex" flexDirection="row" alignItems="center">
           <Image src="/icons/twitter-outlined.svg" alt="twitter" width="23" height="23" />
-          <Typography fontSize="14px" color="secondary.main" ml={1}>
+          <Typography variant="body4Wide" color="secondary.main" ml={1}>
             Twitter
           </Typography>
         </Link>
@@ -189,7 +189,7 @@ const Team: NextPage = () => {
       <Typography variant="h3" mb={10} textAlign="center">
         Our People
       </Typography>
-      <Typography variant="h4" mb={23.25} textAlign="center">
+      <Typography variant="subtitle1" mb={23.25} textAlign="center">
         Working together to overcome <br />
         neurological diseases.
       </Typography>
@@ -213,7 +213,7 @@ const Team: NextPage = () => {
         </Grid>
       </Grid>
 
-      <Typography variant="h4" mb="30px" textAlign="center">
+      <Typography variant="subtitle1" mb="30px" textAlign="center">
         We come from
       </Typography>
 
@@ -245,7 +245,7 @@ const Team: NextPage = () => {
           <img src="/images/pink3.svg" alt="Background pink" className={styles.bg2} />
         </picture>
 
-        <Typography variant="h5" textAlign="center" mb="60px">
+        <Typography variant="subtitle2" fontWeight="600" textAlign="center" mb="60px">
           Solvemed investors
         </Typography>
 
@@ -283,7 +283,7 @@ const Team: NextPage = () => {
             <Typography variant="body1" fontWeight="600" mb="60px">
               About Solvemed
             </Typography>
-            <Typography variant="h4" mb="116px">
+            <Typography variant="subtitle1" mb="116px">
               Solvemed champions digital-first care, where cutting-edge technology supports clinicians and empowers patients.
             </Typography>
           </Grid>
@@ -293,7 +293,7 @@ const Team: NextPage = () => {
               <Typography fontSize="144px" lineHeight="138.24px" fontWeight="300">
                 40+
               </Typography>
-              <Typography fontSize="18px" fontWeight="600">
+              <Typography variant="body2" fontWeight="600">
                 People
               </Typography>
             </Grid>
@@ -302,7 +302,7 @@ const Team: NextPage = () => {
               <Typography fontSize="144px" lineHeight="138.24px" fontWeight="300">
                 8
               </Typography>
-              <Typography fontSize="18px" fontWeight="600">
+              <Typography variant="body2" fontWeight="600">
                 PhDs
               </Typography>
             </Grid>
@@ -311,7 +311,7 @@ const Team: NextPage = () => {
               <Typography fontSize="144px" lineHeight="138.24px" fontWeight="300">
                 10
               </Typography>
-              <Typography fontSize="18px" fontWeight="600">
+              <Typography variant="body2" fontWeight="600">
                 MDs
               </Typography>
             </Grid>
@@ -320,7 +320,7 @@ const Team: NextPage = () => {
               <Typography fontSize="144px" lineHeight="138.24px" fontWeight="300">
                 2
               </Typography>
-              <Typography fontSize="18px" fontWeight="600">
+              <Typography variant="body2" fontWeight="600">
                 MBAs
               </Typography>
             </Grid>

@@ -38,10 +38,10 @@ const Header = () => {
       {router.pathname === "/" && (
         <LinkMUI href="https://google.com" target="_blank" rel="noopener" className={styles.externalLinkContainer}>
           <div className={styles.externalLinkContent}>
-            <Typography fontSize="12px" color="secondary.light" mr={1}>
+            <Typography variant="body6Wide" color="secondary.light" mr={1}>
               Nov 29, 2021
             </Typography>
-            <Typography variant="h6">Clinical Key Opinion Leaders Banquet in Oxford.</Typography>
+            <Typography variant="body2">Clinical Key Opinion Leaders Banquet in Oxford.</Typography>
           </div>
           <Image src="/icons/arrow-top-right.svg" alt="Arrow top right" width="13" height="12" />
         </LinkMUI>

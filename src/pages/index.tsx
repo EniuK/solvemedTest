@@ -19,10 +19,10 @@ const Home: NextPage = () => {
       </Box>
 
       <Box width={{ xs: "100%", sm: "80%", md: "50%" }} margin="auto">
-        <Typography variant="h4" mb={5}>
+        <Typography variant="subtitle1" mb={5}>
           Solvemed's health evaluation tools are designed to complement existing assessments by making patient data collection easier and more frequent.
         </Typography>
-        <Typography variant="h4">
+        <Typography variant="subtitle1">
           They also improve the quality of care by empowering and connecting patients, clinicians, and researchers and outside of clinical settings.
         </Typography>
       </Box>
@@ -36,33 +36,31 @@ const Home: NextPage = () => {
         </Grid>
         <Grid item xs={12} md={4} display="flex" flexDirection="column" justifyContent="center">
           <Typography variant="body1">Metric</Typography>
-          <Typography variant="h4" mt="20px" mb="56px">
+          <Typography variant="subtitle1" mt="20px" mb="56px">
             Oculomotor apraxia
           </Typography>
           <Typography variant="body1">Target</Typography>
-          <Typography variant="h4" mt="20px" mb="56px">
+          <Typography variant="subtitle1" mt="20px" mb="56px">
             Parietal lobe
           </Typography>
           <Typography variant="body1">Diagnosis</Typography>
-          <Typography variant="h4" mt="20px" mb="56px">
+          <Typography variant="subtitle1" mt="20px" mb="56px">
             Alzheimer's
           </Typography>
         </Grid>
       </Grid>
 
       <Box display="flex" flexDirection={{ xs: "column", sm: "row" }} width={{ xs: "100%", md: "80%" }} margin="auto">
-        <Typography fontSize="21px" lineHeight="28.4px" mr={{ xs: 0, md: 3 }} mb={{ xs: 3, md: 0 }}>
+        <Typography variant="body1" mr={{ xs: 0, md: 3 }} mb={{ xs: 3, md: 0 }}>
           Assessment of the eye can provide important diagnostic information to the clinician about ophthalmic or neurological health.
         </Typography>
-        <Typography fontSize="21px" lineHeight="28.4px">
-          However, in the past it has only been possible to measure the eye movements using specialist equipment that is not available to.
-        </Typography>
+        <Typography variant="body1">However, in the past it has only been possible to measure the eye movements using specialist equipment that is not available to.</Typography>
       </Box>
 
       <Box position="relative" textAlign="center">
         <img src="/images/yellow2.svg" alt="Background yellow" className={styles.bg} />
 
-        <Typography variant="h5" fontWeight="600" mb="22px" mt="160px">
+        <Typography variant="subtitle2" fontWeight="600" mb="22px" mt="160px">
           Our Research and Development
         </Typography>
         <Typography variant="body1" width={{ xs: "100%", md: "50%" }} mx="auto" mb={4} color="primary.light">

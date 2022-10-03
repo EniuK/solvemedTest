@@ -121,11 +121,11 @@ const Science: NextPage = () => {
       <Typography variant="h1" mb="80px">
         Science
       </Typography>
-      <Typography variant="h4" mb="30px">
+      <Typography variant="subtitle1" mb="30px">
         Our research advances the frontier of <br />
         digital biomarker science.
       </Typography>
-      <Typography variant="h6" mb="165px">
+      <Typography variant="body2" mb="165px">
         We bring to the world the most advanced camera-enabled data <br />
         collection and analytical tools in the field of neurology and <br />
         ophthalmology.
@@ -144,21 +144,21 @@ const Science: NextPage = () => {
               </div>
             </Grid>
             <Grid item xs={12} md={5.5} textAlign="left">
-              <Typography variant="body1" mb="60px">
+              <Typography variant="body1Wide" mb="60px">
                 Technology validation
               </Typography>
-              <Typography variant="h4" mb="57px">
+              <Typography variant="subtitle1" mb="57px">
                 Our Software as Medical Devices undergo extensive testing validation against current standard of care and gold standard methods and devices.
               </Typography>
               <ul>
                 <li className={styles.listItem}>
-                  <Typography variant="h6">High precision biomarker parameter capture</Typography>
+                  <Typography variant="body2">High precision biomarker parameter capture</Typography>
                 </li>
                 <li className={styles.listItem}>
-                  <Typography variant="h6">Real-world relevance and utility</Typography>
+                  <Typography variant="body2">Real-world relevance and utility</Typography>
                 </li>
                 <li className={styles.listItem}>
-                  <Typography variant="h6">Developed in collaboration with clinicians and researchers</Typography>
+                  <Typography variant="body2">Developed in collaboration with clinicians and researchers</Typography>
                 </li>
               </ul>
             </Grid>
@@ -172,21 +172,21 @@ const Science: NextPage = () => {
 
           <Grid item container xs={12} justifyContent="space-between">
             <Grid item xs={12} md={5.5} textAlign="left">
-              <Typography variant="body1" mb="60px">
+              <Typography variant="body1Wide" mb="60px">
                 Biomarker discovery
               </Typography>
-              <Typography variant="h4" mb="57px">
+              <Typography variant="subtitle1" mb="57px">
                 Our world-class biomarker studies, conducted in collaborations with some of the most renowned research institutions, hold promise of novel disease biomarkers.
               </Typography>
               <ul>
                 <li className={styles.listItem}>
-                  <Typography variant="h6">Collection of multi-biomarker panels enabled</Typography>
+                  <Typography variant="body2">Collection of multi-biomarker panels enabled</Typography>
                 </li>
                 <li className={styles.listItem}>
-                  <Typography variant="h6">Novel protocols for information-rich signals</Typography>
+                  <Typography variant="body2">Novel protocols for information-rich signals</Typography>
                 </li>
                 <li className={styles.listItem}>
-                  <Typography variant="h6">Proprietary machine learning analytics</Typography>
+                  <Typography variant="body2">Proprietary machine learning analytics</Typography>
                 </li>
               </ul>
             </Grid>
@@ -218,21 +218,21 @@ const Science: NextPage = () => {
               </div>
             </Grid>
             <Grid item xs={12} md={5.5} textAlign="left">
-              <Typography variant="body1" mb="60px">
+              <Typography variant="body1Wide" mb="60px">
                 Machine learning
               </Typography>
-              <Typography variant="h4" mb="57px">
+              <Typography variant="subtitle1" mb="57px">
                 We combine cutting-edge computer vision algorithms with predictive analytics for novel scientific insights and technological breakthroughs.
               </Typography>
               <ul>
                 <li className={styles.listItem}>
-                  <Typography variant="h6">De-risk clinical development and reduce trial duration and costs</Typography>
+                  <Typography variant="body2">De-risk clinical development and reduce trial duration and costs</Typography>
                 </li>
                 <li className={styles.listItem}>
-                  <Typography variant="h6">Track disease progression and demonstrate drug efficacy</Typography>
+                  <Typography variant="body2">Track disease progression and demonstrate drug efficacy</Typography>
                 </li>
                 <li className={styles.listItem}>
-                  <Typography variant="h6">Use novel endpoints and stratify patient cohorts</Typography>
+                  <Typography variant="body2">Use novel endpoints and stratify patient cohorts</Typography>
                 </li>
               </ul>
             </Grid>
@@ -240,10 +240,10 @@ const Science: NextPage = () => {
         </Grid>
       </Grid>
 
-      <Typography variant="h5" mb="20px">
+      <Typography variant="subtitle2" fontWeight="600" mb="20px">
         Research collaborations
       </Typography>
-      <Typography variant="h6" mb="60px">
+      <Typography variant="body2" mb="60px">
         We collaborate with partners at some of the most prominent clinical <br />
         and industrial life science organisations.
       </Typography>
@@ -264,7 +264,7 @@ const Science: NextPage = () => {
           <img src="/images/blue2.svg" alt="Background blue" className={styles.bg4} />
         </picture>
 
-        <Typography variant="h5" mb="90px" mt="120px">
+        <Typography variant="subtitle2" fontWeight="600" mb="90px" mt="120px">
           Selected literature
         </Typography>
 
@@ -272,21 +272,19 @@ const Science: NextPage = () => {
           {selectedLiterature.map((item) => (
             <Box key={item.id} maxWidth="90%">
               <Stack justifyContent="space-between" spacing={2} height="378px" p="16px" borderRadius="24px" bgcolor="#fff">
-                <Typography fontSize="12px" lineHeight="16.2px">
-                  {item.source}
-                </Typography>
-                <Typography fontSize={{ xs: 16, lg: 23 }} lineHeight="25.3px" fontWeight="300">
+                <Typography variant="body6Wide">{item.source}</Typography>
+                <Typography fontSize={{ xs: 16, lg: 23 }} fontWeight="300" letterSpacing="-0.02em" lineHeight="25.3px">
                   {item.title}
                 </Typography>
 
                 <div>
                   <Box bgcolor="info.dark" borderRadius="40px" padding="4px 8px" mb="9px" display="inline-block">
-                    <Typography fontSize="12px" lineHeight="14.4px" color="#65426F">
+                    <Typography variant="body6Wide" color="#65426F">
                       {item.label}
                     </Typography>
                   </Box>
-                  <Typography fontSize="12px">{item.author}</Typography>
-                  <Typography fontSize="12px" color="primary.light">
+                  <Typography variant="body6Wide">{item.author}</Typography>
+                  <Typography variant="body6Wide" color="primary.light">
                     Published: {item.publishDate}
                   </Typography>
                 </div>

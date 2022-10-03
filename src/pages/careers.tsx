@@ -70,10 +70,10 @@ const Careers: NextPage = () => {
         <Typography variant="h3" mb="80px">
           Join Solvemed
         </Typography>
-        <Typography variant="h4" width={{ xs: "100%", sm: "70%" }} margin="0 auto 30px auto">
+        <Typography variant="subtitle1" width={{ xs: "100%", sm: "70%" }} margin="0 auto 30px auto">
           Digital mapping of the human brain is an interdisciplinary challenge.
         </Typography>
-        <Typography variant="h6" width={{ xs: "100%", sm: "70%", md: "50%" }} margin="auto">
+        <Typography variant="body2" width={{ xs: "100%", sm: "70%", md: "50%" }} margin="auto">
           We are looking to hire a wide range of people with diverse engineering, scientific, operations expertise.
         </Typography>
 
@@ -85,7 +85,7 @@ const Careers: NextPage = () => {
       {careers.map((sectionItem) => (
         <Fragment key={sectionItem.category}>
           <Grid item xs={10} mt="100px" mb="42px">
-            <Typography fontSize="30px" fontWeight="600">
+            <Typography variant="subtitle2" fontWeight="600">
               {sectionItem.category}
             </Typography>
           </Grid>
@@ -94,10 +94,10 @@ const Careers: NextPage = () => {
             <Fragment key={item.title}>
               <Grid item xs={10} sm={7} md={8} zeroMinWidth>
                 <Typography variant="body1" fontWeight="600">
-                  Head of Research
+                  {item.title}
                 </Typography>
-                <Typography variant="h6" paragraph>
-                  Remote (preferred locations for the remote role: Boston, MA; San Francisco Bay Area)
+                <Typography variant="body2" paragraph>
+                  {item.description}
                 </Typography>
               </Grid>
 
@@ -116,7 +116,7 @@ const Careers: NextPage = () => {
                   target="_blank"
                   rel="noopener"
                 >
-                  <Typography color="#5242EE" fontSize="12px" fontWeight="600" textTransform="uppercase" mr="18px">
+                  <Typography color="#5242EE" variant="body6" fontWeight="600" textTransform="uppercase" mr="18px">
                     Apply Now
                   </Typography>
                   <Image src="/icons/arrow-right.svg" alt="arrow right" width="10px" height="10px" />

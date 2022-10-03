@@ -73,6 +73,9 @@
 .menuItem {
   text-decoration: none;
   font-size: 13px;
+  line-height: 15.6px;
+  font-weight: 400;
+  font-family: "SuisseIntl";
   text-transform: uppercase;
   margin-bottom: 8px;
 }

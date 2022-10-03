@@ -31,22 +31,22 @@ const Contact = () => (
   <Grid container mt={32} mb={13} justifyContent="space-between" columnSpacing={2} rowSpacing={8}>
     {contactData.map((item, idx) => (
       <Grid key={idx} item xs={12} sm={6} lg={2.5}>
-        <Typography fontSize="1.875rem" fontWeight="300" color="primary" mb={7.5}>
+        <Typography variant="subtitle2" color="primary" mb={7.5}>
           {item.city}
         </Typography>
 
         <Box display="flex" alignItems="flex-start">
           <img src="/icons/location.svg" alt="Location" />
           <Box ml={0.75}>
-            <Typography fontSize="1.125rem" color="primary.light" mb={4.75} mt={-0.2}>
+            <Typography variant="body3" color="primary.light" mb={4.75} mt={-0.2}>
               {item.address}
             </Typography>
 
-            <Link href={`tel:${item.phone}`} underline="hover" fontSize="1.125rem" color="primary.light" display="block">
+            <Link href={`tel:${item.phone}`} underline="hover" color="primary.light" display="block" variant="body3">
               {item.phone}
             </Link>
 
-            <Link href={`mailto:${item.email}`} fontSize="1.125rem" color="primary.light" display="block">
+            <Link href={`mailto:${item.email}`} color="primary.light" display="block" variant="body3">
               {item.email}
             </Link>
           </Box>

@@ -145,7 +145,7 @@ const Team: NextPage = () => {
       p="60px 30px 30px 50px"
       style={{ cursor: "pointer" }}
     >
-      <Box style={{ width: 120, height: 120, backgroundColor: "#F0F6FA", position: "relative" }}>
+      <Box style={{ width: 120, height: 120, borderRadius: 60, backgroundColor: "#F0F6FA", position: "relative" }}>
         <Image style={{ borderRadius: 60 }} src={member.photo} layout="fill" alt={member.name} />
       </Box>
 

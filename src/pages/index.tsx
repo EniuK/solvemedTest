@@ -29,7 +29,7 @@ const Home: NextPage = () => {
 
         <Box width={{ xs: "100%", sm: "80%", md: "50%" }} margin="auto">
           <Typography variant="subtitle1" mb={5}>
-            Solvemed's health evaluation tools are designed to complement existing assessments by making patient data collection easier and more frequent.
+            Solvemed&apos;s health evaluation tools are designed to complement existing assessments by making patient data collection easier and more frequent.
           </Typography>
           <Typography variant="subtitle1">
             They also improve the quality of care by empowering and connecting patients, clinicians, and researchers and outside of clinical settings.
@@ -54,7 +54,7 @@ const Home: NextPage = () => {
             </Typography>
             <Typography variant="body1">Diagnosis</Typography>
             <Typography variant="subtitle1" mt="20px" mb="56px">
-              Alzheimer's
+              Alzheimer&apos;s
             </Typography>
           </Grid>
         </Grid>

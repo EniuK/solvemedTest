@@ -1,7 +1,7 @@
 import "../styles/globals.css";
 import type { AppProps } from "next/app";
 import { CssBaseline, ThemeProvider } from "@mui/material";
-import Layout from "../components/Layout";
+import Layout from "../components/layout";
 import { theme } from "../config/theme";
 import { ParallaxProvider } from "react-scroll-parallax";
 import Script from "next/script";

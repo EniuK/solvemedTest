@@ -12,7 +12,6 @@ const initialValues = {
   message: "",
 };
 const Contact: NextPage<any> = () => {
-  const [shouldShowSuccessNote, setShouldShowSuccessNote] = useState(false);
 
   return (
     <>
@@ -42,27 +41,12 @@ const Contact: NextPage<any> = () => {
         <Formik
           initialValues={initialValues}
           validationSchema={contactSchema}
-          onSubmit={async (values) => {
-            const myPromise = new Promise((resolve) => {
-              setTimeout(() => {
-                const res = Math.random() !== 0 ? true : false;
-                resolve(res);
-              }, 300);
-            });
-
-            const response = await myPromise;
-            if (response) {
-              setShouldShowSuccessNote(response as boolean);
-              setTimeout(() => {
-                setShouldShowSuccessNote(false);
-              }, 5000);
-            };
-          }}
+          onSubmit={() => console.log()}
         >
           {({ errors, touched, isSubmitting, values, handleChange }) => {
+            console.log(errors);
             return (
               <Form>
-                {shouldShowSuccessNote && <Typography variant="h6" color="green">Your message is successfully sent.</Typography>}
                 <Box>
                   <Grid item xs={12}>
                     <TextField
@@ -103,9 +87,15 @@ const Contact: NextPage<any> = () => {
                       style={{ width: "60%", margin: "200px 0 20px" }}
                     />
                   </Grid>
-                  <Button type="submit" color="primary" variant="contained" size="large" disabled={isSubmitting} style={{ margin: "20px 0", height: "54px", width: "194px" }}>
-                    Send Message
-                  </Button>
+                  {Object.keys(errors).length === 0 ? (
+                    <Button color="primary" variant="contained" size="large" disabled={isSubmitting} style={{ margin: "20px 0", height: "54px", width: "194px" }}>
+                      <a href={`mailto:contact@solvemed.ai?subject=${values.name}&body=From:${values.email} ${values.message}`}>Send Message!</a>
+                    </Button>
+                  ) : (
+                    <Button color="primary" variant="contained" size="large" disabled={isSubmitting} style={{ margin: "20px 0", height: "54px", width: "194px" }}>
+                      Send Message
+                    </Button>
+                  )}
                 </Box>
               </Form>
             )

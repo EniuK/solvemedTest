@@ -59,7 +59,7 @@ const Applications: NextPage = () => {
 
               <LinkMUI href="/contact" rel="noopener" className={styles.externalLinkContainer}>
                 <Button color="primary" variant="contained" size="large">
-                  Get early access to Solvemed medical devices
+                  Get early access to Solvemed&apos;s medical devices
                 </Button>
               </LinkMUI>
             </Grid>
@@ -140,7 +140,7 @@ const Applications: NextPage = () => {
               </Typography>
               <LinkMUI href="/contact" rel="noopener" className={styles.externalLinkContainer}>
                 <Button color="primary" variant="contained" size="large">
-                  Get early access to Solvemed’s medical devices
+                  Get early access to Solvemed&apos;s medical devices
                 </Button>
               </LinkMUI>
             </Grid>
@@ -177,7 +177,7 @@ const Applications: NextPage = () => {
               </Typography>
               <LinkMUI href="/contact" rel="noopener" className={styles.externalLinkContainer}>
                 <Button color="primary" variant="contained" size="large">
-                  Get early access to Solvemed medical devices
+                  Get early access to Solvemed&apos;s medical devices
                 </Button>
               </LinkMUI>
             </Grid>

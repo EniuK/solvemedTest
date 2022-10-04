@@ -55,11 +55,11 @@ const Home: NextPage = () => {
             </Typography>
             <Typography variant="body1">Target</Typography>
             <Typography variant="subtitle1" mt="20px" mb="56px">
-              Parietal lobe
+              Posterior parietal cortex
             </Typography>
             <Typography variant="body1">Diagnosis</Typography>
             <Typography variant="subtitle1" mt="20px" mb="56px">
-              Alzheimer&apos;s
+              Alzheimer&apos;s disease
             </Typography>
           </Grid>
         </Grid>

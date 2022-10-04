@@ -104,7 +104,7 @@ const Careers: NextPage = () => {
           <title>Solvemed Careers</title>
           <meta property="og:title" content="Solvemed Careers" />
           <meta property="og:type" content="website" />
-          <meta name="description" content="Decoding neurology. In the blink of AI." />
+          <meta name="description" content="Decoding neurology. In the blink of AI. Solvemed is a VC-backed Neuroscience AI company working to redefine neurology care and drug development. With neurodegenerative diseases (dementias) as the primary focus area, Solvemed leverages its proprietary machine learning technology to develop first-in-class digital biomarkers to support development of neurological drugs and establish affordable clinical examination and remote monitoring tools." />
         </Head>
       </div>
       <Grid container item xs={10} lg={8} columns={10} margin="auto" alignItems="center">

@@ -106,14 +106,14 @@ const team: TeamMember[] = [
 ];
 
 const investors = [
-  { id: "apex ventures", image: "/images/logos/investors/apex_ventures.png" },
   { id: "atmos", image: "/images/logos/investors/atmos.png" },
+  { id: "apex ventures", image: "/images/logos/investors/apex_ventures.png" },
+  { id: "sunfish partners", image: "/images/logos/investors/sunfish_partners.png" },
+  { id: "tensor ventures", image: "/images/logos/investors/tensor_ventures.png" },
+  { id: "preface ventures", image: "/images/logos/investors/preface_ventures.png" },
+  { id: "techni ventures", image: "/images/logos/investors/techni_ventures.png" },
   { id: "atomico", image: "/images/logos/investors/atomico.png" },
   { id: "cambridge angels", image: "/images/logos/investors/cambridge_angels.png" },
-  { id: "preface ventures", image: "/images/logos/investors/preface_ventures.png" },
-  { id: "sunfish partners", image: "/images/logos/investors/sunfish_partners.png" },
-  { id: "techni ventures", image: "/images/logos/investors/techni_ventures.png" },
-  { id: "tensor ventures", image: "/images/logos/investors/tensor_ventures.png" },
 ];
 
 const weComeFrom = [
@@ -311,11 +311,11 @@ const Team: NextPage = () => {
           Our team members bring wealth of experience from the world’s most innovative institutions and companies.
         </Typography>
 
-        <Grid container justifyContent="space-between" xs={10} spacing={12} style={{ margin: "0 auto" }}  >
+        <Grid container justifyContent="space-between" alignItems="center" xs={12} spacing={10}   >
           {weComeFrom.map((item) => (
             <Grid item key={item.id} position="relative">
-              <Box marginBottom={-5} marginRight={-2} marginLeft={-2}>
-                <Image src={item.image} alt={item.id} width={160} height={40} layout="fixed" objectFit="scale-down" />
+              <Box marginBottom={-5} marginRight={2} marginLeft={2}>
+                <Image src={item.image} alt={item.id} width={120} height={40} layout="fixed" objectFit="scale-down" />
               </Box>
             </Grid>
           ))}

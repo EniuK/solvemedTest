@@ -36,7 +36,7 @@ const team: TeamMember[] = [
     },
   },
   {
-    name: "DR Michal Wlodarski",
+    name: "Dr Michal Wlodarski",
     position: "Chief Operations Officer, Co-founder",
     photo: "/images/Michaê Wlodarski.png",
     roles: [
@@ -53,10 +53,9 @@ const team: TeamMember[] = [
   },
   {
     name: "Marcin Zukowski",
-    position: "Board Member",
+    position: "Board Member, Co-founder at Snowflake",
     photo: "/images/Marcin Zukowski.png",
     roles: [
-      { title: "Leadership", color: "#ffeded" },
       { title: "Board member", color: "#F4EDFD" },
     ],
     linkedinUrl: null,
@@ -69,10 +68,9 @@ const team: TeamMember[] = [
   },
   {
     name: "Wojtek Walniczek",
-    position: "OTB Ventures, Board Member",
+    position: "Board Member, Investment Director at OTB Ventures",
     photo: "/images/Wojtek Walniczek.png",
     roles: [
-      { title: "Leadership", color: "#ffeded" },
       { title: "Board member", color: "#F4EDFD" },
     ],
     linkedinUrl: "https://www.linkedin.com/in/wojtekwalniczek/",
@@ -85,10 +83,9 @@ const team: TeamMember[] = [
   },
   {
     name: "Dr Marcus Erken",
-    position: "Partner at Sunfish Partners",
+    position: "Founding Partner",
     photo: "/images/Dr Marcus Erken.png",
     roles: [
-      { title: "Leadership", color: "#ffeded" },
       { title: "Board member", color: "#F4EDFD" },
     ],
     linkedinUrl: "https://www.linkedin.com/in/erken/",
@@ -101,10 +98,9 @@ const team: TeamMember[] = [
   },
   {
     name: "Dominik Andrzejczuk",
-    position: "Partner at Atmos Ventures",
+    position: "Managing Partner",
     photo: "/images/Dominik Andrzejczuk.png",
     roles: [
-      { title: "Leadership", color: "#ffeded" },
       { title: "Board member", color: "#F4EDFD" },
     ],
     linkedinUrl: "https://www.linkedin.com/in/dominikand/",
@@ -133,18 +129,7 @@ const Team: NextPage = () => {
   const [memberDetails, setMemberDetails] = useState<TeamMember | null>(null);
 
   const MemberListItem = ({ member }: { member: TeamMember }) => (
-    <Box
-      onClick={() => setMemberDetails(member)}
-      bgcolor="#fff"
-      borderRadius="12px"
-      height={452}
-      maxWidth={328}
-      marginX="auto"
-      display="flex"
-      flexDirection="column"
-      p="60px 30px 30px 50px"
-      style={{ cursor: "pointer" }}
-    >
+    <Box bgcolor="#fff" borderRadius="12px" height={452} maxWidth={328} marginX="auto" display="flex" flexDirection="column" p="60px 30px 30px 50px">
       <Box style={{ width: 120, height: 120, borderRadius: 60, backgroundColor: "#F0F6FA", position: "relative" }}>
         <Image style={{ borderRadius: 60 }} src={member.photo} layout="fill" alt={member.name} />
       </Box>
@@ -158,13 +143,11 @@ const Team: NextPage = () => {
       </Typography>
 
       <Box display="flex" flexDirection="row">
-        <Box style={{ backgroundColor: "#FFEDED", padding: "5px 12px 5px 12px", width: "fit-content", borderRadius: "1000px" }} mr={1}>
-          <Typography variant="body6">Leadership</Typography>
-        </Box>
-
-        <Box style={{ backgroundColor: "#F4EDFD", padding: "5px 12px 5px 12px", width: "fit-content", borderRadius: "1000px" }}>
-          <Typography variant="body6">Board member</Typography>
-        </Box>
+        {member.roles.map((role, idx) => (
+          <Box key={`${role.title}_${idx}`} style={{ backgroundColor: role.color, padding: "5px 12px 5px 12px", width: "fit-content", borderRadius: "1000px" }} mr={1}>
+            <Typography variant="body6">{role.title}</Typography>
+          </Box>
+        ))}
       </Box>
 
       <Box display="flex" flexDirection="row" alignItems="center" justifyContent="flex-start" mt="auto">
@@ -194,8 +177,9 @@ const Team: NextPage = () => {
       <div>
         <Head>
           <title>Solvemed Team</title>
-          <meta property="og:title" content="Solvemed Team" key="title" />
-          <meta name="description" content="Solvemed Team Page" key="title" />
+          <meta property="og:title" content="Solvemed Team" />
+          <meta property="og:type" content="website" />
+          <meta name="description" content="Decoding neurology. In the blink of AI." />
         </Head>
       </div>
       <div>

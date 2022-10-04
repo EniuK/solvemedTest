@@ -20,6 +20,11 @@ const careers = [
         description: "Remote (preferred locations for the remote role: Boston, MA; London & Oxbridge, UK)",
         url: "/contact",
       },
+      {
+        title: "Senior Biostatistician",
+        description: "Remote (preferred locations for the remote role: Boston, MA; London & Oxbridge, UK)",
+        url: "/contact",
+      },
     ],
   },
   {
@@ -97,8 +102,9 @@ const Careers: NextPage = () => {
       <div>
         <Head>
           <title>Solvemed Careers</title>
-          <meta property="og:title" content="Solvemed Careers" key="title" />
-          <meta name="description" content="Solvemed Careers Page" key="title" />
+          <meta property="og:title" content="Solvemed Careers" />
+          <meta property="og:type" content="website" />
+          <meta name="description" content="Decoding neurology. In the blink of AI." />
         </Head>
       </div>
       <Grid container item xs={10} lg={8} columns={10} margin="auto" alignItems="center">
@@ -118,7 +124,7 @@ const Careers: NextPage = () => {
             Digital mapping of the human brain is an interdisciplinary challenge.
           </Typography>
           <Typography variant="body2" width={{ xs: "100%", sm: "70%", md: "50%" }} margin="auto">
-            We are looking to hire a wide range of people with diverse engineering, scientific, operations expertise.
+            We are looking to hire a wide range of people with diverse engineering, scientific, and operations expertise.
           </Typography>
 
           <div ref={parallax.ref}>

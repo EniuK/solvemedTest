@@ -20,8 +20,9 @@ const Applications: NextPage = () => {
       <div>
         <Head>
           <title>Solvemed Applications</title>
-          <meta property="og:title" content="Solvemed Applications" key="title" />
-          <meta name="description" content="Solvemed Applications Page" key="title" />
+          <meta property="og:title" content="Solvemed Applications" />
+          <meta property="og:type" content="website" />
+          <meta name="description" content="Decoding neurology. In the blink of AI." />
         </Head>
       </div>
       <Box>
@@ -72,7 +73,7 @@ const Applications: NextPage = () => {
               </Typography>
               <ul>
                 <li className={styles.listItemRow}>
-                  <Typography variant="body2">Replace expensive equipment with cost-effective camera-enabled tools.</Typography>
+                  <Typography variant="body2">Replace expensive equipment with cost-effective camera-enabled tools</Typography>
                 </li>
                 <li className={styles.listItemRow}>
                   <Typography variant="body2">Improve clinical decision-making with data analytics and visualisation platform</Typography>
@@ -114,7 +115,7 @@ const Applications: NextPage = () => {
                 Research community
               </Typography>
               <Typography variant="subtitle1" mb="60px">
-                Solvemed offers tailor-made research tools, including smartphone-based data capture devices and machine learning analytical capabilities.
+                Solvemed offers tailor-made research tools, including data capture devices and specialised machine learning capabilities.
               </Typography>
               <ul>
                 <li className={styles.listItemRow}>
@@ -139,7 +140,7 @@ const Applications: NextPage = () => {
               </Typography>
               <LinkMUI href="/contact" rel="noopener" className={styles.externalLinkContainer}>
                 <Button color="primary" variant="contained" size="large">
-                  Get early access to Solvemed medical devices
+                  Get early access to Solvemed’s medical devices
                 </Button>
               </LinkMUI>
             </Grid>

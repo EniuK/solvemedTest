@@ -10,8 +10,9 @@ const Home: NextPage = () => {
       <div>
         <Head>
           <title>Solvemed</title>
-          <meta property="og:title" content="Solvemed" key="title" />
-          <meta name="description" content="Solvemed main page" key="title" />
+          <meta property="og:title" content="Solvemed" />
+          <meta property="og:type" content="website" />
+          <meta name="description" content="Decoding neurology. In the blink of AI." />
         </Head>
       </div>
       <Box>

@@ -122,8 +122,9 @@ const Science: NextPage = () => {
       <div>
         <Head>
           <title>Solvemed Science</title>
-          <meta property="og:title" content="Solvemed Science" key="title" />
-          <meta name="description" content="Solvemed Science Page" key="title" />
+          <meta property="og:title" content="Solvemed Science" />
+          <meta property="og:type" content="website" />
+          <meta name="description" content="Decoding neurology. In the blink of AI." />
         </Head>
       </div>
       <Box textAlign="center">

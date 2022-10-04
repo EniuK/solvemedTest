@@ -15,15 +15,16 @@ export type TeamMember = {
   roles: { title: string; color: string }[];
   linkedinUrl: string | null;
   twitterUrl: string | null;
-  bio: { title: string; description: string };
+  bio?: { title: string; description: string };
   memberIndex?: number;
+  logos?: { id: string; image: string }[];
 };
 
 const team: TeamMember[] = [
   {
     name: "Hugo Chrost",
     position: "Chief Executive Officer, Co-founder",
-    photo: "/images/Hugo Chrost.png",
+    photo: "/images/HugoChrost.png",
     roles: [
       { title: "Leadership", color: "#ffeded" },
       { title: "Board member", color: "#F4EDFD" },
@@ -35,11 +36,15 @@ const team: TeamMember[] = [
       description:
         "Hugo is the founder & CEO of Solvemed Group which develops proprietary ocular biomarkers to revolutionise neurology care and drug development. He is also a Venture Partner at 500 Global. His passion for leadership and bridging science to business brings him to frequently shares his experience as a keynote speaker and guest lecturer at the University College London, University of Warsaw, and international conferences. Hugo is the founder & CEO of Solvemed Group which develops proprietary ocular biomarkers to revolutionise neurology care and drug development. He is also a Venture Partner at 500 Global. His passion for leadership and bridging science to business brings him to frequently shares his experience as a keynote speaker and guest lecturer at the University College London, University of Warsaw, and international conferences. Hugo is the founder & CEO of Solvemed Group which develops proprietary ocular biomarkers to revolutionise neurology care and drug development. He is also a Venture Partner at 500 Global. His passion for leadership and bridging science to business brings him to frequently shares his experience as a keynote speaker and guest lecturer at the University College London, University of Warsaw, and international conferences. Hugo is the founder & CEO of Solvemed Group which develops proprietary ocular biomarkers to revolutionise neurology care and drug development. He is also a Venture Partner at 500 Global. His passion for leadership and bridging science to business brings him to frequently shares his experience as a keynote speaker and guest lecturer at the University College London, University of Warsaw, and international conferences. Hugo is the founder & CEO of Solvemed Group which develops proprietary ocular biomarkers to revolutionise neurology care and drug development. He is also a Venture Partner at 500 Global. His passion for leadership and bridging science to business brings him to frequently shares his experience as a keynote speaker and guest lecturer at the University College London, University of Warsaw, and international conferences. Hugo is the founder & CEO of Solvemed Group which develops proprietary ocular biomarkers to revolutionise neurology care and drug development. He is also a Venture Partner at 500 Global. His passion for leadership and bridging science to business brings him to frequently shares his experience as a keynote speaker and guest lecturer at the University College London, University of Warsaw, and international conferences.",
     },
+    logos: [
+      { id: "university of cambridge, judge business school", image: "/images/logos/we_come_from/cambridge_judge_business_school.png" },
+      { id: "harvard ventures", image: "/images/logos/we_come_from/harvard_ventures.png" },
+    ],
   },
   {
     name: "Dr Michal Wlodarski",
     position: "Chief Operations Officer, Co-founder",
-    photo: "/images/Michaê Wlodarski.png",
+    photo: "/images/MichaeWlodarski.png",
     roles: [
       { title: "Leadership", color: "#ffeded" },
       { title: "Board member", color: "#F4EDFD" },
@@ -47,62 +52,53 @@ const team: TeamMember[] = [
     linkedinUrl: "https://www.linkedin.com/in/mwlodarski/",
     twitterUrl: null,
     bio: {
-      title: "Cambridge JBS, University Collage London, 500 Global, Harvard Ventures, Kairos Society",
+      title: "GlaxoSmithKline, NHS England, University of Cambridge, University College London, IE Business School",
       description:
-        "Hugo is the founder & CEO of Solvemed Group which develops proprietary ocular biomarkers to revolutionise neurology care and drug development. He is also a Venture Partner at 500 Global. His passion for leadership and bridging science to business brings him to frequently shares his experience as a keynote speaker and guest lecturer at the University College London, University of Warsaw, and international conferences.",
+        "Michal is a Co-founder & Chief Operating Officer at Solvemed, where he leads specialised world-class teams to bring cutting-edge digital products into clinical care and neuroscience research. Trained as a scientist, with a PhD in biological sciences from the University of Cambridge, his decade-long career in healthcare and life sciences has included research and commercial posts at GlaxoSmithKline, National Health Service England, among others. As an Honorary Lecturer at the University College London’s Institute of Ophthalmology and the School of Management, he trains Masters-level students in healthcare technology innovation. More recently, he has been appointed as an Adj. Professor at the IE Business School in Madrid, where he shares his experience in entrepreneurship and emerging technologies to help raise next generations of venture builders. Michal is passionate about patient-centric care and drug development innovation, and frequently shares his perspectives as a speaker at international conferences.",
     },
+    logos: [
+      { id: "glaxo smith kline", image: "/images/logos/we_come_from/glaxo_smith_kline.png" },
+      {
+        id: "university of cambridge",
+        image: "/images/logos/we_come_from/university_of_cambridge.png",
+      },
+      {
+        id: "imperial college london",
+        image: "/images/logos/we_come_from/imperial_college_london.png",
+      },
+    ],
   },
   {
     name: "Marcin Zukowski",
     position: "Board Member, Co-founder at Snowflake",
-    photo: "/images/Marcin Zukowski.png",
+    photo: "/images/MarcinZukowski.png",
     roles: [{ title: "Board member", color: "#F4EDFD" }],
     linkedinUrl: null,
     twitterUrl: null,
-    bio: {
-      title: "Cambridge JBS, University Collage London, 500 Global, Harvard Ventures, Kairos Society",
-      description:
-        "Hugo is the founder & CEO of Solvemed Group which develops proprietary ocular biomarkers to revolutionise neurology care and drug development. He is also a Venture Partner at 500 Global. His passion for leadership and bridging science to business brings him to frequently shares his experience as a keynote speaker and guest lecturer at the University College London, University of Warsaw, and international conferences.",
-    },
   },
   {
     name: "Wojtek Walniczek",
     position: "Board Member, Investment Director at OTB Ventures",
-    photo: "/images/Wojtek Walniczek.png",
+    photo: "/images/WojtekWalniczek.png",
     roles: [{ title: "Board member", color: "#F4EDFD" }],
     linkedinUrl: "https://www.linkedin.com/in/wojtekwalniczek/",
     twitterUrl: null,
-    bio: {
-      title: "Cambridge JBS, University Collage London, 500 Global, Harvard Ventures, Kairos Society",
-      description:
-        "Hugo is the founder & CEO of Solvemed Group which develops proprietary ocular biomarkers to revolutionise neurology care and drug development. He is also a Venture Partner at 500 Global. His passion for leadership and bridging science to business brings him to frequently shares his experience as a keynote speaker and guest lecturer at the University College London, University of Warsaw, and international conferences.",
-    },
   },
   {
     name: "Dr Marcus Erken",
     position: "Board Member, Founding Partner",
-    photo: "/images/Dr Marcus Erken.png",
+    photo: "/images/DrMarcusErken.png",
     roles: [{ title: "Board member", color: "#F4EDFD" }],
     linkedinUrl: "https://www.linkedin.com/in/erken/",
     twitterUrl: null,
-    bio: {
-      title: "Cambridge JBS, University Collage London, 500 Global, Harvard Ventures, Kairos Society",
-      description:
-        "Hugo is the founder & CEO of Solvemed Group which develops proprietary ocular biomarkers to revolutionise neurology care and drug development. He is also a Venture Partner at 500 Global. His passion for leadership and bridging science to business brings him to frequently shares his experience as a keynote speaker and guest lecturer at the University College London, University of Warsaw, and international conferences.",
-    },
   },
   {
     name: "Dominik Andrzejczuk",
     position: "Board Member, Managing Partner",
-    photo: "/images/Dominik Andrzejczuk.png",
+    photo: "/images/DominikAndrzejczuk.png",
     roles: [{ title: "Board member", color: "#F4EDFD" }],
     linkedinUrl: "https://www.linkedin.com/in/dominikand/",
     twitterUrl: null,
-    bio: {
-      title: "Cambridge JBS, University Collage London, 500 Global, Harvard Ventures, Kairos Society",
-      description:
-        "Hugo is the founder & CEO of Solvemed Group which develops proprietary ocular biomarkers to revolutionise neurology care and drug development. He is also a Venture Partner at 500 Global. His passion for leadership and bridging science to business brings him to frequently shares his experience as a keynote speaker and guest lecturer at the University College London, University of Warsaw, and international conferences.",
-    },
   },
 ];
 
@@ -118,38 +114,49 @@ const investors = [
 ];
 
 const weComeFrom = [
-  { id: "harvard university", image: "/images/logos/we come from/harvard_university.png", width: "126.37px", height: "29.49px" },
-  { id: "university of cambridge", image: "/images/logos/we come from/university_of_cambridge.png", width: "113.73px", height: "23.17px" },
-  { id: "imperial college london", image: "/images/logos/we come from/imperial_college_london.png", width: "107.41px", height: "27.38px" },
-  { id: "ucl", image: "/images/logos/we come from/ucl.png", width: "107.41px", height: "31.59px" },
-  { id: "stanford university", image: "/images/logos/we come from/stanford_university.png", width: "103.2px", height: "33.7px" },
-  { id: "snowflake", image: "/images/logos/we come from/snowflake.png", width: "136px", height: "53px" },
-  { id: "nasa", image: "/images/logos/we come from/nasa.png", width: "94.78px", height: "27.38px" },
-  { id: "glaxo smith kline", image: "/images/logos/we come from/glaxo_smith_kline.png", width: "113.73px", height: "40.02px" },
-  { id: "nference", image: "/images/logos/we come from/nference.png", width: "109.04px", height: "28.82px" },
-  { id: "mit", image: "/images/logos/we come from/mit.png", width: "75px", height: "40px" },
-  { id: "oxford", image: "/images/logos/we come from/oxford.png", width: "140px", height: "40px" },
-  { id: "nvidia", image: "/images/logos/we come from/nvidia.png", width: "134.04px", height: "34px" },
-  { id: "mckinsey company", image: "/images/logos/we come from/mckinsey_company.png", width: "114px", height: "35px" },
-  { id: "owkin", image: "/images/logos/we come from/owkin.png", width: "120.05px", height: "37.91px" },
-  { id: "viz ai", image: "/images/logos/we come from/viz_ai.png", width: "74px", height: "38px" },
-  { id: "huawei", image: "/images/logos/we come from/huawei.png", width: "107px", height: "37px" },
-  { id: "quest diagnostic", image: "/images/logos/we come from/quest_diagnostic.png", width: "116px", height: "40px" },
-  { id: "500", image: "/images/logos/we come from/500.png", width: "105px", height: "51px" },
-  { id: "icon", image: "/images/logos/we come from/icon.png", width: "117px", height: "59px" },
-  { id: "the university of hong kong", image: "/images/logos/we come from/the_university_of_hong_kong.png", width: "155px", height: "30px" },
-  { id: "google", image: "/images/logos/we come from/google.png", width: "112px", height: "38px" },
-  { id: "cerebras", image: "/images/logos/we come from/cerebras.png", width: "114.44px", height: "45px" },
-  { id: "microsoft", image: "/images/logos/we come from/microsoft.png", width: "129px", height: "27px" },
-  { id: "jonhson & johnson", image: "/images/logos/we come from/johnson_johnson.png", width: "140px", height: "25.32px" },
-  { id: "novartis", image: "/images/logos/we come from/novartis.png", width: "146px", height: "23.94px" },
+  { id: "harvard university", image: "/images/logos/we_come_from/harvard_university.png", width: "126.37px", height: "29.49px" },
+  { id: "university of cambridge", image: "/images/logos/we_come_from/university_of_cambridge.png", width: "113.73px", height: "23.17px" },
+  { id: "imperial college london", image: "/images/logos/we_come_from/imperial_college_london.png", width: "107.41px", height: "27.38px" },
+  { id: "ucl", image: "/images/logos/we_come_from/ucl.png", width: "107.41px", height: "31.59px" },
+  { id: "stanford university", image: "/images/logos/we_come_from/stanford_university.png", width: "103.2px", height: "33.7px" },
+  { id: "snowflake", image: "/images/logos/we_come_from/snowflake.png", width: "136px", height: "53px" },
+  { id: "nasa", image: "/images/logos/we_come_from/nasa.png", width: "94.78px", height: "27.38px" },
+  { id: "glaxo smith kline", image: "/images/logos/we_come_from/glaxo_smith_kline.png", width: "113.73px", height: "40.02px" },
+  { id: "nference", image: "/images/logos/we_come_from/nference.png", width: "109.04px", height: "28.82px" },
+  { id: "mit", image: "/images/logos/we_come_from/mit.png", width: "75px", height: "40px" },
+  { id: "oxford", image: "/images/logos/we_come_from/oxford.png", width: "140px", height: "40px" },
+  { id: "nvidia", image: "/images/logos/we_come_from/nvidia.png", width: "134.04px", height: "34px" },
+  { id: "mckinsey company", image: "/images/logos/we_come_from/mckinsey_company.png", width: "114px", height: "35px" },
+  { id: "owkin", image: "/images/logos/we_come_from/owkin.png", width: "120.05px", height: "37.91px" },
+  { id: "viz ai", image: "/images/logos/we_come_from/viz_ai.png", width: "74px", height: "38px" },
+  { id: "huawei", image: "/images/logos/we_come_from/huawei.png", width: "107px", height: "37px" },
+  { id: "quest diagnostic", image: "/images/logos/we_come_from/quest_diagnostic.png", width: "116px", height: "40px" },
+  { id: "500", image: "/images/logos/we_come_from/500.png", width: "105px", height: "51px" },
+  { id: "icon", image: "/images/logos/we_come_from/icon.png", width: "117px", height: "59px" },
+  { id: "the university of hong kong", image: "/images/logos/we_come_from/the_university_of_hong_kong.png", width: "155px", height: "30px" },
+  { id: "google", image: "/images/logos/we_come_from/google.png", width: "112px", height: "38px" },
+  { id: "cerebras", image: "/images/logos/we_come_from/cerebras.png", width: "114.44px", height: "45px" },
+  { id: "microsoft", image: "/images/logos/we_come_from/microsoft.png", width: "129px", height: "27px" },
+  { id: "jonhson & johnson", image: "/images/logos/we_come_from/johnson_johnson.png", width: "140px", height: "25.32px" },
+  { id: "novartis", image: "/images/logos/we_come_from/novartis.png", width: "146px", height: "23.94px" },
 ];
 const Team: NextPage = () => {
   const parallax = useParallax<HTMLDivElement>({ speed: -20 });
   const [memberDetails, setMemberDetails] = useState<TeamMember | null>(null);
 
   const MemberListItem = ({ member }: { member: TeamMember }) => (
-    <Box bgcolor="#fff" borderRadius="12px" height={452} maxWidth={328} marginX="auto" display="flex" flexDirection="column" p="60px 30px 30px 50px">
+    <Box
+      onClick={() => member?.bio && setMemberDetails(member)}
+      style={{ cursor: member?.bio ? "pointer" : "default" }}
+      bgcolor="#fff"
+      borderRadius="12px"
+      height={452}
+      maxWidth={328}
+      marginX="auto"
+      display="flex"
+      flexDirection="column"
+      p="60px 30px 30px 50px"
+    >
       <Box style={{ width: 120, height: 120, borderRadius: 60, backgroundColor: "#F0F6FA", position: "relative" }}>
         <Image style={{ borderRadius: 60 }} src={member.photo} layout="fill" alt={member.name} />
       </Box>
@@ -342,7 +349,7 @@ const Team: NextPage = () => {
           </Grid>
         </Box>
 
-        {!!memberDetails && <TeamMemberModal isOpen={!!memberDetails} onClose={() => setMemberDetails(null)} member={memberDetails} members={team} />}
+        {!!memberDetails && <TeamMemberModal isOpen={!!memberDetails} onClose={() => setMemberDetails(null)} member={memberDetails} members={team.filter((item) => item?.bio)} />}
       </div>
     </>
   );

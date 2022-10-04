@@ -2,7 +2,6 @@ import { Box, Button, Grid, TextField, Typography } from "@mui/material";
 import { Form, Formik } from "formik";
 import { NextPage } from "next";
 import Head from "next/head";
-import { useState } from "react";
 import { contactSchema, emailFailStatus } from "../utils/helpers";
 import styles from "./contact.module.css";
 
@@ -12,7 +11,6 @@ const initialValues = {
   message: "",
 };
 const Contact: NextPage<any> = () => {
-
   return (
     <>
       <div>
@@ -20,7 +18,10 @@ const Contact: NextPage<any> = () => {
           <title>Solvemed Contact</title>
           <meta property="og:title" content="Solvemed Contact" />
           <meta property="og:type" content="website" />
-          <meta name="description" content="Decoding neurology. In the blink of AI. Solvemed is a VC-backed Neuroscience AI company working to redefine neurology care and drug development. With neurodegenerative diseases (dementias) as the primary focus area, Solvemed leverages its proprietary machine learning technology to develop first-in-class digital biomarkers to support development of neurological drugs and establish affordable clinical examination and remote monitoring tools." />
+          <meta
+            name="description"
+            content="Decoding neurology. In the blink of AI. Solvemed is a VC-backed Neuroscience AI company working to redefine neurology care and drug development. With neurodegenerative diseases (dementias) as the primary focus area, Solvemed leverages its proprietary machine learning technology to develop first-in-class digital biomarkers to support development of neurological drugs and establish affordable clinical examination and remote monitoring tools."
+          />
         </Head>
       </div>
       <Box textAlign="center">
@@ -39,13 +40,8 @@ const Contact: NextPage<any> = () => {
           We are always on a look out of people with diverse engineering, scientific, and operations expertise.
         </Typography>
 
-        <Formik
-          initialValues={initialValues}
-          validationSchema={contactSchema}
-          onSubmit={() => console.log()}
-        >
+        <Formik initialValues={initialValues} validationSchema={contactSchema} onSubmit={() => console.log()}>
           {({ errors, touched, isSubmitting, values, handleChange }) => {
-            console.log(errors);
             return (
               <Form>
                 <Box>
@@ -60,6 +56,7 @@ const Contact: NextPage<any> = () => {
                       error={touched.name && Boolean(errors.name)}
                       helperText={touched.name && Boolean(errors.name) && <Typography variant="h6">Please fill in your name</Typography>}
                       style={{ width: "60%", margin: "20px 0" }}
+                      InputProps={{ classes: { input: styles.input } }}
                     />
                   </Grid>
                   <Grid item xs={12}>
@@ -81,6 +78,7 @@ const Contact: NextPage<any> = () => {
                         ))
                       }
                       style={{ width: "60%", margin: "20px 0" }}
+                      InputProps={{ classes: { input: styles.input } }}
                     />
                   </Grid>
                   <Grid item xs={12}>
@@ -94,17 +92,18 @@ const Contact: NextPage<any> = () => {
                       error={touched.message && Boolean(errors.message)}
                       helperText={touched.message && Boolean(errors.message) && <Typography variant="h6">Please fill in your message</Typography>}
                       style={{ width: "60%", margin: "200px 0 20px" }}
+                      InputProps={{ classes: { input: styles.input } }}
                     />
                   </Grid>
-                  {Object.keys(errors).length === 0 ? (
-                    <Button color="primary" variant="contained" size="large" disabled={isSubmitting} style={{ margin: "20px 0", height: "54px", width: "194px" }}>
-                      <a href={`mailto:contact@solvemed.ai?subject=${values.name}&body=From:${values.email} ${values.message}`}>Send Message!</a>
-                    </Button>
-                  ) : (
-                    <Button color="primary" variant="contained" size="large" disabled={isSubmitting} style={{ margin: "20px 0", height: "54px", width: "194px" }}>
-                      Send Message
-                    </Button>
-                  )}
+                  <Button color="primary" variant="contained" size="large" disabled={isSubmitting} style={{ margin: "20px 0", height: "54px", width: "194px" }}>
+                    {Object.keys(errors).length === 0 ? (
+                      <a href={`mailto:contact@solvemed.ai?subject=${values.name}&body=From:${values.email} ${values.message}`} className={styles.sendBtnText}>
+                        Send Message!
+                      </a>
+                    ) : (
+                      "Send Message"
+                    )}
+                  </Button>
                 </Box>
               </Form>
             );

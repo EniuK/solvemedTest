@@ -63,7 +63,7 @@
   text-decoration: none;
 }
 
-.logoIconWrapper {
+.logoWrapper {
   width: 92px;
   height: 36px;
   background-color: #fff;
@@ -75,6 +75,10 @@
   padding: 8px;
   margin-bottom: 60px;
   margin-right: 10px;
+}
+
+.logo {
+  width: 100%;
 }
 
 .slider {

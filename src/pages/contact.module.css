@@ -14,3 +14,12 @@
   right: 0;
   z-index: -1;
 }
+
+.sendBtnText {
+  font-family: "SuisseIntl";
+  font-weight: 600;
+}
+
+.input {
+  font-size: 18px;
+}

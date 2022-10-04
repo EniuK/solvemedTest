@@ -223,6 +223,7 @@ export const theme = createTheme({
       styleOverrides: {
         root: {
           borderRadius: "100px",
+          fontFamily: "SuisseIntl",
         },
         contained: {
           backgroundColor: "#5242EE",

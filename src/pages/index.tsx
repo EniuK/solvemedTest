@@ -12,7 +12,10 @@ const Home: NextPage = () => {
           <title>Solvemed</title>
           <meta property="og:title" content="Solvemed" />
           <meta property="og:type" content="website" />
-          <meta name="description" content="Decoding neurology. In the blink of AI. Solvemed is a VC-backed Neuroscience AI company working to redefine neurology care and drug development. With neurodegenerative diseases (dementias) as the primary focus area, Solvemed leverages its proprietary machine learning technology to develop first-in-class digital biomarkers to support development of neurological drugs and establish affordable clinical examination and remote monitoring tools." />
+          <meta
+            name="description"
+            content="Decoding neurology. In the blink of AI. Solvemed is a VC-backed Neuroscience AI company working to redefine neurology care and drug development. With neurodegenerative diseases (dementias) as the primary focus area, Solvemed leverages its proprietary machine learning technology to develop first-in-class digital biomarkers to support development of neurological drugs and establish affordable clinical examination and remote monitoring tools."
+          />
         </Head>
       </div>
       <Box>
@@ -30,10 +33,11 @@ const Home: NextPage = () => {
 
         <Box width={{ xs: "100%", sm: "80%", md: "50%" }} margin="auto">
           <Typography variant="subtitle1" mb={5}>
-            Solvemed&apos;s health evaluation tools are designed to complement existing assessments by making patient data collection easier and more frequent.
+            Solvemed&apos;s health evaluation tools are designed to complement existing assessments by making the patient data more precise and objective, and the data collection
+            easier and more frequent.
           </Typography>
           <Typography variant="subtitle1">
-            They also improve the quality of care by empowering and connecting patients, clinicians, and researchers and outside of clinical settings.
+            They also improve the quality of neurological care by empowering and connecting patients, clinicians, and researchers inside and outside of clinical settings.
           </Typography>
         </Box>
 
@@ -62,7 +66,7 @@ const Home: NextPage = () => {
 
         <Box display="flex" flexDirection={{ xs: "column", sm: "row" }} width={{ xs: "100%", md: "80%" }} margin="auto">
           <Typography variant="body1" mr={{ xs: 0, md: 3 }} mb={{ xs: 3, md: 0 }}>
-          Assessment of the eye can provide important information to the clinician about the patient’s ophthalmological and neurological health.
+            Assessment of the eye can provide important information to the clinician about the patient’s ophthalmological and neurological health.
           </Typography>
           <Typography variant="body1">However, up till now precise ocular measurements have required specialist equipment not available to most clinicians.</Typography>
         </Box>
@@ -74,7 +78,8 @@ const Home: NextPage = () => {
             Our Research and Development
           </Typography>
           <Typography variant="body1" width={{ xs: "100%", md: "50%" }} mx="auto" mb={4} color="primary.light">
-            We are constantly developing our internal Research and Development capabilities leveraging the synergy between AI, neuroscience, and optical physics, to build a unique portfolio of health evaluation tools for some of the most challenging neurological disorders.
+            We are constantly developing our internal Research and Development capabilities leveraging the synergy between AI, neuroscience, and optical physics, to build a unique
+            portfolio of health evaluation tools for some of the most challenging neurological disorders.
           </Typography>
 
           <Link href="/science">

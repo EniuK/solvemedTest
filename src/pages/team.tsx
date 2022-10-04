@@ -83,7 +83,7 @@ const team: TeamMember[] = [
   },
   {
     name: "Dr Marcus Erken",
-    position: "Founding Partner",
+    position: "Board Member, Founding Partner",
     photo: "/images/Dr Marcus Erken.png",
     roles: [
       { title: "Board member", color: "#F4EDFD" },
@@ -98,7 +98,7 @@ const team: TeamMember[] = [
   },
   {
     name: "Dominik Andrzejczuk",
-    position: "Managing Partner",
+    position: "Board Member, Managing Partner",
     photo: "/images/Dominik Andrzejczuk.png",
     roles: [
       { title: "Board member", color: "#F4EDFD" },

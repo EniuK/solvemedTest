@@ -55,9 +55,7 @@ const team: TeamMember[] = [
     name: "Marcin Zukowski",
     position: "Board Member, Co-founder at Snowflake",
     photo: "/images/Marcin Zukowski.png",
-    roles: [
-      { title: "Board member", color: "#F4EDFD" },
-    ],
+    roles: [{ title: "Board member", color: "#F4EDFD" }],
     linkedinUrl: null,
     twitterUrl: null,
     bio: {
@@ -70,9 +68,7 @@ const team: TeamMember[] = [
     name: "Wojtek Walniczek",
     position: "Board Member, Investment Director at OTB Ventures",
     photo: "/images/Wojtek Walniczek.png",
-    roles: [
-      { title: "Board member", color: "#F4EDFD" },
-    ],
+    roles: [{ title: "Board member", color: "#F4EDFD" }],
     linkedinUrl: "https://www.linkedin.com/in/wojtekwalniczek/",
     twitterUrl: null,
     bio: {
@@ -85,9 +81,7 @@ const team: TeamMember[] = [
     name: "Dr Marcus Erken",
     position: "Board Member, Founding Partner",
     photo: "/images/Dr Marcus Erken.png",
-    roles: [
-      { title: "Board member", color: "#F4EDFD" },
-    ],
+    roles: [{ title: "Board member", color: "#F4EDFD" }],
     linkedinUrl: "https://www.linkedin.com/in/erken/",
     twitterUrl: null,
     bio: {
@@ -100,9 +94,7 @@ const team: TeamMember[] = [
     name: "Dominik Andrzejczuk",
     position: "Board Member, Managing Partner",
     photo: "/images/Dominik Andrzejczuk.png",
-    roles: [
-      { title: "Board member", color: "#F4EDFD" },
-    ],
+    roles: [{ title: "Board member", color: "#F4EDFD" }],
     linkedinUrl: "https://www.linkedin.com/in/dominikand/",
     twitterUrl: null,
     bio: {
@@ -179,7 +171,10 @@ const Team: NextPage = () => {
           <title>Solvemed Team</title>
           <meta property="og:title" content="Solvemed Team" />
           <meta property="og:type" content="website" />
-          <meta name="description" content="Decoding neurology. In the blink of AI. Solvemed is a VC-backed Neuroscience AI company working to redefine neurology care and drug development. With neurodegenerative diseases (dementias) as the primary focus area, Solvemed leverages its proprietary machine learning technology to develop first-in-class digital biomarkers to support development of neurological drugs and establish affordable clinical examination and remote monitoring tools." />
+          <meta
+            name="description"
+            content="Decoding neurology. In the blink of AI. Solvemed is a VC-backed Neuroscience AI company working to redefine neurology care and drug development. With neurodegenerative diseases (dementias) as the primary focus area, Solvemed leverages its proprietary machine learning technology to develop first-in-class digital biomarkers to support development of neurological drugs and establish affordable clinical examination and remote monitoring tools."
+          />
         </Head>
       </div>
       <div>
@@ -198,62 +193,17 @@ const Team: NextPage = () => {
           </picture>
 
           {team.map((member, idx) => (
-            <Grid item xs={12} sm={6} md={4} lg={3} key={idx}>
+            <Grid item xs={12} sm={6} md={4} lg={3} key={idx} zIndex={1}>
               <MemberListItem member={{ ...member, memberIndex: idx }} />
             </Grid>
           ))}
 
-          <Grid item xs={12} sm={6} md={4} lg={3} mt={{ xs: 2, sm: 0 }} display="flex" justifyContent="center" flexDirection="column">
+          <Grid item xs={12} sm={6} md={4} lg={3} mt={{ xs: 2, sm: 0 }} display="flex" justifyContent="center" flexDirection="column" zIndex={1}>
             <Typography variant="body1" textAlign="center">
               and many more...
             </Typography>
           </Grid>
         </Grid>
-
-        <Typography variant="subtitle1" mb="30px" textAlign="center">
-          We come from
-        </Typography>
-
-        <Typography variant="body1" mb="60px" width={{ xs: "100%", md: "40%" }} mx="auto" textAlign="center">
-          Our team members bring wealth of experience from the world’s most innovative institutions and companies.
-        </Typography>
-
-        <Grid container alignItems="center" justifyContent="space-evenly" mb="169px" spacing={2}>
-          <Grid item>
-            <Image src="/icons/harvard-logo.svg" alt="harvard" width="126" height="30" />
-          </Grid>
-          <Grid item>
-            <Image src="/icons/cambridge-logo.svg" alt="cambridge" width="113" height="23" />
-          </Grid>
-          <Grid item>
-            <Image src="/icons/imperial-college-logo.svg" alt="imperial college" width="107" height="27" />
-          </Grid>
-          <Grid item>
-            <Image src="/icons/ucl-logo.svg" alt="ucl" width="107" height="41" />
-          </Grid>
-          <Grid item>
-            <Image src="/icons/stanford-logo.svg" alt="stanford" width="103" height="33" />
-          </Grid>
-        </Grid>
-
-        <Box position="relative">
-          <picture>
-            <source srcSet="/images/pink3.svg" type="image/svg+xml" />
-            <img src="/images/pink3.svg" alt="Background pink" className={styles.bg2} />
-          </picture>
-
-          <Typography variant="subtitle3" textAlign="center" mb="60px">
-            Solvemed investors
-          </Typography>
-
-          <Grid container justifyContent="space-evenly" position="relative" spacing={2}>
-            {investors.map((investor) => (
-              <Grid item key={investor.id}>
-                <Image src={investor.image} alt={investor.id} width="129px" height="77px" />
-              </Grid>
-            ))}
-          </Grid>
-        </Box>
 
         <Grid container justifyContent="flex-end" mt="190px" position="relative">
           <Grid item xs={12} md={6} position="relative">
@@ -276,7 +226,7 @@ const Team: NextPage = () => {
           </Grid>
 
           <Grid item container xs={12} md={6} marginTop={{ xs: 16, md: 0 }}>
-            <Grid item xs={12}>
+            <Grid item xs={12} zIndex={1}>
               <Typography variant="body1" fontWeight="600" mb="60px">
                 About Solvemed
               </Typography>
@@ -324,6 +274,51 @@ const Team: NextPage = () => {
             </Grid>
           </Grid>
         </Grid>
+
+        <Typography variant="subtitle1" mb="30px" textAlign="center" mt="190px">
+          We come from
+        </Typography>
+
+        <Typography variant="body1" mb="60px" width={{ xs: "100%", md: "40%" }} mx="auto" textAlign="center">
+          Our team members bring wealth of experience from the world’s most innovative institutions and companies.
+        </Typography>
+
+        <Grid container alignItems="center" justifyContent="space-evenly" mb="169px" spacing={2}>
+          <Grid item>
+            <Image src="/icons/harvard-logo.svg" alt="harvard" width="126" height="30" />
+          </Grid>
+          <Grid item>
+            <Image src="/icons/cambridge-logo.svg" alt="cambridge" width="113" height="23" />
+          </Grid>
+          <Grid item>
+            <Image src="/icons/imperial-college-logo.svg" alt="imperial college" width="107" height="27" />
+          </Grid>
+          <Grid item>
+            <Image src="/icons/ucl-logo.svg" alt="ucl" width="107" height="41" />
+          </Grid>
+          <Grid item>
+            <Image src="/icons/stanford-logo.svg" alt="stanford" width="103" height="33" />
+          </Grid>
+        </Grid>
+
+        <Box position="relative">
+          <picture>
+            <source srcSet="/images/pink3.svg" type="image/svg+xml" />
+            <img src="/images/pink3.svg" alt="Background pink" className={styles.bg2} />
+          </picture>
+
+          <Typography variant="subtitle3" textAlign="center" mb="60px">
+            Solvemed investors
+          </Typography>
+
+          <Grid container justifyContent="space-evenly" position="relative" spacing={2}>
+            {investors.map((investor) => (
+              <Grid item key={investor.id}>
+                <Image src={investor.image} alt={investor.id} width="129px" height="77px" />
+              </Grid>
+            ))}
+          </Grid>
+        </Box>
 
         {!!memberDetails && <TeamMemberModal isOpen={!!memberDetails} onClose={() => setMemberDetails(null)} member={memberDetails} members={team} />}
       </div>

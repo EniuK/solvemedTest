@@ -39,7 +39,7 @@ const Footer = () => (
     </Box>
     <Grid container mt={32} mb={13} justifyContent="space-between" columnSpacing={2} rowSpacing={8}>
       {contactData.map((item, idx) => (
-        <Grid key={idx} item xs={12} sm={6} lg={2.5}>
+        <Grid key={idx} item xs={12} sm={6} lg={2.5} style={{ margin: "0 auto" }}>
           <Typography variant="subtitle2" color="primary" mb={7.5}>
             {item.city}
           </Typography>

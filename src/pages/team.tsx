@@ -2,6 +2,7 @@ import { Box, Grid, Link, Typography } from "@mui/material";
 import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
+import React from "react";
 import { useState } from "react";
 import { useParallax } from "react-scroll-parallax";
 import TeamMemberModal from "../components/TeamMemberModal/TeamMemberModal";
@@ -310,10 +311,10 @@ const Team: NextPage = () => {
           Our team members bring wealth of experience from the world’s most innovative institutions and companies.
         </Typography>
 
-        <Grid container justifyContent="space-between" alignItems="center" xs={12} spacing={12}>
-          {weComeFrom.map((item) => (
-            <Grid item key={item.id} position="relative" xs={2.4}>
-              <Box marginBottom={-5} marginRight={2} marginLeft={2}>
+        <Grid container direction="row" justifyContent="space-between" alignItems="baseline" rowSpacing={{ md: 8, sm: 8, xs: 6 }} columns={{ md: 5, sm: 4, xs: 2 }}>
+          {weComeFrom.map((item, idx) => (
+            <Grid item key={item.id} alignSelf="center" justifyContent="center" md={1} xs={1} sm={1}>
+              <Box display="flex" justifyContent="center" alignItems="center">
                 <Image src={item.image} alt={item.id} width={item.width} height={item.height} layout="fixed" objectFit="scale-down" />
               </Box>
             </Grid>
@@ -330,11 +331,11 @@ const Team: NextPage = () => {
             Solvemed investors
           </Typography>
 
-          <Grid container justifyContent="space-between" alignItems="center" xs={12} style={{ margin: "0 auto" }}>
+          <Grid container justifyContent="space-between" alignItems="center" rowSpacing={{ md: 8, sm: 8, xs: 6 }} columns={{ md: 8, sm: 4, xs: 2 }}>
             {investors.map((item) => (
-              <Grid item key={item.id} position="relative" xs={1.5}>
-                <Box marginBottom={0}>
-                  <Image src={item.image} alt={item.id} width={item.width} height={item.height} layout="fixed" objectFit="scale-down" />
+              <Grid item key={item.id} md={1} xs={1} sm={1}>
+                <Box marginBottom={0} display="flex" justifyContent="center" alignItems="center">
+                  <Image src={item.image} alt={item.id} width={item.width} height={item.height} objectFit="contain" />
                 </Box>
               </Grid>
             ))}

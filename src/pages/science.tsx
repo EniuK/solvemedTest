@@ -11,14 +11,14 @@ import { ParallaxProps } from "react-scroll-parallax/dist/components/Parallax/ty
 import Head from "next/head";
 
 const collaborators = [
-  { name: "kings college hospital", icon: "/images/logos/collaborations/kings_college_hospital_nhs.png" },
-  { name: "university-college-london-hospitals", icon: "/images/logos/collaborations/nhs_foundation_trust.png" },
-  { name: "barts health", icon: "/images/logos/collaborations/nhs_trust.png" },
-  { name: "hope", icon: "/images/logos/collaborations/hope.png" },
-  { name: "oftalmika", icon: "/images/logos/collaborations/oftalmika.png" },
-  { name: "oxford hospitals", icon: "/images/logos/collaborations/oxford_univeristy_hospitals.png" },
-  { name: "queen mary", icon: "/images/logos/collaborations/queen_mary.png" },
-  { name: "loughborough", icon: "/images/logos/collaborations/loughborough_university.png" },
+  { name: "kings college hospital", icon: "/images/logos/collaborations/kings_college_hospital_nhs.png", width: "240px", height: "96px" },
+  { name: "university-college-london-hospitals", icon: "/images/logos/collaborations/nhs_foundation_trust.png", width: "257.89px", height: "68.77px" },
+  { name: "barts health", icon: "/images/logos/collaborations/nhs_trust.png", width: "147.22px", height: "86.93px" },
+  { name: "hope", icon: "/images/logos/collaborations/hope.png", width: "154.73px", height: "133.24px" },
+  { name: "oftalmika", icon: "/images/logos/collaborations/oftalmika.png", width: "176px", height: "120px" },
+  { name: "oxford hospitals", icon: "/images/logos/collaborations/oxford_univeristy_hospitals.png", width: "302px", height: "94px" },
+  { name: "queen mary", icon: "/images/logos/collaborations/queen_mary.png", width: "212px", height: "56px" },
+  { name: "loughborough", icon: "/images/logos/collaborations/loughborough_university.png", width: "256px", height: "82px" },
 ];
 
 const selectedLiterature = [
@@ -363,10 +363,10 @@ const Science: NextPage = () => {
           and industrial life science organisations.
         </Typography>
 
-        <Grid container justifyContent="space-between" xs={12} spacing={26} style={{ margin: "0 auto" }}>
+        <Grid container justifyContent="space-between" xs={12} spacing={13} style={{ margin: "0 auto" }}>
           {collaborators.map((item) => (
             <Grid item key={item.name} position="relative">
-              <Box height={20} width={80} marginBottom={2}>
+              <Box width={item.width} height={item.height} marginBottom={2}>
                 <Image src={item.icon} alt={item.name} layout="fill" objectFit="scale-down" />
               </Box>
             </Grid>
@@ -387,7 +387,7 @@ const Science: NextPage = () => {
             {selectedLiterature.map((item) => (
               <Box key={item.id} maxWidth="90%">
                 <Stack justifyContent="space-between" spacing={2} height="378px" p="16px" borderRadius="24px" bgcolor="#fff">
-                  <Typography mt={4} variant="body6Wide">
+                  <Typography mt={2} variant="body6Wide">
                     {item.source}
                   </Typography>
                   <Typography fontSize={{ xs: 16, lg: 23 }} fontWeight="500" letterSpacing="-0.02em" lineHeight="25.3px">

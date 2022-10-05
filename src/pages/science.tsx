@@ -226,7 +226,10 @@ const Science: NextPage = () => {
           <title>Solvemed Science</title>
           <meta property="og:title" content="Solvemed Science" />
           <meta property="og:type" content="website" />
-          <meta name="description" content="Decoding neurology. In the blink of AI. Solvemed is a VC-backed Neuroscience AI company working to redefine neurology care and drug development. With neurodegenerative diseases (dementias) as the primary focus area, Solvemed leverages its proprietary machine learning technology to develop first-in-class digital biomarkers to support development of neurological drugs and establish affordable clinical examination and remote monitoring tools." />
+          <meta
+            name="description"
+            content="Decoding neurology. In the blink of AI. Solvemed is a VC-backed Neuroscience AI company working to redefine neurology care and drug development. With neurodegenerative diseases (dementias) as the primary focus area, Solvemed leverages its proprietary machine learning technology to develop first-in-class digital biomarkers to support development of neurological drugs and establish affordable clinical examination and remote monitoring tools."
+          />
         </Head>
       </div>
       <Box textAlign="center">
@@ -384,8 +387,10 @@ const Science: NextPage = () => {
             {selectedLiterature.map((item) => (
               <Box key={item.id} maxWidth="90%">
                 <Stack justifyContent="space-between" spacing={2} height="378px" p="16px" borderRadius="24px" bgcolor="#fff">
-                  <Typography variant="body6Wide">{item.source}</Typography>
-                  <Typography fontSize={{ xs: 16, lg: 23 }} fontWeight="300" letterSpacing="-0.02em" lineHeight="25.3px">
+                  <Typography mt={4} variant="body6Wide">
+                    {item.source}
+                  </Typography>
+                  <Typography fontSize={{ xs: 16, lg: 23 }} fontWeight="500" letterSpacing="-0.02em" lineHeight="25.3px">
                     {item.title}
                   </Typography>
 

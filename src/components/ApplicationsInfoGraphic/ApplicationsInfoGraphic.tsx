@@ -76,21 +76,21 @@ const ApplicationsInfoGraphic = () => {
               applications
             </Typography>
 
-            <Box display="flex" alignItems="center">
+            <Box display="flex" alignSelf="flex-start" alignItems="center">
               <img src="/images/applicationsIcon4.svg" alt="Disease progression tracking" className={styles.infoGraphicIcon} />
               <Typography variant="body6Wide" color="#494763" ml={2}>
                 Disease progression tracking
               </Typography>
             </Box>
 
-            <Box display="flex" alignItems="center">
+            <Box display="flex" alignSelf="flex-start" alignItems="center">
               <img src="/images/applicationsIcon5.svg" alt="Patient stratification" className={styles.infoGraphicIcon} />
               <Typography variant="body6Wide" color="#494763" ml={2}>
                 Patient stratification
               </Typography>
             </Box>
 
-            <Box display="flex" alignItems="center">
+            <Box display="flex" alignSelf="flex-start" alignItems="center">
               <img src="/images/applicationsIcon6.svg" alt="Drug efficacy demonstration" className={styles.infoGraphicIcon} />
               <Typography variant="body6Wide" color="#494763" ml={2}>
                 Drug efficacy demonstration
@@ -104,7 +104,7 @@ const ApplicationsInfoGraphic = () => {
       <img src="/images/blue6.svg" alt="Background blue" className={styles.bg} />
       <img src="/images/green5.svg" alt="Background pink" className={styles.bg5} />
       <img src="/images/pink4.svg" alt="Background pink" className={styles.bg4} />
-    </div>
+    </div >
   );
 };
 

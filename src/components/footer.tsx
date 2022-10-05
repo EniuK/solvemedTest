@@ -40,18 +40,17 @@ const Footer = () => (
     <Grid container mt={32} mb={13} justifyContent="space-between" columnSpacing={2} rowSpacing={8}>
       {contactData.map((item, idx) => (
         <Grid key={idx} item xs={12} sm={6} lg={2.5} style={{ margin: "0 auto" }}>
-          <Typography variant="subtitle2" color="primary" mb={7.5}>
-            {item.city}
+          <Typography variant="subtitle2" color="primary" mb={2}>
+            <img src="/icons/location.svg" alt="Location" /> {item.city}
           </Typography>
 
           <Box display="flex" alignItems="flex-start">
-            <img src="/icons/location.svg" alt="Location" />
-            <Box ml={0.75}>
+            <Box ml={3}>
               <Typography variant="body3" color="primary.light" mb={4.75} mt={-0.2}>
                 {item.address}
               </Typography>
 
-              <Link href={`tel:${item.phone}`} underline="hover" color="primary.light" display="block" variant="body3" mb={4.75}>
+              <Link href={`tel:${item.phone}`} underline="hover" color="primary.light" display="block" variant="body3">
                 {item.phone}
               </Link>
 

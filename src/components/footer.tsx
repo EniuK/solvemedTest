@@ -29,8 +29,6 @@ const contactData = [
   },
 ];
 
-
-
 const Footer = () => (
   <>
     <Box textAlign="center">
@@ -41,11 +39,11 @@ const Footer = () => (
       {contactData.map((item, idx) => (
         <Grid key={idx} item xs={12} sm={6} lg={2.5} style={{ margin: "0 auto" }}>
           <Typography variant="subtitle2" color="primary" mb={2}>
-            <img src="/icons/location.svg" alt="Location" /> {item.city}
+            <img src="/icons/location.svg" alt="Location" style={{ marginRight: 8 }} /> {item.city}
           </Typography>
 
           <Box display="flex" alignItems="flex-start">
-            <Box ml={3}>
+            <Box ml={4}>
               <Typography variant="body3" color="primary.light" mb={4.75} mt={-0.2}>
                 {item.address}
               </Typography>

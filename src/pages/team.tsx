@@ -310,7 +310,7 @@ const Team: NextPage = () => {
           </Grid>
         </Grid>
 
-        <Typography variant="subtitle1" mb="30px" textAlign="center" mt="190px">
+        <Typography variant="subtitle3" mb="30px" textAlign="center" mt="190px">
           We come from
         </Typography>
 

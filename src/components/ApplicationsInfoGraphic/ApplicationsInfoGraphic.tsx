@@ -8,7 +8,10 @@ const ApplicationsInfoGraphic = () => {
 
   return (
     <div ref={parallax.ref} className={styles.infoGraphicContainer}>
-      <Box width={{ xs: "80%", md: "60%" }} className={styles.infoGraphicInternalContainer}>
+      <Box
+         width={{ md: "60%" }}
+        className={styles.infoGraphicInternalContainer}
+      >
         <Box className={styles.infoGraphicCore}>
           <img src="/images/logoVertical.svg" alt="Logo" />
           <Typography variant="body4" color="#494763" mb={2} mt={5}>
@@ -38,7 +41,7 @@ const ApplicationsInfoGraphic = () => {
         </Box>
 
         <Box className={styles.infoGraphicContainerBlock}>
-          <Box left={{ xs: "40%", md: "80%" }} className={styles.infoGraphicItem}>
+          <Box left={{ xs: "55%", md: "80%" }} className={styles.infoGraphicItem}>
             <Box display="flex" flexGrow={1} alignItems="center">
               <img src="/images/applicationsIcon2.svg" alt="Meta-data" style={{ width: 88, height: 83 }} />
             </Box>
@@ -70,7 +73,7 @@ const ApplicationsInfoGraphic = () => {
         </Box>
 
         <Box className={styles.infoGraphicContainerBlock}>
-          <Box left={{ xs: "50%", md: "60%" }} className={styles.infoGraphicBottomItem}>
+          <Box left={{ xs: "60%", md: "60%" }} className={styles.infoGraphicBottomItem}>
             <Typography variant="body4" fontWeight="600" mb={1.5}>
               Research <br />
               applications
@@ -104,7 +107,7 @@ const ApplicationsInfoGraphic = () => {
       <img src="/images/blue6.svg" alt="Background blue" className={styles.bg} />
       <img src="/images/green5.svg" alt="Background pink" className={styles.bg5} />
       <img src="/images/pink4.svg" alt="Background pink" className={styles.bg4} />
-    </div >
+    </div>
   );
 };
 

@@ -1,11 +1,12 @@
 import React, { useRef, useState } from "react";
 import Image from "next/image";
-import { Backdrop as BackdropMUI, Box, Grid, Link, Modal, Typography } from "@mui/material";
+import { Backdrop as BackdropMUI, Box, Grid, Link, Modal, Typography, useMediaQuery } from "@mui/material";
 import { TeamMember } from "../../pages/team";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import styles from "./TeamMemberModal.module.css";
 import { default as Slider, Settings, CustomArrowProps } from "react-slick";
+import { theme } from "../../config/theme";
 
 type Props = {
   isOpen: boolean;
@@ -70,6 +71,8 @@ const TeamMemberModal: React.FC<Props> = ({ isOpen, onClose, member, members }) 
     appendDots: (dots) => <SliderDots dots={dots} />,
   };
 
+  const isSmallViewport = useMediaQuery(theme.breakpoints.down('sm'));
+
   return (
     <Modal
       open={isOpen}
@@ -82,7 +85,7 @@ const TeamMemberModal: React.FC<Props> = ({ isOpen, onClose, member, members }) 
       <Box className={styles.sliderWrapper}>
         <Slider {...sliderSettings} ref={sliderRef}>
           {members.map((item, idx) => (
-            <Box key={idx} bgcolor="#fff" p={7.5} px="76px" borderRadius="24px" position="relative" width="80%" height="100%">
+            <Box key={idx} bgcolor="#fff" p={7.5} {...(isSmallViewport ? { pl: "26px", pr: "10px" } : { px: "76px" })} borderRadius="24px" position="relative" height="100%">
               <div className={styles.closeBtn} onClick={onClose}>
                 <Image src="/icons/close.svg" alt="close" width="16" height="16" />
               </div>

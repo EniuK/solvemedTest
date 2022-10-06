@@ -98,7 +98,7 @@ const Contact: NextPage<any> = () => {
                   <Button color="primary" variant="contained" size="large" disabled={isSubmitting} style={{ margin: "20px 0", height: "54px", width: "194px" }}>
                     {Object.keys(errors).length === 0 ? (
                       <a href={`mailto:contact@solvemed.ai?subject=${values.name}&body=From:${values.email} ${values.message}`} className={styles.sendBtnText}>
-                        Send Message!
+                        Send Message
                       </a>
                     ) : (
                       "Send Message"

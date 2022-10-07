@@ -1,15 +1,15 @@
 .bg {
-  filter: blur(600px);
+  filter: blur(200px);
   position: absolute;
   bottom: 0;
-  right: -20%;
+  right: -10%;
   z-index: -1;
 }
 
 .bg2 {
-  filter: blur(600px);
+  filter: blur(300px);
   position: absolute;
-  top: -50%;
+  top: -10%;
   left: -10%;
   z-index: -1;
 }
@@ -62,17 +62,29 @@
 }
 
 .womenImg {
-  width: 100%;
+  width: 939px;
+  height: 1151px;
 }
 
-@media (min-width: 900px) {
-  .womenImg {
-    margin-left: -50px;
-  }
+.imageWrapper {
+  position: relative;
+  margin-right: 50px;
+  margin-left: -50px;
+}
 
-  .bg4 {
-    margin-left: -50px;
+@media (max-width: 900px) {
+  .imageWrapper {
+    overflow-x: scroll;
+    overflow-y: hidden;
+    margin-left: -24px;
+    margin-right: -24px;
   }
+}
+
+.highlight {
+  position: absolute;
+  transition: all 0.5s ease-in-out;
+  pointer-events: none;
 }
 
 .scienceLink {

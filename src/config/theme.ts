@@ -186,18 +186,21 @@ export const theme = createTheme({
         @font-face {
           font-family: 'FinancierDisplay';
           font-style: normal;
+          font-display: swap;
           font-weight: 300;
           src: url('/fonts/Financier-Display-Light.woff2');
         }
         @font-face {
           font-family: 'SuisseIntl';
           font-style: normal;
+          font-display: swap;
           font-weight: 400;
           src: url('/fonts/SuisseIntl-Regular.ttf');
         }
         @font-face {
           font-family: 'SuisseIntl';
           font-style: normal;
+          font-display: swap;
           font-weight: 600;
           src: url('/fonts/SuisseIntl-SemiBold.ttf');
         }

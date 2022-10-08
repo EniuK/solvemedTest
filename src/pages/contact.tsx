@@ -41,10 +41,10 @@ const Contact: NextPage<any> = () => {
         </Typography>
 
         <Formik initialValues={initialValues} validationSchema={contactSchema} onSubmit={() => console.log()}>
-          {({ errors, touched, isSubmitting, values, handleChange }) => {
+          {({ errors, touched, isSubmitting, values, handleChange }: any) => {
             return (
               <Form>
-                <Box>
+                <Box maxWidth="664px" margin="0 auto">
                   <Grid item xs={12}>
                     <TextField
                       variant="standard"
@@ -55,7 +55,7 @@ const Contact: NextPage<any> = () => {
                       onChange={handleChange}
                       error={touched.name && Boolean(errors.name)}
                       helperText={touched.name && Boolean(errors.name) && <Typography variant="h6">Please fill in your name</Typography>}
-                      style={{ width: "60%", margin: "20px 0" }}
+                      style={{ width: "100%", margin: "20px 0" }}
                       InputProps={{ classes: { input: styles.input } }}
                     />
                   </Grid>
@@ -77,7 +77,7 @@ const Contact: NextPage<any> = () => {
                           <Typography variant="h6">Please fill in your email address</Typography>
                         ))
                       }
-                      style={{ width: "60%", margin: "20px 0" }}
+                      style={{ width: "100%", margin: "20px 0" }}
                       InputProps={{ classes: { input: styles.input } }}
                     />
                   </Grid>
@@ -91,7 +91,7 @@ const Contact: NextPage<any> = () => {
                       onChange={handleChange}
                       error={touched.message && Boolean(errors.message)}
                       helperText={touched.message && Boolean(errors.message) && <Typography variant="h6">Please fill in your message</Typography>}
-                      style={{ width: "60%", margin: "200px 0 20px" }}
+                      style={{ width: "100%", margin: "200px 0 20px" }}
                       InputProps={{ classes: { input: styles.input } }}
                     />
                   </Grid>

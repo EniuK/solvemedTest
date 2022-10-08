@@ -155,10 +155,10 @@ const Team: NextPage = () => {
       marginX="auto"
       display="flex"
       flexDirection="column"
-      p="60px 30px 30px 50px"
+      p="60px 30px 30px 66px"
     >
-      <Box style={{ width: 120, height: 120, borderRadius: 60, backgroundColor: "#F0F6FA", position: "relative" }}>
-        <Image style={{ borderRadius: 60 }} src={member.photo} layout="fill" alt={member.name} />
+      <Box style={{ width: 140, height: 140, borderRadius: 70, backgroundColor: "#F0F6FA", position: "relative" }}>
+        <Image style={{ borderRadius: 70 }} src={member.photo} layout="fill" alt={member.name} />
       </Box>
 
       <Typography variant="body2Wide" fontWeight="600" mt="30px">
@@ -233,7 +233,7 @@ const Team: NextPage = () => {
             </Grid>
           ))}
 
-          <Grid item xs={12} sm={6} md={4} lg={3} mt={{ xs: 2, sm: 0 }} display="flex" justifyContent="center" flexDirection="column" margin="0 auto" zIndex={1}>
+          <Grid item xs={12} sm={6} md={4} lg={3} mt={{ xs: 2, sm: 2 }} display="flex" justifyContent="center" flexDirection="column" margin="0 auto" zIndex={1}>
             <Typography variant="body1" textAlign="center">
               and many more...
             </Typography>

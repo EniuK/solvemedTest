@@ -20,3 +20,6 @@ ul {
   text-align: left;
   padding: 0;
 }
+html {
+  scroll-behavior: smooth;
+}

@@ -33,6 +33,7 @@
 .listItem {
   display: flex;
   margin-bottom: 20px;
+  width: 80%;
 }
 
 .listItem::before {

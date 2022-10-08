@@ -32,18 +32,18 @@ const Applications: NextPage = () => {
 
         <ApplicationsInfoGraphic />
 
-        <Grid container>
+        <Grid id="clinicians" container>
           <Grid item container xs={12} alignItems="center" columnSpacing={2} rowSpacing={4} position="relative">
             <Grid item xs={12} md={2}>
               <ol className={styles.list}>
-                <li className={styles.listItem}>Clinicians</li>
+                <li className={styles.listItem}><a href="#clinicians">Clinicians </a></li>
                 <li className={styles.listItemInactive}>
-                  Research <br />
-                  community
+                  <a href="#research">Research <br />
+                    community</a>
                 </li>
                 <li className={styles.listItemInactive}>
-                  Pharma & <br />
-                  biotechs
+                  <a href="#pharma">Pharma & <br />
+                    biotechs</a>
                 </li>
               </ol>
             </Grid>
@@ -85,7 +85,7 @@ const Applications: NextPage = () => {
             </Grid>
           </Grid>
 
-          <Grid item xs={12}>
+          <Grid id="research" item xs={12}>
             <Box marginY="138px" width="100%" height={33} position="relative">
               <Image src="/icons/divider.svg" alt="divider" layout="fill" />
             </Box>
@@ -98,14 +98,14 @@ const Applications: NextPage = () => {
 
             <Grid item xs={12} md={2}>
               <ol className={styles.list}>
-                <li className={styles.listItemInactive}>Clinicians</li>
+                <li className={styles.listItemInactive}><a href="#clinicians">Clinicians </a></li>
                 <li className={styles.listItem}>
-                  Research <br />
-                  community
+                  <a href="#research">Research <br />
+                    community</a>
                 </li>
                 <li className={styles.listItemInactive}>
-                  Pharma & <br />
-                  biotechs
+                  <a href="#pharma">Pharma & <br />
+                    biotechs</a>
                 </li>
               </ol>
             </Grid>
@@ -146,7 +146,7 @@ const Applications: NextPage = () => {
             </Grid>
           </Grid>
 
-          <Grid item xs={12}>
+          <Grid id="pharma" item xs={12}>
             <Box marginY="138px" width="100%" height={33} position="relative">
               <Image src="/icons/divider.svg" alt="divider" layout="fill" />
             </Box>
@@ -155,14 +155,14 @@ const Applications: NextPage = () => {
           <Grid item container xs={12} alignItems="center" columnSpacing={2} rowSpacing={4}>
             <Grid item xs={12} md={2}>
               <ol className={styles.list}>
-                <li className={styles.listItemInactive}>Clinicians</li>
+                <li className={styles.listItemInactive}><a href="#clinicians">Clinicians </a></li>
                 <li className={styles.listItemInactive}>
-                  Research <br />
-                  community
+                  <a href="#research">Research <br />
+                    community</a>
                 </li>
                 <li className={styles.listItem}>
-                  Pharma & <br />
-                  biotechs
+                  <a href="#pharma">Pharma & <br />
+                    biotechs</a>
                 </li>
               </ol>
             </Grid>

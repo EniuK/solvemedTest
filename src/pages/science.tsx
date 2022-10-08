@@ -206,7 +206,7 @@ const Science: NextPage = () => {
     autoplay: true,
     autoplaySpeed: 2000,
     pauseOnHover: true,
-    slidesToShow: desktop ? 5 : tablet ? 3 : mobile ? 1 : 2,
+    slidesToShow: desktop ? 4 : tablet ? 3 : mobile ? 1 : 2,
     slidesToScroll: 1,
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
@@ -258,7 +258,7 @@ const Science: NextPage = () => {
                   <Image src="/images/science1.png" alt="science1" width={440} height={632} />
                 </div>
               </Grid>
-              <Grid item xs={12} md={5.5} textAlign="left">
+              <Grid item xs={12} md={4.5} textAlign="left">
                 <Typography variant="body1Wide" mb="60px">
                   Technology validation
                 </Typography>
@@ -286,7 +286,7 @@ const Science: NextPage = () => {
             </Grid>
 
             <Grid item container xs={12} justifyContent="space-between">
-              <Grid item xs={12} md={5.5} textAlign="left">
+              <Grid item xs={12} md={4.5} textAlign="left">
                 <Typography variant="body1Wide" mb="60px">
                   Biomarker discovery
                 </Typography>
@@ -323,7 +323,7 @@ const Science: NextPage = () => {
             </Grid>
 
             <Grid item container xs={12} justifyContent="space-between">
-              <Grid item xs={12} md={5.5} position="relative">
+              <Grid item xs={12} md={4.5} position="relative">
                 <picture>
                   <source srcSet="/images/blue.svg" type="image/svg+xml" />
                   <img src="/images/blue.svg" alt="Background blue" className={styles.bg3} />
@@ -332,7 +332,7 @@ const Science: NextPage = () => {
                   <Image src="/images/science3.png" alt="science3" width={440} height={632} />
                 </div>
               </Grid>
-              <Grid item xs={12} md={5.5} textAlign="left">
+              <Grid item xs={12} md={4.5} textAlign="left">
                 <Typography variant="body1Wide" mb="60px">
                   Machine learning
                 </Typography>

@@ -60,13 +60,16 @@ export const theme = createTheme({
     fontFamily: "FinancierDisplay",
     h1: {
       fontSize: "124px",
+      lineHeight: "119.04px",
       fontWeight: "300",
       letterSpacing: "-0.03em",
       "@media (max-width:900px)": {
         fontSize: "96px",
+        lineHeight: "92px",
       },
       "@media (max-width:600px)": {
         fontSize: "64px",
+        lineHeight: "61px",
       },
     },
     h2: {
@@ -75,9 +78,11 @@ export const theme = createTheme({
       letterSpacing: "-0.02em",
       "@media (max-width:900px)": {
         fontSize: "96px",
+        lineHeight: "92px",
       },
       "@media (max-width:600px)": {
         fontSize: "64px",
+        lineHeight: "61px",
       },
     },
     h3: {
@@ -86,6 +91,7 @@ export const theme = createTheme({
       letterSpacing: "-0.02em",
       "@media (max-width:900px)": {
         fontSize: "64px",
+        lineHeight: "61px",
       },
     },
     subtitle1: {

@@ -206,7 +206,7 @@ const Science: NextPage = () => {
     autoplay: true,
     autoplaySpeed: 2000,
     pauseOnHover: true,
-    slidesToShow: desktop ? 4 : tablet ? 3 : mobile ? 1 : 2,
+    slidesToShow: desktop ? 5 : tablet ? 3 : mobile ? 1 : 2,
     slidesToScroll: 1,
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
@@ -249,7 +249,7 @@ const Science: NextPage = () => {
         <Grid container justifyContent="center" mb="200px">
           <Grid container item xs={12} lg={10} justifyContent="space-between" alignItems="center">
             <Grid item container xs={12} justifyContent="space-between">
-              <Grid item xs={12} md={5.5} position="relative">
+              <Grid item xs={12} sm={5} md={5} position="relative">
                 <picture>
                   <source srcSet="/images/pink.svg" type="image/svg+xml" />
                   <img src="/images/pink.svg" alt="Background pink" className={styles.bg} />
@@ -258,12 +258,12 @@ const Science: NextPage = () => {
                   <Image src="/images/science1.png" alt="science1" width={440} height={632} />
                 </div>
               </Grid>
-              <Grid item xs={12} md={4.5} textAlign="left">
+              <Grid item xs={12} sm={6} md={6} textAlign="left">
                 <Typography variant="body1Wide" mb="60px">
                   Technology validation
                 </Typography>
                 <Typography variant="subtitle1" mb="57px">
-                  Our Software as Medical Devices undergo extensive testing validation against current standard of care and gold standard methods and devices.
+                  Our Software as Medical Devices undergo extensive testing validation against current standard of care and gold standard methods and devices.
                 </Typography>
                 <ul>
                   <li className={styles.listItem}>
@@ -286,12 +286,12 @@ const Science: NextPage = () => {
             </Grid>
 
             <Grid item container xs={12} justifyContent="space-between">
-              <Grid item xs={12} md={4.5} textAlign="left">
+              <Grid item xs={12} sm={6} md={6} textAlign="left">
                 <Typography variant="body1Wide" mb="60px">
                   Biomarker discovery
                 </Typography>
                 <Typography variant="subtitle1" mb="57px">
-                  Our world-class biomarker studies, conducted in collaborations with some of the most renowned research institutions, hold promise of novel disease biomarkers.
+                  Our world-class biomarker studies, conducted in collaborations with some of the most renowned research institutions, hold promise of novel disease biomarkers.
                 </Typography>
                 <ul>
                   <li className={styles.listItem}>
@@ -305,7 +305,7 @@ const Science: NextPage = () => {
                   </li>
                 </ul>
               </Grid>
-              <Grid item xs={12} md={5.5} position="relative">
+              <Grid item xs={12} sm={5} md={5} position="relative">
                 <picture>
                   <source srcSet="/images/yellow.svg" type="image/svg+xml" />
                   <img src="/images/yellow.svg" alt="Background yellow" className={styles.bg2} />
@@ -323,7 +323,7 @@ const Science: NextPage = () => {
             </Grid>
 
             <Grid item container xs={12} justifyContent="space-between">
-              <Grid item xs={12} md={4.5} position="relative">
+              <Grid item xs={12} sm={5} md={5} position="relative">
                 <picture>
                   <source srcSet="/images/blue.svg" type="image/svg+xml" />
                   <img src="/images/blue.svg" alt="Background blue" className={styles.bg3} />
@@ -332,12 +332,12 @@ const Science: NextPage = () => {
                   <Image src="/images/science3.png" alt="science3" width={440} height={632} />
                 </div>
               </Grid>
-              <Grid item xs={12} md={4.5} textAlign="left">
+              <Grid item xs={12} sm={6} md={6} textAlign="left">
                 <Typography variant="body1Wide" mb="60px">
                   Machine learning
                 </Typography>
                 <Typography variant="subtitle1" mb="57px">
-                  We combine cutting-edge computer vision algorithms with predictive analytics for novel scientific insights and technological breakthroughs.
+                  We combine cutting-edge computer vision algorithms with predictive analytics for novel scientific insights and technological breakthroughs.
                 </Typography>
                 <ul>
                   <li className={styles.listItem}>
@@ -387,10 +387,10 @@ const Science: NextPage = () => {
             {selectedLiterature.map((item) => (
               <Box key={item.id} maxWidth="90%">
                 <Stack justifyContent="space-between" spacing={2} height="378px" p="16px" borderRadius="24px" bgcolor="#fff">
-                  <Typography mt={2} variant="body6Wide">
+                  <Typography mt={3} variant="body6Wide">
                     {item.source}
                   </Typography>
-                  <Typography fontSize={{ xs: 16, lg: 23 }} fontWeight="500" letterSpacing="-0.02em" lineHeight="25.3px">
+                  <Typography fontSize={{ xs: 21, sm: 23 }} fontWeight="500" letterSpacing="-0.02em" lineHeight="25.3px">
                     {item.title}
                   </Typography>
 
@@ -401,7 +401,7 @@ const Science: NextPage = () => {
                       </Typography>
                     </Box>
                     <Typography variant="body6Wide">{item.author}</Typography>
-                    <Typography variant="body6Wide" color="primary.light">
+                    <Typography variant="body6Wide" color="rgba(0,0,0,0.29)" mt={1 / 3}>
                       Published: {item.publishDate}
                     </Typography>
                   </div>

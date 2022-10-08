@@ -150,8 +150,8 @@ const Team: NextPage = () => {
       style={{ cursor: member?.bio ? "pointer" : "default" }}
       bgcolor="#fff"
       borderRadius="12px"
-      height={452}
-      maxWidth={328}
+      height={499.27}
+      maxWidth={362.3}
       marginX="auto"
       display="flex"
       flexDirection="column"
@@ -165,7 +165,7 @@ const Team: NextPage = () => {
         {member.name}
       </Typography>
 
-      <Typography variant="body2Wide" mb="20px">
+      <Typography variant="body2Wide" mb="20px" maxWidth="200px">
         {member.position}
       </Typography>
 
@@ -221,19 +221,19 @@ const Team: NextPage = () => {
           neurological diseases.
         </Typography>
 
-        <Grid container rowSpacing={1.25} columnSpacing={1.25} mb="214px" position="relative">
+        <Grid container rowSpacing={1.25} columnSpacing={1.25} mb="214px" position="relative" maxWidth="1110px" margin="0 auto">
           <picture>
             <source srcSet="/images/blue4.svg" type="image/svg+xml" />
             <img src="/images/blue4.svg" alt="Background blue" className={styles.bg} />
           </picture>
 
           {team.map((member, idx) => (
-            <Grid item xs={12} sm={6} md={4} lg={3} key={idx} zIndex={1}>
+            <Grid item xs={12} sm={6} md={4} lg={4} key={idx} zIndex={1}>
               <MemberListItem member={{ ...member, memberIndex: idx }} />
             </Grid>
           ))}
 
-          <Grid item xs={12} sm={6} md={4} lg={3} mt={{ xs: 2, sm: 0 }} display="flex" justifyContent="center" flexDirection="column" zIndex={1}>
+          <Grid item xs={12} sm={6} md={4} lg={3} mt={{ xs: 2, sm: 0 }} display="flex" justifyContent="center" flexDirection="column" margin="0 auto" zIndex={1}>
             <Typography variant="body1" textAlign="center">
               and many more...
             </Typography>

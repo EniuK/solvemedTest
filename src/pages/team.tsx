@@ -265,7 +265,7 @@ const Team: NextPage = () => {
               <Typography variant="body1" fontWeight="600" mb="60px">
                 About Solvemed
               </Typography>
-              <Typography variant="subtitle1" mb="116px">
+              <Typography variant="subtitle1" mb="116px" maxWidth="440px">
                 Solvemed champions digital-first care, where cutting-edge technology supports clinicians and empowers patients.
               </Typography>
             </Grid>

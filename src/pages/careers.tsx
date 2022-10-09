@@ -111,7 +111,7 @@ const Careers: NextPage = () => {
         </Head>
       </div>
       <Grid container item xs={10} lg={8} columns={10} margin="auto" alignItems="center">
-        <Grid item xs={10} textAlign="center" position="relative">
+        <Grid item xs={10} textAlign="center" position="relative" mb={-20}>
           <img src="/images/green1.svg" alt="Background green" className={styles.bg} />
           <img src="/images/green2.svg" alt="Background green" className={styles.bg} />
 

@@ -1,10 +1,11 @@
-import { useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import type { NextPage } from "next";
 import Head from "next/head";
 import Link from "next/link";
-import { Box, Stack, Typography } from "@mui/material";
+import { Box, Stack, Typography, useMediaQuery } from "@mui/material";
 import styles from "./index.module.css";
 import "animate.css";
+import { theme } from "../config/theme";
 
 const slides = [
   {
@@ -57,45 +58,110 @@ const slides = [
 const areas = [
   {
     id: 0,
-    coords: "205,499,30",
+    coords: {
+      sm: "84,205,13",
+      md: "110,267,17",
+      lg: "153,373,23",
+      xl: "205,499,30",
+    },
   },
   {
     id: 1,
-    coords: "274,491,30",
+    coords: {
+      sm: "112,202,13",
+      md: "147,263,17",
+      lg: "205,367,23",
+      xl: "274,491,30",
+    },
   },
   {
     id: 2,
-    coords: "337,431,30",
+    coords: {
+      sm: "138,177,13",
+      md: "180,230,17",
+      lg: "252,322,23",
+      xl: "337,431,30",
+    },
   },
   {
     id: 3,
-    coords: "363,373,30",
+    coords: {
+      sm: "149,153,13",
+      md: "194,199,17",
+      lg: "271,279,23",
+      xl: "363,373,30",
+    },
   },
   {
     id: 4,
-    coords: "284,392,30",
+    coords: {
+      sm: "125,136,13",
+      md: "163,177,17",
+      lg: "228,248,23",
+      xl: "284,392,30",
+    },
   },
   {
     id: 5,
-    coords: "305,331,30",
+    coords: {
+      sm: "117,161,13",
+      md: "152,210,17",
+      lg: "213,293,23",
+      xl: "305,331,30",
+    },
   },
   {
     id: 6,
-    coords: "136,168,30",
+    coords: {
+      sm: "56,70,13",
+      md: "73,90,17",
+      lg: "102,126,23",
+      xl: "136,168,30",
+    },
   },
   {
     id: 7,
-    coords: "521,137,30",
+    coords: {
+      sm: "214,57,13",
+      md: "279,74,17",
+      lg: "390,103,23",
+      xl: "521,137,30",
+    },
   },
   {
     id: 8,
-    coords: "621,283,30",
+    coords: {
+      sm: "255,116,13",
+      md: "332,151,17",
+      lg: "464,212,23",
+      xl: "621,283,30",
+    },
   },
 ];
 
 const Home: NextPage = () => {
   const [activeSlide, setActiveSlide] = useState(slides[0]);
-  const [activeSlideCoords, setActiveSlideCoords] = useState({ top: 499, left: 218, angle: 0 });
+  const [activeSlideCoords, setActiveSlideCoords] = useState({ top: 0, left: 0, angle: 0 });
+
+  const sm = useMediaQuery(theme.breakpoints.down("sm"));
+  const md = useMediaQuery(theme.breakpoints.down("md"));
+  const lg = useMediaQuery(theme.breakpoints.down("lg"));
+
+  const viewportWidth = useMemo(() => {
+    if (sm) return "sm";
+    if (md) return "md";
+    if (lg) return "lg";
+    return "xl";
+  }, [sm, md, lg]);
+
+  useEffect(() => {
+    const currentCoords = areas[0].coords[viewportWidth];
+    setActiveSlideCoords({
+      top: +currentCoords.split(",")[1],
+      left: +currentCoords.split(",")[0],
+      angle: 0,
+    });
+  }, [viewportWidth]);
 
   return (
     <>
@@ -119,7 +185,7 @@ const Home: NextPage = () => {
           Meet breakthrough digital technology for brain health.
         </Typography>
 
-        <img src="/images/brainWithHand.png" alt="Intro image" className={styles.introImage} />
+        <img src="/images/brainWithHand.png" alt="Intro image" className={styles.brainImg} />
         <img src="/images/blue7.svg" alt="Background blue" className={styles.bg7} />
       </Box>
 
@@ -133,57 +199,78 @@ const Home: NextPage = () => {
         </Typography>
       </Box>
 
-      <Stack mb="120px" mt="96px" position="relative" flexDirection="row" alignItems="center" flexWrap="wrap" rowGap={20}>
-        <div className={styles.imageWrapper}>
-          <img src="/images/women.png" alt="Women" className={styles.womenImg} useMap="#womanMap" />
+      <div style={{ position: "relative" }}>
+        <Stack mb="120px" mt="96px" position="relative" flexDirection="row" alignItems="center" justifyContent="stretch" className={styles.animationWrapper}>
+          <div className={styles.womenImgWrapper}>
+            <img src="/images/women.png" alt="Women" className={styles.womenImg} useMap="#womanMap" />
 
-          <map name="womanMap">
-            {areas.map((item) => (
-              <area
-                key={item.id.toString()}
-                shape="circle"
-                coords={item.coords}
-                style={{ cursor: "pointer" }}
-                onClick={() => {
-                  const currentCoord = item.coords.split(",");
-                  setActiveSlideCoords({ top: +currentCoord[1], left: +currentCoord[0], angle: item.id * 45 });
-                  setActiveSlide(slides[item.id]);
-                }}
-              />
-            ))}
-          </map>
+            <map name="womanMap">
+              {areas.map((item) => (
+                <area
+                  key={item.id.toString()}
+                  shape="circle"
+                  coords={item.coords[viewportWidth]}
+                  style={{ cursor: "pointer" }}
+                  onClick={() => {
+                    const currentCoord = item.coords[viewportWidth].split(",");
+                    setActiveSlideCoords({ top: +currentCoord[1], left: +currentCoord[0], angle: item.id * 45 });
+                    setActiveSlide(slides[item.id]);
+                  }}
+                />
+              ))}
+            </map>
 
-          <img
-            src="/images/highlight.png"
-            alt="Highlight"
-            className={styles.highlight}
-            style={{
-              top: activeSlideCoords.top,
-              left: activeSlideCoords.left,
-              transform: `translate(-50%, -50%) rotate(-${activeSlideCoords.angle}deg)`,
-            }}
-          />
-          <img src="/images/blue5.svg" alt="Background blue" className={styles.bg4} />
-        </div>
+            <img
+              src="/images/highlight.png"
+              alt="Animation highlight"
+              className={styles.womenImgAnimationHighlight}
+              style={{
+                top: activeSlideCoords.top,
+                left: activeSlideCoords.left,
+                transform: `translate(-50%, -50%) rotate(-${activeSlideCoords.angle}deg)`,
+              }}
+            />
+          </div>
 
-        <div>
-          <Typography variant="body1">Metric</Typography>
-          <Typography key={activeSlide.metric} whiteSpace="pre-line" variant="subtitle1" mt="20px" mb="56px" className="animate__animated animate__fadeIn animate__slower">
-            {activeSlide.metric}
-          </Typography>
-          <Typography variant="body1">Target</Typography>
-          <Typography whiteSpace="pre-line" key={activeSlide.target} variant="subtitle1" mt="20px" mb="56px" className="animate__animated animate__fadeIn animate__slower">
-            {`${activeSlide.target}`}
-          </Typography>
-          <Typography variant="body1">Diagnosis</Typography>
-          <Typography key={activeSlide.diagnosis} whiteSpace="pre-line" variant="subtitle1" mt="20px" mb="56px" className="animate__animated animate__fadeIn animate__slower">
-            {activeSlide.diagnosis}
-          </Typography>
-        </div>
-
+          <div>
+            <Typography variant="body1">Metric</Typography>
+            <Typography
+              key={activeSlide.metric}
+              whiteSpace="pre-line"
+              variant="subtitle1"
+              mt={{ xs: "10px", sm: "20px" }}
+              mb={{ xs: 3, sm: 7 }}
+              className="animate__animated animate__fadeIn animate__slower"
+            >
+              {activeSlide.metric}
+            </Typography>
+            <Typography variant="body1">Target</Typography>
+            <Typography
+              whiteSpace="pre-line"
+              key={activeSlide.target}
+              variant="subtitle1"
+              mt={{ xs: "10px", sm: "20px" }}
+              mb={{ xs: 3, sm: 7 }}
+              className="animate__animated animate__fadeIn animate__slower"
+            >
+              {`${activeSlide.target}`}
+            </Typography>
+            <Typography variant="body1">Diagnosis</Typography>
+            <Typography
+              key={activeSlide.diagnosis}
+              whiteSpace="pre-line"
+              variant="subtitle1"
+              mt={{ xs: "10px", sm: "20px" }}
+              className="animate__animated animate__fadeIn animate__slower"
+            >
+              {activeSlide.diagnosis}
+            </Typography>
+          </div>
+        </Stack>
+        <img src="/images/blue5.png" alt="Background blue" className={styles.bg4} />
         <img src="/images/blue6.svg" alt="Background blue" className={styles.bg2} />
         <img src="/images/pink4.svg" alt="Background pink" className={styles.bg6} />
-      </Stack>
+      </div>
 
       <Box display="flex" flexDirection={{ xs: "column", sm: "row" }} justifyContent="space-between" width={{ xs: "100%", md: "80%", lg: "70%" }} margin="auto">
         <Typography variant="body1" pr={{ xs: 0, sm: 3 }} mb={{ xs: 3, md: 0 }}>

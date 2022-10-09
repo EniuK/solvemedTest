@@ -27,6 +27,8 @@
   position: absolute;
   bottom: -10%;
   left: -10%;
+  width: 676px;
+  height: auto;
 }
 
 .bg5 {
@@ -53,7 +55,7 @@
   z-index: -1;
 }
 
-.introImage {
+.brainImg {
   width: 120vw;
   margin-left: 55%;
   margin-top: -25%;
@@ -61,30 +63,76 @@
   transform: translateX(-50%);
 }
 
+.animationWrapper {
+  overflow-x: auto;
+  overflow-y: hidden;
+  margin-left: -50px;
+  margin-right: -50px;
+  padding-right: 50px;
+}
+
+.womenImgWrapper {
+  position: relative;
+  margin-right: 50px;
+}
+
 .womenImg {
   width: 939px;
   height: 1151px;
 }
 
-.imageWrapper {
-  position: relative;
-  margin-right: 50px;
-  margin-left: -50px;
-}
-
-@media (max-width: 900px) {
-  .imageWrapper {
-    overflow-x: scroll;
-    overflow-y: hidden;
-    margin-left: -24px;
-    margin-right: -24px;
-  }
-}
-
-.highlight {
+.womenImgAnimationHighlight {
   position: absolute;
   transition: all 0.5s ease-in-out;
   pointer-events: none;
+  width: 312px;
+  height: auto;
+}
+
+@media (max-width: 1200px) {
+  .womenImg {
+    width: 702px;
+    height: 860px;
+  }
+  .womenImgAnimationHighlight {
+    width: 220px;
+  }
+}
+
+@media (max-width: 900px) {
+  .womenImgWrapper {
+    margin-right: 30px;
+  }
+  .womenImg {
+    width: 502px;
+    height: 615px;
+  }
+  .womenImgAnimationHighlight {
+    width: 180px;
+  }
+  .animationWrapper {
+    margin-left: -24px;
+    margin-right: -24px;
+    padding-right: 24px;
+  }
+  .bg4 {
+    width: 500px;
+    left: -20%;
+  }
+}
+
+@media (max-width: 600px) {
+  .womenImg {
+    width: 385px;
+    height: 472px;
+  }
+  .womenImgAnimationHighlight {
+    width: 115px;
+  }
+  .bg4 {
+    width: 400px;
+    left: -20%;
+  }
 }
 
 .scienceLink {

@@ -31,11 +31,11 @@ const team: TeamMember[] = [
       { title: "Board member", color: "#F4EDFD" },
     ],
     linkedinUrl: "https://www.linkedin.com/in/chrosthugo/",
-    twitterUrl: null,
+    twitterUrl: "https://twitter.com/chrost_hugo",
     bio: {
       title: "Cambridge JBS, University Collage London, 500 Global, Harvard Ventures, Kairos Society",
       description:
-        "Hugo is the founder & CEO of Solvemed Group which develops proprietary ocular biomarkers to revolutionise neurology care and drug development. He is also a Venture Partner at 500 Global. His passion for leadership and bridging science to business brings him to frequently shares his experience as a keynote speaker and guest lecturer at the University College London, University of Warsaw, and international conferences.",
+        "Hugo is the Co-founder and Chief Executive Officer at Solvemed Group. He leads all company divisions toward developing novel medical devices and advances the company's neuro-ocular biomarker pipeline to improve the patient care of over 1 billion people worldwide. Hugo has been recognized multiple times by top media, such as Forbes, as one of Europe's most influential healthcare leaders under 30. He became one of the youngest European inventors awarded the prestigious Harvard University & Harvard Club of Poland scholarship \"Path to Harvard.\" At the age of seventeen, he was accepted to the Cambridge University Business division (CJBS) Ignite Life Science Program as the youngest in university history. He is a Venture Partner at 500Global, a venture capital firm with >$2.8 billion in assets under management. His passion for leadership and bridging science to business brings him to frequently share his experiences as a keynote speaker and guest lecturer at the University College London, the University of Warsaw, and international conferences. He has shared the stage with people like the Co-founder of Wikipedia, Jimmy Wales, or legendary Prof. Richard B Freeman, chair of Economics at Harvard University.",
     },
     logos: [
       { id: "university of cambridge, judge business school", image: "/images/logos/we_come_from/cambridge_judge_business_school.png" },

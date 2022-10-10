@@ -45,7 +45,7 @@
     overflow-x: scroll;
     overflow-y: hidden;
   }
-  
+
   .infoGraphicInternalContainer {
     flex: 1;
     flex-grow: 1;
@@ -59,14 +59,18 @@
   .infoGraphicArrowBottomIcon {
     width: 30%;
   }
-  
-  .bg, .bg5, .bg4 {
+
+  .bg,
+  .bg5,
+  .bg4 {
     opacity: 0.4;
   }
 }
 
 @media (min-width: 600px) and (max-width: 900px) {
-  .bg, .bg5, .bg4 {
+  .bg,
+  .bg5,
+  .bg4 {
     max-width: 1080px;
   }
 }
@@ -120,26 +124,17 @@
 }
 
 .bg {
-  filter: blur(600px);
-  position: absolute;
   top: 0;
   bottom: 0;
   left: 0;
-  z-index: -1;
 }
 
 .bg4 {
-  filter: blur(600px);
-  position: absolute;
   top: 20%;
   left: 30%;
-  z-index: -1;
 }
 
 .bg5 {
-  filter: blur(600px);
-  position: absolute;
   bottom: -20%;
   right: 0;
-  z-index: -1;
 }

@@ -9,6 +9,7 @@ import styles from "./science.module.css";
 import { useParallax } from "react-scroll-parallax";
 import { ParallaxProps } from "react-scroll-parallax/dist/components/Parallax/types";
 import Head from "next/head";
+import BackgroundImage from "../components/BackgroundImage/BackgroundImage";
 
 const collaborators = [
   { name: "kings college hospital", icon: "/images/logos/collaborations/kings_college_hospital_nhs.png", width: "192px", height: "76px" },
@@ -250,10 +251,7 @@ const Science: NextPage = () => {
           <Grid container item xs={12} lg={10} justifyContent="space-between" alignItems="center">
             <Grid item container xs={12} justifyContent="space-between">
               <Grid item xs={12} sm={5} md={5} position="relative">
-                <picture>
-                  <source srcSet="/images/pink.svg" type="image/svg+xml" />
-                  <img src="/images/pink.svg" alt="Background pink" className={styles.bg} />
-                </picture>
+                <BackgroundImage src="/images/pink.svg" alt="Background pink" className={styles.bg} />
                 <div ref={parallax.ref}>
                   <Image src="/images/science1.png" alt="science1" width={440} height={632} />
                 </div>
@@ -306,10 +304,7 @@ const Science: NextPage = () => {
                 </ul>
               </Grid>
               <Grid item xs={12} sm={5} md={5} position="relative">
-                <picture>
-                  <source srcSet="/images/yellow.svg" type="image/svg+xml" />
-                  <img src="/images/yellow.svg" alt="Background yellow" className={styles.bg2} />
-                </picture>
+                <BackgroundImage src="/images/yellow.svg" alt="Background yellow" className={styles.bg2} />
                 <div ref={parallax2.ref}>
                   <Image src="/images/science2.png" alt="science2" width={440} height={632} />
                 </div>
@@ -324,10 +319,7 @@ const Science: NextPage = () => {
 
             <Grid item container xs={12} justifyContent="space-between">
               <Grid item xs={12} sm={5} md={5} position="relative">
-                <picture>
-                  <source srcSet="/images/blue.svg" type="image/svg+xml" />
-                  <img src="/images/blue.svg" alt="Background blue" className={styles.bg3} />
-                </picture>
+                <BackgroundImage src="/images/blue.svg" alt="Background blue" className={styles.bg3} />
                 <div ref={parallax3.ref}>
                   <Image src="/images/science3.png" alt="science3" width={440} height={632} />
                 </div>
@@ -374,10 +366,7 @@ const Science: NextPage = () => {
         </Grid>
 
         <Box position="relative">
-          <picture>
-            <source srcSet="/images/blue2.svg" type="image/svg+xml" />
-            <img src="/images/blue2.svg" alt="Background blue" className={styles.bg4} />
-          </picture>
+          <BackgroundImage src="/images/blue2.svg" alt="Background blue" className={styles.bg4} />
 
           <Typography variant="subtitle3" mb="90px" mt="120px">
             Selected literature
@@ -390,7 +379,7 @@ const Science: NextPage = () => {
                   <Typography mt={3} variant="body6Wide">
                     {item.source}
                   </Typography>
-                  <Typography fontSize={{ xs: 21, sm: 23 }} fontWeight="500" letterSpacing="-0.02em" lineHeight="25.3px">
+                  <Typography component="p" fontSize={{ xs: 21, sm: 23 }} fontWeight="500" letterSpacing="-0.02em" lineHeight="25.3px">
                     {item.title}
                   </Typography>
 

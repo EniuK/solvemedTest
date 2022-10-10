@@ -1,5 +1,6 @@
 import { Box, Link, Typography, Grid } from "@mui/material";
 import Image from "next/image";
+import BackgroundImage from "./BackgroundImage/BackgroundImage";
 import styles from "./footer.module.css";
 
 const contactData = [
@@ -32,8 +33,8 @@ const contactData = [
 const Footer = () => (
   <>
     <Box textAlign="center">
-      <img src="/images/pink1.svg" alt="Background pink" className={styles.bg} />
-      <img src="/images/pink2.svg" alt="Background pink" className={styles.bg} />
+      {/* <BackgroundImage src="/images/pink1.svg" alt="Background pink" className={styles.bg} /> */}
+      {/* <BackgroundImage src="/images/pink2.svg" alt="Background pink" className={styles.bg} /> */}
     </Box>
     <Grid container mt={32} mb={13} justifyContent="space-between" columnSpacing={2} rowSpacing={8}>
       {contactData.map((item, idx) => (

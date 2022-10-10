@@ -1,0 +1,11 @@
+.img {
+  filter: blur(300px);
+  -webkit-filter: blur(300px);
+  position: absolute;
+  z-index: -1;
+}
+
+.bgImageSafari {
+  transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+}

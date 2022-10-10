@@ -1,7 +1,4 @@
 .bg {
-  filter: blur(600px);
-  position: absolute;
   bottom: -100%;
- right: 40%;
-  z-index: -1;
+  right: 40%;
 }

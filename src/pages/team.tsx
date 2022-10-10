@@ -5,6 +5,7 @@ import Image from "next/image";
 import React from "react";
 import { useState } from "react";
 import { useParallax } from "react-scroll-parallax";
+import BackgroundImage from "../components/BackgroundImage/BackgroundImage";
 import TeamMemberModal from "../components/TeamMemberModal/TeamMemberModal";
 import styles from "./team.module.css";
 
@@ -222,10 +223,7 @@ const Team: NextPage = () => {
         </Typography>
 
         <Grid container rowSpacing={1.25} columnSpacing={1.25} mb="214px" position="relative" maxWidth="1110px" margin="0 auto">
-          <picture>
-            <source srcSet="/images/blue4.svg" type="image/svg+xml" />
-            <img src="/images/blue4.svg" alt="Background blue" className={styles.bg} />
-          </picture>
+          <BackgroundImage src="/images/blue4.svg" alt="Background blue" className={styles.bg} />
 
           {team.map((member, idx) => (
             <Grid item xs={12} sm={6} md={4} lg={4} key={idx} zIndex={1}>
@@ -243,21 +241,11 @@ const Team: NextPage = () => {
         <Grid container justifyContent="flex-end" mt="190px" position="relative">
           <Grid item xs={12} md={6} position="relative">
             <div ref={parallax.ref}>
-              <picture>
-                <source srcSet="/images/brain2.png" type="image/svg+xml" />
-                <img src="/images/brain2.png" alt="Brain" className={styles.brainImg} />
-              </picture>
+              <img src="/images/brain2.png" alt="Brain" className={styles.brainImg} />
             </div>
 
-            <picture>
-              <source srcSet="/images/green4.svg" type="image/svg+xml" />
-              <img src="/images/green4.svg" alt="Background green" className={styles.bg4} />
-            </picture>
-
-            <picture>
-              <source srcSet="/images/green3.svg" type="image/svg+xml" />
-              <img src="/images/green3.svg" alt="Background green" className={styles.bg3} />
-            </picture>
+            <BackgroundImage src="/images/green4.svg" alt="Background green" className={styles.bg4} />
+            <BackgroundImage src="/images/green3.svg" alt="Background green" className={styles.bg3} />
           </Grid>
 
           <Grid item container xs={12} md={6} marginTop={{ xs: 16, md: 0 }}>
@@ -329,10 +317,7 @@ const Team: NextPage = () => {
         </Grid>
 
         <Box position="relative">
-          <picture>
-            <source srcSet="/images/pink3.svg" type="image/svg+xml" />
-            <img src="/images/pink3.svg" alt="Background pink" className={styles.bg2} />
-          </picture>
+          <BackgroundImage src="/images/pink3.svg" alt="Background pink" className={styles.bg2} />
 
           <Typography variant="subtitle3" textAlign="center" mb="60px" marginTop={20}>
             Solvemed investors

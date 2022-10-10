@@ -2,6 +2,7 @@ import { Box, Button, Grid, TextField, Typography } from "@mui/material";
 import { Form, Formik } from "formik";
 import { NextPage } from "next";
 import Head from "next/head";
+import BackgroundImage from "../components/BackgroundImage/BackgroundImage";
 import { contactSchema, emailFailStatus } from "../utils/helpers";
 import styles from "./contact.module.css";
 
@@ -25,11 +26,11 @@ const Contact: NextPage<any> = () => {
         </Head>
       </div>
       <Box textAlign="center">
-        <img src="/images/green1.svg" alt="Background green" className={styles.bg} />
-        <img src="/images/green2.svg" alt="Background green" className={styles.bg} />
+        <BackgroundImage src="/images/green1.svg" alt="Background green" className={styles.bg} />
+        <BackgroundImage src="/images/green2.svg" alt="Background green" className={styles.bg} />
 
-        <img src="/images/blue1.svg" alt="Background blue" className={styles.bg3} />
-        <img src="/images/blue3.svg" alt="Background blue" className={styles.bg3} />
+        <BackgroundImage src="/images/blue1.svg" alt="Background blue" className={styles.bg3} />
+        <BackgroundImage src="/images/blue3.svg" alt="Background blue" className={styles.bg3} />
         <Typography variant="h3" align="center" mb="20px" fontSize={92}>
           Contact us
         </Typography>

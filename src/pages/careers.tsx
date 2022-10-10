@@ -5,6 +5,7 @@ import Image from "next/image";
 import styles from "./careers.module.css";
 import { useParallax } from "react-scroll-parallax";
 import Head from "next/head";
+import BackgroundImage from "../components/BackgroundImage/BackgroundImage";
 
 const careers = [
   {
@@ -111,14 +112,14 @@ const Careers: NextPage = () => {
         </Head>
       </div>
       <Grid container item xs={10} lg={8} columns={10} margin="auto" alignItems="center">
-        <Grid item xs={10} textAlign="center" position="relative" mb={-20}>
-          <img src="/images/green1.svg" alt="Background green" className={styles.bg} />
-          <img src="/images/green2.svg" alt="Background green" className={styles.bg} />
+        <Grid item xs={10} textAlign="center" position="relative">
+          <BackgroundImage src="/images/green1.svg" alt="Background green" className={styles.bg} />
+          <BackgroundImage src="/images/green2.svg" alt="Background green" className={styles.bg} />
 
-          <img src="/images/pink1.svg" alt="Background pink" className={styles.bg2} />
-          <img src="/images/pink2.svg" alt="Background pink" className={styles.bg2} />
+          <BackgroundImage src="/images/pink1.svg" alt="Background pink" className={styles.bg2} />
+          <BackgroundImage src="/images/pink2.svg" alt="Background pink" className={styles.bg2} />
 
-          <img src="/images/blue3.svg" alt="Background blue" className={styles.bg3} />
+          <BackgroundImage src="/images/blue3.svg" alt="Background blue" className={styles.bg3} />
 
           <Typography variant="h3" mb="80px">
             Join Solvemed

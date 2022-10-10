@@ -1,26 +1,17 @@
 .bg {
-  filter: blur(300px);
-  position: absolute;
   top: 0;
   right: 0;
-  z-index: -1;
 }
 
 .bg2 {
-  filter: blur(300px);
-  position: absolute;
   bottom: 0;
   right: 0;
-  z-index: -1;
 }
 
 .bg3 {
-  filter: blur(300px);
-  position: absolute;
   bottom: 0;
   top: 50%;
   right: 0;
-  z-index: -1;
 }
 
 .eyeImg {

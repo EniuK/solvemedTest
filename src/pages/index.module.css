@@ -1,58 +1,40 @@
 .bg {
-  filter: blur(200px);
-  position: absolute;
-  bottom: 0;
+  top: -30%;
   right: -10%;
-  z-index: -1;
 }
 
 .bg2 {
-  filter: blur(300px);
-  position: absolute;
   top: -10%;
-  left: -10%;
-  z-index: -1;
+  left: -50%;
 }
 
 .bg3 {
-  filter: blur(800px);
-  position: absolute;
   top: 40%;
   left: 20%;
-  z-index: -1;
 }
 
-.bg4 {
-  filter: blur(20px);
+.womenImgOverlay {
+  filter: blur(10px);
   position: absolute;
-  bottom: -10%;
+  bottom: -5%;
   left: -10%;
   width: 676px;
   height: auto;
 }
 
 .bg5 {
-  filter: blur(600px);
-  position: absolute;
   bottom: 0;
   right: 0;
-  z-index: -1;
 }
 
 .bg6 {
-  filter: blur(300px);
-  position: absolute;
   top: 0;
   left: 0;
-  z-index: -1;
 }
 
 .bg7 {
-  filter: blur(428px);
-  position: absolute;
-  bottom: -20%;
-  left: -10%;
-  z-index: -1;
+  top: -50%;
+  right: 0;
 }
 
 .brainImg {
@@ -69,6 +51,12 @@
   margin-left: -50px;
   margin-right: -50px;
   padding-right: 50px;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.animationWrapper::-webkit-scrollbar {
+  display: none;
 }
 
 .womenImgWrapper {
@@ -83,7 +71,8 @@
 
 .womenImgAnimationHighlight {
   position: absolute;
-  transition: all 0.5s ease-in-out;
+  transition: transform 0.5s ease-in-out, rotate 0.5s ease-in-out 0.5s;
+  -webkit-transition: transform 0.5s ease-in-out, rotate 0.5s ease-in-out 0.5s;
   pointer-events: none;
   width: 312px;
   height: auto;
@@ -115,9 +104,9 @@
     margin-right: -24px;
     padding-right: 24px;
   }
-  .bg4 {
+  .womenImgOverlay {
     width: 500px;
-    left: -20%;
+    /* left: -20%; */
   }
 }
 
@@ -129,9 +118,10 @@
   .womenImgAnimationHighlight {
     width: 115px;
   }
-  .bg4 {
-    width: 400px;
-    left: -20%;
+  .womenImgOverlay {
+    width: 300px;
+    left: -15%;
+    bottom: -5%;
   }
 }
 

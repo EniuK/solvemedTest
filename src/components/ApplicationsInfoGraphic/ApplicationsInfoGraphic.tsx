@@ -2,16 +2,14 @@ import React from "react";
 import { Box, Typography } from "@mui/material";
 import { useParallax } from "react-scroll-parallax";
 import styles from "./ApplicationsInfoGraphic.module.css";
+import BackgroundImage from "../BackgroundImage/BackgroundImage";
 
 const ApplicationsInfoGraphic = () => {
   const parallax = useParallax<HTMLDivElement>({ speed: -20, translateY: [30, -50] });
 
   return (
     <div ref={parallax.ref} className={styles.infoGraphicContainer}>
-      <Box
-         width={{ md: "60%" }}
-        className={styles.infoGraphicInternalContainer}
-      >
+      <Box width={{ md: "60%" }} className={styles.infoGraphicInternalContainer}>
         <Box className={styles.infoGraphicCore}>
           <img src="/images/logoVertical.svg" alt="Logo" />
           <Typography variant="body4" color="#494763" mb={2} mt={5}>
@@ -104,9 +102,9 @@ const ApplicationsInfoGraphic = () => {
         </Box>
       </Box>
 
-      <img src="/images/blue6.svg" alt="Background blue" className={styles.bg} />
-      <img src="/images/green5.svg" alt="Background pink" className={styles.bg5} />
-      <img src="/images/pink4.svg" alt="Background pink" className={styles.bg4} />
+      <BackgroundImage src="/images/blue6.svg" alt="Background blue" className={styles.bg} />
+      <BackgroundImage src="/images/green5.svg" alt="Background pink" className={styles.bg5} />
+      <BackgroundImage src="/images/pink4.svg" alt="Background pink" className={styles.bg4} />
     </div>
   );
 };

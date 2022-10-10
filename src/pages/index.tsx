@@ -6,6 +6,7 @@ import { Box, Stack, Typography, useMediaQuery } from "@mui/material";
 import styles from "./index.module.css";
 import "animate.css";
 import { theme } from "../config/theme";
+import BackgroundImage from "../components/BackgroundImage/BackgroundImage";
 
 const slides = [
   {
@@ -178,18 +179,18 @@ const Home: NextPage = () => {
       </div>
 
       <Box position="relative">
-        <img src="/images/pink4.svg" alt="Background pink" className={styles.bg3} />
-        <img src="/images/green5.svg" alt="Background green" className={styles.bg5} />
+        <BackgroundImage src="/images/pink4.svg" alt="Background pink" className={styles.bg3} />
+        <BackgroundImage src="/images/green5.svg" alt="Background green" className={styles.bg5} />
 
         <Typography variant="h1" align="center" marginX="auto" width={{ xs: "100%", md: "80%", lg: "70%" }}>
           Meet breakthrough digital technology for brain health.
         </Typography>
 
         <img src="/images/brainWithHand.png" alt="Intro image" className={styles.brainImg} />
-        <img src="/images/blue7.svg" alt="Background blue" className={styles.bg7} />
       </Box>
 
-      <Box width={{ xs: "80%", sm: "60%", md: "50%", xl: "40%" }} margin="auto">
+      <Box width={{ xs: "80%", sm: "60%", md: "50%", xl: "40%" }} margin="auto" position="relative">
+        <BackgroundImage src="/images/blue7.svg" alt="Background blue" className={styles.bg7} />
         <Typography variant="subtitle1" mb={5}>
           Solvemed&apos;s health evaluation tools are designed to complement existing assessments by making the patient data more precise and objective, and the data collection
           easier and more frequent.
@@ -267,9 +268,10 @@ const Home: NextPage = () => {
             </Typography>
           </div>
         </Stack>
-        <img src="/images/blue5.png" alt="Background blue" className={styles.bg4} />
-        <img src="/images/blue6.svg" alt="Background blue" className={styles.bg2} />
-        <img src="/images/pink4.svg" alt="Background pink" className={styles.bg6} />
+
+        <img src="/images/overlay.png" alt="Women overlay" className={styles.womenImgOverlay} />
+        <BackgroundImage src="/images/pink4.svg" alt="Background pink" className={styles.bg6} />
+        <BackgroundImage src="/images/blue6.svg" alt="Background blue" className={styles.bg2} />
       </div>
 
       <Box display="flex" flexDirection={{ xs: "column", sm: "row" }} justifyContent="space-between" width={{ xs: "100%", md: "80%", lg: "70%" }} margin="auto">
@@ -280,7 +282,7 @@ const Home: NextPage = () => {
       </Box>
 
       <Box position="relative" textAlign="center">
-        <img src="/images/yellow2.svg" alt="Background yellow" className={styles.bg} />
+        <BackgroundImage src="/images/yellow2.svg" alt="Background yellow" className={styles.bg} />
 
         <Typography variant="subtitle3" mb="22px" mt="160px">
           Our Research and Development

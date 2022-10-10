@@ -103,6 +103,10 @@ export const theme = createTheme({
         fontSize: "30px",
         lineHeight: "36px",
       },
+      "@media (max-width:600px)": {
+        fontSize: "23px",
+        lineHeight: "28.14px",
+      },
     },
     subtitle2: {
       fontSize: "30px",
@@ -123,6 +127,10 @@ export const theme = createTheme({
       lineHeight: "28.14px",
       letterSpacing: "-0.02em",
       fontWeight: "400",
+      "@media (max-width:600px)": {
+        fontSize: "18px",
+        lineHeight: "24px",
+      },
     },
     body1Wide: {
       fontFamily: "SuisseIntl",
@@ -214,7 +222,7 @@ export const theme = createTheme({
     },
     MuiTypography: {
       defaultProps: {
-        variant: "h1",
+        variant: "subtitle2",
         variantMapping: {
           subtitle3: "h6",
           body3: "p",

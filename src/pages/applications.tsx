@@ -7,6 +7,7 @@ import { useParallax } from "react-scroll-parallax";
 import { ParallaxProps } from "react-scroll-parallax/dist/components/Parallax/types";
 import ApplicationsInfoGraphic from "../components/ApplicationsInfoGraphic/ApplicationsInfoGraphic";
 import Head from "next/head";
+import BackgroundImage from "../components/BackgroundImage/BackgroundImage";
 
 const Applications: NextPage = () => {
   const parallaxSettings: ParallaxProps = { speed: -50, translateY: [0, -30] };
@@ -101,9 +102,9 @@ const Applications: NextPage = () => {
           </Grid>
 
           <Grid item container xs={12} alignItems="center" columnSpacing={2} rowSpacing={4} position="relative">
-            <img src="/images/blue6.svg" alt="Background blue" className={styles.bg} />
-            <img src="/images/green5.svg" alt="Background green" className={styles.bg3} />
-            <img src="/images/pink4.svg" alt="Background pink" className={styles.bg2} />
+            <BackgroundImage src="/images/blue6.svg" alt="Background blue" className={styles.bg} />
+            <BackgroundImage src="/images/green5.svg" alt="Background green" className={styles.bg3} />
+            <BackgroundImage src="/images/pink4.svg" alt="Background pink" className={styles.bg2} />
 
             <Grid item xs={12} md={2}>
               <ol className={styles.list}>

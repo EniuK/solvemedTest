@@ -20,6 +20,7 @@
   left: -10%;
   width: 676px;
   height: auto;
+  z-index: 103;
 }
 
 .bg5 {
@@ -53,6 +54,8 @@
   padding-right: 50px;
   -ms-overflow-style: none;
   scrollbar-width: none;
+  /* To not overlap with the fixed menu at the top */
+  z-index: 102;
 }
 
 .animationWrapper::-webkit-scrollbar {
@@ -106,7 +109,6 @@
   }
   .womenImgOverlay {
     width: 500px;
-    /* left: -20%; */
   }
 }
 

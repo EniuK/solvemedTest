@@ -68,7 +68,7 @@ export const theme = createTheme({
         lineHeight: "92px",
       },
       "@media (max-width:600px)": {
-        fontSize: "64px",
+        fontSize: "56px",
         lineHeight: "61px",
       },
     },
@@ -104,8 +104,8 @@ export const theme = createTheme({
         lineHeight: "36px",
       },
       "@media (max-width:600px)": {
-        fontSize: "23px",
-        lineHeight: "28.14px",
+        fontSize: "30px",
+        lineHeight: "33px",
       },
     },
     subtitle2: {

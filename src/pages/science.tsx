@@ -26,7 +26,7 @@ const selectedLiterature = [
   {
     id: "1",
     title: "Ocular motor signatures of cognitive dysfunction in multiple sclerosis",
-    author: "Joanne Fielding",
+    author: "Joanne Fielding, et al.",
     publishDate: "2015",
     source: "Nature Reviews Neurology",
     label: "Multiple sclerosis",
@@ -34,7 +34,7 @@ const selectedLiterature = [
   {
     id: "2",
     title: "Fixational microsaccades: A quantitative and objective measure of disability in multiple sclerosis",
-    author: "Christy K Sheehy",
+    author: "Christy K Sheehy, et al.",
     publishDate: "2020",
     source: "Multiple Sclerosis Journal",
     label: "Multiple sclerosis",
@@ -42,7 +42,7 @@ const selectedLiterature = [
   {
     id: "3",
     title: "Pupillary response to sparse multifocal stimuli in multiple sclerosis patients",
-    author: "E N Ali",
+    author: "E N Ali, et al.",
     publishDate: "2014",
     source: "Multiple Sclerosis Journal",
     label: "Multiple sclerosis",
@@ -50,7 +50,7 @@ const selectedLiterature = [
   {
     id: "4",
     title: "Using endogenous saccades to characterize fatigue in multiple sclerosis",
-    author: "Marisa Ferreira",
+    author: "Marisa Ferreira, et al.",
     publishDate: "2017",
     source: "Multiple Sclerosis and Related Disorders",
     label: "Multiple sclerosis",
@@ -58,7 +58,7 @@ const selectedLiterature = [
   {
     id: "5",
     title: "Gray Matter Atrophy to Explain Subclinical Oculomotor Deficit in Multiple Sclerosis",
-    author: "Bálint Kincses",
+    author: "Bálint Kincses, et al.",
     publishDate: "2019",
     source: "Frontiers in Neurology",
     label: "Multiple sclerosis",
@@ -66,7 +66,7 @@ const selectedLiterature = [
   {
     id: "6",
     title: "Eye Movement Evaluation in MS and PD Using a Standardized Oculomotor & Neuro-Ophthalmic Disorder Assessment",
-    author: "Alessandro Grillini",
+    author: "Alessandro Grillini, et al.",
     publishDate: "2020",
     source: "Frontiers in Neurology",
     label: "Parkinson's disease",
@@ -74,7 +74,7 @@ const selectedLiterature = [
   {
     id: "7",
     title: "Executive function deficits in mild cognitive impairment: evidence from saccade tasks",
-    author: "Negin Chehrehnegar",
+    author: "Negin Chehrehnegar, et al.",
     publishDate: "2021",
     source: "Aging & Mental Health Journal",
     label: "Alzheimer's disease",
@@ -82,7 +82,7 @@ const selectedLiterature = [
   {
     id: "8",
     title: "Pupillometry and 123I-DaTSCAN imaging in Parkinson's Disease: A Comparison Study",
-    author: "Evangelia Giza",
+    author: "Evangelia Giza, et al.",
     publishDate: "2012",
     source: "International Journal of Neuroscience",
     label: "Parkinson's disease",
@@ -90,7 +90,7 @@ const selectedLiterature = [
   {
     id: "9",
     title: "Understanding the effects of mild traumatic brain injury on the pupillary light reflex",
-    author: "Kenneth J Ciuffreda",
+    author: "Kenneth J Ciuffreda, et al.",
     publishDate: "2017",
     source: "Concussion Journal",
     label: "Mild Traumatic Brain Injury",
@@ -98,7 +98,7 @@ const selectedLiterature = [
   {
     id: "10",
     title: "Visual Scanning and Pupillary Responses in Young Children with Autism Spectrum Disorder",
-    author: "Christa J. Anderson",
+    author: "Christa J. Anderson, et al.",
     publishDate: "2006",
     source: "Journal of Clinical and Experimental Neuropsychology",
     label: "Autism Spectrum Disorder",
@@ -106,7 +106,7 @@ const selectedLiterature = [
   {
     id: "11",
     title: "Pupillometry and 123I-DaTSCAN imaging in Parkinson's Disease: A Comparison Study",
-    author: "Mona Guath",
+    author: "Mona Guath, et al.",
     publishDate: "2022",
     source: "Journal of the International Neuropsychological Society",
     label: "Major Depression",
@@ -114,7 +114,7 @@ const selectedLiterature = [
   {
     id: "12",
     title: "Pupillary effects in habitual cannabis consumers quantified with pupillography",
-    author: "Carlo P Campobasso",
+    author: "Carlo P Campobasso, et al.",
     publishDate: "2020",
     source: "Journal Forensic science international",
     label: "Substance abuse",
@@ -122,7 +122,7 @@ const selectedLiterature = [
   {
     id: "13",
     title: "Reduced pupillary light reflexes in diabetic autonomic neuropathy",
-    author: "S A Smith",
+    author: "S A Smith, et al.",
     publishDate: "1983",
     source: "Journal Diabetologia",
     label: "Diabetic neuropathy",
@@ -130,7 +130,7 @@ const selectedLiterature = [
   {
     id: "14",
     title: "Pupil size and pupillary light reflex in early infancy: heritability and link to genetic liability to schizophrenia",
-    author: "Ana Maria Portugal",
+    author: "Ana Maria Portugal, et al.",
     publishDate: "2021",
     source: "Journal of child psychology and psychiatry, and allied disciplines",
     label: "Schizophrenia",
@@ -138,7 +138,7 @@ const selectedLiterature = [
   {
     id: "15",
     title: "Response time as a proxy of ongoing mental state: A combined fMRI and pupillometry study in Generalized Anxiety Disorder",
-    author: "Elena Makovac",
+    author: "Elena Makovac, et al.",
     publishDate: "2019",
     source: "Journal NeuroImage",
     label: "Anxiety",
@@ -146,7 +146,7 @@ const selectedLiterature = [
   {
     id: "16",
     title: "Pupillary response in reward processing in adults with major depressive disorder in remission",
-    author: "Mona Guath",
+    author: "Mona Guath, et al.",
     publishDate: "2022",
     source: "Journal of the International Neuropsychological Society",
     label: "Diabetic Retinopathy",
@@ -154,7 +154,7 @@ const selectedLiterature = [
   {
     id: "17",
     title: "Pupillary effects in habitual cannabis consumers quantified with pupillography",
-    author: "Carlo P Campobasso",
+    author: "Carlo P Campobasso, et al.",
     publishDate: "2020",
     source: "Journal Forensic science international",
     label: "Ophthalmic Disease",
@@ -162,7 +162,7 @@ const selectedLiterature = [
   {
     id: "18",
     title: "Reduced pupillary light reflexes in diabetic autonomic neuropathy",
-    author: "S A Smith",
+    author: "S A Smith, et al.",
     publishDate: "1983",
     source: "Journal Diabetologia",
     label: "Glaucoma",
@@ -170,7 +170,7 @@ const selectedLiterature = [
   {
     id: "20",
     title: "Response time as a proxy of ongoing mental state: A combined fMRI and pupillometry study in Generalized Anxiety Disorder",
-    author: "Elena Makovac",
+    author: "Elena Makovac, et al.",
     publishDate: "2019",
     source: "Journal NeuroImage",
     label: "ALS",
@@ -238,13 +238,10 @@ const Science: NextPage = () => {
           Science
         </Typography>
         <Typography variant="subtitle1" mb="30px">
-          Our research advances the frontier of <br />
-          digital biomarker science.
+          Our research advances the frontier of digital biomarker science.
         </Typography>
         <Typography variant="body2" mb="165px">
-          We bring to the world the most advanced camera-enabled data <br />
-          collection and analytical tools in the field of neurology and <br />
-          ophthalmology.
+          We bring to the world the most advanced camera-enabled data collection and analytical tools in the field of neurology and ophthalmology.
         </Typography>
 
         <Grid container justifyContent="center" mb="200px">
@@ -355,7 +352,7 @@ const Science: NextPage = () => {
           and industrial life science organisations.
         </Typography>
 
-        <Grid container justifyContent="space-between" xs={4} columns={{ xs: 1, sm: 2, lg: 4 }} rowSpacing={{ lg: 8, sm: 18, xs: 12 }} alignItems="center">
+        <Grid container justifyContent="space-between" xs={4} columns={{ xs: 2, sm: 2, lg: 4 }} rowSpacing={{ lg: 8, sm: 18, xs: 12 }} alignItems="center" columnSpacing={{ lg: 0, sm: 0, xs: 4}}>
           {collaborators.map((item) => (
             <Grid item key={item.name} xs={1} sm={1} lg={1}>
               <Box display="flex" justifyContent="center" alignItems="center">

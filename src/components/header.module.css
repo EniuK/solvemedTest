@@ -23,11 +23,16 @@
   width: auto;
   max-width: 475px;
   z-index: 101;
-  border-radius: 24px;
+  border-radius: 16px;
   border: 1px solid #5242ee;
-  padding: 4px 8px;
+  padding: 8px 20px;
   top: 150%;
   right: 0;
+}
+
+.externalLinkIcon {
+  position: absolute;
+  right: 10px;
 }
 
 @media (min-width: 900px) {
@@ -44,12 +49,13 @@
 }
 
 .externalLinkContent {
-  margin-right: 16px;
+  margin: 0 16px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex: 1;
   flex-direction: column;
+  text-decoration: underline;
 }
 
 @media (min-width: 900px) {

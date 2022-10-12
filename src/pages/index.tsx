@@ -189,7 +189,7 @@ const Home: NextPage = () => {
         <img src="/images/brainWithHand.png" alt="Intro image" className={styles.brainImg} />
       </Box>
 
-      <Box width={{ xs: "80%", sm: "60%", md: "50%", xl: "40%" }} margin="auto" position="relative">
+      <Box width={{ xs: "100%", sm: "60%", md: "50%", xl: "40%" }} margin="auto" position="relative">
         <BackgroundImage src="/images/blue7.svg" alt="Background blue" className={styles.bg7} />
         <Typography variant="subtitle1" mb={5}>
           Solvemed&apos;s health evaluation tools are designed to complement existing assessments by making the patient data more precise and objective, and the data collection

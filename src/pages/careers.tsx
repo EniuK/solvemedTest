@@ -121,13 +121,13 @@ const Careers: NextPage = () => {
 
           <BackgroundImage src="/images/blue3.svg" alt="Background blue" className={styles.bg3} />
 
-          <Typography variant="h3" mb="80px">
+          <Typography variant="h3" mb={{ xs: "60px", lg: "80px" }}>
             Join Solvemed
           </Typography>
           <Typography variant="subtitle1" width={{ xs: "100%", sm: "70%" }} margin="0 auto 30px auto">
             Digital mapping of the human brain is an interdisciplinary challenge.
           </Typography>
-          <Typography variant="body2" width={{ xs: "100%", sm: "70%", md: "50%" }} margin="auto">
+          <Typography variant="body2" width={{ xs: "100%", sm: "70%", md: "50%" }} margin="auto" mb={{ xs: "60px", lg: "80px" }}>
             We are looking to hire a wide range of people with diverse engineering, scientific, and operations expertise.
           </Typography>
 

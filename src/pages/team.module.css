@@ -24,3 +24,10 @@
   margin-left: -40%;
   transform: scale(2);
 }
+
+@media (max-width: 900px) {
+  .bg {
+    bottom: -50%;
+    height: 200%;
+  }
+}

@@ -74,23 +74,7 @@ const team: TeamMember[] = [
     position: "Board Member, Co-founder at Snowflake (NYSE: SNOW)",
     photo: "/images/MarcinZukowski.png",
     roles: [{ title: "Board member", color: "#F4EDFD" }],
-    linkedinUrl: null,
-    twitterUrl: null,
-  },
-  {
-    name: "Dr Marcus Erken",
-    position: "Board Member, Partner at Sunfish Partners, Founding Partner",
-    photo: "/images/DrMarcusErken.png",
-    roles: [{ title: "Board member", color: "#F4EDFD" }],
-    linkedinUrl: "https://www.linkedin.com/in/erken/",
-    twitterUrl: null,
-  },
-  {
-    name: "Dominik Andrzejczuk",
-    position: "Board Member, Partner at Atmos Ventures, Managing Partner",
-    photo: "/images/DominikAndrzejczuk.png",
-    roles: [{ title: "Board member", color: "#F4EDFD" }],
-    linkedinUrl: "https://www.linkedin.com/in/dominikand/",
+    linkedinUrl: "https://www.linkedin.com/in/marcinzukowski/",
     twitterUrl: null,
   },
   {
@@ -99,6 +83,22 @@ const team: TeamMember[] = [
     photo: "/images/WojtekWalniczek.png",
     roles: [{ title: "Board member", color: "#F4EDFD" }],
     linkedinUrl: "https://www.linkedin.com/in/wojtekwalniczek/",
+    twitterUrl: null,
+  },
+  {
+    name: "Dr Marcus Erken",
+    position: "Board Member, Partner at Sunfish Partners",
+    photo: "/images/DrMarcusErken.png",
+    roles: [{ title: "Board member", color: "#F4EDFD" }],
+    linkedinUrl: "https://www.linkedin.com/in/erken/",
+    twitterUrl: null,
+  },
+  {
+    name: "Dominik Andrzejczuk",
+    position: "Board Member, Partner at Atmos Ventures",
+    photo: "/images/DominikAndrzejczuk.png",
+    roles: [{ title: "Board member", color: "#F4EDFD" }],
+    linkedinUrl: "https://www.linkedin.com/in/dominikand/",
     twitterUrl: null,
   },
 ];
@@ -217,7 +217,7 @@ const Team: NextPage = () => {
         <Typography variant="h3" mb={10} textAlign="center">
           Our People
         </Typography>
-        <Typography variant="subtitle1" mb={23.25} textAlign="center">
+        <Typography variant="subtitle1" mb={8.25} textAlign="center">
           Working together to overcome <br />
           neurological diseases.
         </Typography>

@@ -31,13 +31,13 @@ const Contact: NextPage<any> = () => {
 
         <BackgroundImage src="/images/blue1.svg" alt="Background blue" className={styles.bg3} />
         <BackgroundImage src="/images/blue3.svg" alt="Background blue" className={styles.bg3} />
-        <Typography variant="h3" align="center" mb="20px" fontSize={92}>
+        <Typography variant="h3" align="center" mb="60px" fontSize={92}>
           Contact us
         </Typography>
-        <Typography variant="subtitle1" mb="30px" fontSize={42} style={{ margin: "0 auto", marginBottom: "2.5%" }} width={{ xs: "100%", md: "40%" }}>
+        <Typography variant="subtitle1" mb="30px" fontSize={42} style={{ margin: "0 auto" }} width={{ xs: "100%", md: "40%" }}>
           Let’s partner up and make groundbreaking discoveries together.
         </Typography>
-        <Typography variant="body2" mb="165px" style={{ margin: "0 auto", marginBottom: "5%" }} width={{ xs: "100%", md: "40%" }}>
+        <Typography variant="body2" mb="100px" style={{ margin: "0 auto" }} width={{ xs: "100%", md: "40%" }}>
           We are always on a look out of people with diverse engineering, scientific, and operations expertise.
         </Typography>
 

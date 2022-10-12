@@ -44,7 +44,7 @@ const team: TeamMember[] = [
   },
   {
     name: "Dr Michal Wlodarski",
-    position: "Chief Operations Officer, Co-founder",
+    position: "Chief Operating Officer, Co-founder",
     photo: "/images/MichaeWlodarski.png",
     roles: [
       { title: "Leadership", color: "#ffeded" },
@@ -71,10 +71,26 @@ const team: TeamMember[] = [
   },
   {
     name: "Marcin Zukowski",
-    position: "Board Member, Co-founder at Snowflake",
+    position: "Board Member, Co-founder at Snowflake (NYSE: SNOW)",
     photo: "/images/MarcinZukowski.png",
     roles: [{ title: "Board member", color: "#F4EDFD" }],
     linkedinUrl: null,
+    twitterUrl: null,
+  },
+  {
+    name: "Dr Marcus Erken",
+    position: "Board Member, Partner at Sunfish Partners, Founding Partner",
+    photo: "/images/DrMarcusErken.png",
+    roles: [{ title: "Board member", color: "#F4EDFD" }],
+    linkedinUrl: "https://www.linkedin.com/in/erken/",
+    twitterUrl: null,
+  },
+  {
+    name: "Dominik Andrzejczuk",
+    position: "Board Member, Partner at Atmos Ventures, Managing Partner",
+    photo: "/images/DominikAndrzejczuk.png",
+    roles: [{ title: "Board member", color: "#F4EDFD" }],
+    linkedinUrl: "https://www.linkedin.com/in/dominikand/",
     twitterUrl: null,
   },
   {
@@ -83,22 +99,6 @@ const team: TeamMember[] = [
     photo: "/images/WojtekWalniczek.png",
     roles: [{ title: "Board member", color: "#F4EDFD" }],
     linkedinUrl: "https://www.linkedin.com/in/wojtekwalniczek/",
-    twitterUrl: null,
-  },
-  {
-    name: "Dr Marcus Erken",
-    position: "Board Member, Founding Partner",
-    photo: "/images/DrMarcusErken.png",
-    roles: [{ title: "Board member", color: "#F4EDFD" }],
-    linkedinUrl: "https://www.linkedin.com/in/erken/",
-    twitterUrl: null,
-  },
-  {
-    name: "Dominik Andrzejczuk",
-    position: "Board Member, Managing Partner",
-    photo: "/images/DominikAndrzejczuk.png",
-    roles: [{ title: "Board member", color: "#F4EDFD" }],
-    linkedinUrl: "https://www.linkedin.com/in/dominikand/",
     twitterUrl: null,
   },
 ];

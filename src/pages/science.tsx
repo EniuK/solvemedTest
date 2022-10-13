@@ -6,8 +6,6 @@ import { Box, Grid, Stack, Typography, useMediaQuery, useTheme } from "@mui/mate
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import styles from "./science.module.css";
-import { useParallax } from "react-scroll-parallax";
-import { ParallaxProps } from "react-scroll-parallax/dist/components/Parallax/types";
 import Head from "next/head";
 import BackgroundImage from "../components/BackgroundImage/BackgroundImage";
 
@@ -214,12 +212,6 @@ const Science: NextPage = () => {
     className: styles.slider,
   };
 
-  const parallaxSettings: ParallaxProps = { speed: -20, translateY: [10, -30] };
-
-  const parallax = useParallax<HTMLDivElement>(parallaxSettings);
-  const parallax2 = useParallax<HTMLDivElement>(parallaxSettings);
-  const parallax3 = useParallax<HTMLDivElement>(parallaxSettings);
-
   return (
     <>
       <div>
@@ -249,9 +241,7 @@ const Science: NextPage = () => {
             <Grid item container xs={12} justifyContent="space-between">
               <Grid item xs={12} sm={5} md={5} position="relative">
                 <BackgroundImage src="/images/pink.svg" alt="Background pink" className={styles.bg} />
-                <div ref={parallax.ref}>
-                  <Image src="/images/science1.png" alt="science1" width={440} height={632} />
-                </div>
+                <Image src="/images/science1.png" alt="science1" width={440} height={632} />
               </Grid>
               <Grid item xs={12} sm={6} md={6} textAlign="left">
                 <Typography variant="body1Wide" mb="60px">
@@ -302,9 +292,7 @@ const Science: NextPage = () => {
               </Grid>
               <Grid item xs={12} sm={5} md={5} position="relative">
                 <BackgroundImage src="/images/yellow.svg" alt="Background yellow" className={styles.bg2} />
-                <div ref={parallax2.ref}>
-                  <Image src="/images/science2.png" alt="science2" width={440} height={632} />
-                </div>
+                <Image src="/images/science2.png" alt="science2" width={440} height={632} />
               </Grid>
             </Grid>
 
@@ -317,9 +305,7 @@ const Science: NextPage = () => {
             <Grid item container xs={12} justifyContent="space-between">
               <Grid item xs={12} sm={5} md={5} position="relative">
                 <BackgroundImage src="/images/blue.svg" alt="Background blue" className={styles.bg3} />
-                <div ref={parallax3.ref}>
-                  <Image src="/images/science3.png" alt="science3" width={440} height={632} />
-                </div>
+                <Image src="/images/science3.png" alt="science3" width={440} height={632} />
               </Grid>
               <Grid item xs={12} sm={6} md={6} textAlign="left">
                 <Typography variant="body1Wide" mb="60px">
@@ -352,7 +338,7 @@ const Science: NextPage = () => {
           and industrial life science organisations.
         </Typography>
 
-        <Grid container justifyContent="space-between" xs={4} columns={{ xs: 2, sm: 2, lg: 4 }} rowSpacing={{ lg: 8, sm: 18, xs: 12 }} alignItems="center" columnSpacing={{ lg: 0, sm: 0, xs: 4}}>
+        <Grid container justifyContent="space-between" columns={{ xs: 2, sm: 2, lg: 4 }} rowSpacing={{ lg: 8, sm: 18, xs: 12 }} alignItems="center" columnSpacing={{ lg: 0, sm: 0, xs: 4}}>
           {collaborators.map((item) => (
             <Grid item key={item.name} xs={1} sm={1} lg={1}>
               <Box display="flex" justifyContent="center" alignItems="center">

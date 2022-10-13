@@ -29,7 +29,7 @@ const Contact: NextPage<any> = () => {
         <BackgroundImage src="/images/green1.svg" alt="Background green" className={styles.bg} />
         <BackgroundImage src="/images/green2.svg" alt="Background green" className={styles.bg} />
 
-        <BackgroundImage src="/images/blue1.svg" alt="Background blue" className={styles.bg3} />
+        <BackgroundImage src="/images/blue.svg" alt="Background blue" className={styles.bg3} />
         <BackgroundImage src="/images/blue3.svg" alt="Background blue" className={styles.bg3} />
         <Typography variant="h3" align="center" mb="60px" fontSize={92}>
           Contact us

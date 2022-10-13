@@ -1,0 +1,33 @@
+.button {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  border-radius: 100px;
+  text-decoration: none;
+  text-align: center;
+  height: 54px;
+  width: 151px;
+  border: 1px solid rgba(82, 66, 238, 0.2);
+}
+
+.buttonPrimary {
+  width: auto;
+  border-width: 0;
+}
+
+.buttonLabel {
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.buttonIcon {
+  display: inline-flex;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}

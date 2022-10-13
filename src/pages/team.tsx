@@ -4,7 +4,6 @@ import Head from "next/head";
 import Image from "next/image";
 import React from "react";
 import { useState } from "react";
-import { useParallax } from "react-scroll-parallax";
 import BackgroundImage from "../components/BackgroundImage/BackgroundImage";
 import TeamMemberModal from "../components/TeamMemberModal/TeamMemberModal";
 import styles from "./team.module.css";
@@ -142,7 +141,6 @@ const weComeFrom = [
   { id: "novartis", image: "/images/logos/we_come_from/novartis.png", width: "146px", height: "23.94px" },
 ];
 const Team: NextPage = () => {
-  const parallax = useParallax<HTMLDivElement>({ speed: -20 });
   const [memberDetails, setMemberDetails] = useState<TeamMember | null>(null);
 
   const MemberListItem = ({ member }: { member: TeamMember }) => (
@@ -240,9 +238,7 @@ const Team: NextPage = () => {
 
         <Grid container justifyContent="flex-end" mt="190px" position="relative">
           <Grid item xs={12} md={6} position="relative">
-            <div ref={parallax.ref}>
-              <img src="/images/brain2.png" alt="Brain" className={styles.brainImg} />
-            </div>
+            <img src="/images/brain2.png" alt="Brain" className={styles.brainImg} />
 
             <BackgroundImage src="/images/green4.svg" alt="Background green" className={styles.bg4} />
             <BackgroundImage src="/images/green3.svg" alt="Background green" className={styles.bg3} />

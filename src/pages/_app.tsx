@@ -3,7 +3,6 @@ import type { AppProps } from "next/app";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import Layout from "../components/layout";
 import { theme } from "../config/theme";
-import { ParallaxProvider } from "react-scroll-parallax";
 import Script from "next/script";
 
 const MyApp = ({ Component, pageProps }: AppProps) => (
@@ -22,11 +21,9 @@ const MyApp = ({ Component, pageProps }: AppProps) => (
     </Script>
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <ParallaxProvider>
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
-      </ParallaxProvider>
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
     </ThemeProvider>
   </>
 );

@@ -72,22 +72,10 @@
   height: 1151px;
 }
 
-.womenImgAnimationHighlight {
-  position: absolute;
-  transition: transform 0.5s ease-in-out, rotate 0.5s ease-in-out 0.5s;
-  -webkit-transition: transform 0.5s ease-in-out, rotate 0.5s ease-in-out 0.5s;
-  pointer-events: none;
-  width: 312px;
-  height: auto;
-}
-
 @media (max-width: 1200px) {
   .womenImg {
     width: 702px;
     height: 860px;
-  }
-  .womenImgAnimationHighlight {
-    width: 220px;
   }
 }
 
@@ -101,9 +89,6 @@
   .womenImg {
     width: 502px;
     height: 615px;
-  }
-  .womenImgAnimationHighlight {
-    width: 180px;
   }
   .animationWrapper {
     margin-left: -24px;
@@ -119,9 +104,6 @@
   .womenImg {
     width: 385px;
     height: 472px;
-  }
-  .womenImgAnimationHighlight {
-    width: 115px;
   }
   .womenImgOverlay {
     width: 300px;

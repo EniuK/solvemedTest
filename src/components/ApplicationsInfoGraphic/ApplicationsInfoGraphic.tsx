@@ -1,7 +1,6 @@
 import React from "react";
 import { Box, Typography } from "@mui/material";
 import styles from "./ApplicationsInfoGraphic.module.css";
-import BackgroundImage from "../BackgroundImage/BackgroundImage";
 
 const ApplicationsInfoGraphic = () => (
   <div className={styles.infoGraphicContainer}>
@@ -97,10 +96,6 @@ const ApplicationsInfoGraphic = () => (
         <img src="/images/arrowLongBottomRight.svg" alt="Arrow bottom right" className={styles.infoGraphicArrowBottomIcon} style={{ left: 0 }} />
       </Box>
     </Box>
-
-    <BackgroundImage src="/images/blue6.svg" alt="Background blue" className={styles.bg} />
-    <BackgroundImage src="/images/green5.svg" alt="Background pink" className={styles.bg5} />
-    <BackgroundImage src="/images/pink4.svg" alt="Background pink" className={styles.bg4} />
   </div>
 );
 

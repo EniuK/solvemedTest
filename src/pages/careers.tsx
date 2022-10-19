@@ -3,8 +3,8 @@ import { NextPage } from "next";
 import { Box, Grid, Typography } from "@mui/material";
 import styles from "./careers.module.css";
 import Head from "next/head";
-import BackgroundImage from "../components/BackgroundImage/BackgroundImage";
 import AnimatedButton from "../components/AnimatedButton/AnimatedButton";
+import { motion } from "framer-motion";
 
 const careers = [
   {
@@ -107,26 +107,39 @@ const Careers: NextPage = () => (
         />
       </Head>
     </div>
+
     <Grid container item xs={10} lg={8} columns={10} margin="auto" alignItems="center">
-      <Grid item xs={10} textAlign="center" position="relative">
-        <BackgroundImage src="/images/green1.svg" alt="Background green" className={styles.bg} />
-        <BackgroundImage src="/images/green2.svg" alt="Background green" className={styles.bg} />
-
-        <BackgroundImage src="/images/pink1.svg" alt="Background pink" className={styles.bg2} />
-        <BackgroundImage src="/images/pink2.svg" alt="Background pink" className={styles.bg2} />
-
-        <BackgroundImage src="/images/blue3.svg" alt="Background blue" className={styles.bg3} />
-
-        <Typography variant="h3" mb={{ xs: "60px", lg: "80px" }}>
+      <Grid item xs={10} textAlign="center">
+        <Typography
+          component={motion.p}
+          variant="h3"
+          mb={{ xs: "60px", lg: "80px" }}
+          variants={{ initial: { opacity: 0, y: 100 }, animate: { opacity: 1, y: 0 } }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
+        >
           Join Solvemed
         </Typography>
-        <Typography variant="subtitle1" width={{ xs: "100%", sm: "70%" }} margin="0 auto 30px auto">
+        <Typography
+          component={motion.p}
+          variant="subtitle1"
+          width={{ xs: "100%", sm: "70%" }}
+          margin="0 auto 30px auto"
+          variants={{ initial: { opacity: 0, y: 50 }, animate: { opacity: 1, y: 0 } }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
+        >
           Digital mapping of the human brain is an interdisciplinary challenge.
         </Typography>
-        <Typography variant="body2" width={{ xs: "100%", sm: "70%", md: "50%" }} margin="auto" mb={{ xs: "60px", lg: "80px" }}>
+        <Typography
+          component={motion.p}
+          variant="body2"
+          width={{ xs: "100%", sm: "70%", md: "50%" }}
+          margin="auto"
+          mb={{ xs: "60px", lg: "80px" }}
+          variants={{ initial: { opacity: 0, y: 20 }, animate: { opacity: 1, y: 0 } }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
+        >
           We are looking to hire a wide range of people with diverse engineering, scientific, and operations expertise.
         </Typography>
-
         <img src="/images/eye.png" alt="Eye" className={styles.eyeImg} />
       </Grid>
 

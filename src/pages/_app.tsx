@@ -5,7 +5,7 @@ import Layout from "../components/layout";
 import { theme } from "../config/theme";
 import Script from "next/script";
 
-const MyApp = ({ Component, pageProps }: AppProps) => (
+const App = ({ Component, pageProps }: AppProps) => (
   <>
     <Script strategy="lazyOnload" src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`} />
 
@@ -28,4 +28,4 @@ const MyApp = ({ Component, pageProps }: AppProps) => (
   </>
 );
 
-export default MyApp;
+export default App;

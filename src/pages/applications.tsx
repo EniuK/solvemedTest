@@ -5,8 +5,8 @@ import { Box, Grid, Hidden, Typography } from "@mui/material";
 import styles from "./applications.module.css";
 import ApplicationsInfoGraphic from "../components/ApplicationsInfoGraphic/ApplicationsInfoGraphic";
 import Head from "next/head";
-import BackgroundImage from "../components/BackgroundImage/BackgroundImage";
 import AnimatedButton from "../components/AnimatedButton/AnimatedButton";
+import { motion } from "framer-motion";
 
 const Applications: NextPage = () => (
   <>
@@ -22,14 +22,21 @@ const Applications: NextPage = () => (
       </Head>
     </div>
     <Box>
-      <Typography variant="h2" align="center" mb="20px">
+      <Typography
+        component={motion.p}
+        variant="h2"
+        align="center"
+        mb="20px"
+        variants={{ initial: { opacity: 0, y: 50 }, animate: { opacity: 1, y: 0 } }}
+        transition={{ duration: 0.7, ease: "easeOut" }}
+      >
         Applications
       </Typography>
 
       <ApplicationsInfoGraphic />
 
       <Grid id="clinicians" container>
-        <Grid item container xs={12} sm={12} md={12} alignItems="center" columnSpacing={2} rowSpacing={4} position="relative">
+        <Grid item container xs={12} sm={12} md={12} alignItems="center" columnSpacing={2} rowSpacing={4}>
           <Grid item xs={12} md={2}>
             <ol className={styles.list}>
               <li className={styles.listItem}>
@@ -96,11 +103,7 @@ const Applications: NextPage = () => (
           </Box>
         </Grid>
 
-        <Grid item container xs={12} alignItems="center" columnSpacing={2} rowSpacing={4} position="relative">
-          <BackgroundImage src="/images/blue6.svg" alt="Background blue" className={styles.bg} />
-          <BackgroundImage src="/images/green5.svg" alt="Background green" className={styles.bg3} />
-          <BackgroundImage src="/images/pink4.svg" alt="Background pink" className={styles.bg2} />
-
+        <Grid item container xs={12} alignItems="center" columnSpacing={2} rowSpacing={4}>
           <Grid item xs={12} md={2}>
             <ol className={styles.list}>
               <li className={styles.listItemInactive}>

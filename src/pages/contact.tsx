@@ -2,9 +2,9 @@ import { Box, Button, Grid, TextField, Typography } from "@mui/material";
 import { Form, Formik } from "formik";
 import { NextPage } from "next";
 import Head from "next/head";
-import BackgroundImage from "../components/BackgroundImage/BackgroundImage";
 import { contactSchema, emailFailStatus } from "../utils/helpers";
 import styles from "./contact.module.css";
+import { motion } from "framer-motion";
 
 const initialValues = {
   name: "",
@@ -25,19 +25,38 @@ const Contact: NextPage<any> = () => {
           />
         </Head>
       </div>
-      <Box textAlign="center">
-        <BackgroundImage src="/images/green1.svg" alt="Background green" className={styles.bg} />
-        <BackgroundImage src="/images/green2.svg" alt="Background green" className={styles.bg} />
 
-        <BackgroundImage src="/images/blue.svg" alt="Background blue" className={styles.bg3} />
-        <BackgroundImage src="/images/blue3.svg" alt="Background blue" className={styles.bg3} />
-        <Typography variant="h3" align="center" mb="60px" fontSize={92}>
+      <Box textAlign="center">
+        <Typography
+          component={motion.p}
+          variant="h3"
+          align="center"
+          mb="60px"
+          fontSize={92}
+          variants={{ initial: { opacity: 0, y: 100 }, animate: { opacity: 1, y: 0 } }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
+        >
           Contact us
         </Typography>
-        <Typography variant="subtitle1" mb="30px" fontSize={42} style={{ margin: "0 auto" }} width={{ xs: "100%", md: "40%" }}>
+        <Typography
+          component={motion.p}
+          variant="subtitle1"
+          fontSize={42}
+          style={{ margin: "0 auto 30px" }}
+          width={{ xs: "100%", md: "40%" }}
+          variants={{ initial: { opacity: 0, y: 50 }, animate: { opacity: 1, y: 0 } }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
+        >
           Let’s partner up and make groundbreaking discoveries together.
         </Typography>
-        <Typography variant="body2" mb="100px" style={{ margin: "0 auto" }} width={{ xs: "100%", md: "40%" }}>
+        <Typography
+          component={motion.p}
+          variant="body2"
+          style={{ margin: "0 auto 100px" }}
+          width={{ xs: "100%", md: "40%" }}
+          variants={{ initial: { opacity: 0, y: 20 }, animate: { opacity: 1, y: 0 } }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
+        >
           We are always on a look out of people with diverse engineering, scientific, and operations expertise.
         </Typography>
 

@@ -4,9 +4,9 @@ import Head from "next/head";
 import Image from "next/image";
 import React from "react";
 import { useState } from "react";
-import BackgroundImage from "../components/BackgroundImage/BackgroundImage";
 import TeamMemberModal from "../components/TeamMemberModal/TeamMemberModal";
 import styles from "./team.module.css";
+import { motion } from "framer-motion";
 
 export type TeamMember = {
   name: string;
@@ -199,7 +199,7 @@ const Team: NextPage = () => {
   );
 
   return (
-    <>
+    <Box>
       <div>
         <Head>
           <title>Solvemed Team</title>
@@ -212,17 +212,29 @@ const Team: NextPage = () => {
         </Head>
       </div>
       <div>
-        <Typography variant="h3" mb={10} textAlign="center">
+        <Typography
+          component={motion.p}
+          variant="h3"
+          mb={10}
+          textAlign="center"
+          variants={{ initial: { opacity: 0, y: 100 }, animate: { opacity: 1, y: 0 } }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
+        >
           Our People
         </Typography>
-        <Typography variant="subtitle1" mb={8.25} textAlign="center">
+        <Typography
+          component={motion.p}
+          variant="subtitle1"
+          mb={8.25}
+          textAlign="center"
+          variants={{ initial: { opacity: 0, y: 50 }, animate: { opacity: 1, y: 0 } }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
+        >
           Working together to overcome <br />
           neurological diseases.
         </Typography>
 
-        <Grid container rowSpacing={1.25} columnSpacing={1.25} mb="214px" position="relative" maxWidth="1110px" margin="0 auto">
-          <BackgroundImage src="/images/blue4.svg" alt="Background blue" className={styles.bg} />
-
+        <Grid container rowSpacing={1.25} columnSpacing={1.25} mb="214px" maxWidth="1110px" margin="0 auto">
           {team.map((member, idx) => (
             <Grid item xs={12} sm={6} md={4} lg={4} key={idx} zIndex={1}>
               <MemberListItem member={{ ...member, memberIndex: idx }} />
@@ -236,12 +248,9 @@ const Team: NextPage = () => {
           </Grid>
         </Grid>
 
-        <Grid container justifyContent="flex-end" mt="190px" position="relative">
-          <Grid item xs={12} md={6} position="relative">
+        <Grid container justifyContent="flex-end" mt="190px">
+          <Grid item xs={12} md={6}>
             <img src="/images/brain2.png" alt="Brain" className={styles.brainImg} />
-
-            <BackgroundImage src="/images/green4.svg" alt="Background green" className={styles.bg4} />
-            <BackgroundImage src="/images/green3.svg" alt="Background green" className={styles.bg3} />
           </Grid>
 
           <Grid item container xs={12} md={6} marginTop={{ xs: 16, md: 0 }}>
@@ -303,7 +312,7 @@ const Team: NextPage = () => {
         </Typography>
 
         <Grid container direction="row" justifyContent="space-between" alignItems="baseline" rowSpacing={{ md: 8, sm: 8, xs: 6 }} columns={{ md: 5, sm: 4, xs: 2 }}>
-          {weComeFrom.map((item, idx) => (
+          {weComeFrom.map((item) => (
             <Grid item key={item.id} alignSelf="center" justifyContent="center" md={1} xs={1} sm={1}>
               <Box display="flex" justifyContent="center" alignItems="center">
                 <Image src={item.image} alt={item.id} width={item.width} height={item.height} layout="fixed" objectFit="scale-down" />
@@ -312,9 +321,7 @@ const Team: NextPage = () => {
           ))}
         </Grid>
 
-        <Box position="relative">
-          <BackgroundImage src="/images/pink3.svg" alt="Background pink" className={styles.bg2} />
-
+        <Box>
           <Typography variant="subtitle3" textAlign="center" mb="60px" marginTop={20}>
             Solvemed investors
           </Typography>
@@ -332,7 +339,7 @@ const Team: NextPage = () => {
 
         {!!memberDetails && <TeamMemberModal isOpen={!!memberDetails} onClose={() => setMemberDetails(null)} member={memberDetails} members={team.filter((item) => item?.bio)} />}
       </div>
-    </>
+    </Box>
   );
 };
 

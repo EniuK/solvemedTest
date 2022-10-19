@@ -7,7 +7,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import styles from "./science.module.css";
 import Head from "next/head";
-import BackgroundImage from "../components/BackgroundImage/BackgroundImage";
+import { motion } from "framer-motion";
 
 const collaborators = [
   { name: "kings college hospital", icon: "/images/logos/collaborations/kings_college_hospital_nhs.png", width: "192px", height: "76px" },
@@ -225,22 +225,43 @@ const Science: NextPage = () => {
           />
         </Head>
       </div>
+
       <Box textAlign="center">
-        <Typography variant="h1" mb="80px">
+        <Typography
+          component={motion.p}
+          variant="h1"
+          mb="80px"
+          variants={{ initial: { opacity: 0, y: 100 }, animate: { opacity: 1, y: 0 } }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
+        >
           Science
         </Typography>
-        <Typography variant="subtitle1" mb="30px">
-          Our research advances the frontier of digital biomarker science.
+        <Typography
+          component={motion.p}
+          variant="subtitle1"
+          mb="30px"
+          variants={{ initial: { opacity: 0, y: 50 }, animate: { opacity: 1, y: 0 } }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
+        >
+          Our research advances the frontier of <br />
+          digital biomarker science.
         </Typography>
-        <Typography variant="body2" mb={{ xs: "65px", sm: "165px" }}>
-          We bring to the world the most advanced camera-enabled data collection and analytical tools in the field of neurology and ophthalmology.
+        <Typography
+          component={motion.p}
+          variant="body2"
+          mb={{ xs: "65px", sm: "165px" }}
+          variants={{ initial: { opacity: 0, y: 20 }, animate: { opacity: 1, y: 0 } }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
+        >
+          We bring to the world the most advanced camera-enabled data <br />
+          collection and analytical tools in the field of neurology and <br />
+          ophthalmology.
         </Typography>
 
         <Grid container justifyContent="center" mb="200px">
           <Grid container item xs={12} lg={10} justifyContent="space-between" alignItems="center">
             <Grid item container xs={12} justifyContent="space-between">
-              <Grid item xs={12} sm={5} md={5} position="relative">
-                <BackgroundImage src="/images/pink.svg" alt="Background pink" className={styles.bg} />
+              <Grid item xs={12} sm={5} md={5}>
                 <Image src="/images/science1.png" alt="science1" width={440} height={632} />
               </Grid>
               <Grid item xs={12} sm={6} mt={6} md={6} textAlign="left">
@@ -265,8 +286,8 @@ const Science: NextPage = () => {
             </Grid>
 
             <Grid item xs={12}>
-              <Box marginY={{ xs: "38px", sm: "98px", md: "138px" }} width="100%" height={33} position="relative">
-                <Image src="/icons/divider.svg" alt="divider" layout="fill" />
+              <Box marginY={{ xs: "38px", sm: "98px", md: "138px" }} width="100%" height={33}>
+                {/* <Image src="/icons/divider.svg" alt="divider" layout="fill" /> */}
               </Box>
             </Grid>
 
@@ -290,21 +311,19 @@ const Science: NextPage = () => {
                   </li>
                 </ul>
               </Grid>
-              <Grid item xs={12} sm={5} md={5} position="relative">
-                <BackgroundImage src="/images/yellow.svg" alt="Background yellow" className={styles.bg2} />
+              <Grid item xs={12} sm={5} md={5}>
                 <Image src="/images/science2.png" alt="science2" width={440} height={632} />
               </Grid>
             </Grid>
 
             <Grid item xs={12}>
-              <Box marginY={{ xs: "38px", sm: "98px", md: "138px" }} width="100%" height={33} position="relative">
-                <Image src="/icons/divider.svg" alt="divider" layout="fill" />
+              <Box marginY={{ xs: "38px", sm: "98px", md: "138px" }} width="100%" height={33}>
+                {/* <Image src="/icons/divider.svg" alt="divider" layout="fill" /> */}
               </Box>
             </Grid>
 
             <Grid item container xs={12} justifyContent="space-between">
-              <Grid item xs={12} sm={5} md={5} position="relative">
-                <BackgroundImage src="/images/blue.svg" alt="Background blue" className={styles.bg3} />
+              <Grid item xs={12} sm={5} md={5}>
                 <Image src="/images/science3.png" alt="science3" width={440} height={632} />
               </Grid>
               <Grid item xs={12} sm={6} mt={6} md={6} textAlign="left">
@@ -355,9 +374,7 @@ const Science: NextPage = () => {
           ))}
         </Grid>
 
-        <Box position="relative">
-          <BackgroundImage src="/images/blue2.svg" alt="Background blue" className={styles.bg4} />
-
+        <Box>
           <Typography variant="subtitle3" mb="90px" mt="120px">
             Selected literature
           </Typography>

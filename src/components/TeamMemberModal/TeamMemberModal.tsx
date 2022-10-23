@@ -71,7 +71,7 @@ const TeamMemberModal: React.FC<Props> = ({ isOpen, onClose, member, members }) 
     appendDots: (dots) => <SliderDots dots={dots} />,
   };
 
-  const isSmallViewport = useMediaQuery(theme.breakpoints.down('sm'));
+  const isSmallViewport = useMediaQuery(theme.breakpoints.down("sm"));
 
   return (
     <Modal
@@ -109,45 +109,45 @@ const TeamMemberModal: React.FC<Props> = ({ isOpen, onClose, member, members }) 
                       </Box>
                     ))}
                   </Box>
-
-                  {(item?.linkedinUrl || item?.twitterUrl) && (
-                    <div className={styles.socialIconsWrapper}>
-                      {item?.linkedinUrl && (
-                        <Link href={item.linkedinUrl} target="_blank" rel="noopener" className={styles.socialIcon}>
-                          <Image src="/icons/linkedin-outlined.svg" alt="linkedin" width="23" height="23" />
-                          <Typography variant="body4Wide" color="secondary.main" ml={1}>
-                            Linkedin
-                          </Typography>
-                        </Link>
-                      )}
-
-                      {item?.twitterUrl && (
-                        <Link href={item.twitterUrl} ml={1} target="_blank" rel="noopener" className={styles.socialIcon}>
-                          <Image src="/icons/twitter-outlined.svg" alt="twitter" width="23" height="23" />
-                          <Typography variant="body4Wide" color="secondary.main" ml={1}>
-                            Twitter
-                          </Typography>
-                        </Link>
-                      )}
-                    </div>
-                  )}
                 </Grid>
 
                 <Grid item xs={12} md={8} height="100%">
                   <Box width="80%">
-                    <Typography variant="subtitle2" mb="30px">
+                    {/* <Typography variant="subtitle2" mb="30px">
                       {item?.bio?.title}
-                    </Typography>
+                    </Typography> */}
 
-                    <Box display="flex" alignItems="center">
+                    {/* <Box display="flex" alignItems="center">
                       {item?.logos?.map((logo) => (
                         <div key={logo.id} className={styles.logoWrapper}>
                           <img src={logo.image} alt={logo.id} className={styles.logo} />
                         </div>
                       ))}
-                    </Box>
+                    </Box> */}
 
                     <Typography variant="body3">{item?.bio?.description}</Typography>
+
+                    {(item?.linkedinUrl || item?.twitterUrl) && (
+                      <div className={styles.socialIconsWrapper}>
+                        {item?.linkedinUrl && (
+                          <Link href={item.linkedinUrl} target="_blank" rel="noopener" className={styles.socialIcon}>
+                            <Image src="/icons/linkedin-outlined.svg" alt="linkedin" width="23" height="23" />
+                            <Typography variant="body4Wide" color="secondary.main" ml={1}>
+                              Linkedin
+                            </Typography>
+                          </Link>
+                        )}
+
+                        {item?.twitterUrl && (
+                          <Link href={item.twitterUrl} ml={1} target="_blank" rel="noopener" className={styles.socialIcon}>
+                            <Image src="/icons/twitter-outlined.svg" alt="twitter" width="23" height="23" />
+                            <Typography variant="body4Wide" color="secondary.main" ml={1}>
+                              Twitter
+                            </Typography>
+                          </Link>
+                        )}
+                      </div>
+                    )}
                   </Box>
                 </Grid>
               </Grid>

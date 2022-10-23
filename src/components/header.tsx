@@ -64,13 +64,13 @@ const Header = () => {
               {menuItems.map((item) => {
                 const isCurrentPath = item.link === router.pathname;
                 return (
-                  <MenuItem key={item.title} onClick={handleMenuClose}>
-                    <Link href={item.link}>
+                  <Link key={item.title} href={item.link} passHref prefetch={false}>
+                    <MenuItem onClick={handleMenuClose}>
                       <a className={styles.menuItem} style={{ color: isCurrentPath ? theme.palette.secondary.main : theme.palette.primary.main }}>
                         {item.title}
                       </a>
-                    </Link>
-                  </MenuItem>
+                    </MenuItem>
+                  </Link>
                 );
               })}
             </Menu>
@@ -80,7 +80,7 @@ const Header = () => {
             {menuItems.map((item) => {
               const isCurrentPath = item.link === router.pathname;
               return (
-                <Link key={item.title} href={item.link}>
+                <Link key={item.title} href={item.link} passHref>
                   <a className={styles.menuItem} style={{ color: isCurrentPath ? theme.palette.secondary.main : theme.palette.primary.main }}>
                     {item.title}
                   </a>

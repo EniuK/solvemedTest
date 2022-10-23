@@ -116,6 +116,6 @@
   font-size: 21px;
   text-decoration: underline;
   color: #494763;
-  font-family: "SuisseIntl";
+  font-family: "SuisseIntl", Times, serif;
   letter-spacing: -0.02em;
 }

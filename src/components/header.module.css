@@ -82,7 +82,7 @@
   font-size: 13px;
   line-height: 15.6px;
   font-weight: 400;
-  font-family: "SuisseIntl";
+  font-family: "SuisseIntl", Times, serif;
   text-transform: uppercase;
   margin-bottom: 8px;
 }

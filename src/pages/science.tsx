@@ -232,7 +232,7 @@ const Science: NextPage = () => {
         <Typography variant="subtitle1" mb="30px">
           Our research advances the frontier of digital biomarker science.
         </Typography>
-        <Typography variant="body2" mb="165px">
+        <Typography variant="body2" mb={{ xs: "65px", sm: "165px" }}>
           We bring to the world the most advanced camera-enabled data collection and analytical tools in the field of neurology and ophthalmology.
         </Typography>
 
@@ -243,7 +243,7 @@ const Science: NextPage = () => {
                 <BackgroundImage src="/images/pink.svg" alt="Background pink" className={styles.bg} />
                 <Image src="/images/science1.png" alt="science1" width={440} height={632} />
               </Grid>
-              <Grid item xs={12} sm={6} md={6} textAlign="left">
+              <Grid item xs={12} sm={6} mt={6} md={6} textAlign="left">
                 <Typography variant="body1Wide" mb="60px">
                   Technology validation
                 </Typography>
@@ -265,7 +265,7 @@ const Science: NextPage = () => {
             </Grid>
 
             <Grid item xs={12}>
-              <Box marginY="138px" width="100%" height={33} position="relative">
+              <Box marginY={{ xs: "38px", sm: "98px", md: "138px" }} width="100%" height={33} position="relative">
                 <Image src="/icons/divider.svg" alt="divider" layout="fill" />
               </Box>
             </Grid>
@@ -297,7 +297,7 @@ const Science: NextPage = () => {
             </Grid>
 
             <Grid item xs={12}>
-              <Box marginY="138px" width="100%" height={33} position="relative">
+              <Box marginY={{ xs: "38px", sm: "98px", md: "138px" }} width="100%" height={33} position="relative">
                 <Image src="/icons/divider.svg" alt="divider" layout="fill" />
               </Box>
             </Grid>
@@ -307,7 +307,7 @@ const Science: NextPage = () => {
                 <BackgroundImage src="/images/blue.svg" alt="Background blue" className={styles.bg3} />
                 <Image src="/images/science3.png" alt="science3" width={440} height={632} />
               </Grid>
-              <Grid item xs={12} sm={6} md={6} textAlign="left">
+              <Grid item xs={12} sm={6} mt={6} md={6} textAlign="left">
                 <Typography variant="body1Wide" mb="60px">
                   Machine learning
                 </Typography>
@@ -338,7 +338,14 @@ const Science: NextPage = () => {
           and industrial life science organisations.
         </Typography>
 
-        <Grid container justifyContent="space-between" columns={{ xs: 2, sm: 2, lg: 4 }} rowSpacing={{ lg: 8, sm: 18, xs: 12 }} alignItems="center" columnSpacing={{ lg: 0, sm: 0, xs: 4}}>
+        <Grid
+          container
+          justifyContent="space-between"
+          columns={{ xs: 2, sm: 2, lg: 4 }}
+          rowSpacing={{ lg: 8, sm: 18, xs: 12 }}
+          alignItems="center"
+          columnSpacing={{ lg: 0, sm: 0, xs: 4 }}
+        >
           {collaborators.map((item) => (
             <Grid item key={item.name} xs={1} sm={1} lg={1}>
               <Box display="flex" justifyContent="center" alignItems="center">

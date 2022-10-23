@@ -36,10 +36,10 @@ const Footer = () => (
       {/* <BackgroundImage src="/images/pink1.svg" alt="Background pink" className={styles.bg} /> */}
       {/* <BackgroundImage src="/images/pink2.svg" alt="Background pink" className={styles.bg} /> */}
     </Box>
-    <Grid container mt={32} mb={13} justifyContent="space-between" columnSpacing={2} rowSpacing={8}>
+    <Grid container mt={{ xs: 12, sm: 18, md: 32 }} mb={13} justifyContent="space-between" columnSpacing={2} rowSpacing={8}>
       {contactData.map((item, idx) => (
-        <Grid key={idx} item xs={12} sm={6} lg={2.5} style={{ margin: "0 auto" }}>
-          <Typography variant="subtitle2" color="primary" mb={2}>
+        <Grid key={idx} item xs={6} sm={6} lg={2.5} style={{ margin: "0 auto" }}>
+          <Typography variant="subtitle2" color="primary" mb={2} fontSize={{ xs: "28px" }}>
             <img src="/icons/location.svg" alt="Location" style={{ marginRight: 8 }} /> {item.city}
           </Typography>
 

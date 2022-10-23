@@ -1,7 +1,7 @@
 import React from "react";
 import { NextPage } from "next";
 import Image from "next/image";
-import { Box, Grid, Typography } from "@mui/material";
+import { Box, Grid, Hidden, Typography } from "@mui/material";
 import styles from "./applications.module.css";
 import ApplicationsInfoGraphic from "../components/ApplicationsInfoGraphic/ApplicationsInfoGraphic";
 import Head from "next/head";
@@ -56,9 +56,11 @@ const Applications: NextPage = () => (
               <Typography variant="body3" letterSpacing="-0.04em" mb="30px">
                 For intensive care specialists, paramedics, ophthalmologists, neurologists, among others.
               </Typography>
-              <AnimatedButton url="/contact" variant="filled">
-                Get early access to Solvemed&apos;s medical devices
-              </AnimatedButton>
+              <Hidden only="xs">
+                <AnimatedButton url="/contact" variant="filled">
+                  Get early access to Solvemed&apos;s medical devices
+                </AnimatedButton>
+              </Hidden>
             </Grid>
           </Grid>
 
@@ -80,11 +82,16 @@ const Applications: NextPage = () => (
                 <Typography variant="body2">Enable remote patient monitoring</Typography>
               </li>
             </ul>
+            <Hidden smUp>
+              <AnimatedButton url="/contact" variant="filled">
+                Get early access to Solvemed&apos;s medical devices
+              </AnimatedButton>
+            </Hidden>
           </Grid>
         </Grid>
 
         <Grid id="research" item xs={12}>
-          <Box marginY="138px" width="100%" height={33} position="relative">
+          <Box marginY={{ xs: "38px", sm: "98px", md: "138px" }} width="100%" height={33} position="relative">
             <Image src="/icons/divider.svg" alt="divider" layout="fill" />
           </Box>
         </Grid>
@@ -149,7 +156,7 @@ const Applications: NextPage = () => (
         </Grid>
 
         <Grid id="pharma" item xs={12}>
-          <Box marginY="138px" width="100%" height={33} position="relative">
+          <Box marginY={{ xs: "38px", sm: "98px", md: "138px" }} width="100%" height={33} position="relative">
             <Image src="/icons/divider.svg" alt="divider" layout="fill" />
           </Box>
         </Grid>
@@ -182,9 +189,11 @@ const Applications: NextPage = () => (
               <Typography variant="body3" letterSpacing="-0.04em" mb="30px">
                 For research-based life science companies active in neurology and ophthalmology.
               </Typography>
-              <AnimatedButton url="/contact" variant="filled">
-                Get early access to Solvemed&apos;s medical devices
-              </AnimatedButton>
+              <Hidden only="xs">
+                <AnimatedButton url="/contact" variant="filled">
+                  Get early access to Solvemed&apos;s medical devices
+                </AnimatedButton>
+              </Hidden>
             </Grid>
           </Grid>
 
@@ -206,6 +215,11 @@ const Applications: NextPage = () => (
                 <Typography variant="body2">Use novel endpoints and stratify patient cohorts</Typography>
               </li>
             </ul>
+            <Hidden smUp>
+              <AnimatedButton url="/contact" variant="filled">
+                Get early access to Solvemed&apos;s medical devices
+              </AnimatedButton>
+            </Hidden>
           </Grid>
         </Grid>
       </Grid>

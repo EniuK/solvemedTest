@@ -254,39 +254,39 @@ const Team: NextPage = () => {
               </Typography>
             </Grid>
 
-            <Grid item xs={12} container spacing={4} textAlign={{ xs: "center", sm: "left" }}>
-              <Grid item xs={12} sm={6}>
-                <Typography fontSize="144px" lineHeight="138.24px" fontWeight="300">
+            <Grid item xs={12} container spacing={4} textAlign={{ xs: "left", sm: "left" }}>
+              <Grid item xs={6} sm={6}>
+                <Typography fontSize={{ xs: "100px", sm: "144px" }} lineHeight="138.24px" fontWeight="300">
                   40+
                 </Typography>
-                <Typography variant="body2" fontWeight="600">
+                <Typography variant="body2" fontSize={{ xs: "16px" }} fontWeight="600">
                   People
                 </Typography>
               </Grid>
 
-              <Grid item xs={12} sm={6}>
-                <Typography fontSize="144px" lineHeight="138.24px" fontWeight="300">
+              <Grid item xs={6} sm={6}>
+                <Typography fontSize={{ xs: "100px", sm: "144px" }} lineHeight="138.24px" fontWeight="300">
                   8
                 </Typography>
-                <Typography variant="body2" fontWeight="600">
+                <Typography variant="body2" fontSize={{ xs: "16px" }} fontWeight="600">
                   PhDs
                 </Typography>
               </Grid>
 
-              <Grid item xs={12} sm={6}>
-                <Typography fontSize="144px" lineHeight="138.24px" fontWeight="300">
+              <Grid item xs={6} sm={6}>
+                <Typography fontSize={{ xs: "100px", sm: "144px" }} lineHeight="138.24px" fontWeight="300">
                   10
                 </Typography>
-                <Typography variant="body2" fontWeight="600">
+                <Typography variant="body2" fontSize={{ xs: "16px" }} fontWeight="600">
                   MDs
                 </Typography>
               </Grid>
 
-              <Grid item xs={12} sm={6}>
-                <Typography fontSize="144px" lineHeight="138.24px" fontWeight="300">
+              <Grid item xs={6} sm={6}>
+                <Typography fontSize={{ xs: "100px", sm: "144px" }} lineHeight="138.24px" fontWeight="300">
                   2
                 </Typography>
-                <Typography variant="body2" fontWeight="600">
+                <Typography variant="body2" fontSize={{ xs: "16px" }} fontWeight="600">
                   MBAs
                 </Typography>
               </Grid>

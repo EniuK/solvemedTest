@@ -3,6 +3,7 @@ import { Box, Menu, MenuItem, Typography, useMediaQuery, Link as LinkMUI, useThe
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { motion } from "framer-motion";
 import styles from "./header.module.css";
 
 const menuItems = [
@@ -65,8 +66,8 @@ const Header = () => {
                 const isCurrentPath = item.link === router.pathname;
                 return (
                   <Link key={item.title} href={item.link} passHref prefetch={false}>
-                    <MenuItem onClick={handleMenuClose}>
-                      <a className={styles.menuItem} style={{ color: isCurrentPath ? theme.palette.secondary.main : theme.palette.primary.main }}>
+                    <MenuItem onClick={handleMenuClose} classes={{ root: styles.menuListItem }} dense>
+                      <a className={styles.menuListItemLink} style={{ color: isCurrentPath ? theme.palette.secondary.main : theme.palette.primary.main }}>
                         {item.title}
                       </a>
                     </MenuItem>
@@ -76,18 +77,28 @@ const Header = () => {
             </Menu>
           </>
         ) : (
-          <Stack>
+          <ul className={styles.menuList}>
             {menuItems.map((item) => {
               const isCurrentPath = item.link === router.pathname;
               return (
-                <Link key={item.title} href={item.link} passHref>
-                  <a className={styles.menuItem} style={{ color: isCurrentPath ? theme.palette.secondary.main : theme.palette.primary.main }}>
-                    {item.title}
-                  </a>
-                </Link>
+                <motion.li key={item.title} initial="initial" whileHover="hover" className={styles.menuListItem}>
+                  <Link href={item.link} passHref>
+                    <a className={styles.menuListItemLink} style={{ color: isCurrentPath ? theme.palette.secondary.main : theme.palette.primary.main }}>
+                      {item.title}
+                    </a>
+                  </Link>
+                  <motion.div
+                    className={styles.menuListItemUnderline}
+                    transition={{ duration: 0.3 }}
+                    variants={{
+                      initial: { width: 0 },
+                      hover: { width: "100%" },
+                    }}
+                  />
+                </motion.li>
               );
             })}
-          </Stack>
+          </ul>
         )}
       </div>
     </div>

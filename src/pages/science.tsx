@@ -286,8 +286,8 @@ const Science: NextPage = () => {
             </Grid>
 
             <Grid item xs={12}>
-              <Box marginY={{ xs: "38px", sm: "98px", md: "138px" }} width="100%" height={33}>
-                {/* <Image src="/icons/divider.svg" alt="divider" layout="fill" /> */}
+              <Box marginY={{ xs: "38px", sm: "98px", md: "138px" }} width="100%" height={33} position="relative">
+                <Image src="/icons/divider.svg" alt="divider" layout="fill" />
               </Box>
             </Grid>
 
@@ -317,8 +317,8 @@ const Science: NextPage = () => {
             </Grid>
 
             <Grid item xs={12}>
-              <Box marginY={{ xs: "38px", sm: "98px", md: "138px" }} width="100%" height={33}>
-                {/* <Image src="/icons/divider.svg" alt="divider" layout="fill" /> */}
+              <Box marginY={{ xs: "38px", sm: "98px", md: "138px" }} width="100%" height={33} position="relative">
+                <Image src="/icons/divider.svg" alt="divider" layout="fill" />
               </Box>
             </Grid>
 

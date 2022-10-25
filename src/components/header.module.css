@@ -5,6 +5,7 @@
   margin-bottom: 145px;
   flex-wrap: wrap;
   position: relative;
+  height: 35px;
 }
 
 @media (max-width: 900px) {

@@ -1,5 +1,5 @@
 import { ReactNode, useEffect, useState } from "react";
-import { Box } from "@mui/material";
+import { Box, useMediaQuery } from "@mui/material";
 import Footer from "./footer";
 import Header from "./header";
 import { AnimatePresence, motion } from "framer-motion";
@@ -47,6 +47,9 @@ const backgroundImage = (path: string) => {
 const Layout = ({ children }: { children: ReactNode }) => {
   const { asPath } = useRouter();
   const [bg, setBg] = useState("");
+  const isSmallViewport = useMediaQuery("(max-width:900px)");
+  const isHomeRoute = asPath === "/";
+  const shouldAdjustBgImage = isSmallViewport && !isHomeRoute;
 
   useEffect(() => {
     setBg(backgroundImage(asPath));
@@ -58,7 +61,7 @@ const Layout = ({ children }: { children: ReactNode }) => {
         backgroundImage: `url(${bg})`,
         width: "100%",
         height: "100%",
-        backgroundPosition: "center top",
+        backgroundPosition: `center top ${shouldAdjustBgImage ? "-300px" : ""}`,
         backgroundOrigin: "border-box",
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",

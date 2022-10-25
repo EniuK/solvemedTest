@@ -4,7 +4,6 @@
   align-items: center;
   position: relative;
   height: 815px;
-  margin: 0 20px;
 }
 
 .infoGraphicInternalContainer {
@@ -106,6 +105,7 @@
     padding: 16px;
     top: 0;
     width: auto;
+    max-width: 190px;
     height: 262px;
   }
 }

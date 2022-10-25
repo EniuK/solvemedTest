@@ -8,37 +8,37 @@ const ApplicationsInfoGraphic = () => {
   return (
     <div className={styles.infoGraphicContainer}>
       {isSmallViewport ? (
-        <Stack flexDirection="row" flexWrap="wrap" justifyContent="space-between">
+        <Stack flexDirection="row" flexWrap="wrap" justifyContent="space-between" maxWidth="sm">
           <Box display="flex" flexDirection="column" alignItems="center" width="47%">
             <Box className={styles.infoGraphicItem} mb={2.5}>
-              <Box display="flex" flexGrow={1} alignItems="center">
+              <Box display="flex" alignItems="center" height="83px">
                 <img src="/images/applicationsIcon1.svg" alt="High-precision neuro-ocular biomarkers" style={{ width: 74, height: 74 }} />
               </Box>
-              <Box>
+              <Stack flex={1} mt={2}>
                 <Typography variant="body4" fontWeight="600" mb={1.5}>
                   High-precision neuro-ocular biomarkers
                 </Typography>
                 <Typography variant="body6Wide" color="primary.light">
                   We provide medical and scientific camera-based tools for data capture
                 </Typography>
-              </Box>
+              </Stack>
             </Box>
             <img src="/images/arrowLongBottom.svg" alt="Arrow bottom" />
           </Box>
 
           <Box display="flex" flexDirection="column" alignItems="center" width="47%">
             <Box className={styles.infoGraphicItem} mb={2.5}>
-              <Box display="flex" flexGrow={1} alignItems="center">
+              <Box display="flex" alignItems="center" height="83px">
                 <img src="/images/applicationsIcon2.svg" alt="Meta-data" style={{ width: 88, height: 83 }} />
               </Box>
-              <Box>
+              <Stack flex={1} mt={2}>
                 <Typography variant="body4" fontWeight="600" mb={1.5}>
                   Meta-data
                 </Typography>
                 <Typography variant="body6Wide" color="primary.light">
                   Our proprietary ML technology combines EHR, demograpic and other data types for unprecedented insight
                 </Typography>
-              </Box>
+              </Stack>
             </Box>
             <img src="/images/arrowLongBottom.svg" alt="Arrow bottom" />
           </Box>

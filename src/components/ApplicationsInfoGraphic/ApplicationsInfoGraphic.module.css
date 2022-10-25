@@ -4,6 +4,7 @@
   align-items: center;
   position: relative;
   height: 815px;
+  margin: 0 20px;
 }
 
 .infoGraphicInternalContainer {
@@ -34,31 +35,6 @@
   justify-content: center;
   text-align: center;
   z-index: 1;
-}
-
-@media (max-width: 900px) {
-  .infoGraphicContainer {
-    height: 825px;
-    padding-left: 10%;
-    padding-right: 10%;
-    width: 900px;
-    overflow-x: scroll;
-    overflow-y: hidden;
-  }
-
-  .infoGraphicInternalContainer {
-    flex: 1;
-    flex-grow: 1;
-  }
-
-  .infoGraphicCore {
-    width: 40%;
-    left: 55%;
-  }
-
-  .infoGraphicArrowBottomIcon {
-    width: 30%;
-  }
 }
 
 .infoGraphicItem {
@@ -107,4 +83,29 @@
   height: 50%;
   position: absolute;
   bottom: 0;
+}
+
+@media (max-width: 900px) {
+  .infoGraphicContainer {
+    height: auto;
+  }
+
+  .infoGraphicCore {
+    width: 100%;
+    height: auto;
+    max-width: 443px;
+    min-height: 362px;
+    margin: auto;
+    position: relative;
+    transform: translateX(0);
+    left: 0;
+  }
+
+  .infoGraphicItem {
+    position: relative;
+    padding: 16px;
+    top: 0;
+    width: auto;
+    height: 262px;
+  }
 }

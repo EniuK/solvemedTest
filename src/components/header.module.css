@@ -7,8 +7,15 @@
   position: relative;
 }
 
+@media (max-width: 900px) {
+  .header {
+    margin-bottom: 92px;
+  }
+}
+
 .logoLinkContainer {
   z-index: 101;
+  position: fixed;
 }
 
 .externalLinkContainer {

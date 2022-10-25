@@ -78,6 +78,7 @@ const Layout = ({ children }: { children: ReactNode }) => {
                 zIndex: 99,
                 width: "100%",
                 height: "170%",
+                pointerEvents: "none",
               }}
               transition={{ duration: 0.5 }}
               initial={false}

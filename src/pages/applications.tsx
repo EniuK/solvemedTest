@@ -26,7 +26,7 @@ const Applications: NextPage = () => (
         component={motion.p}
         variant="h2"
         align="center"
-        mb="20px"
+        mb={{ xs: 5.5, md: 2.5 }}
         variants={{ initial: { opacity: 0, y: 50 }, animate: { opacity: 1, y: 0 } }}
         transition={{ duration: 0.7, ease: "easeOut" }}
       >
@@ -35,7 +35,7 @@ const Applications: NextPage = () => (
 
       <ApplicationsInfoGraphic />
 
-      <Grid id="clinicians" container>
+      <Grid id="clinicians" container mt={10}>
         <Grid item container xs={12} sm={12} md={12} alignItems="center" columnSpacing={2} rowSpacing={4}>
           <Grid item xs={12} md={2}>
             <ol className={styles.list}>

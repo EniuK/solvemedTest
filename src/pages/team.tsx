@@ -78,7 +78,7 @@ const team: TeamMember[] = [
   },
   {
     name: "Wojtek Walniczek",
-    position: "Board Member, Investment Director at OTB Ventures",
+    position: "Board Member, Partner at OTB Ventures",
     photo: "/images/WojtekWalniczek.png",
     roles: [{ title: "Board member", color: "#F4EDFD" }],
     linkedinUrl: "https://www.linkedin.com/in/wojtekwalniczek/",
@@ -86,7 +86,7 @@ const team: TeamMember[] = [
   },
   {
     name: "Dr Marcus Erken",
-    position: "Board Member, Partner at Sunfish Partners",
+    position: "Board Member, Founding Partner at Sunfish Partners",
     photo: "/images/DrMarcusErken.png",
     roles: [{ title: "Board member", color: "#F4EDFD" }],
     linkedinUrl: "https://www.linkedin.com/in/erken/",
@@ -94,7 +94,7 @@ const team: TeamMember[] = [
   },
   {
     name: "Dominik Andrzejczuk",
-    position: "Board Member, Partner at Atmos Ventures",
+    position: "Board Member, General Partner at Atmos Ventures",
     photo: "/images/DominikAndrzejczuk.png",
     roles: [{ title: "Board member", color: "#F4EDFD" }],
     linkedinUrl: "https://www.linkedin.com/in/dominikand/",

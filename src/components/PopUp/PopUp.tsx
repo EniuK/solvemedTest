@@ -1,27 +1,45 @@
 import { Box, Link, Typography, Input, Grid, Avatar, Button } from "@mui/material";
+import { width } from "@mui/system";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import PopUpWrapper from "./PopUpWrapper";
 
 const PopUp = (onClose: any, onSend: any) => {
-  const outerBoxRef = useRef(null);
-  const innerBoxRef = useRef(null);
   const inputRef = useRef(null);
   const [inner, setInner] = useState(false);
   const [outer, setOuter] = useState(false);
   const [inputClick, setInputClick] = useState(false);
-  const [fckinhelp, setfckinhelp] = useState(true);
+  const [clickState, setClickState] = useState(false);
+  const boxRef = useRef(null);
+  const [windowDimensions, setWindowDimensions] = useState({
+    width: 0,
+    height: 0,
+  });
 
+  useEffect(() => {
+    function handleResize() {
+      setWindowDimensions({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });
+    }
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+  useEffect(() => {
+    if (boxRef.current) {
+      boxRef.current.focus();
+    }
+  }, []);
   const handleInner = (e) => {
-    setfckinhelp(true);
+    setClickState(true);
     e.stopPropagation();
     setInner(true);
     setInputClick(true);
   };
 
   const handleInput = (e) => {
-    setfckinhelp(true);
-
+    setClickState(true);
     e.stopPropagation();
     setInner(true);
     setInputClick(true);
@@ -29,7 +47,7 @@ const PopUp = (onClose: any, onSend: any) => {
   const outerHandler = () => {
     let help = inner;
     let help2 = inputClick;
-    let help3 = fckinhelp;
+    let help3 = clickState;
 
     setOuter(true);
 
@@ -53,12 +71,13 @@ const PopUp = (onClose: any, onSend: any) => {
   return (
     <PopUpWrapper onclick={outerHandler}>
       <Box
+        ref={boxRef}
         mr={2}
         ml={2}
         border={"thin"}
         boxShadow={"0px 8px 32px rgba(27, 37, 74, 0.08)"}
         position={"fixed"}
-        minWidth={480}
+        width={windowDimensions.width < 480 ? 335 : 480}
         minHeight={357}
         bgcolor={"rgba(245, 245, 247, 1)"}
         borderRadius={6}
@@ -74,16 +93,16 @@ const PopUp = (onClose: any, onSend: any) => {
           backgroundPosition: "center",
         }}
         zIndex={300}
-        ref={outerBoxRef}
         onClick={handleInner}
         onFocus={() => {
           setInputClick(true);
           setInner(true);
-          setfckinhelp(true);
+          setClickState(true);
         }}
         onBlur={() => {
           setInner(false);
-          setfckinhelp(false);
+          setClickState(false);
+          setInputClick(false);
         }}
       >
         <Box width={"100%"} display={"flex"} height={"5%"} justifyContent={"flex-end"} alignItems={"center"}>
@@ -94,10 +113,9 @@ const PopUp = (onClose: any, onSend: any) => {
         <Typography
           ml={4}
           mr={4}
-          mt={2}
           fontFamily={"FinancierDisplay"}
           fontWeight={300}
-          fontSize={44}
+          fontSize={windowDimensions.width < 480 ? 32 : 44}
           justifyContent={"center"}
           variant={"h4"}
           alignItems={"center"}
@@ -109,32 +127,57 @@ const PopUp = (onClose: any, onSend: any) => {
         <Typography textAlign={"center"} fontFamily={"SuisseIntl"} fontSize={14} variant={"body4"} color={"#595D62"} mt={3} ml={4.5} mr={4.5}>
           There is going to be up to 1 high quality email a month.
         </Typography>
-        <Box mt={8} ml={10} mb={5} width={"100%"} justifyContent={"center"} alignItems={"center"}>
-          <Box justifyContent={"flex-start"} alignItems={"flex-start"}>
+        {windowDimensions.width > 480 ? (
+          <Box mt={8} ml={10} mb={5} width={"100%"} justifyContent={"center"} alignItems={"center"}>
             <Input
               onClick={handleInput}
               onFocus={() => {
                 setInputClick(true);
                 setInner(true);
-                setfckinhelp(true);
+                setClickState(true);
               }}
               tabIndex={0}
-              style={{ minWidth: "273px", marginRight: "20px" }}
+              style={{ minWidth: "273px", marginRight: "15px", marginLeft: "30px" }}
               type="email"
               placeholder="Enter your email"
               ref={inputRef}
               onBlur={() => {
                 setInputClick(false);
-                setfckinhelp(false);
+                setClickState(false);
+                setInner(false);
               }}
             />
-          </Box>
-          <Box width={"30%"} justifyContent={"flex-end"} alignItems={"flex-end"}>
+
             <Button color="secondary" sx={{ backgroundColor: "black" }} onClick={onSend.onClick} variant="contained" size="large">
               Send
             </Button>
           </Box>
-        </Box>
+        ) : (
+          <Box mt={8} ml={10} mb={2} width={"100%"} justifyContent={"center"} alignItems={"center"}>
+            <Input
+              onClick={handleInput}
+              onFocus={() => {
+                setInputClick(true);
+                setInner(true);
+                setClickState(true);
+              }}
+              tabIndex={0}
+              style={{ minWidth: "80%", marginRight: "15px" }}
+              type="email"
+              placeholder="Enter your email"
+              ref={inputRef}
+              onBlur={() => {
+                setInputClick(false);
+                setClickState(false);
+              }}
+            />
+            <Box width={"80%"} display={"flex"} alignItems={"flex-end"} justifyContent={"flex-end"}>
+              <Button color="secondary" sx={{ backgroundColor: "black", marginTop: "20px" }} onClick={onSend.onClick} variant="contained" size="large">
+                Send
+              </Button>
+            </Box>
+          </Box>
+        )}
       </Box>
     </PopUpWrapper>
   );

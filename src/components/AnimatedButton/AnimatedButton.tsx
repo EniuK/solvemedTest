@@ -5,7 +5,7 @@ import styles from "./AnimatedButton.module.css";
 
 type Props = { url: string; children: ReactNode; variant?: "filled" | "outlined" };
 
-const AnimatedButton: React.FC<Props> = ({ url, children, variant = "outlined" }) => {
+const AnimatedButton: React.FC<Props> = ({ url, children, variant = "outlined", onFun }) => {
   const { palette } = useTheme();
   const transition = { ease: "easeInOut" };
   const filledVariant = variant === "filled";
@@ -16,6 +16,7 @@ const AnimatedButton: React.FC<Props> = ({ url, children, variant = "outlined" }
 
   return (
     <Link
+      {...(onFun ? { onclick: { onFun } } : null)}
       href={url}
       ml={{ xs: "0", sm: "auto" }}
       target="_blank"

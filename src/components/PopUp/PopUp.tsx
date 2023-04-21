@@ -1,5 +1,4 @@
-import { Box, Link, Typography, Input, Grid, Avatar, Button } from "@mui/material";
-import { width } from "@mui/system";
+import { Box, Link, Typography, Input, Button } from "@mui/material";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import PopUpWrapper from "./PopUpWrapper";
@@ -87,6 +86,12 @@ const PopUp = (onClose: any, onSend: any) => {
         alignItems={"center"}
         pt={3}
         pb={3}
+        tabIndex={0}
+        sx={{
+          "&:focus:not(.focus-visible)": {
+            outline: "none",
+          },
+        }}
         style={{
           backgroundImage: `url('/images/bg/gradient.png')`,
           backgroundSize: "cover",
@@ -161,7 +166,6 @@ const PopUp = (onClose: any, onSend: any) => {
                 setInner(true);
                 setClickState(true);
               }}
-              tabIndex={0}
               style={{ minWidth: "80%", marginRight: "15px" }}
               type="email"
               placeholder="Enter your email"

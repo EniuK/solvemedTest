@@ -14,7 +14,6 @@ const PopUp = ({ onClose, status, message, onValidated }: any) => {
     width: 0,
     height: 0,
   });
-  console.log(onValidated);
   useEffect(() => {
     function handleResize() {
       setWindowDimensions({
@@ -71,7 +70,7 @@ const PopUp = ({ onClose, status, message, onValidated }: any) => {
 
   const [email, setEmail] = useState("");
 
-  const handleSubmit = (e: any) => {
+  const handleSubmit = async (e: any) => {
     e.preventDefault();
 
     email &&
@@ -79,8 +78,8 @@ const PopUp = ({ onClose, status, message, onValidated }: any) => {
       onValidated({
         MERGE0: email,
       });
-    console.log(status);
-    console.log(message);
+    await console.log(status);
+    await console.log(message);
     // onClose();
   };
   return (

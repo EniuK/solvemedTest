@@ -1,11 +1,10 @@
 import { ReactNode, useEffect, useState } from "react";
-import { Box, useMediaQuery } from "@mui/material";
+import { Box, Divider, useMediaQuery } from "@mui/material";
 import Footer from "./footer";
 import Header from "./header";
 import { AnimatePresence, motion } from "framer-motion";
 import { useRouter } from "next/router";
-import PopUp from "../components/PopUp/PopUp";
-
+import MailchimpFormContainer from "../components/PopUp/PopUpMailchimp";
 const variants = {
   initial: {
     transition: {
@@ -61,7 +60,7 @@ const Layout = ({ children }: { children: ReactNode }) => {
 
   return (
     <Box>
-      {notify ? <PopUp onClose={closeNotify} /> : null}
+      {notify ? <MailchimpFormContainer onClose={closeNotify} /> : null}
 
       <Box
         style={{
@@ -113,8 +112,9 @@ const Layout = ({ children }: { children: ReactNode }) => {
               </motion.div>
             </motion.main>
           </AnimatePresence>
-          <Footer />
         </Box>
+        <Divider />
+        <Footer />
       </Box>
     </Box>
   );

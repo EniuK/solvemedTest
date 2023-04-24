@@ -1,9 +1,9 @@
-import { Box, Link, Typography, Input, Button } from "@mui/material";
+import { Box, Link, Typography, Input, Button, FormControl } from "@mui/material";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import PopUpWrapper from "./PopUpWrapper";
 
-const PopUp = (onClose: any, onSend: any) => {
+const PopUp = ({ onClose, status, message, onValidated }: any) => {
   const inputRef = useRef(null);
   const [inner, setInner] = useState(false);
   const [outer, setOuter] = useState(false);
@@ -14,7 +14,7 @@ const PopUp = (onClose: any, onSend: any) => {
     width: 0,
     height: 0,
   });
-
+  console.log(onValidated);
   useEffect(() => {
     function handleResize() {
       setWindowDimensions({
@@ -30,14 +30,14 @@ const PopUp = (onClose: any, onSend: any) => {
       boxRef.current.focus();
     }
   }, []);
-  const handleInner = (e) => {
+  const handleInner = (e: any) => {
     setClickState(true);
     e.stopPropagation();
     setInner(true);
     setInputClick(true);
   };
 
-  const handleInput = (e) => {
+  const handleInput = (e: any) => {
     setClickState(true);
     e.stopPropagation();
     setInner(true);
@@ -52,7 +52,7 @@ const PopUp = (onClose: any, onSend: any) => {
 
     if (!help) {
       if (!help2) {
-        if (!help3) onClose.onClose();
+        if (!help3) onClose();
       } else {
         setInner(true);
         help = true;
@@ -67,6 +67,22 @@ const PopUp = (onClose: any, onSend: any) => {
     }
   };
 
+  // mailchimp
+
+  const [email, setEmail] = useState("");
+
+  const handleSubmit = (e: any) => {
+    e.preventDefault();
+
+    email &&
+      email.indexOf("@") > -1 &&
+      onValidated({
+        MERGE0: email,
+      });
+    console.log(status);
+    console.log(message);
+    // onClose();
+  };
   return (
     <PopUpWrapper onclick={outerHandler}>
       <Box
@@ -112,7 +128,7 @@ const PopUp = (onClose: any, onSend: any) => {
       >
         <Box width={"100%"} display={"flex"} height={"5%"} justifyContent={"flex-end"} alignItems={"center"}>
           <Box mr={3}>
-            <Image src="/images/icons/closeicon.png" alt="X" height="30px" width="30px" onClick={onClose.onClose} />
+            <Image src="/images/icons/closeicon.png" alt="X" height="30px" width="30px" onClick={onClose} />
           </Box>
         </Box>
         <Typography
@@ -134,49 +150,57 @@ const PopUp = (onClose: any, onSend: any) => {
         </Typography>
         {windowDimensions.width > 480 ? (
           <Box mt={8} ml={10} mb={5} width={"100%"} justifyContent={"center"} alignItems={"center"}>
-            <Input
-              onClick={handleInput}
-              onFocus={() => {
-                setInputClick(true);
-                setInner(true);
-                setClickState(true);
-              }}
-              tabIndex={0}
-              style={{ minWidth: "273px", marginRight: "15px", marginLeft: "30px" }}
-              type="email"
-              placeholder="Enter your email"
-              ref={inputRef}
-              onBlur={() => {
-                setInputClick(false);
-                setClickState(false);
-                setInner(false);
-              }}
-            />
+            <form className="mc__form" onSubmit={(e) => handleSubmit(e)}>
+              <Input
+                onClick={handleInput}
+                onFocus={() => {
+                  setInputClick(true);
+                  setInner(true);
+                  setClickState(true);
+                }}
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                tabIndex={0}
+                style={{ minWidth: "273px", marginRight: "15px", marginLeft: "30px" }}
+                type="email"
+                placeholder="Enter your email"
+                ref={inputRef}
+                onBlur={() => {
+                  setInputClick(false);
+                  setClickState(false);
+                  setInner(false);
+                }}
+              />
+            </form>
 
-            <Button color="secondary" sx={{ backgroundColor: "black" }} onClick={onSend.onClick} variant="contained" size="large">
+            <Button color="secondary" sx={{ backgroundColor: "black" }} onClick={(e) => handleSubmit(e)} variant="contained" size="large">
               Send
             </Button>
           </Box>
         ) : (
           <Box mt={8} ml={10} mb={2} width={"100%"} justifyContent={"center"} alignItems={"center"}>
-            <Input
-              onClick={handleInput}
-              onFocus={() => {
-                setInputClick(true);
-                setInner(true);
-                setClickState(true);
-              }}
-              style={{ minWidth: "80%", marginRight: "15px" }}
-              type="email"
-              placeholder="Enter your email"
-              ref={inputRef}
-              onBlur={() => {
-                setInputClick(false);
-                setClickState(false);
-              }}
-            />
+            <form className="mc__form" onSubmit={(e) => handleSubmit(e)}>
+              <Input
+                onClick={handleInput}
+                onFocus={() => {
+                  setInputClick(true);
+                  setInner(true);
+                  setClickState(true);
+                }}
+                style={{ minWidth: "80%", marginRight: "15px" }}
+                onChange={(e) => setEmail(e.target.value)}
+                type="email"
+                placeholder="Enter your email"
+                ref={inputRef}
+                onBlur={() => {
+                  setInputClick(false);
+                  setClickState(false);
+                }}
+              />
+            </form>
+
             <Box width={"80%"} display={"flex"} alignItems={"flex-end"} justifyContent={"flex-end"}>
-              <Button color="secondary" sx={{ backgroundColor: "black", marginTop: "20px" }} onClick={onSend.onClick} variant="contained" size="large">
+              <Button color="secondary" sx={{ backgroundColor: "black", marginTop: "20px" }} onClick={(e) => handleSubmit(e)} variant="contained" size="large">
                 Send
               </Button>
             </Box>

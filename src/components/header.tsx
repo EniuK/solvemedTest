@@ -169,9 +169,11 @@ const Header = () => {
               </Box>
             );
           })}
-          <Box justifyContent={"center"} alignItems={"center"}>
+          <Box ml={2} justifyContent={"center"} alignItems={"center"}>
             <Button color="secondary" sx={{ backgroundColor: "black", fontSize: "14px", fontWeight: 100, marginRight: 0 }} variant="contained" size="small">
-              Get access
+              <Typography fontSize={"14px"} variant="body1" fontStyle={"SuisseIntl"} fontWeight={400}>
+                Get access
+              </Typography>
             </Button>
           </Box>
         </Box>

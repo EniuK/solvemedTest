@@ -6,8 +6,15 @@
   flex-wrap: wrap;
   position: relative;
   height: 35px;
+  width: "10%";
 }
+.logoLinkContainer {
+  z-index: 101;
+  position: absolute;
 
+  display: flex;
+  width: "10%";
+}
 @media (max-width: 900px) {
   .header {
     margin-bottom: 92px;
@@ -16,10 +23,14 @@
 
 .logoLinkContainer {
   z-index: 101;
-  position: fixed;
+  position: absolute;
+
+  display: flex;
+  width: "10%";
 }
 
 .externalLinkContainer {
+
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -36,6 +47,7 @@
   padding: 8px 20px;
   top: 150%;
   right: 0;
+
 }
 
 .externalLinkIcon {

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Box, Menu, MenuItem, Typography, useMediaQuery, Link as LinkMUI, useTheme, Stack } from "@mui/material";
+import { Box, Menu, MenuItem, Typography, useMediaQuery, Link as LinkMUI, useTheme, Stack, Button } from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -7,12 +7,15 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import styles from "./header.module.css";
 
 const menuItems = [
-  { title: "Home", link: "/" },
-  { title: "Science", link: "/science" },
-  { title: "Applications", link: "/applications" },
   { title: "Team", link: "/team" },
+
+  { title: "Blog", link: "/blog" },
   { title: "Careers", link: "/careers" },
   { title: "Contact", link: "/contact" },
+
+  // { title: "Home", link: "/" },
+
+  // { title: "Applications", link: "/applications" },
 ];
 
 const Header = () => {
@@ -112,7 +115,7 @@ const Header = () => {
         </a>
       </Link>
 
-      {router.pathname === "/" && (
+      {/* {router.pathname === "/" && (
         <LinkMUI
           href="https://www.linkedin.com/posts/solvemed-group_recently-solvemed-group-had-the-pleasure-activity-6955474167458598912-ws8-/"
           target="_blank"
@@ -126,32 +129,56 @@ const Header = () => {
             <Image src="/icons/arrow-top-right.svg" alt="Arrow top right" width="13" height="12" />
           </div>
         </LinkMUI>
+      )} */}
+      {isMobileView ? (
+        <Box width={"100%"} mt={-1} display={"flex"} justifyContent={"flex-end"} alignItems={"center"}>
+          <Stack justifyContent="center" width={20} height={34.5} onClick={handleMenuOpen}>
+            <Box bgcolor={theme.palette.primary.main} height="1px" />
+            <Box bgcolor={theme.palette.primary.main} height="1px" my={0.5} />
+            <Box bgcolor={theme.palette.primary.main} height="1px" />
+          </Stack>
+
+          <Menu anchorEl={menuAnchorEl} open={isMenuOpen} onClose={handleMenuClose}>
+            {menuItems.map((item) => {
+              const isCurrentPath = item.link === router.pathname;
+              return (
+                <Link key={item.title} href={item.link} passHref prefetch={false}>
+                  <MenuItem onClick={handleMenuClose} classes={{ root: styles.menuListItem }} dense>
+                    <a className={styles.menuListItemLink} style={{ color: isCurrentPath ? theme.palette.secondary.main : theme.palette.primary.main }}>
+                      {item.title}
+                    </a>
+                  </MenuItem>
+                </Link>
+              );
+            })}
+          </Menu>
+        </Box>
+      ) : (
+        <Box width={"100%"} mt={-1} display={"flex"} justifyContent={"flex-end"} alignItems={"center"}>
+          {menuItems.map((item) => {
+            const isCurrentPath = item.link === router.pathname;
+            return (
+              <Box key={item.title} mt={1.5}>
+                <Link href={item.link} passHref prefetch={false}>
+                  <MenuItem onClick={handleMenuClose} classes={{ root: styles.menuListItem }} dense>
+                    <a className={styles.menuListItemLink} style={{ color: isCurrentPath ? theme.palette.secondary.main : theme.palette.primary.main }}>
+                      {item.title}
+                    </a>
+                  </MenuItem>
+                </Link>
+              </Box>
+            );
+          })}
+          <Box justifyContent={"center"} alignItems={"center"}>
+            <Button color="secondary" sx={{ backgroundColor: "black", fontSize: "14px", fontWeight: 100, marginRight: 0 }} variant="contained" size="small">
+              Get access
+            </Button>
+          </Box>
+        </Box>
       )}
 
-      <div className={styles.menu}>
-        {isMobileView ? (
-          <>
-            <Stack justifyContent="center" width={20} height={34.5} onClick={handleMenuOpen}>
-              <Box bgcolor={theme.palette.primary.main} height="1px" />
-              <Box bgcolor={theme.palette.primary.main} height="1px" my={0.5} />
-              <Box bgcolor={theme.palette.primary.main} height="1px" />
-            </Stack>
-
-            <Menu anchorEl={menuAnchorEl} open={isMenuOpen} onClose={handleMenuClose}>
-              {menuItems.map((item) => {
-                const isCurrentPath = item.link === router.pathname;
-                return (
-                  <Link key={item.title} href={item.link} passHref prefetch={false}>
-                    <MenuItem onClick={handleMenuClose} classes={{ root: styles.menuListItem }} dense>
-                      <a className={styles.menuListItemLink} style={{ color: isCurrentPath ? theme.palette.secondary.main : theme.palette.primary.main }}>
-                        {item.title}
-                      </a>
-                    </MenuItem>
-                  </Link>
-                );
-              })}
-            </Menu>
-          </>
+      {/* {isMobileView ? (
+         
         ) : (
           <ul className={styles.menuList}>
             {menuItems.map((item) => {
@@ -175,8 +202,7 @@ const Header = () => {
               );
             })}
           </ul>
-        )}
-      </div>
+        )} */}
     </div>
   );
 };

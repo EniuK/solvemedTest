@@ -1,10 +1,11 @@
 import { ReactNode, useEffect, useState } from "react";
-import { Box, Divider, useMediaQuery } from "@mui/material";
+import { Box, useMediaQuery } from "@mui/material";
 import Footer from "./footer";
 import Header from "./header";
 import { AnimatePresence, motion } from "framer-motion";
 import { useRouter } from "next/router";
-import MailchimpFormContainer from "../components/PopUp/PopUpMailchimp";
+import MailchimpSubscribe from "../components/PopUp/PopUpMailchimp";
+
 const variants = {
   initial: {
     transition: {
@@ -46,25 +47,31 @@ const backgroundImage = (path: string) => {
 
 const Layout = ({ children }: { children: ReactNode }) => {
   const { asPath } = useRouter();
-  const [bg, setBg] = useState("");
+  // const [bg, setBg] = useState("");
   const isSmallViewport = useMediaQuery("(max-width:900px)");
   const isHomeRoute = asPath === "/";
   const shouldAdjustBgImage = isSmallViewport && !isHomeRoute;
-  const [notify, setNotify] = useState(true);
+  const [notify, setNotify] = useState(false);
   const closeNotify = () => {
     setNotify(false);
   };
+  const popUpTimer = () => {
+    setTimeout(() => {
+      setNotify(true);
+    }, 30000);
+  };
   useEffect(() => {
-    setBg(backgroundImage(asPath));
+    // setBg(backgroundImage(asPath));
+    popUpTimer();
   }, []);
 
   return (
     <Box>
-      {notify ? <MailchimpFormContainer onClose={closeNotify} /> : null}
+      {notify ? <MailchimpSubscribe onClose={closeNotify} /> : null}
 
       <Box
         style={{
-          backgroundImage: `url(${bg})`,
+          // backgroundImage: `url(${bg})`,
           width: "100%",
           height: "100%",
           backgroundPosition: `center top ${shouldAdjustBgImage ? "-300px" : ""}`,
@@ -75,7 +82,7 @@ const Layout = ({ children }: { children: ReactNode }) => {
       >
         <Box paddingY={4.75} maxWidth="1467px" mx="auto" paddingX={{ xs: 3, md: 6.25 }} overflow="visible">
           <Header />
-          <AnimatePresence mode="wait" initial={true} onExitComplete={() => setBg(backgroundImage(asPath))}>
+          <AnimatePresence mode="wait" initial={true}>
             <motion.main key={asPath} variants={variants} initial="initial" animate="animate" exit="exit">
               {children}
               <motion.div
@@ -112,9 +119,8 @@ const Layout = ({ children }: { children: ReactNode }) => {
               </motion.div>
             </motion.main>
           </AnimatePresence>
+          <Footer />
         </Box>
-        <Divider />
-        <Footer />
       </Box>
     </Box>
   );

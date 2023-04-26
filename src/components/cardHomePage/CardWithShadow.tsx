@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { theme } from "../../config/theme";
 
 const CardWithShadow = () => {
-  const isMobileView = useMediaQuery(theme.breakpoints.down("sm"));
+  const isMobileView = useMediaQuery(theme.breakpoints.down("md"));
   const cardData = [
     {
       title: "HIPPA  complained",
@@ -40,8 +40,33 @@ const CardWithShadow = () => {
   return (
     <Box>
       {isMobileView ? (
-        <Box width={"180vw"}>
-          <Box></Box>
+        <Box width={"100%"} display={"flex"} flexDirection={"row"} flexWrap={"wrap"}>
+          {cardData.map((element, idx: number) => {
+            return (
+              <Box key={idx} width={"50%"} display={"flex"} justifyContent={"center"} alignItems={"center"}>
+                <Box
+                  bgcolor={"#FFFFFF"}
+                  borderRadius={"10px"}
+                  p={2}
+                  pr={4}
+                  border={"1px solid #F5F5F7"}
+                  height={"180px"}
+                  boxShadow={"0px 8px 32px rgba(27, 37, 74, 0.08)"}
+                  width={"310px"}
+                >
+                  <Image src={element.src} width="24px" height={"24px"} alt={element.title} />
+                  <Box mt={2}>
+                    <Typography fontFamily={"FinancierDisplay"} fontSize={"28px"} variant="body1">
+                      {element.title}
+                    </Typography>
+                  </Box>
+                  <Box mt={1} width={"70%"}>
+                    <Typography variant="body6">{element.description}</Typography>
+                  </Box>
+                </Box>
+              </Box>
+            );
+          })}
         </Box>
       ) : (
         <Box width={"100%"}>

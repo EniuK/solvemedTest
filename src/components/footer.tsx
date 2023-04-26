@@ -79,7 +79,7 @@ const Footer = () => {
                 </Button>
               </Box>
             </Box>
-            <Box height={"40vh"} pb={10} minWidth={"330px"} maxWidth={"33vw"} display="flex" flexDirection={"column"} justifyContent="space-between" mb={3.5}>
+            <Box height={"40vh"} pb={10} pr={10} minWidth={"330px"} maxWidth={"33vw"} display="flex" flexDirection={"column"} justifyContent="space-between" mb={3.5}>
               <Box height={"40vh"} display="flex" width={"100%"} flexDirection="column" justifyContent={"flex-end"} alignItems={"flex-end"} mt={{ xs: 2, sm: 0 }}>
                 <Box flexDirection={"row"} display={"flex"} height={"70%"} justifyContent={"space-between"} width={"90%"}>
                   {menuItems.map((e, idx) => {
@@ -113,7 +113,7 @@ const Footer = () => {
                 </Box>
               </Box>
             </Box>
-            <Box display={"flex"} width={"100vw"} justifyContent={"flex-end"} alignItems={"flex-end"}>
+            <Box display={"flex"} width={"100vw"} mb={5} justifyContent={"flex-end"} alignItems={"flex-end"}>
               <Box
                 borderRadius={"100px"}
                 height={"40px"}

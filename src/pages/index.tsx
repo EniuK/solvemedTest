@@ -154,13 +154,15 @@ const Home: NextPage = () => {
         {isMobileView ? (
           <Box mt={60} width={"100%"} display="flex" justifyContent={"center"} alignItems={"center"} flexShrink={1}>
             <Typography variant="h4" fontSize={"32px"} textAlign={"center"}>
-              Solvemed transforms complex <b>eye evaluation processes </b> into one connected system to help you offer better, more efficient care.
+              Solvemed transforms complex <span className={styles.gradient_text}>eye evaluation processes</span> into one connected system to help you offer better, more efficient
+              care.
             </Typography>
           </Box>
         ) : (
           <Box mt={60} pl={15} pr={15} width={"100%"} display="flex" justifyContent={"center"} alignItems={"center"} flexShrink={1}>
             <Typography variant="h4" fontSize={"64px"} textAlign={"center"}>
-              Solvemed transforms complex <b>eye evaluation processes </b> into one connected system to help you offer better, more efficient care.
+              Solvemed transforms complex <span className={styles.gradient_text}>eye evaluation processes</span> into one connected system to help you offer better, more efficient
+              care.{" "}
             </Typography>
           </Box>
         )}

@@ -1,71 +1,11 @@
-import { Box, Typography, Input, Button, useMediaQuery } from "@mui/material";
+import { Box, Typography, Button, useMediaQuery, TextField } from "@mui/material";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { theme } from "../../config/theme";
 import PopUpWrapper from "./PopUpWrapper";
-
 const PopUp = ({ onClose, status, message, onValidated }: any) => {
-  const inputRef = useRef(null);
-  const [inner, setInner] = useState(false);
-  const [outer, setOuter] = useState(false);
-  const [inputClick, setInputClick] = useState(false);
-  const [clickState, setClickState] = useState(false);
   const boxRef = useRef(null);
   const isSmallViewport = useMediaQuery(theme.breakpoints.down("sm"));
-
-  const [windowDimensions, setWindowDimensions] = useState({
-    width: 0,
-    height: 0,
-  });
-  useEffect(() => {
-    function handleResize() {
-      setWindowDimensions({
-        width: window.innerWidth,
-        height: window.innerHeight,
-      });
-    }
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-  useEffect(() => {
-    if (boxRef.current) {
-      boxRef.current.focus();
-    }
-  }, []);
-  const handleInner = (e: any) => {
-    setClickState(true);
-    e.stopPropagation();
-    setInner(true);
-    setInputClick(true);
-  };
-
-  const handleInput = (e: any) => {
-    setClickState(true);
-    e.stopPropagation();
-    setInner(true);
-    setInputClick(true);
-  };
-  const outerHandler = () => {
-    // let help = inner;
-    // let help2 = inputClick;
-    // let help3 = clickState;
-    // setOuter(true);
-    // if (!help) {
-    //   if (!help2) {
-    //     if (!help3) onClose();
-    //   } else {
-    //     setInner(true);
-    //     help = true;
-    //     setInputClick(true);
-    //     help2 = true;
-    //   }
-    // } else {
-    //   setInner(true);
-    //   help = true;
-    //   setInputClick(true);
-    //   help2 = true;
-    // }
-  };
 
   // mailchimp
 
@@ -74,7 +14,6 @@ const PopUp = ({ onClose, status, message, onValidated }: any) => {
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
-
     email &&
       email.indexOf("@") > -1 &&
       (await onValidated({
@@ -102,7 +41,7 @@ const PopUp = ({ onClose, status, message, onValidated }: any) => {
   }, [status]);
 
   return (
-    <PopUpWrapper onclick={outerHandler}>
+    <PopUpWrapper>
       <Box
         ref={boxRef}
         mr={2}
@@ -132,17 +71,6 @@ const PopUp = ({ onClose, status, message, onValidated }: any) => {
           backgroundPosition: "center",
         }}
         zIndex={300}
-        onClick={handleInner}
-        onFocus={() => {
-          setInputClick(true);
-          setInner(true);
-          setClickState(true);
-        }}
-        onBlur={() => {
-          setInner(false);
-          setClickState(false);
-          setInputClick(false);
-        }}
       >
         <Box width={"100%"} display={"flex"} height={"5%"} justifyContent={"flex-end"} alignItems={"center"}>
           <Box
@@ -183,22 +111,20 @@ const PopUp = ({ onClose, status, message, onValidated }: any) => {
             ) : (
               <>
                 <form className="mc__form" onSubmit={(e) => handleSubmit(e)}>
-                  <Input
-                    onClick={handleInput}
-                    onFocus={() => {
-                      setInputClick(true);
-                      setInner(true);
-                      setClickState(true);
-                    }}
+                  <TextField
+                    label="Enter your email"
+                    variant="standard"
                     value={email}
-                    style={{ minWidth: "80%", marginRight: "15px" }}
                     onChange={handleEmail}
+                    style={{ minWidth: "80%", marginRight: "15px" }}
                     type="email"
-                    placeholder="Enter your email"
-                    ref={inputRef}
-                    onBlur={() => {
-                      setInputClick(false);
-                      setClickState(false);
+                    InputLabelProps={{
+                      sx: {
+                        color: "text.primary",
+                        "&.Mui-focused": {
+                          color: "gray",
+                        },
+                      },
                     }}
                   />
                 </form>
@@ -220,24 +146,20 @@ const PopUp = ({ onClose, status, message, onValidated }: any) => {
             ) : (
               <>
                 <form className="mc__form" onSubmit={(e) => handleSubmit(e)}>
-                  <Input
-                    onClick={handleInput}
-                    onFocus={() => {
-                      setInputClick(true);
-                      setInner(true);
-                      setClickState(true);
-                    }}
+                  <TextField
+                    label="Enter your email"
+                    variant="standard"
                     value={email}
                     onChange={handleEmail}
-                    tabIndex={0}
                     style={{ minWidth: "273px", marginRight: "15px", marginLeft: "30px" }}
                     type="email"
-                    placeholder="Enter your email"
-                    ref={inputRef}
-                    onBlur={() => {
-                      setInputClick(false);
-                      setClickState(false);
-                      setInner(false);
+                    InputLabelProps={{
+                      sx: {
+                        color: "text.primary",
+                        "&.Mui-focused": {
+                          color: "gray",
+                        },
+                      },
                     }}
                   />
                 </form>

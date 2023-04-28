@@ -42,6 +42,12 @@
   height: 1151px;
 }
 
+.gradient_text {
+  background: linear-gradient(to right, rgba(114, 84, 220, 1), rgba(112, 141, 245, 1));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 @media (max-width: 1200px) {
   .womenImg {
     width: 702px;

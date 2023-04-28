@@ -1,132 +1,196 @@
-import { Box, Link, Typography, Input, Button, useMediaQuery } from "@mui/material";
+import { Box, useMediaQuery } from "@mui/material";
 import Image from "next/image";
 import React from "react";
-import { useEffect, useRef, useState } from "react";
 import { theme } from "../../config/theme";
 
 const AiCards = () => {
   const isMobileView = useMediaQuery(theme.breakpoints.down("md"));
-  const cardData = [
+  const cardDataBig = [
     {
-      title: "Neurology",
-      description: "",
+      title: "Critical Care",
+      src: "/images/homePage/aiCards/medic.png",
+      w: "77px",
+      h: "100px",
     },
     {
       title: "Anaesthesiology",
-      description: "AI-driven pupillometer for advanced light reflex.",
-    },
-    {
-      title: "Opthalmology",
-      description: "Mobile point of convergence meter.",
+      src: "/images/homePage/aiCards/syringe.png",
+      w: "160.18px",
+      h: "96.3px",
     },
     {
       title: "Nursing",
-      description: "Mobile pupil diameter measurement.",
+      src: "/images/homePage/aiCards/pill.png",
+      w: "100px",
+      h: "100px",
+    },
+
+    {
+      title: "Neurology",
+      src: "/images/homePage/aiCards/brain.png",
+      w: "120.62px",
+      h: "100px",
     },
     {
-      title: "Critical care",
-      description: "Mobile Video Oculography.",
+      title: "Opthalmology",
+      src: "/images/homePage/aiCards/eye.png",
+      w: "116.39px",
+      h: "100px",
+    },
+    {
+      title: "Optometry",
+      src: "/images/homePage/aiCards/glasses.png",
+      w: "137.04px",
+      h: "80px",
+    },
+    {
+      title: "Neuro-ophthalmology",
+      src: "/images/homePage/aiCards/eyev2.png",
+      w: "150.05px",
+      h: "97.23px",
     },
     {
       title: "Sport Medicine",
-      description: "Mobile Video Oculography.",
+      src: "/images/homePage/aiCards/sport.png",
+      w: "146.73px",
+      h: "90px",
+    },
+  ];
+
+  const cardDataSmall = [
+    {
+      title: "Critical Care",
+      src: "/images/homePage/aiCards/medic.png",
+      w: "46.2px",
+      h: "60px",
+    },
+    {
+      title: "Anaesthesiology",
+      src: "/images/homePage/aiCards/syringe.png",
+      w: "96.11px",
+      h: "57.78px",
+    },
+    {
+      title: "Nursing",
+      src: "/images/homePage/aiCards/pill.png",
+      w: "60px",
+      h: "60px",
+    },
+
+    {
+      title: "Neurology",
+      src: "/images/homePage/aiCards/brain.png",
+      w: "72.37px",
+      h: "60px",
+    },
+    {
+      title: "Opthalmology",
+      src: "/images/homePage/aiCards/eye.png",
+      w: "69.83px",
+      h: "60px",
+    },
+    {
+      title: "Optometry",
+      src: "/images/homePage/aiCards/glasses.png",
+      w: "102.78px",
+      h: "60px",
+    },
+    {
+      title: "Neuro-ophthalmology",
+      src: "/images/homePage/aiCards/eyev2.png",
+      w: "92.6px",
+      h: "60px",
+    },
+    {
+      title: "Sport Medicine",
+      src: "/images/homePage/aiCards/sport.png",
+      w: "97.82px",
+      h: "60px",
     },
   ];
   return (
     <Box width={"100%"}>
       {isMobileView ? (
-        <Box width={"100%"} display={"flex"} justifyContent={"flex-end"} flexDirection={"column"} alignItems={"flex-end"}>
-          <Box>
-            {cardData.map((e, idx) => {
-              return (
-                <Box key={idx}>
+        <Box width={"100%"} display={"flex"} alignItems={"center"} justifyContent={"space-between"} flexWrap={"wrap"}>
+          {cardDataSmall.map((e, idx) => {
+            return (
+              <Box key={idx} width={"48%"} display={"flex"} justifyContent={"center"} alignItems={"center"}>
+                <Box
+                  border={"1px solid #F5F5F7"}
+                  boxShadow={"0px 8px 32px rgba(27, 37, 74, 0.08)"}
+                  borderRadius={"14px"}
+                  mt={4}
+                  mr={3}
+                  pt={3}
+                  pl={1}
+                  pb={2}
+                  width={"161.5px"}
+                  height={"132px"}
+                  display={"flex"}
+                  justifyContent={"flex-end"}
+                  alignItems={"center"}
+                  flexDirection={"column"}
+                >
+                  <Box width={"100%"} height={"60%"} display={"flex"} justifyContent={"flex-start"} alignItems={"center"} color={"#5E5E5E"}>
+                    <Image src={e.src} width={e.w} height={e.h} alt={e.title} />
+                  </Box>
                   <Box
-                    border={"1px solid #F5F5F7"}
-                    boxShadow={"0px 8px 32px rgba(27, 37, 74, 0.08)"}
-                    borderRadius={"14px"}
-                    p={3}
-                    mt={4}
-                    width={"270px"}
-                    height={"158px"}
+                    fontSize={"17px"}
                     display={"flex"}
-                    justifyContent={"flex-end"}
-                    flexDirection={"column"}
-                    alignItems={"center"}
+                    justifyContent={"flex-start"}
+                    alignItems={"flex-end"}
+                    fontWeight={500}
+                    height={"60%"}
+                    fontFamily={"SuisseIntl"}
+                    width={"100%"}
+                    textAlign={"left"}
                   >
-                    <Box fontSize={"21px"} fontWeight={500} mb={3} fontFamily={"SuisseIntl"} width={"100%"} textAlign={"left"}>
-                      {e.title}
-                    </Box>
-                    <Box width={"100%"} fontSize={"15px"} fontWeight={300} color={"#5E5E5E"} fontFamily={"SuisseIntl"}>
-                      {e.description}
-                    </Box>
+                    {e.title}
                   </Box>
                 </Box>
-              );
-            })}
-          </Box>
+              </Box>
+            );
+          })}
         </Box>
       ) : (
-        <Box width={"100%"} display={"flex"} justifyContent={"space-between"} alignItems={"center"}>
-          <Box>
-            {cardData.map((e, idx) => {
-              return (
-                <Box key={idx}>
-                  {idx % 2 == 0 ? (
-                    <Box
-                      border={"1px solid #F5F5F7"}
-                      boxShadow={"0px 8px 32px rgba(27, 37, 74, 0.08)"}
-                      borderRadius={"14px"}
-                      p={3}
-                      mt={4}
-                      width={"270px"}
-                      height={"158px"}
-                      display={"flex"}
-                      justifyContent={"flex-end"}
-                      flexDirection={"column"}
-                      alignItems={"center"}
-                    >
-                      <Box fontSize={"21px"} fontWeight={500} mb={3} fontFamily={"SuisseIntl"} width={"100%"} textAlign={"left"}>
-                        {e.title}
-                      </Box>
-                      <Box width={"100%"} fontSize={"15px"} fontWeight={300} color={"#5E5E5E"} fontFamily={"SuisseIntl"}>
-                        {e.description}
-                      </Box>
-                    </Box>
-                  ) : null}
+        <Box width={"100%"} display={"flex"} alignItems={"center"} justifyContent={"center"} flexWrap={"wrap"}>
+          {cardDataBig.map((e, idx) => {
+            return (
+              <Box key={idx}>
+                <Box
+                  border={"1px solid #F5F5F7"}
+                  boxShadow={"0px 8px 32px rgba(27, 37, 74, 0.08)"}
+                  borderRadius={"14px"}
+                  mt={4}
+                  mr={3}
+                  p={3}
+                  width={"270px"}
+                  height={"224px"}
+                  display={"flex"}
+                  justifyContent={"flex-end"}
+                  alignItems={"center"}
+                  flexDirection={"column"}
+                >
+                  <Box width={"100%"} height={"60%"} display={"flex"} justifyContent={"flex-start"} alignItems={"center"} color={"#5E5E5E"}>
+                    <Image src={e.src} width={e.w} height={e.h} alt={e.title} />
+                  </Box>
+                  <Box
+                    fontSize={"21px"}
+                    display={"flex"}
+                    justifyContent={"flex-start"}
+                    alignItems={"flex-end"}
+                    fontWeight={500}
+                    height={"60%"}
+                    fontFamily={"SuisseIntl"}
+                    width={"100%"}
+                    textAlign={"left"}
+                  >
+                    {e.title}
+                  </Box>
                 </Box>
-              );
-            })}
-          </Box>
-          <Box>
-            {cardData.map((e, idx) => {
-              return (
-                <Box key={idx}>
-                  {idx % 2 == 1 ? (
-                    <Box
-                      border={"1px solid #F5F5F7"}
-                      boxShadow={"0px 8px 32px rgba(27, 37, 74, 0.08)"}
-                      borderRadius={"14px"}
-                      p={3}
-                      mt={4}
-                      width={"270px"}
-                      height={"158px"}
-                      display={"flex"}
-                      justifyContent={"flex-end"}
-                      flexDirection={"column"}
-                      alignItems={"center"}
-                    >
-                      <Box fontSize={"21px"} fontWeight={500} mb={3} fontFamily={"SuisseIntl"} width={"100%"} textAlign={"left"}>
-                        {e.title}
-                      </Box>
-                      <Box width={"100%"} fontSize={"15px"} fontWeight={300} color={"#5E5E5E"} fontFamily={"SuisseIntl"}>
-                        {e.description}
-                      </Box>
-                    </Box>
-                  ) : null}
-                </Box>
-              );
-            })}
-          </Box>
+              </Box>
+            );
+          })}
         </Box>
       )}
     </Box>

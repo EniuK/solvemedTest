@@ -248,9 +248,9 @@ const Team: NextPage = () => {
           </Grid>
         </Grid>
 
-        <Grid container justifyContent="flex-end" mt="190px">
-          <Grid item xs={12} md={6}>
-            <img src="/images/brain2.png" alt="Brain" className={styles.brainImg} />
+        <Grid container display={"flex"} justifyContent="space-between" mt="190px" width={"100vw"} ml={-6.5} pl={5}>
+          <Grid item xs={12} md={6} ml={-18}>
+            <img src="/images/team/brain.png" alt="Brain" className={styles.brainImg} />
           </Grid>
 
           <Grid item container xs={12} md={6} marginTop={{ xs: 16, md: 0 }}>
@@ -266,37 +266,37 @@ const Team: NextPage = () => {
             <Grid item xs={12} container spacing={4} textAlign={{ xs: "left", sm: "left" }}>
               <Grid item xs={6} sm={6}>
                 <Typography fontSize={{ xs: "100px", sm: "144px" }} lineHeight="138.24px" fontWeight="300">
-                  40+
+                  36
                 </Typography>
                 <Typography variant="body2" fontSize={{ xs: "16px" }} fontWeight="600">
-                  People
+                  Number of emplyees
                 </Typography>
               </Grid>
 
               <Grid item xs={6} sm={6}>
                 <Typography fontSize={{ xs: "100px", sm: "144px" }} lineHeight="138.24px" fontWeight="300">
-                  8
+                  4
                 </Typography>
                 <Typography variant="body2" fontSize={{ xs: "16px" }} fontWeight="600">
-                  PhDs
+                  Number of PhDs
                 </Typography>
               </Grid>
 
               <Grid item xs={6} sm={6}>
                 <Typography fontSize={{ xs: "100px", sm: "144px" }} lineHeight="138.24px" fontWeight="300">
-                  10
+                  6
                 </Typography>
                 <Typography variant="body2" fontSize={{ xs: "16px" }} fontWeight="600">
-                  MDs
+                  Number of MDs
                 </Typography>
               </Grid>
 
               <Grid item xs={6} sm={6}>
                 <Typography fontSize={{ xs: "100px", sm: "144px" }} lineHeight="138.24px" fontWeight="300">
-                  2
+                  9
                 </Typography>
                 <Typography variant="body2" fontSize={{ xs: "16px" }} fontWeight="600">
-                  MBAs
+                  Number of MBAs
                 </Typography>
               </Grid>
             </Grid>

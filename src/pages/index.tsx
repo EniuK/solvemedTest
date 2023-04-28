@@ -1,8 +1,6 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import Link from "next/link";
-import { Box, Stack, Typography, Divider, Button, useMediaQuery } from "@mui/material";
-import styles from "./index.module.css";
+import { Box, Typography, Divider, Button, useMediaQuery } from "@mui/material";
 import "animate.css";
 import { motion } from "framer-motion";
 import Image from "next/image";
@@ -11,6 +9,8 @@ import AiCards from "../components/cardHomePage/AiCards";
 import TeamCarousel from "../components/HomeCarousels/TeamCarousel";
 import AppCards from "../components/HomeCarousels/AppCards";
 import { theme } from "../config/theme";
+import styles from "./index.module.css";
+
 const Home: NextPage = () => {
   const isMobileView = useMediaQuery(theme.breakpoints.down("md"));
 
@@ -22,6 +22,7 @@ const Home: NextPage = () => {
     { src: "/images/homePage/logos/oxford.png", w: "121.7px", h: "36px" },
     { src: "/images/homePage/logos/honkong.png", w: "126.36px", h: "36px" },
   ];
+
   return (
     <>
       <div>
@@ -37,29 +38,51 @@ const Home: NextPage = () => {
       </div>
       <Box>
         <Box>
-          <Typography
-            component={motion.p}
-            variant="h2"
-            align="center"
-            marginX="auto"
-            width={{ xs: "100%", md: "80%", lg: "70%" }}
-            variants={{ initial: { opacity: 0, y: 100 }, animate: { opacity: 1, y: 0 } }}
-            transition={{ duration: 0.7, ease: "easeOut" }}
-          >
-            Pupillometers are now objective and AI-enabled.
-          </Typography>
+          {isMobileView ? (
+            <Typography
+              component={motion.p}
+              variant="h2"
+              align="center"
+              marginX="auto"
+              fontSize={"44px"}
+              width={{ xs: "100%", md: "80%", lg: "75%" }}
+              variants={{ initial: { opacity: 0, y: 100 }, animate: { opacity: 1, y: 0 } }}
+              transition={{ duration: 0.7, ease: "easeOut" }}
+            >
+              Pupil reactivity testing. Now in your smartphone.
+            </Typography>
+          ) : (
+            <Typography
+              component={motion.p}
+              variant="h2"
+              align="center"
+              marginX="auto"
+              width={{ xs: "100%", md: "80%", lg: "75%" }}
+              variants={{ initial: { opacity: 0, y: 100 }, animate: { opacity: 1, y: 0 } }}
+              transition={{ duration: 0.7, ease: "easeOut" }}
+            >
+              Pupil reactivity testing. Now in your smartphone.
+            </Typography>
+          )}
         </Box>
         <Box width={"100vw"} display={"flex"} justifyContent={"center"} alignContent={"center"} pr={15}>
-          <Image src={"/images/homePage/phone.png"} width={"400px"} height={"1000px"} alt={"kitty"} />
+          <Box>
+            <Image src={"/images/homePage/phone.png"} width={"400px"} height={"1000px"} alt={"phone"} />
+          </Box>
+          <Box position={"absolute"}>
+            <Image src={"/images/bg/homegradient1.png"} width={"767.36px"} height={"756.02px"} alt={"gradient"} />
+          </Box>
         </Box>
         {isMobileView ? (
           <Box mt={100} display={"flex"} flexDirection={"column"} width={"100%"} mb={10}>
-            <Typography fontSize={"64px"} fontFamily={"FinancierDisplay"} mb={5} textAlign={"center"}>
+            <Typography fontSize={"32px"} fontFamily={"FinancierDisplay"} mb={2} textAlign={"center"}>
               mPenlight
             </Typography>
             <Typography fontSize={"14px"} textAlign={"center"}>
-              Solvemed{"'"}s smartphone-based software medical device enables pupil dilation measurement in the quantifiable manner without any external hardware needed. <br />
-              <br /> This FDA-listed product takes pupil evaluation on the new - quantified and AI driven level.
+              Solvemed{"'"}s health evaluation tools are designed to complement existing assessments by making patient data collection easier and more frequent.
+              <br />
+              <br />
+              They also improve the quality of care by empowering and connecting patients, clinicians, and researchers and outside of clinical settings.
             </Typography>
           </Box>
         ) : (
@@ -68,8 +91,8 @@ const Home: NextPage = () => {
               mPenlight
             </Typography>
             <Typography fontSize={"17px"}>
-              Solvemed{"'"}s smartphone-based software medical device enables pupil dilation measurement in the quantifiable manner without any external hardware needed. <br />
-              <br /> This FDA-listed product takes pupil evaluation on the new - quantified and AI driven level.{" "}
+              Solvemed{"'"}s health evaluation tools are designed to complement existing assessments by making patient data collection easier and more frequent. They also improve
+              the quality of care by empowering and connecting patients, clinicians, and researchers and outside of clinical settings.
             </Typography>
           </Box>
         )}
@@ -78,8 +101,10 @@ const Home: NextPage = () => {
         <Box
           pt={30}
           pb={30}
+          ml={-6}
+          pl={6}
           style={{
-            backgroundImage: `url('/images/bg/gradient.png')`,
+            backgroundImage: `url('/images/bg/homegradient2.png')`,
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}
@@ -93,16 +118,7 @@ const Home: NextPage = () => {
             variants={{ initial: { opacity: 0, y: 100 }, animate: { opacity: 1, y: 0 } }}
             transition={{ duration: 0.7, ease: "easeOut" }}
           >
-            {/* ogarnac linear gradient text */}
-            Designed for{" "}
-            <Typography
-              sx={{ background: `linear-gradient(to right, rgba(114, 84, 220, 1), rgba(112, 141, 245, 1))`, WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}
-              variant="h3"
-              transition={{ duration: 0.7, ease: "easeOut" }}
-            >
-              practitioners
-            </Typography>{" "}
-            looking to end the era of subjective neuro-ophthalmic examination.
+            Designed for <span className={styles.gradient_text}>practitioners</span> looking to end the era of subjective pupil reactivity examination.
           </Typography>
         </Box>
         <AiCards />
@@ -110,7 +126,7 @@ const Home: NextPage = () => {
           <Box display={"flex"} width={"100vw"} ml={-3} mt={20} justifyContent={"center"} alignItems={"center"} flexDirection={"column"}>
             <Box width={"100%"}>
               <Typography variant="h3" fontSize={"32px"} textAlign={"center"}>
-                Experts about our technology.
+                What experts say
               </Typography>
             </Box>
             <Box width={"100%"} mt={6} pl={3} pr={3}>
@@ -123,7 +139,7 @@ const Home: NextPage = () => {
           <Box display={"flex"} mt={20} justifyContent={"center"} alignItems={"center"} flexDirection={"column"}>
             <Box>
               <Typography variant="h3" fontSize={"64px"} textAlign={"center"}>
-                Experts about our technology.
+                What experts say
               </Typography>
             </Box>
             <Box width={"70%"} mt={6}>

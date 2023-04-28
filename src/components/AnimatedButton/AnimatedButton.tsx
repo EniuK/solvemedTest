@@ -3,7 +3,7 @@ import { Link, Typography, useTheme } from "@mui/material";
 import { motion } from "framer-motion";
 import styles from "./AnimatedButton.module.css";
 
-type Props = { url: string; children: ReactNode; variant?: "filled" | "outlined" };
+type Props = { url: string; children: ReactNode; variant?: "filled" | "outlined"; onFun?: any };
 
 const AnimatedButton: React.FC<Props> = ({ url, children, variant = "outlined", onFun }) => {
   const { palette } = useTheme();
@@ -32,7 +32,8 @@ const AnimatedButton: React.FC<Props> = ({ url, children, variant = "outlined", 
         className={styles.buttonLabel}
         component={motion.span}
         variant={filledVariant ? "body5" : "body6"}
-        color={filledVariant ? palette.common.white : palette.secondary.main}
+        // color={filledVariant ? palette.common.white : palette.secondary.main}
+        color={"rgba(0, 0, 0, 1)"}
         mr={filledVariant ? 0 : 2.5}
         transition={transition}
         variants={{ initial: { y: "-50%", opacity: 1 }, active: { y: "-200%", opacity: 0 } }}
@@ -53,8 +54,8 @@ const AnimatedButton: React.FC<Props> = ({ url, children, variant = "outlined", 
 
       {!filledVariant && (
         <motion.div className={styles.buttonIcon} transition={transition} variants={{ initial: { right: "20%" }, active: { right: "15%" } }}>
-          <motion.svg width="10" height="9" viewBox="0 0 10 9" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <motion.path d="M-1.5299e-07 4.5L8 4.5M8 4.5L4 1M8 4.5L4 8" stroke={palette.secondary.main} variants={{ active: { stroke: palette.common.white } }} strokeWidth="1.5" />
+          <motion.svg width="10" height="9" viewBox="0 0 10 9" xmlns="http://www.w3.org/2000/svg">
+            <motion.path d="M-1.5299e-07 4.5L8 4.5M8 4.5L4 1M8 4.5L4 8" stroke={"black"} variants={{ active: { stroke: palette.common.white } }} strokeWidth="1.5" fill="black" />
           </motion.svg>
         </motion.div>
       )}

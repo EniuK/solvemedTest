@@ -1,14 +1,14 @@
 import { useState } from "react";
-import { Box, Menu, MenuItem, Typography, useMediaQuery, Link as LinkMUI, useTheme, Stack, Button } from "@mui/material";
-import Image from "next/image";
+import { Box, Menu, MenuItem, Typography, useMediaQuery, Link as LinkMUI, useTheme, Stack, Button, Divider } from "@mui/material";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { motion, useScroll, useTransform } from "framer-motion";
 import styles from "./header.module.css";
+import Image from "next/image";
+import PopUpWrapper from "./PopUp/PopUpWrapper";
 
 const menuItems = [
   { title: "Team", link: "/team" },
-
   { title: "Blog", link: "/blog" },
   { title: "Careers", link: "/careers" },
   { title: "Contact", link: "/contact" },
@@ -24,12 +24,12 @@ const Header = () => {
   const [menuAnchorEl, setMenuAnchorEl] = useState<null | HTMLElement>(null);
   const isMenuOpen = Boolean(menuAnchorEl);
   const isMobileView = useMediaQuery(theme.breakpoints.down("md"));
-
-  const handleMenuOpen = (event: React.MouseEvent<HTMLDivElement>) => {
-    setMenuAnchorEl(event.currentTarget);
+  const [open, setOpen] = useState(false);
+  const handleMenuOpen = () => {
+    setOpen(!open);
   };
 
-  const handleMenuClose = () => setMenuAnchorEl(null);
+  const handleMenuClose = () => setOpen(!open);
 
   const { scrollY } = useScroll();
   const offset = useTransform(scrollY, [0, 400], [0, -5]);
@@ -131,27 +131,51 @@ const Header = () => {
         </LinkMUI>
       )} */}
       {isMobileView ? (
-        <Box width={"100%"} mt={-1} display={"flex"} justifyContent={"flex-end"} alignItems={"center"}>
-          <Stack justifyContent="center" width={20} height={34.5} onClick={handleMenuOpen}>
-            <Box bgcolor={theme.palette.primary.main} height="1px" />
-            <Box bgcolor={theme.palette.primary.main} height="1px" my={0.5} />
-            <Box bgcolor={theme.palette.primary.main} height="1px" />
-          </Stack>
+        <Box width={"100%"} mt={-1} display={"flex"} bgcolor={"white"} flexDirection={"column"} justifyContent={"flex-end"} alignItems={"flex-end"}>
+          <Box zIndex={300}>
+            <Stack justifyContent="center" width={20} height={34.5} onClick={handleMenuOpen}>
+              <Box bgcolor={theme.palette.primary.main} height="1px" />
+              <Box bgcolor={theme.palette.primary.main} height="1px" my={0.5} />
+              <Box bgcolor={theme.palette.primary.main} height="1px" />
+            </Stack>
+          </Box>
 
-          <Menu anchorEl={menuAnchorEl} open={isMenuOpen} onClose={handleMenuClose}>
-            {menuItems.map((item) => {
-              const isCurrentPath = item.link === router.pathname;
-              return (
-                <Link key={item.title} href={item.link} passHref prefetch={false}>
-                  <MenuItem onClick={handleMenuClose} classes={{ root: styles.menuListItem }} dense>
-                    <a className={styles.menuListItemLink} style={{ color: isCurrentPath ? theme.palette.secondary.main : theme.palette.primary.main }}>
-                      {item.title}
-                    </a>
-                  </MenuItem>
-                </Link>
-              );
-            })}
-          </Menu>
+          {open && (
+            <>
+              <Box height={"100vh"} bgcolor={"white"} top={0} position={"absolute"}>
+                <Box width={"100vw"} mt={6} pl={4} zIndex={open ? 300 : 1} bgcolor={"rgba(255, 255, 255, 1)"}>
+                  <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }}>
+                    {menuItems.map((item) => {
+                      return (
+                        <Box key={item.title} mt={3} style={{ fontFamily: "SuisseIntl", fontWeight: 100 }}>
+                          <Link href={item.link} prefetch={false}>
+                            <MenuItem onClick={handleMenuOpen} dense>
+                              <a>{item.title}</a>
+                            </MenuItem>
+                          </Link>
+                        </Box>
+                      );
+                    })}
+                    <Divider sx={{ width: "100vw", ml: -6, mt: 5, mb: 5 }} />
+                    <Box alignItems={"center"} justifyContent={"flex-start"} width={"100%"} display={"flex"} mb={3}>
+                      <Box height={"40px"} display={"flex"} justifyContent={"center"} alignItems={"center"} flexDirection={"row"}>
+                        <Link href="https://www.linkedin.com/company/solvemed-group/" target="_blank" rel="noopener">
+                          <Image src="/images/icons/linkedin.png" alt="linkedin" width="40px" height="40px" />
+                        </Link>
+                        <Box ml={2}>Linkedin</Box>
+                      </Box>
+                      <Box height={"40px"} display={"flex"} justifyContent={"center"} alignItems={"center"} flexDirection={"row"} ml={5}>
+                        <Link href="https://twitter.com/solvemed" target="_blank" rel="noopener">
+                          <Image src="/images/icons/twitter.png" alt="twitter" width="40px" height="40px" />
+                        </Link>
+                        <Box ml={2}>Twitter</Box>
+                      </Box>
+                    </Box>
+                  </motion.div>
+                </Box>
+              </Box>
+            </>
+          )}
         </Box>
       ) : (
         <Box width={"100%"} mt={-1} display={"flex"} justifyContent={"flex-end"} alignItems={"center"}>
@@ -161,7 +185,10 @@ const Header = () => {
               <Box key={item.title} mt={1.5}>
                 <Link href={item.link} passHref prefetch={false}>
                   <MenuItem onClick={handleMenuClose} classes={{ root: styles.menuListItem }} dense>
-                    <a className={styles.menuListItemLink} style={{ color: isCurrentPath ? theme.palette.secondary.main : theme.palette.primary.main }}>
+                    <a
+                      className={styles.menuListItemLink}
+                      style={{ color: isCurrentPath ? theme.palette.secondary.main : theme.palette.primary.main, textDecoration: isCurrentPath ? "underline" : "none" }}
+                    >
                       {item.title}
                     </a>
                   </MenuItem>
@@ -170,11 +197,19 @@ const Header = () => {
             );
           })}
           <Box ml={2} justifyContent={"center"} alignItems={"center"}>
-            <Button color="secondary" sx={{ backgroundColor: "black", fontSize: "14px", fontWeight: 100, marginRight: 0 }} variant="contained" size="small">
-              <Typography fontSize={"14px"} variant="body1" fontStyle={"SuisseIntl"} fontWeight={400}>
-                Get access
-              </Typography>
-            </Button>
+            <Link href={"/GetAccess"}>
+              <Button
+                color="secondary"
+                style={{ textTransform: "none" }}
+                sx={{ backgroundColor: "black", fontSize: "14px", fontWeight: 100, marginRight: 0 }}
+                variant="contained"
+                size="small"
+              >
+                <Typography fontSize={"14px"} variant="body1" fontStyle={"SuisseIntl"} fontWeight={400}>
+                  Get access
+                </Typography>
+              </Button>
+            </Link>
           </Box>
         </Box>
       )}

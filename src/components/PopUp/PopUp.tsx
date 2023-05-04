@@ -130,7 +130,14 @@ const PopUp = ({ onClose, status, message, onValidated }: any) => {
                 </form>
 
                 <Box width={"80%"} display={"flex"} alignItems={"flex-end"} justifyContent={"flex-end"}>
-                  <Button color="secondary" sx={{ backgroundColor: "black", marginTop: "20px" }} onClick={(e) => handleSubmit(e)} variant="contained" size="large">
+                  <Button
+                    color="secondary"
+                    style={{ textTransform: "none" }}
+                    sx={{ backgroundColor: "black", marginTop: "20px" }}
+                    onClick={(e) => handleSubmit(e)}
+                    variant="contained"
+                    size="large"
+                  >
                     Send
                   </Button>
                 </Box>
@@ -164,8 +171,10 @@ const PopUp = ({ onClose, status, message, onValidated }: any) => {
                   />
                 </form>
 
-                <Button color="secondary" sx={{ backgroundColor: "black" }} onClick={(e) => handleSubmit(e)} variant="contained" size="large">
-                  Send
+                <Button color="secondary" style={{ textTransform: "none" }} sx={{ backgroundColor: "black" }} onClick={(e) => handleSubmit(e)} variant="contained" size="large">
+                  <Box pt={0.5} pb={0.5}>
+                    Send
+                  </Box>
                 </Button>
               </>
             )}

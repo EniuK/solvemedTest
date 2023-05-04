@@ -201,7 +201,7 @@ export const theme = createTheme({
           font-family: 'FinancierDisplay';
           font-style: normal;
           font-display: swap;
-          font-weight: 300;
+          font-weight: 200;
           src: url('/fonts/Financier-Display-Light.woff2');
         }
         @font-face {

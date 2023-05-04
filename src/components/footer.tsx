@@ -4,32 +4,32 @@ import { theme } from "../config/theme";
 
 const menuItems = [
   { title: "TEAM", link: "/team" },
-  { title: "BLOG", link: "/science" },
+  { title: "BLOG", link: "/blog" },
   { title: "CAREER", link: "/careers" },
   { title: "CONTACT", link: "/contact" },
 ];
 
-const Footer = () => {
+const Footer = ({ home }: any) => {
   const isSmallViewport = useMediaQuery(theme.breakpoints.down("md"));
-
   return (
     <>
+      <Divider sx={{ width: "110vw", ml: -6, mt: 20 }} />
       {isSmallViewport ? (
         <Box width={"100vw"}>
           <Box height={"100%"} width={"100%"} flexWrap={"wrap"} paddingY={4.75} display={"flex"} justifyContent={"space-between"} flexDirection={"row"}>
             <Box display={"flex"} flexDirection={"column"} height={"100%"} justifyContent={"flex-end"} alignItems={"flex-end"}>
               <Box paddingX={3} width={"100%"} height={"80%"} alignItems={"flex-start"} justifyContent={"flex-end"} display={"flex"} flexDirection={"column"}>
                 <Box display={"flex"} flexDirection={"row"} justifyContent={"space-between"} width={"100%"}>
-                  <Box>
+                  <Box width={"50%"}>
                     <Image src="/icons/logo-small.svg" alt="logo" width="35" height="46" />
                   </Box>
-                  <Box alignItems={"center"} justifyContent={"center"} width={"100px"} display={"flex"}>
+                  <Box alignItems={"center"} justifyContent={"center"} width={"50%"} display={"flex"}>
                     <Link href="https://www.linkedin.com/company/solvemed-group/" target="_blank" rel="noopener">
-                      <Image src="/icons/linkedin.svg" alt="linkedin" width="23" height="23" />
+                      <Image src="/images/icons/linkedin.png" alt="linkedin" width="40px" height="40px" />
                     </Link>
 
-                    <Link href="https://twitter.com/solvemed" ml={5} target="_blank" rel="noopener">
-                      <Image src="/icons/twitter.svg" alt="twitter" width="23" height="23" />
+                    <Link href="https://twitter.com/solvemed" ml={3} target="_blank" rel="noopener">
+                      <Image src="/images/icons/twitter.png" alt="twitter" width="40px" height="40px" />
                     </Link>
                   </Box>
                 </Box>
@@ -66,7 +66,6 @@ const Footer = () => {
               </Box>
 
               <Box justifyContent={"flex-start"} alignItems={"flex-start"} width={"100vw"}>
-                <Divider variant="fullWidth" />
                 <Box minWidth={"330px"} maxWidth={"33vw"} display="flex" flexDirection={"column"} justifyContent="space-between" mb={3.5}>
                   <Box display="flex" width={"100%"} flexDirection="column" justifyContent={"flex-start"} pl={3} alignItems={"flex-start"} mt={3}>
                     <Box flexDirection={"column"} display={"flex"}>
@@ -97,7 +96,7 @@ const Footer = () => {
                   height={"40px"}
                   boxShadow={" 0px 8px 32px rgba(27, 37, 74, 0.08)"}
                   display={"flex"}
-                  width={"75%"}
+                  width={"290px"}
                   flexDirection={"row"}
                   justifyContent={"space-between"}
                   alignItems={"center"}
@@ -108,7 +107,13 @@ const Footer = () => {
                     </Typography>
                   </Box>
                   <Box justifyContent={"center"} alignItems={"center"}>
-                    <Button color="secondary" sx={{ backgroundColor: "black", fontSize: "14px", fontWeight: 100, marginRight: 0 }} variant="contained" size="small">
+                    <Button
+                      color="secondary"
+                      style={{ textTransform: "none" }}
+                      sx={{ backgroundColor: "black", fontSize: "14px", fontWeight: 100, marginRight: 0 }}
+                      variant="contained"
+                      size="small"
+                    >
                       Get access
                     </Button>
                   </Box>
@@ -118,7 +123,7 @@ const Footer = () => {
           </Box>
         </Box>
       ) : (
-        <Box width={"100vw"}>
+        <Box width={"100vw"} style={home ? { position: "sticky", bottom: 0 } : {}}>
           <Box
             height={"40vh"}
             width={"100%"}
@@ -169,7 +174,7 @@ const Footer = () => {
                 </Button>
               </Box>
             </Box>
-            <Box height={"40vh"} pb={10} pr={10} minWidth={"330px"} maxWidth={"33vw"} display="flex" flexDirection={"column"} justifyContent="space-between" mb={3.5}>
+            <Box height={"40vh"} pb={7} pr={10} minWidth={"330px"} maxWidth={"33vw"} display="flex" flexDirection={"column"} justifyContent="space-between" mb={3.5}>
               <Box height={"40vh"} display="flex" width={"100%"} flexDirection="column" justifyContent={"flex-end"} alignItems={"flex-end"} mt={{ xs: 2, sm: 0 }}>
                 <Box flexDirection={"row"} display={"flex"} height={"70%"} justifyContent={"space-between"} width={"90%"}>
                   {menuItems.map((e, idx) => {
@@ -184,21 +189,13 @@ const Footer = () => {
                     );
                   })}
                 </Box>
-                <Box flexDirection={"row"} display={"flex"}>
-                  <Link href="https://www.linkedin.com/company/solvemed-group/" display="flex" flexDirection="row" target="_blank" rel="noopener">
-                    <Image src="/icons/linkedin.svg" alt="linkedin" width="23" height="23" />
-
-                    <Typography variant="body2Wide" color="primary.light" ml={1}>
-                      Linkedin
-                    </Typography>
+                <Box alignItems={"center"} justifyContent={"center"} width={"100%"} display={"flex"}>
+                  <Link href="https://www.linkedin.com/company/solvemed-group/" target="_blank" rel="noopener">
+                    <Image src="/images/icons/linkedin.png" alt="linkedin" width="40px" height="40px" />
                   </Link>
 
-                  <Link href="https://twitter.com/solvemed" display="flex" flexDirection="row" ml={5} target="_blank" rel="noopener">
-                    <Image src="/icons/twitter.svg" alt="twitter" width="23" height="23" />
-
-                    <Typography variant="body2Wide" color="primary.light" ml={1}>
-                      Twitter
-                    </Typography>
+                  <Link href="https://twitter.com/solvemed" ml={5} target="_blank" rel="noopener">
+                    <Image src="/images/icons/twitter.png" alt="twitter" width="40px" height="40px" />
                   </Link>
                 </Box>
               </Box>
@@ -213,6 +210,8 @@ const Footer = () => {
                 flexDirection={"row"}
                 justifyContent={"space-between"}
                 alignItems={"center"}
+                pb={3}
+                pr={3}
               >
                 <Box justifyContent={"center"} alignItems={"center"}>
                   <Typography pl={2} fontSize={"19px"} fontFamily={"FinancierDisplay"} fontWeight={400}>
@@ -220,7 +219,13 @@ const Footer = () => {
                   </Typography>
                 </Box>
                 <Box justifyContent={"center"} alignItems={"center"}>
-                  <Button color="secondary" sx={{ backgroundColor: "black", fontSize: "14px", fontWeight: 100, marginRight: 0 }} variant="contained" size="small">
+                  <Button
+                    color="secondary"
+                    style={{ textTransform: "none" }}
+                    sx={{ backgroundColor: "black", fontSize: "14px", fontWeight: 100, marginRight: 0 }}
+                    variant="contained"
+                    size="small"
+                  >
                     Get access
                   </Button>
                 </Box>

@@ -119,8 +119,7 @@ const AiCards = () => {
                   border={"1px solid #F5F5F7"}
                   boxShadow={"0px 8px 32px rgba(27, 37, 74, 0.08)"}
                   borderRadius={"14px"}
-                  mt={4}
-                  mr={3}
+                  mt={2}
                   pt={3}
                   pl={1}
                   pb={2}
@@ -135,15 +134,16 @@ const AiCards = () => {
                     <Image src={e.src} width={e.w} height={e.h} alt={e.title} />
                   </Box>
                   <Box
-                    fontSize={"17px"}
+                    fontSize={"15px"}
                     display={"flex"}
                     justifyContent={"flex-start"}
                     alignItems={"flex-end"}
-                    fontWeight={500}
+                    fontWeight={400}
                     height={"60%"}
                     fontFamily={"SuisseIntl"}
                     width={"100%"}
                     textAlign={"left"}
+                    pr={2}
                   >
                     {e.title}
                   </Box>

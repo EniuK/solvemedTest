@@ -1,113 +1,111 @@
 import { Box, Typography, useMediaQuery } from "@mui/material";
+import { useAnimation } from "framer-motion";
 import Image from "next/image";
+import { useEffect } from "react";
 import { theme } from "../../config/theme";
+const cardData = [
+  {
+    title: "FDA-listed",
+    description: "class I medical device.",
+    src: "/images/homePage/securityicon.png",
+  },
+
+  {
+    title: "HIPPA  compliant",
+    description: "Designed for privacy and security. ",
+    src: "/images/homePage/medicalicon.png",
+  },
+  {
+    title: "User friendly",
+    description: "Quicker to use then traditional penlight",
+    src: "/images/homePage/userwithhearth.png",
+  },
+  {
+    title: "Clinically tested",
+    description: "Measurement accuracy and reliability proven clinically",
+    src: "/images/homePage/cross.png",
+  },
+  {
+    title: "Reduces risks ",
+    description: "Offers trust you need when examining the brain.",
+    src: "/images/homePage/warning.png",
+  },
+  {
+    title: "AI Driven ",
+    description: "Supported by cutting-edge Machine Learning technology",
+    src: "/images/homePage/Ai.png",
+  },
+  {
+    title: "Works offline",
+    description: "No internet access needed to conduct tests.",
+    src: "/images/homePage/connection.png",
+  },
+
+  {
+    title: "Sustainable ",
+    description: "Designed with the planet in mind.",
+    src: "/images/homePage/leafempty.png",
+  },
+];
 
 const CardWithShadow = () => {
   const isMobileView = useMediaQuery(theme.breakpoints.down("md"));
-  const isPhoneView = useMediaQuery(theme.breakpoints.down("sm"));
-  const cardData = [
-    {
-      title: "FDA-listed",
-      description: "class I medical device.",
-      src: "/images/homePage/securityicon.png",
-    },
 
-    {
-      title: "HIPPA  compliant",
-      description: "Designed for privacy and security. ",
-      src: "/images/homePage/medicalicon.png",
-    },
-    {
-      title: "User friendly",
-      description: "Quicker to use then traditional penlight",
-      src: "/images/homePage/userwithhearth.png",
-    },
+  const controls = useAnimation();
 
-    {
-      title: "AI Driven ",
-      description: "Results precision proved clinically.",
-      src: "/images/homePage/Ai.png",
-    },
-    {
-      title: "Works offline",
-      description: "No internet access needed to conduct tests.",
-      src: "/images/homePage/connection.png",
-    },
+  useEffect(() => {
+    const handleScroll = () => {
+      // Dla każdego elementu sprawdzamy, czy jego pozycja jest widoczna na ekranie.
+      cardData.forEach((_, idx) => {
+        const element = document.querySelector(`.card-${idx}`);
+        if (element) {
+          const isVisible = element.getBoundingClientRect().top < window.innerHeight * 0.75;
+          if (isVisible) {
+            controls.start("visible", { delay: idx * 0.2 });
+          }
+        }
+      });
+    };
 
-    {
-      title: "Sustainable ",
-      description: "Designed with the planet in mind.",
-      src: "/images/homePage/leafempty.png",
-    },
-    {
-      title: "Reduces risks ",
-      description: "Offers trust you need when examining the brain.",
-      src: "/images/homePage/warning.png",
-    },
-    {
-      title: "Easy to integrate",
-      description: "with any Electronic Medical Records.",
-      src: "/images/homePage/battery.png",
-    },
-  ];
+    window.addEventListener("scroll", handleScroll);
+    handleScroll();
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [cardData, controls]);
   return (
     <Box>
-      {isPhoneView ? (
+      {isMobileView ? (
         <Box width={"100%"} display={"flex"} flexDirection={"row"} flexWrap={"wrap"}>
           {cardData.map((element, idx: number) => {
             return (
-              <Box key={idx} width={"50%"} display={"flex"} justifyContent={"center"} alignItems={"center"}>
+              <Box key={idx} width={"50%"} display={"flex"} justifyContent={"center"} alignItems={"center"} mb={2}>
                 <Box
                   bgcolor={"#FFFFFF"}
                   borderRadius={"10px"}
                   p={2}
-                  pr={4}
+                  pr={3}
                   border={"1px solid #F5F5F7"}
-                  height={"180px"}
+                  height={"204px"}
                   boxShadow={"0px 8px 32px rgba(27, 37, 74, 0.08)"}
-                  width={"310px"}
+                  width={"162px"}
+                  mr={1}
                 >
-                  <Image src={element.src} width="24px" height={"24px"} alt={element.title} />
-                  <Box mt={2}>
-                    <Typography style={{ fontWeight: "bold", fontFamily: "FinancierDisplay" }} fontSize={"28px"} variant="body1">
-                      {element.title}
-                    </Typography>
+                  <Box height={"10%"}>
+                    <Image src={element.src} width="24px" height={"24px"} alt={element.title} />
                   </Box>
-                  <Box mt={1} width={"70%"}>
-                    <Typography variant="body6" style={{ color: "rgba(94, 94, 94, 1)" }}>
-                      {element.description}
-                    </Typography>
-                  </Box>
-                </Box>
-              </Box>
-            );
-          })}
-        </Box>
-      ) : isMobileView ? (
-        <Box width={"100%"} display={"flex"} flexDirection={"row"} flexWrap={"wrap"}>
-          {cardData.map((element, idx: number) => {
-            return (
-              <Box key={idx} width={"50%"} display={"flex"} justifyContent={"center"} alignItems={"center"}>
-                <Box
-                  bgcolor={"#FFFFFF"}
-                  borderRadius={"10px"}
-                  p={2}
-                  pr={4}
-                  border={"1px solid #F5F5F7"}
-                  height={"180px"}
-                  boxShadow={"0px 8px 32px rgba(27, 37, 74, 0.08)"}
-                  width={"310px"}
-                >
-                  <Image src={element.src} width="24px" height={"24px"} alt={element.title} />
-                  <Box mt={2}>
-                    <Typography style={{ fontWeight: "bold", fontFamily: "FinancierDisplay" }} fontSize={"28px"} variant="body1">
-                      {element.title}
-                    </Typography>
-                  </Box>
-                  <Box mt={1} width={"70%"}>
-                    <Typography variant="body6" style={{ color: "rgba(94, 94, 94, 1)" }}>
-                      {element.description}
-                    </Typography>
+                  <Box display={"flex"} height={"90%"} alignItems={"flex-start"} justifyContent={"flex-end"} flexDirection={"column"}>
+                    <Box mt={2}>
+                      <Typography style={{ fontFamily: "FinancierDisplay" }} fontSize={"28px"} variant="body1">
+                        {element.title}
+                      </Typography>
+                    </Box>
+                    <Box mt={1} width={"100%"}>
+                      <Typography fontSize={"14px"} fontFamily={"SuisseIntl"} lineHeight={"150%"} style={{ color: "rgba(94, 94, 94, 1)", opacity: 0.8 }}>
+                        {element.description}
+                      </Typography>
+                    </Box>
                   </Box>
                 </Box>
               </Box>
@@ -121,9 +119,9 @@ const CardWithShadow = () => {
               <Box key={idx} width={"100%"} display={"flex"} justifyContent={idx % 2 === 0 ? "flex-end" : "flex-start"} alignItems={"center"}>
                 <Box
                   bgcolor={"#FFFFFF"}
-                  borderRadius={"10px"}
+                  borderRadius={"30px"}
                   p={3}
-                  pr={4}
+                  pr={3}
                   border={"1px solid #F5F5F7"}
                   boxShadow={"0px 8px 32px rgba(27, 37, 74, 0.08)"}
                   height={"204px"}
@@ -131,12 +129,10 @@ const CardWithShadow = () => {
                 >
                   <Image src={element.src} width="32px" height={"32px"} alt={element.title} />
                   <Box mt={3}>
-                    <Typography style={{ fontFamily: "FinancierDisplay", fontWeight: 600 }} fontSize={"28px"} variant="body1">
-                      {element.title}
-                    </Typography>
+                    <Typography style={{ fontWeight: 300, fontFamily: "FinancierDisplay", fontSize: "28px", color: "rgba(10, 9, 14, 1)" }}>{element.title}</Typography>
                   </Box>
                   <Box mt={1} width={"70%"}>
-                    <Typography variant="body6" style={{ fontStyle: "SuisseIntl", lineHeight: "24px", fontWeight: 300 }} fontSize={"16px"}>
+                    <Typography variant="body6" style={{ fontStyle: "SuisseIntl", lineHeight: "24px", fontWeight: 300, fontSize: "16px", color: "#5E5E5E" }}>
                       {element.description}
                     </Typography>
                   </Box>

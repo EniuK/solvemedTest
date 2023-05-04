@@ -78,8 +78,10 @@ const TeamCarousel = () => {
                 <Box width={"60%"} mt={2} fontWeight={300} color={"#5E5E5E"} fontSize={"14px"}>
                   {e.description}
                 </Box>
-                <Box mt={8} width={"70%"}>
-                  {e.quote}
+
+                <Box mt={8} ml={-3} display={"flex"}>
+                  <Box pr={2}> &rdquo;</Box>
+                  <Box width={"70%"}>{e.quote}</Box>
                 </Box>
               </Box>
             );

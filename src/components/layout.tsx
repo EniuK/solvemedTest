@@ -27,27 +27,8 @@ const variants = {
   },
 };
 
-const backgroundImage = (path: string) => {
-  switch (path) {
-    case "/science":
-      return "/images/science.svg";
-    case "/team":
-      return "/images/team.svg";
-    case "/careers":
-      return "/images/careers.svg";
-    case "/contact":
-      return "/images/contact.svg";
-    case "/applications":
-      return "/images/applications.svg";
-    case "/":
-    default:
-      return "/images/home.svg";
-  }
-};
-
 const Layout = ({ children }: { children: ReactNode }) => {
   const { asPath } = useRouter();
-  // const [bg, setBg] = useState("");
   const isSmallViewport = useMediaQuery("(max-width:900px)");
   const isHomeRoute = asPath === "/";
   const shouldAdjustBgImage = isSmallViewport && !isHomeRoute;
@@ -61,7 +42,6 @@ const Layout = ({ children }: { children: ReactNode }) => {
     }, 30000);
   };
   useEffect(() => {
-    // setBg(backgroundImage(asPath));
     popUpTimer();
   }, []);
 
@@ -71,7 +51,6 @@ const Layout = ({ children }: { children: ReactNode }) => {
 
       <Box
         style={{
-          // backgroundImage: `url(${bg})`,
           width: "100%",
           height: "100%",
           backgroundPosition: `center top ${shouldAdjustBgImage ? "-300px" : ""}`,
@@ -119,7 +98,8 @@ const Layout = ({ children }: { children: ReactNode }) => {
               </motion.div>
             </motion.main>
           </AnimatePresence>
-          <Footer />
+
+          <Footer home={isHomeRoute} />
         </Box>
       </Box>
     </Box>

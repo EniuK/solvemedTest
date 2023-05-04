@@ -1,12 +1,12 @@
-import { Box, Grid, Link, Typography } from "@mui/material";
+import { Box, Grid, Link, Typography, useMediaQuery } from "@mui/material";
 import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
 import React from "react";
 import { useState } from "react";
 import TeamMemberModal from "../components/TeamMemberModal/TeamMemberModal";
-import styles from "./team.module.css";
 import { motion } from "framer-motion";
+import { theme } from "../config/theme";
 
 export type TeamMember = {
   name: string;
@@ -133,15 +133,17 @@ const weComeFrom = [
   { id: "quest diagnostic", image: "/images/logos/we_come_from/quest_diagnostic.png", width: "116px", height: "40px" },
   { id: "500", image: "/images/logos/we_come_from/500.png", width: "105px", height: "51px" },
   { id: "icon", image: "/images/logos/we_come_from/icon.png", width: "117px", height: "59px" },
-  { id: "the university of hong kong", image: "/images/logos/we_come_from/the_university_of_hong_kong.png", width: "155px", height: "30px" },
-  { id: "google", image: "/images/logos/we_come_from/google.png", width: "112px", height: "38px" },
-  { id: "cerebras", image: "/images/logos/we_come_from/cerebras.png", width: "114.44px", height: "45px" },
-  { id: "microsoft", image: "/images/logos/we_come_from/microsoft.png", width: "129px", height: "27px" },
-  { id: "jonhson & johnson", image: "/images/logos/we_come_from/johnson_johnson.png", width: "140px", height: "25.32px" },
-  { id: "novartis", image: "/images/logos/we_come_from/novartis.png", width: "146px", height: "23.94px" },
+  { id: "aple", image: "/images/homePage/logos/apple.png", width: "40px", height: "40px" },
+  // { id: "the university of hong kong", image: "/images/logos/we_come_from/the_university_of_hong_kong.png", width: "155px", height: "30px" },
+  // { id: "google", image: "/images/logos/we_come_from/google.png", width: "112px", height: "38px" },
+  // { id: "cerebras", image: "/images/logos/we_come_from/cerebras.png", width: "114.44px", height: "45px" },
+  // { id: "microsoft", image: "/images/logos/we_come_from/microsoft.png", width: "129px", height: "27px" },
+  // { id: "jonhson & johnson", image: "/images/logos/we_come_from/johnson_johnson.png", width: "140px", height: "25.32px" },
+  // { id: "novartis", image: "/images/logos/we_come_from/novartis.png", width: "146px", height: "23.94px" },
 ];
 const Team: NextPage = () => {
   const [memberDetails, setMemberDetails] = useState<TeamMember | null>(null);
+  const isMobileView = useMediaQuery(theme.breakpoints.down("md"));
 
   const MemberListItem = ({ member }: { member: TeamMember }) => (
     <Box
@@ -149,6 +151,7 @@ const Team: NextPage = () => {
       style={{ cursor: member?.bio ? "pointer" : "default" }}
       bgcolor="#fff"
       borderRadius="12px"
+      boxShadow={" 0px 8px 32px rgba(27, 37, 74, 0.08)"}
       height={499.27}
       maxWidth={362.3}
       marginX="auto"
@@ -179,19 +182,13 @@ const Team: NextPage = () => {
       <Box display="flex" flexDirection="row" alignItems="center" justifyContent="flex-start" mt="auto">
         {member.linkedinUrl && (
           <Link href={member.linkedinUrl} target="_blank" rel="noopener" underline="none" display="flex" flexDirection="row" alignItems="center">
-            <Image src="/icons/linkedin-outlined.svg" alt="linkedin" width="23" height="23" />
-            <Typography variant="body4Wide" color="secondary.main" ml={1}>
-              Linkedin
-            </Typography>
+            <Image src="/images/icons/linkedin.png" alt="linkedin" width="40" height="40" />
           </Link>
         )}
 
         {member.twitterUrl && (
           <Link href={member.twitterUrl} ml={1} target="_blank" rel="noopener" underline="none" display="flex" flexDirection="row" alignItems="center">
-            <Image src="/icons/twitter-outlined.svg" alt="twitter" width="23" height="23" />
-            <Typography variant="body4Wide" color="secondary.main" ml={1}>
-              Twitter
-            </Typography>
+            <Image src="/images/icons/twitter.png" alt="twitter" width="40" height="40" />
           </Link>
         )}
       </Box>
@@ -212,27 +209,33 @@ const Team: NextPage = () => {
         </Head>
       </div>
       <div>
-        <Typography
-          component={motion.p}
-          variant="h3"
-          mb={10}
-          textAlign="center"
-          variants={{ initial: { opacity: 0, y: 100 }, animate: { opacity: 1, y: 0 } }}
-          transition={{ duration: 0.7, ease: "easeOut" }}
-        >
-          Our People
-        </Typography>
-        <Typography
-          component={motion.p}
-          variant="subtitle1"
-          mb={8.25}
-          textAlign="center"
-          variants={{ initial: { opacity: 0, y: 50 }, animate: { opacity: 1, y: 0 } }}
-          transition={{ duration: 0.7, ease: "easeOut" }}
-        >
-          Working together to overcome <br />
-          neurological diseases.
-        </Typography>
+        <Box position={"absolute"} width={"100%"} display={"flex"} mt={-30} justifyContent={"center"} alignItems={"center"}>
+          <Image src={"/images/team/gradient1.png"} width={"800px"} height={"800px"} alt={"bg"} />
+        </Box>
+        <Box>
+          <Typography
+            component={motion.p}
+            variant="h3"
+            mb={10}
+            textAlign="center"
+            variants={{ initial: { opacity: 0, y: 100 }, animate: { opacity: 1, y: 0 } }}
+            transition={{ duration: 0.7, ease: "easeOut" }}
+          >
+            Team
+          </Typography>
+
+          <Typography
+            component={motion.p}
+            variant="subtitle1"
+            mb={8.25}
+            textAlign="center"
+            variants={{ initial: { opacity: 0, y: 50 }, animate: { opacity: 1, y: 0 } }}
+            transition={{ duration: 0.7, ease: "easeOut" }}
+          >
+            Investors included European and US venture capital firms such as Atmos, APEX, Tensor, Preface and Techni, alongside Sunfish Partners, which had also contributed at the
+            pre-seed stage in 2020.
+          </Typography>
+        </Box>
 
         <Grid container rowSpacing={1.25} columnSpacing={1.25} mb="214px" maxWidth="1110px" margin="0 auto">
           {team.map((member, idx) => (
@@ -248,60 +251,137 @@ const Team: NextPage = () => {
           </Grid>
         </Grid>
 
-        <Grid container display={"flex"} justifyContent="space-between" mt="190px" width={"100vw"} ml={-6.5} pl={5}>
-          <Grid item xs={12} md={6} ml={-18}>
-            <img src="/images/team/brain.png" alt="Brain" className={styles.brainImg} />
-          </Grid>
+        <Box display={"flex"} mt="190px" width={"100vw"}>
+          {isMobileView ? (
+            <Box width={"100%"} display={"flex"} flexDirection={"column"}>
+              <Box width={"100%"} display={"flex"} justifyContent={"center"} alignItems={"center"} mb={10} pr={8}>
+                <Image src="/images/team/brain.png" width={"650px"} height={"454px"} alt="Brain" />
+                <Box position={"absolute"} width={"100%"} height={"100%"} display={"flex"} justifyContent={"center"} alignItems={"center"}>
+                  <Image src={"/images/team/brainGradient.png"} width={"650px"} height={"454px"} alt={"bg"} />
+                </Box>
+              </Box>
+              <Box width={"100%"}>
+                <Box pr={2}>
+                  <Typography variant="body1" fontWeight="600" mb="60px">
+                    About Solvemed
+                  </Typography>
+                  <Typography variant="subtitle1" mb="116px" maxWidth="440px">
+                    Solvemed champions digital-first care, where cutting-edge technology supports clinicians and empowers patients.
+                  </Typography>
+                </Box>
 
-          <Grid item container xs={12} md={6} marginTop={{ xs: 16, md: 0 }}>
-            <Grid item xs={12} zIndex={1}>
-              <Typography variant="body1" fontWeight="600" mb="60px">
-                About Solvemed
-              </Typography>
-              <Typography variant="subtitle1" mb="116px" maxWidth="440px">
-                Solvemed champions digital-first care, where cutting-edge technology supports clinicians and empowers patients.
-              </Typography>
-            </Grid>
+                <Box display={"flex"} width={"90%"} flexDirection={"column"}>
+                  <Box width={"100%"} display={"flex"} justifyContent={"space-between"} alignItems={"center"}>
+                    <Box>
+                      <Typography fontSize={{ xs: "100px", sm: "144px" }} lineHeight="138.24px" fontWeight="300">
+                        36
+                      </Typography>
+                      <Typography variant="body2" fontSize={{ xs: "16px" }} fontWeight="600">
+                        Number of emplyees
+                      </Typography>
+                    </Box>
 
-            <Grid item xs={12} container spacing={4} textAlign={{ xs: "left", sm: "left" }}>
-              <Grid item xs={6} sm={6}>
-                <Typography fontSize={{ xs: "100px", sm: "144px" }} lineHeight="138.24px" fontWeight="300">
-                  36
-                </Typography>
-                <Typography variant="body2" fontSize={{ xs: "16px" }} fontWeight="600">
-                  Number of emplyees
-                </Typography>
-              </Grid>
+                    <Box>
+                      <Typography fontSize={{ xs: "100px", sm: "144px" }} lineHeight="138.24px" fontWeight="300">
+                        4
+                      </Typography>
+                      <Typography variant="body2" fontSize={{ xs: "16px" }} fontWeight="600">
+                        Number of PhDs
+                      </Typography>
+                    </Box>
+                  </Box>
 
-              <Grid item xs={6} sm={6}>
-                <Typography fontSize={{ xs: "100px", sm: "144px" }} lineHeight="138.24px" fontWeight="300">
-                  4
-                </Typography>
-                <Typography variant="body2" fontSize={{ xs: "16px" }} fontWeight="600">
-                  Number of PhDs
-                </Typography>
-              </Grid>
+                  <Box width={"100%"} display={"flex"} justifyContent={"space-between"} alignItems={"center"}>
+                    <Box>
+                      <Typography fontSize={{ xs: "100px", sm: "144px" }} lineHeight="138.24px" fontWeight="300">
+                        6
+                      </Typography>
+                      <Typography variant="body2" fontSize={{ xs: "16px" }} fontWeight="600">
+                        Number of MDs
+                      </Typography>
+                    </Box>
 
-              <Grid item xs={6} sm={6}>
-                <Typography fontSize={{ xs: "100px", sm: "144px" }} lineHeight="138.24px" fontWeight="300">
-                  6
-                </Typography>
-                <Typography variant="body2" fontSize={{ xs: "16px" }} fontWeight="600">
-                  Number of MDs
-                </Typography>
-              </Grid>
+                    <Box>
+                      <Typography fontSize={{ xs: "100px", sm: "144px" }} lineHeight="138.24px" fontWeight="300">
+                        9
+                      </Typography>
+                      <Typography variant="body2" fontSize={{ xs: "16px" }} fontWeight="600">
+                        Number of MBAs
+                      </Typography>
+                    </Box>
+                  </Box>
+                </Box>
+              </Box>
+            </Box>
+          ) : (
+            <>
+              <Box
+                width={"50%"}
+                display={"flex"}
+                // style={{ backgroundImage: "url(/images/team/brainGradient.png)", backgroundRepeat: "no-repeat", backgroundSize: "cover", backgroundPosition: "center" }}
+                justifyContent={"center"}
+                alignItems={"center"}
+              >
+                <Image src="/images/team/brain.png" width={"650px"} height={"454px"} alt="Brain" />
+                <Box position={"absolute"} width={"100%"} height={"100%"} display={"flex"} justifyContent={"center"} alignItems={"center"}>
+                  <Image src={"/images/team/brainGradient.png"} width={"650px"} height={"454px"} alt={"bg"} />
+                </Box>
+              </Box>
+              <Box width={"50%"}>
+                <Box>
+                  <Typography variant="body1" fontWeight="600" mb="60px">
+                    About Solvemed
+                  </Typography>
+                  <Typography variant="subtitle1" mb="116px" maxWidth="440px">
+                    Solvemed champions digital-first care, where cutting-edge technology supports clinicians and empowers patients.
+                  </Typography>
+                </Box>
 
-              <Grid item xs={6} sm={6}>
-                <Typography fontSize={{ xs: "100px", sm: "144px" }} lineHeight="138.24px" fontWeight="300">
-                  9
-                </Typography>
-                <Typography variant="body2" fontSize={{ xs: "16px" }} fontWeight="600">
-                  Number of MBAs
-                </Typography>
-              </Grid>
-            </Grid>
-          </Grid>
-        </Grid>
+                <Box display={"flex"} width={"80%"} pr={12} flexDirection={"column"} justifyContent={"center"} alignItems={"center"}>
+                  <Box width={"100%"} display={"flex"} justifyContent={"space-between"} alignItems={"center"}>
+                    <Box>
+                      <Typography fontSize={{ xs: "100px", sm: "144px" }} lineHeight="138.24px" fontWeight="300">
+                        36
+                      </Typography>
+                      <Typography variant="body2" fontSize={{ xs: "16px" }} fontWeight="600">
+                        Number of emplyees
+                      </Typography>
+                    </Box>
+
+                    <Box>
+                      <Typography fontSize={{ xs: "100px", sm: "144px" }} lineHeight="138.24px" fontWeight="300">
+                        4
+                      </Typography>
+                      <Typography variant="body2" fontSize={{ xs: "16px" }} fontWeight="600">
+                        Number of PhDs
+                      </Typography>
+                    </Box>
+                  </Box>
+
+                  <Box width={"100%"} display={"flex"} justifyContent={"space-between"} alignItems={"center"}>
+                    <Box>
+                      <Typography fontSize={{ xs: "100px", sm: "144px" }} lineHeight="138.24px" fontWeight="300">
+                        6
+                      </Typography>
+                      <Typography variant="body2" fontSize={{ xs: "16px" }} fontWeight="600">
+                        Number of MDs
+                      </Typography>
+                    </Box>
+
+                    <Box>
+                      <Typography fontSize={{ xs: "100px", sm: "144px" }} lineHeight="138.24px" fontWeight="300">
+                        9
+                      </Typography>
+                      <Typography variant="body2" fontSize={{ xs: "16px" }} fontWeight="600">
+                        Number of MBAs
+                      </Typography>
+                    </Box>
+                  </Box>
+                </Box>
+              </Box>
+            </>
+          )}
+        </Box>
 
         <Typography variant="subtitle3" mb="30px" textAlign="center" mt="190px">
           We come from

@@ -46,6 +46,7 @@
   background: linear-gradient(to right, rgba(114, 84, 220, 1), rgba(112, 141, 245, 1));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  font-weight: bold;
 }
 
 @media (max-width: 1200px) {

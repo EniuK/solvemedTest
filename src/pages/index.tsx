@@ -11,6 +11,18 @@ import AppCards from "../components/HomeCarousels/AppCards";
 import { theme } from "../config/theme";
 import styles from "./index.module.css";
 
+// Wartości dla font-stretch to:
+
+// ultra-condensed - bardzo cienki font
+// extra-condensed - bardziej cienki font
+// condensed - cienki font
+// semi-condensed - pół-cienki font
+// normal - normalny font
+// semi-expanded - pół-gruby font
+// expanded - gruby font
+// extra-expanded - bardziej gruby font
+// ultra-expanded - bardzo gruby font
+
 const Home: NextPage = () => {
   const isMobileView = useMediaQuery(theme.breakpoints.down("md"));
 
@@ -41,7 +53,9 @@ const Home: NextPage = () => {
           {isMobileView ? (
             <Typography
               component={motion.p}
-              variant="h2"
+              fontWeight={200}
+              fontFamily={"FinancierDisplay"}
+              lineHeight={"120%"}
               align="center"
               marginX="auto"
               fontSize={"44px"}
@@ -54,10 +68,13 @@ const Home: NextPage = () => {
           ) : (
             <Typography
               component={motion.p}
-              variant="h2"
+              fontWeight={200}
+              fontFamily={"FinancierDisplay"}
+              fontSize={"100px"}
+              lineHeight={"120%"}
               align="center"
               marginX="auto"
-              width={{ xs: "100%", md: "80%", lg: "75%" }}
+              width={{ xs: "100%", md: "80%", lg: "70%" }}
               variants={{ initial: { opacity: 0, y: 100 }, animate: { opacity: 1, y: 0 } }}
               transition={{ duration: 0.7, ease: "easeOut" }}
             >
@@ -75,25 +92,28 @@ const Home: NextPage = () => {
         </Box>
         {isMobileView ? (
           <Box mt={100} display={"flex"} flexDirection={"column"} width={"100%"} mb={10}>
-            <Typography fontSize={"32px"} fontFamily={"FinancierDisplay"} mb={2} textAlign={"center"}>
+            <Typography fontSize={"32px"} fontWeight={300} color={"black"} fontFamily={"FinancierDisplay"} mb={2} textAlign={"center"}>
               mPenlight
             </Typography>
-            <Typography fontSize={"14px"} textAlign={"center"}>
-              Solvemed{"'"}s health evaluation tools are designed to complement existing assessments by making patient data collection easier and more frequent.
-              <br />
-              <br />
-              They also improve the quality of care by empowering and connecting patients, clinicians, and researchers and outside of clinical settings.
+            <Typography
+              fontSize={"14px"}
+              fontWeight={300}
+              style={{ fontFamily: "SuisseIntl", opacity: 0.8, lineHeight: "140%", fontStyle: "normal", fontStretch: "ultra-condensed", color: "#5E5E5E" }}
+              textAlign={"center"}
+            >
+              Solvemed{"'"}s smartphone-based software medical device enables pupil reactivity measurement in the quantifiable manner without any external hardware needed.{" "}
             </Typography>
           </Box>
         ) : (
           <Box mt={100} mb={100} display={"flex"} flexDirection={"column"} maxWidth={"300px"} ml={10}>
-            <Typography fontSize={"64px"} fontFamily={"FinancierDisplay"} mb={5}>
+            <Typography fontSize={"64px"} style={{ fontFamily: "FinancierDisplay", lineHeight: "25.5px", fontWeight: 200 }} mb={5}>
               mPenlight
             </Typography>
-            <Typography fontSize={"17px"}>
-              Solvemed{"'"}s health evaluation tools are designed to complement existing assessments by making patient data collection easier and more frequent. They also improve
-              the quality of care by empowering and connecting patients, clinicians, and researchers and outside of clinical settings.
-            </Typography>
+            <Box mt={1}>
+              <Typography fontSize={"17px"} style={{ opacity: 0.8, fontFamily: "SuisseIntl", lineHeight: "25.5px", fontStretch: "ultra-condensed", color: "#5E5E5E" }}>
+                Solvemed{"'"}s smartphone-based software medical device enables pupil reactivity measurement in the quantifiable manner without any external hardware needed.{" "}
+              </Typography>
+            </Box>
           </Box>
         )}
 
@@ -109,41 +129,57 @@ const Home: NextPage = () => {
             backgroundPosition: "center",
           }}
         >
-          <Typography
-            component={motion.p}
-            variant="h3"
-            align="center"
-            marginX="auto"
-            width={{ xs: "100%", md: "80%", lg: "70%" }}
-            variants={{ initial: { opacity: 0, y: 100 }, animate: { opacity: 1, y: 0 } }}
-            transition={{ duration: 0.7, ease: "easeOut" }}
-          >
-            Designed for <span className={styles.gradient_text}>practitioners</span> looking to end the era of subjective pupil reactivity examination.
-          </Typography>
+          {isMobileView ? (
+            <Typography
+              component={motion.p}
+              align="center"
+              marginX="auto"
+              width={{ xs: "100%", md: "80%", lg: "70%" }}
+              fontSize={"32px"}
+              fontWeight={200}
+              variants={{ initial: { opacity: 0, y: 100 }, animate: { opacity: 1, y: 0 } }}
+              transition={{ duration: 0.7, ease: "easeOut" }}
+            >
+              Designed for <span className={styles.gradient_text}>practitioners</span> looking to end the era of subjective neuro-ophthalmic examination.{" "}
+            </Typography>
+          ) : (
+            <Typography
+              component={motion.p}
+              align="center"
+              variant="h3"
+              marginX="auto"
+              width={{ xs: "100%", md: "80%", lg: "70%" }}
+              fontSize={"64px"}
+              variants={{ initial: { opacity: 0, y: 100 }, animate: { opacity: 1, y: 0 } }}
+              transition={{ duration: 0.7, ease: "easeOut" }}
+            >
+              Designed for <span className={styles.gradient_text}>practitioners</span> looking to end the era of subjective neuro-ophthalmic examination.
+            </Typography>
+          )}
         </Box>
         <AiCards />
         {isMobileView ? (
           <Box display={"flex"} width={"100vw"} ml={-3} mt={20} justifyContent={"center"} alignItems={"center"} flexDirection={"column"}>
             <Box width={"100%"}>
-              <Typography variant="h3" fontSize={"32px"} textAlign={"center"}>
+              <Typography style={{ fontFamily: "FinancierDisplay", fontWeight: 400 }} fontSize={"32px"} textAlign={"center"}>
                 What experts say
               </Typography>
             </Box>
-            <Box width={"100%"} mt={6} pl={3} pr={3}>
-              <Typography textAlign={"center"} fontSize={"14px"}>
-                We bring to the world the most advanced smartphone-enabled data collection and analytical tools in the field of neurology and ophthalmology.
+            <Box width={"100%"} mt={4} pl={8} pr={8}>
+              <Typography textAlign={"center"} style={{ fontFamily: "FinancierDisplay", fontWeight: 200, lineHeight: "150%", alignSelf: "stretch" }} fontSize={"14px"}>
+                We have worked closely with clinicians to develop game-changing tools that reshape practice and clinical research.{" "}
               </Typography>
             </Box>
           </Box>
         ) : (
           <Box display={"flex"} mt={20} justifyContent={"center"} alignItems={"center"} flexDirection={"column"}>
             <Box>
-              <Typography variant="h3" fontSize={"64px"} textAlign={"center"}>
+              <Typography fontSize={"64px"} textAlign={"center"}>
                 What experts say
               </Typography>
             </Box>
-            <Box width={"70%"} mt={6}>
-              <Typography textAlign={"center"} fontSize={"18px"}>
+            <Box width={"70%"} mt={6} style={{ opacity: 0.8 }}>
+              <Typography textAlign={"center"} fontFamily={"SuisseIntl"} color={"#5E5E5E"} fontWeight={200} fontSize={"18px"}>
                 We bring to the world the most advanced smartphone-enabled data collection and analytical tools in the field of neurology and ophthalmology.
               </Typography>
             </Box>
@@ -153,26 +189,45 @@ const Home: NextPage = () => {
         <TeamCarousel />
         {isMobileView ? (
           <Box mt={60} width={"100%"} display="flex" justifyContent={"center"} alignItems={"center"} flexShrink={1}>
-            <Typography variant="h4" fontSize={"32px"} textAlign={"center"}>
-              Solvemed transforms complex <span className={styles.gradient_text}>eye evaluation processes</span> into one connected system to help you offer better, more efficient
+            <Typography fontWeight={200} fontSize={"32px"} textAlign={"center"}>
+              Solvemed transforms <span className={styles.gradient_text}>complex eye evaluation </span> processes into one connected system to help you offer better, more efficient
               care.
             </Typography>
           </Box>
         ) : (
-          <Box mt={60} pl={15} pr={15} width={"100%"} display="flex" justifyContent={"center"} alignItems={"center"} flexShrink={1}>
+          <Box
+            mt={60}
+            pl={15}
+            pr={15}
+            width={"100%"}
+            display="flex"
+            justifyContent={"center"}
+            alignItems={"center"}
+            flexShrink={1}
+            style={{
+              backgroundImage: `url('/images/bg/gradient3.png')`,
+
+              backgroundSize: "cover",
+              backgroundRepeat: "no-repeat",
+            }}
+          >
             <Typography variant="h4" fontSize={"64px"} textAlign={"center"}>
               Solvemed transforms complex <span className={styles.gradient_text}>eye evaluation processes</span> into one connected system to help you offer better, more efficient
               care.{" "}
             </Typography>
           </Box>
         )}
-        {/* czekam na zdjęcia ze strony by móc wrzucić je responsywnie */}
         <AppCards />
+        {/* zastosuj overflow: hidden */}
         {isMobileView ? (
           <Box mt={60} width={"100%"} display="flex" justifyContent={"center"} alignItems={"center"} flexDirection={"column"} flexShrink={1}>
             <Box>
               <Typography variant="h4" fontSize={"64px"} textAlign={"center"}>
-                Testing pupil is now simple, objective and <b>AI-enabled.</b>
+                Testing pupil is now simple, objective and{" "}
+                <span className={styles.gradient_text}>
+                  {" "}
+                  <b>AI-enabled.</b>
+                </span>
               </Typography>
             </Box>
             <Box mt={4}>
@@ -183,8 +238,9 @@ const Home: NextPage = () => {
             <Box justifyContent={"center"} alignItems={"center"} mt={10}>
               <Button
                 color="secondary"
-                sx={{ backgroundColor: "black", fontSize: "14px", fontWeight: 100, marginRight: 0, padding: 2, pl: 4, pr: 4 }}
+                sx={{ backgroundColor: "black", fontSize: "14px", fontWeight: 100, marginRight: 0, padding: 1, pl: 4, pr: 4 }}
                 variant="contained"
+                style={{ textTransform: "none" }}
                 size="small"
               >
                 Get access!
@@ -200,7 +256,7 @@ const Home: NextPage = () => {
             </Box>
             <Box mt={4}>
               <Typography variant="body4" fontSize={"18px"} color={"rgba(94, 94, 94, 1)"} textAlign={"center"}>
-                We bring to the world the most advanced smartphone-enabled data collection and analytical tools in the field of neurology and ophthalmology.
+                mPenlight is the pupil reactivity testing app of choice for world{"'"}s top practitioners.{" "}
               </Typography>
             </Box>
             <Box justifyContent={"center"} alignItems={"center"} mt={20}>
@@ -221,10 +277,10 @@ const Home: NextPage = () => {
             Our team comes from
           </Box>
           {isMobileView ? (
-            <Box display={"flex"} justifyContent={"center"} alignItems={"center"} flexWrap={"wrap"}>
+            <Box display={"flex"} justifyContent={"center"} width={"100%"} alignItems={"center"} flexWrap={"wrap"}>
               {logos.map((e, idx) => {
                 return (
-                  <Box key={idx} width={"50%"} mt={3} justifyContent={"center"} alignItems={"center"}>
+                  <Box key={idx} width={"50%"} mb={6} display={"flex"} justifyContent={"center"} alignItems={"center"}>
                     <Image src={e.src} width={e.w} height={e.h} alt={"company"} />
                   </Box>
                 );
@@ -242,7 +298,6 @@ const Home: NextPage = () => {
             </Box>
           )}
         </Box>
-        <Divider sx={{ width: "100vw", ml: -6, mt: 20 }} />
       </Box>
     </>
   );

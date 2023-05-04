@@ -6,6 +6,7 @@ import Head from "next/head";
 import AnimatedButton from "../components/AnimatedButton/AnimatedButton";
 import { motion } from "framer-motion";
 import { theme } from "../config/theme";
+import Image from "next/image";
 
 const careers = [
   {
@@ -154,7 +155,9 @@ const Careers: NextPage = () => {
             >
               We are looking to hire a wide range of people with diverse engineering, scientific, and operations expertise.
             </Typography>
-            <img src="/images/career/eye.png" alt="Eye" className={styles.eyeImg} />
+            <Box>
+              <Image src="/images/career/eye.png" width={"652px"} height={"381px"} alt="Eye" className={styles.eyeImg} />
+            </Box>
           </Grid>
         ) : (
           <Grid item textAlign="left" width={"100%"} ml={10}>
@@ -200,10 +203,16 @@ const Careers: NextPage = () => {
             </Box>
           </Grid>
         )}
-        <Box mt={20}>
-          <Typography ml={10} fontSize={"64px"}>
-            Open Positions
-          </Typography>
+        <Box mt={20} ml={-9}>
+          {isMobileView ? (
+            <Typography ml={10} fontSize={"42px"}>
+              Open Positions
+            </Typography>
+          ) : (
+            <Typography ml={10} fontSize={"64px"}>
+              Open Positions
+            </Typography>
+          )}
 
           {careers.map((sectionItem) => (
             <Fragment key={sectionItem.category}>

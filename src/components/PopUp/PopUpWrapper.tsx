@@ -6,7 +6,7 @@ const PopUpWrapper = ({ children, onclick }: any) => {
       position={"fixed"}
       bgcolor={"rgba(0, 0, 0, 0.3)"}
       display={"flex"}
-      zIndex={200}
+      zIndex={400}
       width={"100vw"}
       padding={"auto"}
       justifyContent={"center"}

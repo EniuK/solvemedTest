@@ -24,21 +24,31 @@ const AppCards = () => {
   ];
 
   return (
-    <Box display={"flex"} justifyContent={"center"} alignItems={"center"} mt={10}>
+    <Box display={"flex"} justifyContent={"center"} alignItems={"center"} mt={15}>
       {appData.map((e, idx) => {
         return (
-          <Box width={"350px"} height={"490px"} key={idx} mr={4} border={"1px solid #F5F5F7"} boxShadow={"0px 8px 32px rgba(27, 37, 74, 0.08)"} borderRadius={"14px"}>
-            <Box height={"30%"} p={3}>
-              <Box height={"15%"} fontSize={"24px"} display={"flex"} justifyContent={"flex-end"} alignItems="flex-end">
+          <Box
+            width={"350px"}
+            minWidth={"280px"}
+            maxHeight={"523px"}
+            overflow={"hidden"}
+            key={idx}
+            mr={4}
+            border={"1px solid #F5F5F7"}
+            boxShadow={"0px 8px 32px rgba(27, 37, 74, 0.08)"}
+            borderRadius={"14px"}
+          >
+            <Box width={"100%"} height={"137px"} pl={3} pr={3} pt={3} textAlign={"left"}>
+              <Box fontSize={"20px"} display={"flex"} justifyContent={"flex-end"} alignItems="flex-end">
                 {e.title}
               </Box>
-              <Box height={"15%"} fontSize={"15px"} color={"#5E5E5E"} display={"flex"} justifyContent={"flex-start"} alignItems="flex-start">
+              <Box fontSize={"15px"} color={"#5E5E5E"} display={"flex"} justifyContent={"flex-start"} alignItems="flex-start">
                 {e.description}
               </Box>
             </Box>
 
-            <Box width={"100%"} height={"70%"}>
-              <Image src={e.src} width={"350px"} height={"400px"} alt={e.title}></Image>
+            <Box>
+              <Image src={e.src} width={"350px"} height={"360px"} alt={e.title} />
             </Box>
           </Box>
         );

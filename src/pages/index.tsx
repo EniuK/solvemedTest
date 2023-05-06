@@ -1,6 +1,6 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import { Box, Typography, Divider, Button, useMediaQuery } from "@mui/material";
+import { Box, Typography, Divider, Button, useMediaQuery, Link } from "@mui/material";
 import "animate.css";
 import { motion } from "framer-motion";
 import Image from "next/image";
@@ -15,11 +15,11 @@ const Home: NextPage = () => {
   const isMobileView = useMediaQuery(theme.breakpoints.down("md"));
 
   const logos = [
-    { src: "/images/homePage/logos/apple.png", w: "32.56px", h: "40px" },
     { src: "/images/homePage/logos/NASA.png", w: "112.52px", h: "32px" },
+    { src: "/images/homePage/logos/apple.png", w: "32.56px", h: "40px" },
     { src: "/images/homePage/logos/stanford.png", w: "106.08px", h: "33px" },
     { src: "/images/homePage/logos/cambridge.png", w: "137.38px", h: "33px" },
-    { src: "/images/homePage/logos/oxford.png", w: "121.7px", h: "36px" },
+    { src: "/images/homePage/logos/nhs.svg", w: "140px", h: "40px" },
     { src: "/images/homePage/logos/honkong.png", w: "126.36px", h: "36px" },
   ];
 
@@ -113,7 +113,8 @@ const Home: NextPage = () => {
           pl={6}
           style={{
             backgroundImage: `url('/images/bg/homegradient2.png')`,
-            backgroundSize: "cover",
+            backgroundSize: "auto",
+            backgroundRepeat: "no-repeat",
             backgroundPosition: "center",
           }}
         >
@@ -145,34 +146,50 @@ const Home: NextPage = () => {
             </Typography>
           )}
         </Box>
-        {isMobileView ? (
-          <Box display={"flex"} width={"100vw"} ml={-3} mt={20} justifyContent={"center"} alignItems={"center"} flexDirection={"column"}>
-            <Box width={"100%"}>
-              <Typography style={{ fontFamily: "FinancierDisplay", fontWeight: 400 }} fontSize={"32px"} textAlign={"center"}>
-                Medical specialties we empower
-              </Typography>
+        <Box
+          pt={30}
+          pb={30}
+          ml={-6}
+          pl={6}
+          mr={-6}
+          pr={6}
+          style={{
+            backgroundImage: `url('/images/bg/medicalSpecialities.png')`,
+            backgroundSize: "auto",
+            backgroundRepeat: "no-repeat",
+            backgroundPosition: "center",
+          }}
+        >
+          {isMobileView ? (
+            <Box display={"flex"} width={"100vw"} ml={-3} mt={20} justifyContent={"center"} alignItems={"center"} flexDirection={"column"}>
+              <Box width={"100%"}>
+                <Typography style={{ fontFamily: "FinancierDisplay", fontWeight: 400 }} fontSize={"32px"} textAlign={"center"}>
+                  Medical specialties we empower
+                </Typography>
+              </Box>
+              <Box width={"100%"} mt={4} pl={4} mb={2} pr={4}>
+                <Typography textAlign={"center"} style={{ opacity: 0.7, fontFamily: "SuisseIntl", fontWeight: 300, lineHeight: "150%", alignSelf: "stretch" }} fontSize={"18px"}>
+                  We are proud to satisfy the needs of world{"'"}s leading practitioners across the spectrum of care.{" "}
+                </Typography>
+              </Box>
             </Box>
-            <Box width={"100%"} mt={4} pl={4} mb={2} pr={4}>
-              <Typography textAlign={"center"} style={{ opacity: 0.7, fontFamily: "SuisseIntl", fontWeight: 300, lineHeight: "150%", alignSelf: "stretch" }} fontSize={"18px"}>
-                We are proud to satisfy the needs of world{"'"}s leading practitioners across the spectrum of care.{" "}
-              </Typography>
+          ) : (
+            <Box display={"flex"} mt={20} justifyContent={"center"} alignItems={"center"} flexDirection={"column"}>
+              <Box>
+                <Typography fontSize={"64px"} fontFamily="FinancierDisplay" textAlign={"center"}>
+                  Medical specialties we empower
+                </Typography>
+              </Box>
+              <Box width={"70%"} mt={isMobileView ? 2 : 6} style={{ opacity: 0.8 }}>
+                <Typography textAlign={"center"} fontFamily={"SuisseIntl"} color={"#5E5E5E"} lineHeight={"150%"} fontWeight={200} fontSize={"18px"}>
+                  We are proud to satisfy the needs of world{"'"}s leading practitioners across the spectrum of care.{" "}
+                </Typography>
+              </Box>
             </Box>
-          </Box>
-        ) : (
-          <Box display={"flex"} mt={20} justifyContent={"center"} alignItems={"center"} flexDirection={"column"}>
-            <Box>
-              <Typography fontSize={"64px"} fontFamily="FinancierDisplay" textAlign={"center"}>
-                Medical specialties we empower
-              </Typography>
-            </Box>
-            <Box width={"70%"} mt={isMobileView ? 2 : 6} style={{ opacity: 0.8 }}>
-              <Typography textAlign={"center"} fontFamily={"SuisseIntl"} color={"#5E5E5E"} lineHeight={"150%"} fontWeight={200} fontSize={"18px"}>
-                We are proud to satisfy the needs of world{"'"}s leading practitioners across the spectrum of care.{" "}
-              </Typography>
-            </Box>
-          </Box>
-        )}
-        <AiCards />
+          )}
+
+          <AiCards />
+        </Box>
         {isMobileView ? (
           <Box display={"flex"} width={"100vw"} ml={-3} mt={20} justifyContent={"center"} alignItems={"center"} flexDirection={"column"}>
             <Box width={"100%"}>
@@ -202,90 +219,109 @@ const Home: NextPage = () => {
         )}
 
         <TeamCarousel />
-        {isMobileView ? (
-          <Box mt={60} px={1} width={"100%"} display="flex" justifyContent={"center"} alignItems={"center"} flexShrink={1}>
-            <Typography fontWeight={200} fontFamily="FinancierDisplay" lineHeight={"130%"} fontSize={"32px"} textAlign={"center"}>
-              Solvemed transforms <span className={styles.gradient_text}>complex eye evaluation </span> processes into one connected system to help you offer better, more efficient
-              care.
-            </Typography>
-          </Box>
-        ) : (
-          <Box
-            mt={60}
-            pl={15}
-            pr={15}
-            width={"100%"}
-            display="flex"
-            justifyContent={"center"}
-            alignItems={"center"}
-            flexShrink={1}
-            style={{
-              backgroundImage: `url('/images/bg/gradient3.png')`,
-
-              backgroundSize: "cover",
-              backgroundRepeat: "no-repeat",
-            }}
-          >
-            <Typography variant="h4" fontSize={"64px"} textAlign={"center"}>
-              Solvemed transforms complex <span className={styles.gradient_text}>eye evaluation processes</span> into one connected system to help you offer better, more efficient
-              care.{" "}
-            </Typography>
-          </Box>
-        )}
-        <AppCards />
-        {isMobileView ? (
-          <Box mt={60} width={"100%"} display="flex" justifyContent={"center"} alignItems={"center"} flexDirection={"column"} flexShrink={1}>
-            <Box>
+        <Box
+          pt={30}
+          pb={30}
+          ml={-6}
+          pl={6}
+          mr={-6}
+          pr={6}
+          style={{
+            backgroundImage: `url('/images/bg/eyeEvaluation.png')`,
+            backgroundSize: "auto",
+            backgroundRepeat: "no-repeat",
+            backgroundPosition: "center",
+          }}
+        >
+          {isMobileView ? (
+            <Box mt={60} px={1} width={"100%"} display="flex" justifyContent={"center"} alignItems={"center"} flexShrink={1}>
+              <Typography fontWeight={200} fontFamily="FinancierDisplay" lineHeight={"130%"} fontSize={"32px"} textAlign={"center"}>
+                Solvemed transforms <span className={styles.gradient_text}>complex eye evaluation </span> processes into one connected system to help you offer better, more
+                efficient care.
+              </Typography>
+            </Box>
+          ) : (
+            <Box mt={60} pl={15} pr={15} width={"100%"} display="flex" justifyContent={"center"} alignItems={"center"} flexShrink={1}>
               <Typography variant="h4" fontSize={"64px"} textAlign={"center"}>
-                Testing pupil is now simple, objective and{" "}
-                <span className={styles.gradient_text}>
-                  {" "}
-                  <b>AI-enabled.</b>
-                </span>
+                Solvemed transforms complex <span className={styles.gradient_text}>eye evaluation processes</span> into one connected system to help you offer better, more
+                efficient care.{" "}
               </Typography>
             </Box>
-            <Box mt={4}>
-              <Typography variant="body4" fontSize={"18px"} color={"rgba(94, 94, 94, 1)"} textAlign={"center"}>
-                We bring to the world the most advanced smartphone-enabled data collection and analytical tools in the field of neurology and ophthalmology.
-              </Typography>
+          )}
+          <AppCards />
+        </Box>
+        <Box
+          pt={30}
+          pb={30}
+          ml={-6}
+          pl={6}
+          mr={-6}
+          pr={6}
+          style={{
+            backgroundImage: `url('/images/bg/aiEnabled.png')`,
+            backgroundSize: "auto",
+            backgroundRepeat: "no-repeat",
+            backgroundPosition: "center",
+          }}
+        >
+          {isMobileView ? (
+            <Box mt={60} width={"100%"} display="flex" justifyContent={"center"} alignItems={"center"} flexDirection={"column"} flexShrink={1}>
+              <Box>
+                <Typography variant="h4" fontSize={"64px"} textAlign={"center"}>
+                  Testing pupil is now simple, objective and{" "}
+                  <span className={styles.gradient_text}>
+                    {" "}
+                    <b>AI-enabled.</b>
+                  </span>
+                </Typography>
+              </Box>
+              <Box mt={4}>
+                <Typography variant="body4" fontSize={"18px"} color={"rgba(94, 94, 94, 1)"} textAlign={"center"}>
+                  We bring to the world the most advanced smartphone-enabled data collection and analytical tools in the field of neurology and ophthalmology.
+                </Typography>
+              </Box>
+              <Box justifyContent={"center"} alignItems={"center"} mt={10}>
+                <Button
+                  color="secondary"
+                  sx={{ backgroundColor: "black", fontSize: "14px", fontWeight: 100, marginRight: 0, padding: 1, pl: 4, pr: 4 }}
+                  variant="contained"
+                  style={{ textTransform: "none" }}
+                  size="small"
+                >
+                  Get access!
+                </Button>
+              </Box>
             </Box>
-            <Box justifyContent={"center"} alignItems={"center"} mt={10}>
-              <Button
-                color="secondary"
-                sx={{ backgroundColor: "black", fontSize: "14px", fontWeight: 100, marginRight: 0, padding: 1, pl: 4, pr: 4 }}
-                variant="contained"
-                style={{ textTransform: "none" }}
-                size="small"
-              >
-                Get access!
-              </Button>
+          ) : (
+            <Box mt={60} pl={15} pr={15} width={"100%"} display="flex" justifyContent={"center"} alignItems={"center"} flexDirection={"column"} flexShrink={1}>
+              <Box>
+                <Typography variant="h4" fontSize={"64px"} textAlign={"center"}>
+                  Testing pupil is now simple, objective and <span className={styles.gradient_text}>AI-enabled.</span>
+                </Typography>
+              </Box>
+              <Box mt={4}>
+                <Typography variant="body4" fontSize={"18px"} color={"rgba(94, 94, 94, 1)"} textAlign={"center"}>
+                  mPenlight is the pupil reactivity testing app of choice for world{"'"}s top practitioners.{" "}
+                </Typography>
+              </Box>
+              <Box ml={2} mt={8} justifyContent={"center"} alignItems={"center"}>
+                <Link href={"/GetAccess"}>
+                  <Button
+                    color="secondary"
+                    style={{ textTransform: "none" }}
+                    variant="contained"
+                    size="small"
+                    sx={{ backgroundColor: "black", fontSize: "14px", fontWeight: 100, marginRight: 0, height: "44px", paddingX: 5, paddingY: 1 }}
+                  >
+                    <Typography fontSize={"14px"} variant="body1" fontStyle={"SuisseIntl"} fontWeight={400}>
+                      Get access
+                    </Typography>
+                  </Button>
+                </Link>
+              </Box>
             </Box>
-          </Box>
-        ) : (
-          <Box mt={60} pl={15} pr={15} width={"100%"} display="flex" justifyContent={"center"} alignItems={"center"} flexDirection={"column"} flexShrink={1}>
-            <Box>
-              <Typography variant="h4" fontSize={"64px"} textAlign={"center"}>
-                Testing pupil is now simple, objective and <b>AI-enabled.</b>
-              </Typography>
-            </Box>
-            <Box mt={4}>
-              <Typography variant="body4" fontSize={"18px"} color={"rgba(94, 94, 94, 1)"} textAlign={"center"}>
-                mPenlight is the pupil reactivity testing app of choice for world{"'"}s top practitioners.{" "}
-              </Typography>
-            </Box>
-            <Box justifyContent={"center"} alignItems={"center"} mt={20}>
-              <Button
-                color="secondary"
-                sx={{ backgroundColor: "black", fontSize: "14px", fontWeight: 100, marginRight: 0, padding: 2, pl: 4, pr: 4 }}
-                variant="contained"
-                size="small"
-              >
-                Get access!
-              </Button>
-            </Box>
-          </Box>
-        )}
-
+          )}
+        </Box>
         <Box mt={20}>
           <Box width={"100%"} display={"flex"} alignItems={"center"} justifyContent={"center"} mb={5} fontSize={"15px"} color={"rgba(94, 94, 94, 1)"}>
             Our team comes from

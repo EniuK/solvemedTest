@@ -36,7 +36,9 @@ const Footer = ({ home }: any) => {
 
                 <Box display={"flex"} pt={5} width={"100%"} flexDirection={"column"} justifyContent={"flex-start"} alignItems={"flex-start"}>
                   <Box width={"100%"}>
-                    <Typography>Join Our Newsletter</Typography>
+                    <Typography fontFamily={"FinancierDisplay"} fontWeight={400} fontSize={"30px"}>
+                      Join Our Newsletter
+                    </Typography>
                   </Box>
                   <Box mt={5} display={"flex"} width={"100%"} justifyContent={"flex-start"} alignItems={"flex-start"} flexDirection={"row"}>
                     <Input size="small" type="email" sx={{ fontsize: "14px", width: "80%" }} placeholder="Enter your email" />
@@ -45,6 +47,7 @@ const Footer = ({ home }: any) => {
                       sx={{ backgroundColor: "white", color: "black", borderColor: "rgba(20, 20, 21, 0.2)", borderWidth: "0.5px", width: "15%" }}
                       variant="outlined"
                       size="large"
+                      style={{ textTransform: "none" }}
                     >
                       Send
                     </Button>
@@ -169,6 +172,7 @@ const Footer = ({ home }: any) => {
                   color="inherit"
                   sx={{ backgroundColor: "white", color: "black", borderColor: "rgba(20, 20, 21, 0.2)", borderWidth: "0.5px", width: "15%" }}
                   variant="outlined"
+                  style={{ textTransform: "none" }}
                   size="large"
                 >
                   Send
@@ -190,14 +194,20 @@ const Footer = ({ home }: any) => {
                     );
                   })}
                 </Box>
-                <Box alignItems={"center"} justifyContent={"center"} width={"100%"} display={"flex"}>
-                  <Link href="https://www.linkedin.com/company/solvemed-group/" target="_blank" rel="noopener">
-                    <Image src="/images/icons/linkedin.png" alt="linkedin" width="40px" height="40px" />
-                  </Link>
+                <Box alignItems={"center"} flexDirection={"row"} justifyContent={"center"} width={"100%"} display={"flex"}>
+                  <Box display={"flex"} width={"40%"}>
+                    <Link href="https://twitter.com/solvemed" target="_blank" rel="noopener">
+                      <Image src="/images/icons/twitter.png" alt="twitter" width="40px" height="40px" />
 
-                  <Link href="https://twitter.com/solvemed" ml={5} target="_blank" rel="noopener">
-                    <Image src="/images/icons/twitter.png" alt="twitter" width="40px" height="40px" />
-                  </Link>
+                      <Typography fontSize={"15px"}>Twitter</Typography>
+                    </Link>
+                  </Box>
+                  <Box display={"flex"} width={"40%"}>
+                    <Link href="https://www.linkedin.com/company/solvemed-group/" ml={5} target="_blank" rel="noopener">
+                      <Image src="/images/icons/linkedin.png" alt="linkedin" width="40px" height="40px" />
+                      <Typography fontSize={"15px"}>Linkedin</Typography>
+                    </Link>
+                  </Box>
                 </Box>
               </Box>
             </Box>

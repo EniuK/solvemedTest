@@ -71,8 +71,8 @@ const CardWithShadow = () => {
                   data-aos-duration="500"
                   data-aos-easing="ease-in-out"
                   data-aos-mirror="true"
-                  data-aos-once="false"
-                  data-aos-anchor-placement="top"
+                  data-aos-once="true"
+                  data-aos-anchor-placement="bottom"
                 >
                   <Box
                     bgcolor={"#FFFFFF"}
@@ -119,7 +119,7 @@ const CardWithShadow = () => {
                   data-aos-easing="ease-in-out"
                   data-aos-mirror="true"
                   data-aos-once="false"
-                  data-aos-anchor-placement="top"
+                  data-aos-anchor-placement="bottom"
                 >
                   <Box
                     bgcolor={"#FFFFFF"}

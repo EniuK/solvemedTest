@@ -42,7 +42,13 @@ const Layout = ({ children }: { children: ReactNode }) => {
     }, 30000);
   };
   useEffect(() => {
-    popUpTimer();
+    const isVariableSet = localStorage.getItem("solvemed-email-popup-shown");
+
+    if (!isVariableSet) {
+      popUpTimer();
+
+      localStorage.setItem("solvemed-email-popup-shown", "true");
+    }
   }, []);
 
   return (

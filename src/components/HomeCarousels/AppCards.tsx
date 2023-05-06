@@ -71,6 +71,7 @@ const AppCards = () => {
                 key={idx}
                 mb={10}
                 mr={4}
+                bgcolor={"rgba(255, 255, 255, 1)"}
                 border={"1px solid #F5F5F7"}
                 boxShadow={"0px 8px 32px rgba(27, 37, 74, 0.08)"}
                 borderRadius={"28px"}

@@ -78,7 +78,7 @@ const Footer = ({ home }: any) => {
                   <Box display="flex" width={"100%"} flexDirection="column" justifyContent={"flex-start"} pl={3} alignItems={"flex-start"} mt={3}>
                     <Box flexDirection={"column"} display={"flex"}>
                       <Typography color="primary.light" variant="body6Wide">
-                        &copy; 2022 Solvemed Group
+                        &copy; 2023 Solvemed Group
                       </Typography>
                       <Typography color="primary.light" variant="body6Wide" mt={2}>
                         All Rights reserved
@@ -132,7 +132,7 @@ const Footer = ({ home }: any) => {
           </Box>
         </Box>
       ) : (
-        <Box width={"100vw"} style={home ? { position: "sticky", bottom: 0 } : {}}>
+        <Box width={"100vw"}>
           <Box
             height={"40vh"}
             width={"100%"}
@@ -148,7 +148,7 @@ const Footer = ({ home }: any) => {
                 <Image src="/icons/logo-small.svg" alt="logo" width="35" height="46" />
 
                 <Typography color="primary.light" variant="body6Wide" mt={3}>
-                  &copy; 2022 Solvemed Group
+                  &copy; 2023 Solvemed Group
                 </Typography>
                 <Typography color="primary.light" variant="body6Wide">
                   All Rights reserved

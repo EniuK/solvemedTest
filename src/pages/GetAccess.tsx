@@ -69,7 +69,7 @@ const GetAccess: NextPage<any> = () => {
                 loop
                 autoPlay
                 src="/images/GetAccess/animation.mov"
-                controls
+                controls={false}
                 controlsList="nodownload"
                 style={{ pointerEvents: "none", width: "500px" }}
               />

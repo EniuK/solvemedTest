@@ -10,9 +10,47 @@ import TeamCarousel from "../components/HomeCarousels/TeamCarousel";
 import AppCards from "../components/HomeCarousels/AppCards";
 import { theme } from "../config/theme";
 import styles from "./index.module.css";
+import { useEffect, useRef, useState } from "react";
 
 const Home: NextPage = () => {
   const isMobileView = useMediaQuery(theme.breakpoints.down("md"));
+
+  const elementRef = useRef(null);
+  const sectionMobileRef = useRef(null);
+  const sectionDesktopRef = useRef(null);
+
+  const [videoStickinessMode, setVideoStickinessMode] = useState(1);
+  // 1 nic
+  // 2 - sticky
+  // 3 - section reached
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (sectionMobileRef.current && elementRef.current) {
+        const sectionMobile = sectionMobileRef.current?.getBoundingClientRect?.();
+        const sectionDesktop = sectionDesktopRef.current?.getBoundingClientRect?.();
+        const element = elementRef.current?.getBoundingClientRect?.();
+
+        const calculateSection = isMobileView ? sectionMobile : sectionDesktop;
+
+        const xSectionReached = !isMobileView ? false : sectionMobile.bottom <= sectionMobile.height && sectionMobile.bottom - element.height <= 0;
+        const xIsSticky = sectionMobile.bottom <= sectionMobile.height && element.top <= 0;
+
+        const mode = xIsSticky && !xSectionReached ? 2 : xSectionReached ? 3 : 1;
+        setVideoStickinessMode(mode);
+
+        console.log({ mode, phone: element, section: sectionMobile, height: element.height });
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [isMobileView]);
+
+  useEffect(() => {
+    console.log({ videoStickinessMode });
+  }, [videoStickinessMode]);
 
   const logos = [
     { src: "/images/homePage/logos/NASA.png", w: "112.52px", h: "32px" },
@@ -70,16 +108,31 @@ const Home: NextPage = () => {
             </Typography>
           )}
         </Box>
-        <Box width={"100vw"} display={"flex"} justifyContent={"center"} alignContent={"center"} pr={15}>
-          <Box>
-            <Image src={"/images/homePage/phone.png"} width={"400px"} height={"1000px"} alt={"phone"} />
-          </Box>
-          <Box position={"absolute"}>
-            <Image src={"/images/bg/homegradient1.png"} width={"767.36px"} height={"756.02px"} alt={"gradient"} />
-          </Box>
-        </Box>
         {isMobileView ? (
-          <Box mt={100} display={"flex"} flexDirection={"column"} width={"100%"} mb={10}>
+          <Box width={"100vw"} display={"flex"} justifyContent={"center"} alignContent={"center"} pr={5} pb={600} ref={sectionMobileRef} position={"relative"}>
+            <Box className={`${styles.video} ${videoStickinessMode === 2 ? styles.videoFloating : videoStickinessMode === 3 ? styles.videoSticky : ""}`} ref={elementRef}>
+              <video controls={false} autoPlay loop width="100%">
+                <source src={"/images/homePage/animation.mov"} type="video/mp4" />
+              </video>
+            </Box>
+            <Box position={"absolute"}>
+              <Image src={"/images/bg/homegradient1.png"} width={"767.36px"} height={"756.02px"} alt={"gradient"} />
+            </Box>
+          </Box>
+        ) : (
+          <Box width={"100vw"} display={"flex"} justifyContent={"center"} alignContent={"center"} pr={5} pb={100} ref={sectionMobileRef} position={"relative"}>
+            <Box className={`${styles.video} ${videoStickinessMode === 2 ? styles.videoFloating : videoStickinessMode === 3 ? styles.videoSticky : ""}`} ref={elementRef}>
+              <video controls={false} autoPlay loop width="100%">
+                <source src={"/images/homePage/animation.mov"} type="video/mp4" />
+              </video>
+            </Box>
+            <Box position={"absolute"}>
+              <Image src={"/images/bg/homegradient1.png"} width={"767.36px"} height={"756.02px"} alt={"gradient"} />
+            </Box>
+          </Box>
+        )}
+        {isMobileView ? (
+          <Box display={"flex"} flexDirection={"column"} width={"100%"} mb={10}>
             <Typography fontSize={"32px"} fontWeight={300} color={"black"} fontFamily={"FinancierDisplay"} mb={2} textAlign={"center"}>
               mPenlight
             </Typography>
@@ -117,6 +170,7 @@ const Home: NextPage = () => {
             backgroundRepeat: "no-repeat",
             backgroundPosition: "center",
           }}
+          ref={sectionDesktopRef}
         >
           {isMobileView ? (
             <Typography

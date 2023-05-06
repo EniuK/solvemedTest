@@ -96,3 +96,52 @@
   font-family: "SuisseIntl", Times, serif;
   letter-spacing: -0.02em;
 }
+
+.box.sticky {
+  position: fixed;
+  top: 0;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.video {
+  width: 32vw;
+  /* height: 90vh; */
+  animation: fadeIn 5s;
+  transition: all 0.5s ease;
+}
+
+@media (max-width: 1200px) {
+  .video {
+    width: 24vw;
+  }
+}
+
+@media (max-width: 900px) {
+  .video {
+    width: 27vw;
+  }
+}
+
+@media (max-width: 600px) {
+  .video {
+    width: 90vw;
+  }
+}
+
+.videoFloating {
+  position: fixed;
+  top: 0;
+}
+
+.videoSticky {
+  position: absolute;
+  bottom: 0;
+}

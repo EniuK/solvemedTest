@@ -9,10 +9,6 @@ const NewsLetter = ({ status, message, onValidated }: any) => {
   const [errorMessage, setErrorMessage] = useState(false);
 
   const handleSubmit = async () => {
-    console.log(status);
-    console.log(email);
-    console.log(message);
-
     email &&
       email.indexOf("@") > -1 &&
       (await onValidated({
@@ -50,10 +46,18 @@ const NewsLetter = ({ status, message, onValidated }: any) => {
       pl={4}
       alignItems={"center"}
     >
-      <Box width={"100%"}>
+      <Box width={"100%"} pt={3} display={"flex"} flexGrow={1}>
         <Typography fontFamily={"FinancierDisplay"}>Join Our Newsletter</Typography>
       </Box>
-      <Box mt={5} display={"flex"} width={"100%"} justifyContent={"flex-start"} alignItems={"flex-start"} flexDirection={"row"}>
+      <Box
+        ml={isSmallViewport ? 0 : -4}
+        height={isSmallViewport ? "auto" : "45%"}
+        display={"flex"}
+        width={"100%"}
+        justifyContent={"flex-start"}
+        alignItems={"flex-start"}
+        flexDirection={"row"}
+      >
         {status === "success" ? (
           <Box width={"100%"} ml={-4.5} color={"black"} display={"flex"} justifyContent={"center"} alignItems={"center"}>
             {message}

@@ -61,6 +61,24 @@ const Home: NextPage = () => {
     { src: "/images/homePage/logos/honkong.png", w: "126.36px", h: "36px" },
   ];
 
+  // gradient text handler
+  const gradientText1 = ["practitioners", "students", "nurses", "researchers"];
+
+  const [text1, setText1] = useState(gradientText1[0]);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setText1((prevText) => {
+        const currentIndex = gradientText1.indexOf(prevText);
+        const nextIndex = (currentIndex + 1) % gradientText1.length;
+        return gradientText1[nextIndex];
+      });
+    }, 5000);
+
+    return () => {
+      clearInterval(interval);
+    };
+  }, []);
   return (
     <>
       <div>
@@ -183,7 +201,7 @@ const Home: NextPage = () => {
               variants={{ initial: { opacity: 0, y: 100 }, animate: { opacity: 1, y: 0 } }}
               transition={{ duration: 0.7, ease: "easeOut" }}
             >
-              Designed for <span className={styles.gradient_text}>practitioners</span> looking to end the era of subjective neuro-ophthalmic examination.{" "}
+              Designed for <span className={styles.gradient_text}>{text1}</span> looking to end the era of subjective neuro-ophthalmic examination.{" "}
             </Typography>
           ) : (
             <Typography
@@ -196,7 +214,7 @@ const Home: NextPage = () => {
               variants={{ initial: { opacity: 0, y: 100 }, animate: { opacity: 1, y: 0 } }}
               transition={{ duration: 0.7, ease: "easeOut" }}
             >
-              Designed for <span className={styles.gradient_text}>practitioners</span> looking to end the era of subjective neuro-ophthalmic examination.
+              Designed for <span className={styles.gradient_text}>{text1}</span> looking to end the era of subjective neuro-ophthalmic examination.
             </Typography>
           )}
         </Box>

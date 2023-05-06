@@ -1,6 +1,7 @@
 import { Box, Link, Typography, Divider, Input, Button, useMediaQuery } from "@mui/material";
 import Image from "next/image";
 import { theme } from "../config/theme";
+import JoinNewsletterMailchimp from "./JoinNewsletter/JoinNewsletteMailchimp";
 
 const menuItems = [
   { title: "TEAM", link: "/team" },
@@ -15,7 +16,7 @@ const Footer = ({ home }: any) => {
     <>
       <Divider sx={{ width: "110vw", ml: -6, mt: 20 }} />
       {isSmallViewport ? (
-        <Box width={"100vw"}>
+        <Box width={"100vw"} ml={-3}>
           <Box height={"100%"} width={"100%"} flexWrap={"wrap"} paddingY={4.75} display={"flex"} justifyContent={"space-between"} flexDirection={"row"}>
             <Box display={"flex"} flexDirection={"column"} height={"100%"} justifyContent={"flex-end"} alignItems={"flex-end"}>
               <Box paddingX={3} width={"100%"} height={"80%"} alignItems={"flex-start"} justifyContent={"flex-end"} display={"flex"} flexDirection={"column"}>
@@ -33,7 +34,10 @@ const Footer = ({ home }: any) => {
                     </Link>
                   </Box>
                 </Box>
-
+                <Box display={"flex"} justifyContent={"center"} alignItems={"center"}>
+                  <JoinNewsletterMailchimp />
+                </Box>
+                {/* 
                 <Box display={"flex"} pt={5} width={"100%"} flexDirection={"column"} justifyContent={"flex-start"} alignItems={"flex-start"}>
                   <Box width={"100%"}>
                     <Typography fontFamily={"FinancierDisplay"} fontWeight={400} fontSize={"30px"}>
@@ -52,13 +56,14 @@ const Footer = ({ home }: any) => {
                       Send
                     </Button>
                   </Box>
-                </Box>
+                </Box> */}
+                <Divider sx={{ width: "110vw", ml: -6, mt: 20, position: "absolute" }} />
                 <Box flexDirection={"row"} display={"flex"} height={"100px"} alignItems={"center"} justifyContent={"flex-start"} width={"100%"}>
                   {menuItems.map((e, idx) => {
                     return (
                       <Box key={idx} mr={4}>
                         <Link underline="none" href={e.link}>
-                          <Typography fontSize={"14px"} textAlign={"center"}>
+                          <Typography fontSize={"14px"} textAlign={"center"} fontFamily="SuisseIntl">
                             {e.title}
                           </Typography>
                         </Link>
@@ -162,9 +167,13 @@ const Footer = ({ home }: any) => {
                 </Link>
               </Box>
             </Box>
-            <Box height={"100%"} minWidth={"330px"} maxWidth={"33vw"} display={"flex"} flexDirection={"column"} justifyContent={"flex-end"} pl={4} alignItems={"flex-end"}>
+            <Box display={"flex"} justifyContent={"center"} alignItems={"center"}>
+              <JoinNewsletterMailchimp />
+            </Box>
+
+            {/* <Box height={"100%"} minWidth={"330px"} maxWidth={"33vw"} display={"flex"} flexDirection={"column"} justifyContent={"flex-end"} pl={4} alignItems={"flex-end"}>
               <Box width={"100%"}>
-                <Typography>Join Our Newsletter</Typography>
+                <Typography fontFamily={"FinancierDisplay"}>Join Our Newsletter</Typography>
               </Box>
               <Box mt={5} display={"flex"} width={"100%"} justifyContent={"flex-start"} alignItems={"flex-start"} flexDirection={"row"}>
                 <Input size="small" type="email" sx={{ fontsize: "14px", width: "80%" }} placeholder="Enter your email" />
@@ -178,15 +187,15 @@ const Footer = ({ home }: any) => {
                   Send
                 </Button>
               </Box>
-            </Box>
+            </Box> */}
             <Box height={"40vh"} pb={7} pr={10} minWidth={"330px"} maxWidth={"33vw"} display="flex" flexDirection={"column"} justifyContent="space-between" mb={3.5}>
               <Box height={"40vh"} display="flex" width={"100%"} flexDirection="column" justifyContent={"flex-end"} alignItems={"flex-end"} mt={{ xs: 2, sm: 0 }}>
                 <Box flexDirection={"row"} display={"flex"} height={"70%"} justifyContent={"space-between"} width={"90%"}>
                   {menuItems.map((e, idx) => {
                     return (
-                      <Box key={idx} width={"20%"}>
+                      <Box key={idx} width={"20%"} mr={3} display={"flex"} justifyContent={"flex-start"} alignItems={"flex-start"}>
                         <Link underline="none" href={e.link}>
-                          <Typography fontSize={"14px"} textAlign={"center"}>
+                          <Typography fontSize={"14px"} fontFamily="SuisseIntl" textAlign={"center"}>
                             {e.title}
                           </Typography>
                         </Link>
@@ -195,17 +204,28 @@ const Footer = ({ home }: any) => {
                   })}
                 </Box>
                 <Box alignItems={"center"} flexDirection={"row"} justifyContent={"center"} width={"100%"} display={"flex"}>
-                  <Box display={"flex"} width={"40%"}>
-                    <Link href="https://twitter.com/solvemed" target="_blank" rel="noopener">
-                      <Image src="/images/icons/twitter.png" alt="twitter" width="40px" height="40px" />
-
-                      <Typography fontSize={"15px"}>Twitter</Typography>
+                  <Box>
+                    <Link style={{ textDecoration: "none" }} href="https://twitter.com/solvemed" target="_blank" rel="noopener">
+                      <Box display={"flex"} justifyContent={"center"} alignItems={"center"}>
+                        <Box mr={1}>
+                          <Image src="/images/icons/twitter.png" alt="twitter" width="40px" height="40px" />
+                        </Box>
+                        <Box pb={1} fontSize={"15px"} fontStyle={"SuisseIntl"} fontWeight={300}>
+                          Twitter
+                        </Box>
+                      </Box>
                     </Link>
                   </Box>
-                  <Box display={"flex"} width={"40%"}>
-                    <Link href="https://www.linkedin.com/company/solvemed-group/" ml={5} target="_blank" rel="noopener">
-                      <Image src="/images/icons/linkedin.png" alt="linkedin" width="40px" height="40px" />
-                      <Typography fontSize={"15px"}>Linkedin</Typography>
+                  <Box ml={5}>
+                    <Link style={{ textDecoration: "none" }} href="https://www.linkedin.com/company/solvemed-group/" target="_blank" rel="noopener">
+                      <Box display={"flex"} justifyContent={"center"} alignItems={"center"}>
+                        <Box mr={1}>
+                          <Image src="/images/icons/linkedin.png" alt="linkedin" width="40px" height="40px" />
+                        </Box>
+                        <Box pb={1} fontSize={"15px"} fontStyle="SuisseIntl" fontWeight={300}>
+                          Linkedin
+                        </Box>
+                      </Box>
                     </Link>
                   </Box>
                 </Box>
@@ -217,17 +237,24 @@ const Footer = ({ home }: any) => {
                 height={"40px"}
                 boxShadow={" 0px 8px 32px rgba(27, 37, 74, 0.08)"}
                 display={"flex"}
-                width={"290px"}
+                width={"300px"}
                 flexDirection={"row"}
                 justifyContent={"space-between"}
                 alignItems={"center"}
-                pb={3}
+                mb={3}
                 pr={3}
               >
-                <Box justifyContent={"center"} alignItems={"center"}>
-                  <Typography pl={2} fontSize={"19px"} fontFamily={"FinancierDisplay"} fontWeight={400}>
-                    Become early adopter!
-                  </Typography>
+                <Box
+                  justifyContent={"center"}
+                  alignItems={"center"}
+                  fontSize={"19px"}
+                  letterSpacing={"0.04em"}
+                  lineHeight={"134%"}
+                  fontStyle={"italic"}
+                  fontFamily={"FinancierDisplay"}
+                  fontWeight={600}
+                >
+                  Become early adopter!
                 </Box>
                 <Box justifyContent={"center"} alignItems={"center"}>
                   <Button

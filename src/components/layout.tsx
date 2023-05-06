@@ -1,5 +1,5 @@
 import { ReactNode, useEffect, useState } from "react";
-import { Box, useMediaQuery } from "@mui/material";
+import { Box, Button, Link, Typography, useMediaQuery } from "@mui/material";
 import Footer from "./footer";
 import Header from "./header";
 import { AnimatePresence, motion } from "framer-motion";
@@ -36,8 +36,9 @@ const Layout = ({ children }: { children: ReactNode }) => {
   const closeNotify = () => {
     setNotify(false);
   };
+
+  console.log(isHomeRoute);
   const popUpTimer = () => {
-    // TODO: dodaj zmienna w localstorage, ktora blokuje wyswietlanie jesli juz byl wyswietlony
     setTimeout(() => {
       setNotify(true);
     }, 30000);
@@ -71,6 +72,7 @@ const Layout = ({ children }: { children: ReactNode }) => {
           <AnimatePresence mode="wait" initial={true}>
             <motion.main key={asPath} variants={variants} initial="initial" animate="animate" exit="exit">
               {children}
+
               <motion.div
                 key={`${asPath}-overlay`}
                 style={{

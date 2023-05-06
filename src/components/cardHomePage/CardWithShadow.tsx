@@ -69,10 +69,10 @@ const CardWithShadow = () => {
                   data-aos-offset="200"
                   data-aos-delay="50"
                   data-aos-duration="500"
-                  data-aos-easing="ease-in-out"
+                  data-aos-easing="ease-out"
                   data-aos-mirror="true"
                   data-aos-once="true"
-                  data-aos-anchor-placement="bottom"
+                  data-aos-anchor-placement="center"
                 >
                   <Box
                     bgcolor={"#FFFFFF"}
@@ -114,12 +114,12 @@ const CardWithShadow = () => {
                 <div
                   data-aos={idx % 2 === 0 ? "fade-left" : "fade-right"}
                   data-aos-offset="200"
-                  data-aos-delay="50"
+                  data-aos-delay="0"
                   data-aos-duration="500"
-                  data-aos-easing="ease-in-out"
+                  data-aos-easing="ease-out"
                   data-aos-mirror="true"
-                  data-aos-once="false"
-                  data-aos-anchor-placement="bottom"
+                  data-aos-once="true"
+                  data-aos-anchor-placement="center"
                 >
                   <Box
                     bgcolor={"#FFFFFF"}

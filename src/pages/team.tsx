@@ -128,7 +128,7 @@ const weComeFrom = [
   { id: "nvidia", image: "/images/logos/we_come_from/nvidia.png", width: "134.04px", height: "34px" },
   { id: "mckinsey company", image: "/images/logos/we_come_from/mckinsey_company.png", width: "114px", height: "35px" },
   { id: "owkin", image: "/images/logos/we_come_from/owkin.png", width: "120.05px", height: "37.91px" },
-  { id: "viz ai", image: "/images/logos/we_come_from/viz_ai.png", width: "74px", height: "38px" },
+  { id: "roche", image: "/images/logos/we_come_from/roche.png", width: "88.46px", height: "46.34px" },
   { id: "huawei", image: "/images/logos/we_come_from/huawei.png", width: "107px", height: "37px" },
   { id: "quest diagnostic", image: "/images/logos/we_come_from/quest_diagnostic.png", width: "116px", height: "40px" },
   { id: "500", image: "/images/logos/we_come_from/500.png", width: "105px", height: "51px" },
@@ -209,48 +209,54 @@ const Team: NextPage = () => {
         </Head>
       </div>
       <div>
-        <Box position={"absolute"} width={"100%"} display={"flex"} mt={-30} justifyContent={"center"} alignItems={"center"}>
-          <Image src={"/images/team/gradient1.png"} width={"800px"} height={"800px"} alt={"bg"} />
-        </Box>
-        <Box>
-          <Typography
-            component={motion.p}
-            variant="h3"
-            mb={10}
-            textAlign="center"
-            variants={{ initial: { opacity: 0, y: 100 }, animate: { opacity: 1, y: 0 } }}
-            transition={{ duration: 0.7, ease: "easeOut" }}
-          >
-            Team
-          </Typography>
-
-          <Typography
-            component={motion.p}
-            variant="subtitle1"
-            mb={8.25}
-            textAlign="center"
-            variants={{ initial: { opacity: 0, y: 50 }, animate: { opacity: 1, y: 0 } }}
-            transition={{ duration: 0.7, ease: "easeOut" }}
-          >
-            Investors included European and US venture capital firms such as Atmos, APEX, Tensor, Preface and Techni, alongside Sunfish Partners, which had also contributed at the
-            pre-seed stage in 2020.
-          </Typography>
-        </Box>
-
-        <Grid container rowSpacing={1.25} columnSpacing={1.25} mb="214px" maxWidth="1110px" margin="0 auto">
-          {team.map((member, idx) => (
-            <Grid item xs={12} sm={6} md={4} lg={4} key={idx} zIndex={1}>
-              <MemberListItem member={{ ...member, memberIndex: idx }} />
-            </Grid>
-          ))}
-
-          <Grid item xs={12} sm={6} md={4} lg={3} mt={{ xs: 2, sm: 2 }} display="flex" justifyContent="center" flexDirection="column" margin="0 auto" zIndex={1}>
-            <Typography variant="body1" textAlign="center">
-              and many more...
+        <Box
+          style={{
+            backgroundImage: `url("/images/team/gradient1.png")`,
+            backgroundRepeat: "no-repeat",
+          }}
+          mt={-10}
+          pt={10}
+          mr={-25}
+          pr={25}
+        >
+          <Box>
+            <Typography
+              component={motion.p}
+              variant="h3"
+              mb={10}
+              textAlign="center"
+              variants={{ initial: { opacity: 0, y: 100 }, animate: { opacity: 1, y: 0 } }}
+              transition={{ duration: 0.7, ease: "easeOut" }}
+            >
+              Team
             </Typography>
-          </Grid>
-        </Grid>
 
+            <Typography
+              component={motion.p}
+              variant="subtitle1"
+              mb={8.25}
+              textAlign="center"
+              variants={{ initial: { opacity: 0, y: 50 }, animate: { opacity: 1, y: 0 } }}
+              transition={{ duration: 0.7, ease: "easeOut" }}
+            >
+              Investors included European and US venture capital firms such as Atmos, APEX, Tensor, Preface and Techni, alongside Sunfish Partners, which had also contributed at
+              the pre-seed stage in 2020.
+            </Typography>
+          </Box>
+          <Grid container rowSpacing={1.25} columnSpacing={1.25} mb="214px" maxWidth="1110px" margin="0 auto">
+            {team.map((member, idx) => (
+              <Grid item xs={12} sm={6} md={4} lg={4} key={idx} zIndex={1}>
+                <MemberListItem member={{ ...member, memberIndex: idx }} />
+              </Grid>
+            ))}
+
+            <Grid item xs={12} sm={6} md={4} lg={3} mt={{ xs: 2, sm: 2 }} display="flex" justifyContent="center" flexDirection="column" margin="0 auto" zIndex={1}>
+              <Typography variant="body1" textAlign="center">
+                and many more...
+              </Typography>
+            </Grid>
+          </Grid>
+        </Box>
         <Box display={"flex"} mt="190px" width={"100vw"}>
           {isMobileView ? (
             <Box width={"100%"} display={"flex"} flexDirection={"column"}>
@@ -265,7 +271,7 @@ const Team: NextPage = () => {
                   <Typography variant="body1" fontWeight="600" mb="60px">
                     About Solvemed
                   </Typography>
-                  <Typography variant="subtitle1" mb="116px" maxWidth="440px">
+                  <Typography variant="subtitle1" mb="116px" pr={2} maxWidth="440px">
                     Solvemed champions digital-first care, where cutting-edge technology supports clinicians and empowers patients.
                   </Typography>
                 </Box>

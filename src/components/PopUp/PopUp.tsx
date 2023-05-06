@@ -19,7 +19,8 @@ const PopUp = ({ onClose, status, message, onValidated }: any) => {
       (await onValidated({
         MERGE0: email,
       }));
-
+    console.log(email);
+    console.log(message);
     if (email.indexOf("@") === -1) {
       setErrorMessage(true);
     } else {

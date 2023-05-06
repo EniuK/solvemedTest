@@ -4,6 +4,8 @@ import Image from "next/image";
 import { useEffect } from "react";
 import { theme } from "../../config/theme";
 import AOS from "aos";
+import styles from "./cardWithShadow.module.css";
+
 import "aos/dist/aos.css";
 
 const cardData = [
@@ -122,14 +124,15 @@ const CardWithShadow = () => {
                   data-aos-anchor-placement="center"
                 >
                   <Box
+                    className={styles.card}
                     bgcolor={"#FFFFFF"}
                     borderRadius={"30px"}
                     p={3}
                     pr={3}
                     border={"1px solid #F5F5F7"}
                     boxShadow={"0px 8px 32px rgba(27, 37, 74, 0.08)"}
-                    height={"204px"}
-                    width={"310px"}
+                    // height={"204px"}
+                    // width={"310px"}
                   >
                     <Image src={element.src} width="32px" height={"32px"} alt={element.title} />
                     <Box mt={3}>

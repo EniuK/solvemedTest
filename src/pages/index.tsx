@@ -26,20 +26,18 @@ const Home: NextPage = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (sectionMobileRef.current && elementRef.current) {
-        const sectionMobile = sectionMobileRef.current?.getBoundingClientRect?.();
-        const sectionDesktop = sectionDesktopRef.current?.getBoundingClientRect?.();
+      if ((sectionMobileRef?.current || sectionDesktopRef?.current) && elementRef.current) {
+        const sectionMobile = sectionMobileRef?.current?.getBoundingClientRect?.();
+        const sectionDesktop = sectionDesktopRef?.current?.getBoundingClientRect?.();
         const element = elementRef.current?.getBoundingClientRect?.();
 
         const calculateSection = isMobileView ? sectionMobile : sectionDesktop;
 
-        const xSectionReached = !isMobileView ? false : sectionMobile.bottom <= sectionMobile.height && sectionMobile.bottom - element.height <= 0;
-        const xIsSticky = sectionMobile.bottom <= sectionMobile.height && element.top <= 0;
+        const xSectionReached = calculateSection && calculateSection.bottom <= calculateSection.height && calculateSection.bottom - element.height <= 0;
+        const xIsSticky = calculateSection && calculateSection.bottom <= calculateSection.height && element.top <= 0;
 
         const mode = xIsSticky && !xSectionReached ? 2 : xSectionReached ? 3 : 1;
         setVideoStickinessMode(mode);
-
-        console.log({ mode, phone: element, section: sectionMobile, height: element.height });
       }
     };
     window.addEventListener("scroll", handleScroll);
@@ -127,56 +125,59 @@ const Home: NextPage = () => {
           )}
         </Box>
         {isMobileView ? (
-          <Box width={"100vw"} display={"flex"} justifyContent={"center"} alignContent={"center"} pr={5} pb={600} ref={sectionMobileRef} position={"relative"}>
-            <Box className={`${styles.video} ${videoStickinessMode === 2 ? styles.videoFloating : videoStickinessMode === 3 ? styles.videoSticky : ""}`} ref={elementRef}>
-              <video controls={false} autoPlay loop width="100%">
-                <source src={"/images/homePage/animation.mov"} type="video/mp4" />
-              </video>
+          <>
+            <Box width={"100vw"} display={"flex"} justifyContent={"center"} alignContent={"center"} pr={5} pb={600} ref={sectionMobileRef} position={"relative"}>
+              <Box className={`${styles.video} ${videoStickinessMode === 2 ? styles.videoFloating : videoStickinessMode === 3 ? styles.videoSticky : ""}`} ref={elementRef}>
+                <video controls={false} autoPlay loop width="100%">
+                  <source src={"/images/homePage/animation.mov"} type="video/mp4" />
+                </video>
+              </Box>
+              <Box position={"absolute"}>
+                <Image src={"/images/bg/homegradient1.png"} width={"767.36px"} height={"756.02px"} alt={"gradient"} />
+              </Box>
             </Box>
-            <Box position={"absolute"}>
-              <Image src={"/images/bg/homegradient1.png"} width={"767.36px"} height={"756.02px"} alt={"gradient"} />
-            </Box>
-          </Box>
-        ) : (
-          <Box width={"100vw"} display={"flex"} justifyContent={"center"} alignContent={"center"} pr={5} pb={100} ref={sectionMobileRef} position={"relative"}>
-            <Box className={`${styles.video} ${videoStickinessMode === 2 ? styles.videoFloating : videoStickinessMode === 3 ? styles.videoSticky : ""}`} ref={elementRef}>
-              <video controls={false} autoPlay loop width="100%">
-                <source src={"/images/homePage/animation.mov"} type="video/mp4" />
-              </video>
-            </Box>
-            <Box position={"absolute"}>
-              <Image src={"/images/bg/homegradient1.png"} width={"767.36px"} height={"756.02px"} alt={"gradient"} />
-            </Box>
-          </Box>
-        )}
-        {isMobileView ? (
-          <Box display={"flex"} flexDirection={"column"} width={"100%"} mb={10}>
-            <Typography fontSize={"32px"} fontWeight={300} color={"black"} fontFamily={"FinancierDisplay"} mb={2} textAlign={"center"}>
-              mPenlight
-            </Typography>
-            <Typography
-              fontSize={"14px"}
-              fontWeight={300}
-              style={{ fontFamily: "SuisseIntl", opacity: 0.8, lineHeight: "140%", fontStyle: "normal", fontStretch: "ultra-condensed", color: "#5E5E5E" }}
-              textAlign={"center"}
-            >
-              Solvemed{"'"}s smartphone-based software medical device enables pupil reactivity measurement in the quantifiable manner without any external hardware needed.{" "}
-            </Typography>
-          </Box>
-        ) : (
-          <Box mt={100} mb={100} display={"flex"} flexDirection={"column"} maxWidth={"300px"} ml={10}>
-            <Typography fontSize={"64px"} style={{ fontFamily: "FinancierDisplay", lineHeight: "25.5px", fontWeight: 200 }} mb={5}>
-              mPenlight
-            </Typography>
-            <Box mt={1}>
-              <Typography fontSize={"17px"} style={{ opacity: 0.8, fontFamily: "SuisseIntl", lineHeight: "25.5px", fontStretch: "ultra-condensed", color: "#5E5E5E" }}>
+            <Box display={"flex"} flexDirection={"column"} width={"100%"} mb={10}>
+              <Typography fontSize={"32px"} fontWeight={300} color={"black"} fontFamily={"FinancierDisplay"} mb={2} textAlign={"center"}>
+                mPenlight
+              </Typography>
+              <Typography
+                fontSize={"14px"}
+                fontWeight={300}
+                style={{ fontFamily: "SuisseIntl", opacity: 0.8, lineHeight: "140%", fontStyle: "normal", fontStretch: "ultra-condensed", color: "#5E5E5E" }}
+                textAlign={"center"}
+              >
                 Solvemed{"'"}s smartphone-based software medical device enables pupil reactivity measurement in the quantifiable manner without any external hardware needed.{" "}
               </Typography>
             </Box>
-          </Box>
+            <CardWithShadow />
+          </>
+        ) : (
+          <div style={{ position: "relative" }} ref={sectionDesktopRef}>
+            <Box display={"flex"} justifyContent={"center"} alignContent={"center"} pr={5} pb={100} ref={elementRef}>
+              <Box className={`${styles.video} ${videoStickinessMode === 2 ? styles.videoFloating : videoStickinessMode === 3 ? styles.videoSticky : ""}`}>
+                <video controls={false} autoPlay loop width="100%">
+                  <source src={"/images/homePage/animation.mov"} type="video/mp4" />
+                </video>
+              </Box>
+              <Box position={"absolute"}>
+                <Image src={"/images/bg/homegradient1.png"} width={"767.36px"} height={"756.02px"} alt={"gradient"} />
+              </Box>
+            </Box>
+
+            <Box mt={100} mb={100} display={"flex"} flexDirection={"column"} maxWidth={"300px"} ml={10}>
+              <Typography fontSize={"64px"} style={{ fontFamily: "FinancierDisplay", lineHeight: "25.5px", fontWeight: 200 }} mb={5}>
+                mPenlight
+              </Typography>
+              <Box mt={1}>
+                <Typography fontSize={"17px"} style={{ opacity: 0.8, fontFamily: "SuisseIntl", lineHeight: "25.5px", fontStretch: "ultra-condensed", color: "#5E5E5E" }}>
+                  Solvemed{"'"}s smartphone-based software medical device enables pupil reactivity measurement in the quantifiable manner without any external hardware needed.{" "}
+                </Typography>
+              </Box>
+            </Box>
+            <CardWithShadow />
+          </div>
         )}
 
-        <CardWithShadow />
         <Box
           pt={30}
           pb={30}
@@ -188,7 +189,6 @@ const Home: NextPage = () => {
             backgroundRepeat: "no-repeat",
             backgroundPosition: "center",
           }}
-          ref={sectionDesktopRef}
         >
           {isMobileView ? (
             <Typography

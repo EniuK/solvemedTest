@@ -131,7 +131,15 @@ const Header = () => {
         </LinkMUI>
       )} */}
       {isMobileView ? (
-        <Box width={"100%"} mt={-1} display={"flex"} bgcolor={"white"} flexDirection={"column"} justifyContent={"flex-end"} alignItems={"flex-end"}>
+        <Box
+          width={"100%"}
+          mt={-1}
+          display={"flex"}
+          flexDirection={"column"}
+          justifyContent={"flex-end"}
+          alignItems={"flex-end"}
+          // TODO: {...(open ? { position: "fixed", top: 0, backdropFilter: "blur(4px)" } : {})}
+        >
           <Box zIndex={300}>
             {open ? (
               <Box onClick={handleMenuClose} mt={1}>
@@ -149,7 +157,7 @@ const Header = () => {
           {open && (
             <>
               <Box height={"101vh"} width={"100vw"} mr={-3} pr={3} mt={-7} pt={7} zIndex={200}>
-                <Box width={"100vw"} mt={6} pl={4} zIndex={open ? 300 : 1} bgcolor={"rgba(255, 255, 255, 1)"}>
+                <Box width={"100vw"} mt={6} pl={4} zIndex={open ? 300 : 1} bgcolor={"rgba(255, 255, 255, 1)"} pb={6}>
                   <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }}>
                     {menuItems.map((item) => {
                       return (
@@ -190,20 +198,8 @@ const Header = () => {
             return (
               <Box key={item.title} mt={1.5}>
                 <Link href={item.link} passHref prefetch={false}>
-                  <MenuItem onClick={handleMenuClose} classes={{ root: styles.menuListItem }} dense>
-                    <a
-                      className={styles.menuListItemLink}
-                      style={{
-                        fontStyle: "SuisseIntl",
-                        lineHeight: "24px",
-                        fontWeight: 300,
-                        fontSize: "14px",
-                        color: isCurrentPath ? theme.palette.secondary.main : theme.palette.primary.main,
-                        textDecoration: isCurrentPath ? "underline" : "none",
-                      }}
-                    >
-                      {item.title}
-                    </a>
+                  <MenuItem onClick={handleMenuClose} classes={{ root: styles.disableHover }} dense disableRipple>
+                    <a className={`${styles.menuListItemLink} ${isCurrentPath ? styles.menuListItemLinkActive : ""}`}>{item.title}</a>
                   </MenuItem>
                 </Link>
               </Box>

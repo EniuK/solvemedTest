@@ -37,6 +37,7 @@ const Layout = ({ children }: { children: ReactNode }) => {
     setNotify(false);
   };
   const popUpTimer = () => {
+    // TODO: dodaj zmienna w localstorage, ktora blokuje wyswietlanie jesli juz byl wyswietlony
     setTimeout(() => {
       setNotify(true);
     }, 30000);

@@ -8,10 +8,10 @@ import Image from "next/image";
 import PopUpWrapper from "./PopUp/PopUpWrapper";
 
 const menuItems = [
-  { title: "Team", link: "/team" },
-  { title: "Blog", link: "/blog" },
-  { title: "Careers", link: "/careers" },
-  { title: "Contact", link: "/contact" },
+  { title: "TEAM", link: "/team" },
+  { title: "BLOG", link: "/blog" },
+  { title: "CAREERS", link: "/careers" },
+  { title: "CONTACT", link: "/contact" },
 
   // { title: "Home", link: "/" },
 
@@ -133,16 +133,22 @@ const Header = () => {
       {isMobileView ? (
         <Box width={"100%"} mt={-1} display={"flex"} bgcolor={"white"} flexDirection={"column"} justifyContent={"flex-end"} alignItems={"flex-end"}>
           <Box zIndex={300}>
-            <Stack justifyContent="center" width={20} height={34.5} onClick={handleMenuOpen}>
-              <Box bgcolor={theme.palette.primary.main} height="1px" />
-              <Box bgcolor={theme.palette.primary.main} height="1px" my={0.5} />
-              <Box bgcolor={theme.palette.primary.main} height="1px" />
-            </Stack>
+            {open ? (
+              <Box onClick={handleMenuClose} mt={1}>
+                <Image src={"/images/icons/closeicon2.png"} width={"15px"} height={"15px"} alt={"close"} />
+              </Box>
+            ) : (
+              <Stack justifyContent="center" width={20} height={34.5} onClick={handleMenuOpen}>
+                <Box bgcolor={theme.palette.primary.main} height="1px" />
+                <Box bgcolor={theme.palette.primary.main} height="1px" my={0.5} />
+                <Box bgcolor={theme.palette.primary.main} height="1px" />
+              </Stack>
+            )}
           </Box>
 
           {open && (
             <>
-              <Box height={"100vh"} bgcolor={"white"} top={0} position={"absolute"}>
+              <Box height={"101vh"} width={"100vw"} mr={-3} pr={3} mt={-7} pt={7} zIndex={200}>
                 <Box width={"100vw"} mt={6} pl={4} zIndex={open ? 300 : 1} bgcolor={"rgba(255, 255, 255, 1)"}>
                   <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }}>
                     {menuItems.map((item) => {
@@ -187,7 +193,14 @@ const Header = () => {
                   <MenuItem onClick={handleMenuClose} classes={{ root: styles.menuListItem }} dense>
                     <a
                       className={styles.menuListItemLink}
-                      style={{ color: isCurrentPath ? theme.palette.secondary.main : theme.palette.primary.main, textDecoration: isCurrentPath ? "underline" : "none" }}
+                      style={{
+                        fontStyle: "SuisseIntl",
+                        lineHeight: "24px",
+                        fontWeight: 300,
+                        fontSize: "14px",
+                        color: isCurrentPath ? theme.palette.secondary.main : theme.palette.primary.main,
+                        textDecoration: isCurrentPath ? "underline" : "none",
+                      }}
                     >
                       {item.title}
                     </a>
@@ -196,14 +209,14 @@ const Header = () => {
               </Box>
             );
           })}
-          <Box ml={2} justifyContent={"center"} alignItems={"center"}>
+          <Box ml={2} mt={1} justifyContent={"center"} alignItems={"center"}>
             <Link href={"/GetAccess"}>
               <Button
                 color="secondary"
                 style={{ textTransform: "none" }}
-                sx={{ backgroundColor: "black", fontSize: "14px", fontWeight: 100, marginRight: 0 }}
                 variant="contained"
                 size="small"
+                sx={{ backgroundColor: "black", fontSize: "14px", fontWeight: 100, marginRight: 0, height: "44px", paddingX: 3, paddingY: 1 }}
               >
                 <Typography fontSize={"14px"} variant="body1" fontStyle={"SuisseIntl"} fontWeight={400}>
                   Get access
@@ -213,33 +226,6 @@ const Header = () => {
           </Box>
         </Box>
       )}
-
-      {/* {isMobileView ? (
-         
-        ) : (
-          <ul className={styles.menuList}>
-            {menuItems.map((item) => {
-              const isCurrentPath = item.link === router.pathname;
-              return (
-                <motion.li key={item.title} initial="initial" whileHover="hover" className={styles.menuListItem}>
-                  <Link href={item.link} passHref>
-                    <a className={styles.menuListItemLink} style={{ color: isCurrentPath ? theme.palette.secondary.main : theme.palette.primary.main }}>
-                      {item.title}
-                    </a>
-                  </Link>
-                  <motion.div
-                    className={styles.menuListItemUnderline}
-                    transition={{ duration: 0.3 }}
-                    variants={{
-                      initial: { width: 0 },
-                      hover: { width: "100%" },
-                    }}
-                  />
-                </motion.li>
-              );
-            })}
-          </ul>
-        )} */}
     </div>
   );
 };

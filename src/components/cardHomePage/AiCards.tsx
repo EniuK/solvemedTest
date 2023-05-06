@@ -36,12 +36,14 @@ const AiCards = () => {
       src: "/images/homePage/aiCards/eye.png",
       w: "116.39px",
       h: "100px",
+      op: 0.6,
     },
     {
       title: "Optometry",
       src: "/images/homePage/aiCards/glasses.png",
       w: "137.04px",
       h: "80px",
+      op: 0.6,
     },
     {
       title: "Neuro-ophthalmology",
@@ -88,12 +90,14 @@ const AiCards = () => {
       src: "/images/homePage/aiCards/eye.png",
       w: "69.83px",
       h: "60px",
+      op: 0.6,
     },
     {
       title: "Optometry",
       src: "/images/homePage/aiCards/glasses.png",
       w: "102.78px",
       h: "60px",
+      op: 0.6,
     },
     {
       title: "Neuro-ophthalmology",
@@ -119,7 +123,7 @@ const AiCards = () => {
                   border={"1px solid #F5F5F7"}
                   boxShadow={"0px 8px 32px rgba(27, 37, 74, 0.08)"}
                   borderRadius={"14px"}
-                  mt={2}
+                  mt={1}
                   pt={3}
                   pl={1}
                   pb={2}
@@ -130,15 +134,16 @@ const AiCards = () => {
                   alignItems={"center"}
                   flexDirection={"column"}
                 >
-                  <Box width={"100%"} height={"60%"} display={"flex"} justifyContent={"flex-start"} alignItems={"center"} color={"#5E5E5E"}>
+                  <Box width={"100%"} height={"60%"} style={{ opacity: e.op || 1 }} display={"flex"} justifyContent={"flex-start"} alignItems={"center"} color={"#5E5E5E"}>
                     <Image src={e.src} width={e.w} height={e.h} alt={e.title} />
                   </Box>
                   <Box
                     fontSize={"15px"}
                     display={"flex"}
+                    pt={3}
                     justifyContent={"flex-start"}
                     alignItems={"flex-end"}
-                    fontWeight={400}
+                    fontWeight={600}
                     height={"60%"}
                     fontFamily={"SuisseIntl"}
                     width={"100%"}

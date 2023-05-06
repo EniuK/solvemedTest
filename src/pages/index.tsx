@@ -11,18 +11,6 @@ import AppCards from "../components/HomeCarousels/AppCards";
 import { theme } from "../config/theme";
 import styles from "./index.module.css";
 
-// Wartości dla font-stretch to:
-
-// ultra-condensed - bardzo cienki font
-// extra-condensed - bardziej cienki font
-// condensed - cienki font
-// semi-condensed - pół-cienki font
-// normal - normalny font
-// semi-expanded - pół-gruby font
-// expanded - gruby font
-// extra-expanded - bardziej gruby font
-// ultra-expanded - bardzo gruby font
-
 const Home: NextPage = () => {
   const isMobileView = useMediaQuery(theme.breakpoints.down("md"));
 
@@ -157,6 +145,33 @@ const Home: NextPage = () => {
             </Typography>
           )}
         </Box>
+        {isMobileView ? (
+          <Box display={"flex"} width={"100vw"} ml={-3} mt={20} justifyContent={"center"} alignItems={"center"} flexDirection={"column"}>
+            <Box width={"100%"}>
+              <Typography style={{ fontFamily: "FinancierDisplay", fontWeight: 400 }} fontSize={"32px"} textAlign={"center"}>
+                Medical specialties we empower
+              </Typography>
+            </Box>
+            <Box width={"100%"} mt={4} pl={4} mb={2} pr={4}>
+              <Typography textAlign={"center"} style={{ opacity: 0.7, fontFamily: "SuisseIntl", fontWeight: 300, lineHeight: "150%", alignSelf: "stretch" }} fontSize={"18px"}>
+                We are proud to satisfy the needs of world{"'"}s leading practitioners across the spectrum of care.{" "}
+              </Typography>
+            </Box>
+          </Box>
+        ) : (
+          <Box display={"flex"} mt={20} justifyContent={"center"} alignItems={"center"} flexDirection={"column"}>
+            <Box>
+              <Typography fontSize={"64px"} fontFamily="FinancierDisplay" textAlign={"center"}>
+                Medical specialties we empower
+              </Typography>
+            </Box>
+            <Box width={"70%"} mt={isMobileView ? 2 : 6} style={{ opacity: 0.8 }}>
+              <Typography textAlign={"center"} fontFamily={"SuisseIntl"} color={"#5E5E5E"} lineHeight={"150%"} fontWeight={200} fontSize={"18px"}>
+                We are proud to satisfy the needs of world{"'"}s leading practitioners across the spectrum of care.{" "}
+              </Typography>
+            </Box>
+          </Box>
+        )}
         <AiCards />
         {isMobileView ? (
           <Box display={"flex"} width={"100vw"} ml={-3} mt={20} justifyContent={"center"} alignItems={"center"} flexDirection={"column"}>
@@ -174,12 +189,12 @@ const Home: NextPage = () => {
         ) : (
           <Box display={"flex"} mt={20} justifyContent={"center"} alignItems={"center"} flexDirection={"column"}>
             <Box>
-              <Typography fontSize={"64px"} textAlign={"center"}>
+              <Typography fontSize={"64px"} fontFamily="FinancierDisplay" textAlign={"center"}>
                 What experts say
               </Typography>
             </Box>
-            <Box width={"70%"} mt={6} style={{ opacity: 0.8 }}>
-              <Typography textAlign={"center"} fontFamily={"SuisseIntl"} color={"#5E5E5E"} fontWeight={200} fontSize={"18px"}>
+            <Box width={"70%"} mt={isMobileView ? 2 : 6} style={{ opacity: 0.8 }}>
+              <Typography textAlign={"center"} fontFamily={"SuisseIntl"} color={"#5E5E5E"} lineHeight={"150%"} fontWeight={200} fontSize={"18px"}>
                 We bring to the world the most advanced smartphone-enabled data collection and analytical tools in the field of neurology and ophthalmology.
               </Typography>
             </Box>
@@ -188,8 +203,8 @@ const Home: NextPage = () => {
 
         <TeamCarousel />
         {isMobileView ? (
-          <Box mt={60} width={"100%"} display="flex" justifyContent={"center"} alignItems={"center"} flexShrink={1}>
-            <Typography fontWeight={200} fontSize={"32px"} textAlign={"center"}>
+          <Box mt={60} px={1} width={"100%"} display="flex" justifyContent={"center"} alignItems={"center"} flexShrink={1}>
+            <Typography fontWeight={200} fontFamily="FinancierDisplay" lineHeight={"130%"} fontSize={"32px"} textAlign={"center"}>
               Solvemed transforms <span className={styles.gradient_text}>complex eye evaluation </span> processes into one connected system to help you offer better, more efficient
               care.
             </Typography>
@@ -218,7 +233,6 @@ const Home: NextPage = () => {
           </Box>
         )}
         <AppCards />
-        {/* zastosuj overflow: hidden */}
         {isMobileView ? (
           <Box mt={60} width={"100%"} display="flex" justifyContent={"center"} alignItems={"center"} flexDirection={"column"} flexShrink={1}>
             <Box>

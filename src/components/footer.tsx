@@ -106,17 +106,18 @@ const Footer = ({ home }: any) => {
                       Become early adopter!
                     </Typography>
                   </Box>
-                  <Box justifyContent={"center"} alignItems={"center"}>
-                    <Button
-                      color="secondary"
-                      style={{ textTransform: "none" }}
-                      sx={{ backgroundColor: "black", fontSize: "14px", fontWeight: 100, marginRight: 0 }}
-                      variant="contained"
-                      size="small"
-                    >
+                  <Button
+                    color="secondary"
+                    style={{ textTransform: "none", color: "white" }}
+                    sx={{ backgroundColor: "black", fontSize: "14px", fontWeight: 100, marginRight: 0 }}
+                    variant="contained"
+                    size="small"
+                  >
+                    <Link href={"/GetAccess"} style={{ textTransform: "none", textDecoration: "none", color: "inherit" }}>
+                      {" "}
                       Get access
-                    </Button>
-                  </Box>
+                    </Link>
+                  </Button>
                 </Box>
               </Box>
             </Box>
@@ -221,12 +222,15 @@ const Footer = ({ home }: any) => {
                 <Box justifyContent={"center"} alignItems={"center"}>
                   <Button
                     color="secondary"
-                    style={{ textTransform: "none" }}
+                    style={{ textTransform: "none", color: "white" }}
                     sx={{ backgroundColor: "black", fontSize: "14px", fontWeight: 100, marginRight: 0 }}
                     variant="contained"
                     size="small"
                   >
-                    Get access
+                    <Link href={"/GetAccess"} style={{ textTransform: "none", textDecoration: "none", color: "inherit" }}>
+                      {" "}
+                      Get access
+                    </Link>
                   </Button>
                 </Box>
               </Box>

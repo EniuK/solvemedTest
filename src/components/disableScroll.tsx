@@ -1,12 +1,6 @@
 import { useEffect, useRef, useState } from "react";
-
+const safeDocument = typeof document !== "undefined" ? document : {};
 export const useScrollBlock = (): [() => void, () => void] => {
-  const [safeDocument, setSafedocument] = useState();
-
-  useEffect(() => {
-    setSafedocument(document);
-  }, [document]);
-
   const scrollBlocked = useRef(false);
   const html = safeDocument.documentElement;
   const { body } = safeDocument;

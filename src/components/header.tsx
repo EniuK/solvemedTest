@@ -174,7 +174,7 @@ const Header = () => {
           {open && (
             <>
               <Box height={"101vh"} width={"100vw"} mr={-10} pr={3} mt={-7} pt={7} zIndex={200}>
-                <Box width={"100vw"} height={"60%"} mt={6} zIndex={open ? 300 : 1} bgcolor={"rgba(255, 255, 255, 1)"} pb={6}>
+                <Box width={"100vw"} height={"60%"} mt={6} zIndex={open ? 300 : 1} ml={-6} pl={6} bgcolor={"white"} pb={6}>
                   <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }}>
                     {menuItems.map((item) => {
                       return (
@@ -188,7 +188,7 @@ const Header = () => {
                       );
                     })}
                     <Divider sx={{ width: "100vw", ml: -6, mt: 5, mb: 5 }} />
-                    <Box mt={-1} alignItems={"center"} justifyContent={"flex-start"} width={"100%"} display={"flex"} mb={3}>
+                    <Box mt={-1} alignItems={"center"} justifyContent={"flex-start"} width={"100vw"} ml={-3} display={"flex"} mb={3}>
                       <Box height={"40px"} display={"flex"} justifyContent={"center"} alignItems={"center"} flexDirection={"row"}>
                         <Link href="https://www.linkedin.com/company/solvemed-group/" target="_blank" rel="noopener">
                           <Image src="/images/icons/linkedin.png" alt="linkedin" width="40px" height="40px" />

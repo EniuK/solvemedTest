@@ -172,7 +172,7 @@ const PopUp = ({ onClose, status, message, onValidated }: any) => {
                   />
                 </form>
 
-                <Button color="secondary" style={{ textTransform: "none" }} sx={{ backgroundColor: "black" }} onClick={(e) => handleSubmit(e)} variant="contained" size="large">
+                <Button color="secondary" style={{ textTransform: "none" }} sx={{ backgroundColor: "black" }} variant="contained" size="large" onClick={(e) => handleSubmit(e)}>
                   <Box pt={0.5} pb={0.5}>
                     Send
                   </Box>

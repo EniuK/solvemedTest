@@ -50,9 +50,9 @@ const AppCards = () => {
   ];
 
   return (
-    <Box display={"flex"} justifyContent={"center"} alignItems={"center"} ml={istabletView ? -1 : 0} mt={15}>
+    <Box display={"flex"} justifyContent={"center"} alignItems={"center"} ml={istabletView ? -1 : 10} mt={15}>
       <Swiper
-        slidesPerView={istabletView ? 1.17 : isMobileView ? 2 : 3}
+        slidesPerView={istabletView ? 1.17 : isMobileView ? 2 : 3.2}
         spaceBetween={10}
         pagination={{
           clickable: true,
@@ -70,7 +70,6 @@ const AppCards = () => {
                 overflow={"hidden"}
                 key={idx}
                 mb={10}
-                mr={4}
                 bgcolor={"rgba(255, 255, 255, 1)"}
                 border={"1px solid #F5F5F7"}
                 boxShadow={"0px 8px 32px rgba(27, 37, 74, 0.08)"}
@@ -89,12 +88,12 @@ const AppCards = () => {
                   >
                     {e.title}
                   </Box>
-                  <Box fontSize={"15px"} color={"#5E5E5E"} display={"flex"} textAlign={"left"} justifyContent={"flex-start"} alignItems="flex-start">
+                  <Box fontSize={"15px"} fontFamily={"SuisseIntl"} color={"#5E5E5E"} display={"flex"} textAlign={"left"} justifyContent={"flex-start"} alignItems="flex-start">
                     {e.description}
                   </Box>
                 </Box>
 
-                <Box>
+                <Box height={istabletView ? "" : "360px"}>
                   <Image src={e.src} width={"350px"} height={"360px"} alt={e.title} />
                 </Box>
               </Box>

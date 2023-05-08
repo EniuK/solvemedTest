@@ -123,6 +123,7 @@ const AiCards = () => {
                   border={"1px solid #F5F5F7"}
                   boxShadow={"0px 8px 32px rgba(27, 37, 74, 0.08)"}
                   borderRadius={"14px"}
+                  bgcolor={"white"}
                   mt={1}
                   pt={3}
                   pl={1}
@@ -165,10 +166,11 @@ const AiCards = () => {
                 <Box
                   border={"1px solid #F5F5F7"}
                   boxShadow={"0px 8px 32px rgba(27, 37, 74, 0.08)"}
-                  borderRadius={"14px"}
+                  borderRadius={"28px"}
+                  bgcolor={"white"}
                   mt={4}
                   mr={3}
-                  p={3}
+                  p={"24px"}
                   width={"270px"}
                   height={"224px"}
                   display={"flex"}
@@ -176,7 +178,7 @@ const AiCards = () => {
                   alignItems={"center"}
                   flexDirection={"column"}
                 >
-                  <Box width={"100%"} height={"60%"} display={"flex"} justifyContent={"flex-start"} alignItems={"center"} color={"#5E5E5E"}>
+                  <Box width={"100%"} height={"60%"} style={{ opacity: e.op || 1 }} display={"flex"} justifyContent={"flex-start"} alignItems={"center"} color={"#5E5E5E"}>
                     <Image src={e.src} width={e.w} height={e.h} alt={e.title} />
                   </Box>
                   <Box
@@ -184,7 +186,7 @@ const AiCards = () => {
                     display={"flex"}
                     justifyContent={"flex-start"}
                     alignItems={"flex-end"}
-                    fontWeight={500}
+                    fontWeight={450}
                     height={"60%"}
                     fontFamily={"SuisseIntl"}
                     width={"100%"}

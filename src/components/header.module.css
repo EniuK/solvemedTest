@@ -121,6 +121,7 @@
   content: url("/images/elipse.svg");
   position: absolute;
   display: flex;
+  top: calc(50% / 0.7);
   left: calc(50% - 7px / 2);
 }
 

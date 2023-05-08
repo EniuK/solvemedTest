@@ -39,62 +39,6 @@ const careers = [
       },
     ],
   },
-  // {
-  //   category: "Commercial",
-  //   positions: [
-  //     {
-  //       title: "Head of R&D Partnerships",
-  //       description: "Remote (preferred locations for the remote role: Boston, MA; London & Oxbridge, UK)",
-  //       url: "/contact",
-  //     },
-  //     {
-  //       title: "Head of Commercial Partnerships",
-  //       description: "Remote (preferred locations for the remote role: Boston, MA; London & Oxbridge, UK)",
-  //       url: "/contact",
-  //     },
-  //     {
-  //       title: "Strategy Researcher",
-  //       description: "Remote (no preferences)",
-  //       url: "/contact",
-  //     },
-  //   ],
-  // },
-
-  // {
-  //   category: "Technical",
-  //   positions: [
-  //     {
-  //       title: "Senior CV Researcher",
-  //       description: "Remote (preferred locations for the remote role: US, UK, Poland, or Israel)",
-  //       url: "/contact",
-  //     },
-  //     {
-  //       title: "Senior NLP Researcher",
-  //       description: "Remote (preferred locations for the remote role: US, UK, Poland, or Israel)",
-  //       url: "/contact",
-  //     },
-  //     {
-  //       title: "Senior Data Scientist",
-  //       description: "Remote (preferred locations for the remote role: US, UK, Poland, or Israel)",
-  //       url: "/contact",
-  //     },
-  //     {
-  //       title: "Senior Clinical Data Scientist",
-  //       description: "Remote (preferred locations for the remote role: US, UK, Poland, or Israel)",
-  //       url: "/contact",
-  //     },
-  //     {
-  //       title: "Mid Clinical Data Scientist",
-  //       description: "Remote (preferred locations for the remote role: US, UK, Poland, or Israel)",
-  //       url: "/contact",
-  //     },
-  //     {
-  //       title: "Senior Software Engineer",
-  //       description: "Remote (preferred locations for the remote role: US, UK, Poland, or Israel)",
-  //       url: "/contact",
-  //     },
-  //   ],
-  // },
 ];
 
 const Careers: NextPage = () => {
@@ -160,9 +104,9 @@ const Careers: NextPage = () => {
             </Box>
           </Grid>
         ) : (
-          <Grid item textAlign="left" width={"100%"} ml={10}>
+          <Grid item textAlign="left" width={"100%"} ml={3}>
             <Box display={"flex"} justifyContent={"flex-start"} alignItems={"flex-start"}>
-              <Box>
+              <Box width={"40%"}>
                 <Typography
                   component={motion.p}
                   variant="h3"
@@ -199,20 +143,32 @@ const Careers: NextPage = () => {
                   We are looking to hire a wide range of people with diverse engineering, scientific, operations expertise.
                 </Typography>
               </Box>
-              <img src="/images/career/eye.png" alt="Eye" className={styles.eyeImg} />
+              <Box width={"60%"}>
+                <Image src={"/images/career/gradient.png"} layout={"fill"} alt={"bg"} />
+
+                <img src="/images/career/eye.png" alt="Eye" className={styles.eyeImg} />
+              </Box>
             </Box>
           </Grid>
         )}
         <Box mt={20} ml={-9}>
-          {isMobileView ? (
-            <Typography ml={10} fontSize={"42px"}>
+          <Box
+            pt={10}
+            pb={10}
+            mt={-10}
+            mb={-10}
+            width={"500px"}
+            style={{
+              backgroundImage: `url('/images/career/gradient2.png')`,
+              backgroundSize: "333.83px 333.83px",
+              backgroundRepeat: "no-repeat",
+              backgroundPosition: "center",
+            }}
+          >
+            <Typography ml={10} fontSize={isMobileView ? "42px" : "64px"}>
               Open Positions
             </Typography>
-          ) : (
-            <Typography ml={10} fontSize={"64px"}>
-              Open Positions
-            </Typography>
-          )}
+          </Box>
 
           {careers.map((sectionItem) => (
             <Fragment key={sectionItem.category}>

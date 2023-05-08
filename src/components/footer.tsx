@@ -14,9 +14,9 @@ const Footer = ({ home }: any) => {
   const isSmallViewport = useMediaQuery(theme.breakpoints.down("md"));
   return (
     <>
-      <Divider sx={{ width: "110vw", ml: -6, mt: 20 }} />
+      <Divider sx={{ width: "100%", mt: 20 }} />
       {isSmallViewport ? (
-        <Box width={"100vw"} ml={-3}>
+        <Box width={"100%"} ml={-3}>
           <Box height={"100%"} width={"100%"} flexWrap={"wrap"} paddingY={4.75} display={"flex"} justifyContent={"space-between"} flexDirection={"row"}>
             <Box display={"flex"} flexDirection={"column"} height={"100%"} justifyContent={"flex-end"} alignItems={"flex-end"}>
               <Box paddingX={3} width={"100%"} height={"80%"} alignItems={"flex-start"} justifyContent={"flex-end"} display={"flex"} flexDirection={"column"}>
@@ -37,26 +37,7 @@ const Footer = ({ home }: any) => {
                 <Box display={"flex"} justifyContent={"center"} alignItems={"center"}>
                   <JoinNewsletterMailchimp />
                 </Box>
-                {/* 
-                <Box display={"flex"} pt={5} width={"100%"} flexDirection={"column"} justifyContent={"flex-start"} alignItems={"flex-start"}>
-                  <Box width={"100%"}>
-                    <Typography fontFamily={"FinancierDisplay"} fontWeight={400} fontSize={"30px"}>
-                      Join Our Newsletter
-                    </Typography>
-                  </Box>
-                  <Box mt={5} display={"flex"} width={"100%"} justifyContent={"flex-start"} alignItems={"flex-start"} flexDirection={"row"}>
-                    <Input size="small" type="email" sx={{ fontsize: "14px", width: "80%" }} placeholder="Enter your email" />
-                    <Button
-                      color="inherit"
-                      sx={{ backgroundColor: "white", color: "black", borderColor: "rgba(20, 20, 21, 0.2)", borderWidth: "0.5px", width: "15%" }}
-                      variant="outlined"
-                      size="large"
-                      style={{ textTransform: "none" }}
-                    >
-                      Send
-                    </Button>
-                  </Box>
-                </Box> */}
+
                 <Divider sx={{ width: "110vw", ml: -6, mt: 20, position: "absolute" }} />
                 <Box flexDirection={"row"} display={"flex"} height={"100px"} alignItems={"center"} justifyContent={"flex-start"} width={"100%"}>
                   {menuItems.map((e, idx) => {
@@ -132,19 +113,19 @@ const Footer = ({ home }: any) => {
           </Box>
         </Box>
       ) : (
-        <Box width={"100vw"}>
+        <Box width={"100%"}>
           <Box
-            height={"40vh"}
             width={"100%"}
             flexWrap={"wrap"}
             paddingX={{ xs: 3, md: 6.25 }}
             paddingY={4.75}
             display={"flex"}
             justifyContent={"space-between"}
+            alignItems={"flex-start"}
             flexDirection={"row"}
           >
-            <Box display={"flex"} flexDirection={"column"} height={"100%"} minWidth={"330px"} maxWidth={"33vw"} justifyContent={"flex-end"} alignItems={"flex-end"}>
-              <Box width={"100%"} height={"80%"} alignItems={"flex-start"} justifyContent={"flex-end"} display={"flex"} flexDirection={"column"}>
+            <Box display={"flex"} flexDirection={"column"} minWidth={"330px"} maxWidth={"33vw"} justifyContent={"flex-start"} alignItems={"flex-start"}>
+              <Box width={"100%"} alignItems={"flex-start"} justifyContent={"flex-end"} display={"flex"} flexDirection={"column"}>
                 <Image src="/icons/logo-small.svg" alt="logo" width="35" height="46" />
 
                 <Typography color="primary.light" variant="body6Wide" mt={3}>
@@ -167,33 +148,16 @@ const Footer = ({ home }: any) => {
                 </Link>
               </Box>
             </Box>
-            <Box display={"flex"} justifyContent={"center"} alignItems={"center"}>
+            <Box display={"flex"} pt={3} height={"100%"} pb={4} justifyContent={"flex-end"} alignItems={"flex-end"}>
               <JoinNewsletterMailchimp />
             </Box>
 
-            {/* <Box height={"100%"} minWidth={"330px"} maxWidth={"33vw"} display={"flex"} flexDirection={"column"} justifyContent={"flex-end"} pl={4} alignItems={"flex-end"}>
-              <Box width={"100%"}>
-                <Typography fontFamily={"FinancierDisplay"}>Join Our Newsletter</Typography>
-              </Box>
-              <Box mt={5} display={"flex"} width={"100%"} justifyContent={"flex-start"} alignItems={"flex-start"} flexDirection={"row"}>
-                <Input size="small" type="email" sx={{ fontsize: "14px", width: "80%" }} placeholder="Enter your email" />
-                <Button
-                  color="inherit"
-                  sx={{ backgroundColor: "white", color: "black", borderColor: "rgba(20, 20, 21, 0.2)", borderWidth: "0.5px", width: "15%" }}
-                  variant="outlined"
-                  style={{ textTransform: "none" }}
-                  size="large"
-                >
-                  Send
-                </Button>
-              </Box>
-            </Box> */}
-            <Box height={"40vh"} pb={7} pr={10} minWidth={"330px"} maxWidth={"33vw"} display="flex" flexDirection={"column"} justifyContent="space-between" mb={3.5}>
-              <Box height={"40vh"} display="flex" width={"100%"} flexDirection="column" justifyContent={"flex-end"} alignItems={"flex-end"} mt={{ xs: 2, sm: 0 }}>
+            <Box height={"100%"} pr={10} minWidth={"330px"} maxWidth={"33vw"} display="flex" flexDirection={"column"} justifyContent="space-between" mb={3.5}>
+              <Box height={"100%"} display="flex" width={"100%"} flexDirection="column" justifyContent={"flex-end"} alignItems={"flex-end"} mt={{ xs: 2, sm: 0 }}>
                 <Box flexDirection={"row"} display={"flex"} height={"70%"} justifyContent={"space-between"} width={"90%"}>
                   {menuItems.map((e, idx) => {
                     return (
-                      <Box key={idx} width={"20%"} mr={3} display={"flex"} justifyContent={"flex-start"} alignItems={"flex-start"}>
+                      <Box key={idx} width={"20%"} mr={3} display={"flex"} justifyContent={"flex-end"} alignItems={"flex-end"} textAlign={"flex-end"}>
                         <Link underline="none" href={e.link}>
                           <Typography fontSize={"14px"} fontFamily="SuisseIntl" textAlign={"center"}>
                             {e.title}
@@ -203,7 +167,7 @@ const Footer = ({ home }: any) => {
                     );
                   })}
                 </Box>
-                <Box alignItems={"center"} flexDirection={"row"} justifyContent={"center"} width={"100%"} display={"flex"}>
+                <Box mt={13} alignItems={"center"} flexDirection={"row"} justifyContent={"center"} width={"100%"} display={"flex"}>
                   <Box>
                     <Link style={{ textDecoration: "none" }} href="https://twitter.com/solvemed" target="_blank" rel="noopener">
                       <Box display={"flex"} justifyContent={"center"} alignItems={"center"}>
@@ -231,45 +195,45 @@ const Footer = ({ home }: any) => {
                 </Box>
               </Box>
             </Box>
-            <Box display={"flex"} width={"100vw"} mb={5} justifyContent={"flex-end"} alignItems={"flex-end"}>
+          </Box>
+          <Box display={"flex"} width={"100%"} mb={5} justifyContent={"flex-end"} alignItems={"flex-end"}>
+            <Box
+              borderRadius={"100px"}
+              height={"40px"}
+              boxShadow={" 0px 8px 32px rgba(27, 37, 74, 0.08)"}
+              display={"flex"}
+              width={"300px"}
+              flexDirection={"row"}
+              justifyContent={"space-between"}
+              alignItems={"center"}
+              mb={3}
+              pr={3}
+            >
               <Box
-                borderRadius={"100px"}
-                height={"40px"}
-                boxShadow={" 0px 8px 32px rgba(27, 37, 74, 0.08)"}
-                display={"flex"}
-                width={"300px"}
-                flexDirection={"row"}
-                justifyContent={"space-between"}
+                justifyContent={"center"}
                 alignItems={"center"}
-                mb={3}
-                pr={3}
+                fontSize={"19px"}
+                letterSpacing={"0.04em"}
+                lineHeight={"134%"}
+                fontStyle={"italic"}
+                fontFamily={"FinancierDisplay"}
+                fontWeight={600}
               >
-                <Box
-                  justifyContent={"center"}
-                  alignItems={"center"}
-                  fontSize={"19px"}
-                  letterSpacing={"0.04em"}
-                  lineHeight={"134%"}
-                  fontStyle={"italic"}
-                  fontFamily={"FinancierDisplay"}
-                  fontWeight={600}
+                Become early adopter!
+              </Box>
+              <Box justifyContent={"center"} alignItems={"center"}>
+                <Button
+                  color="secondary"
+                  style={{ textTransform: "none", color: "white" }}
+                  sx={{ backgroundColor: "black", fontSize: "14px", fontWeight: 100, marginRight: 0 }}
+                  variant="contained"
+                  size="small"
                 >
-                  Become early adopter!
-                </Box>
-                <Box justifyContent={"center"} alignItems={"center"}>
-                  <Button
-                    color="secondary"
-                    style={{ textTransform: "none", color: "white" }}
-                    sx={{ backgroundColor: "black", fontSize: "14px", fontWeight: 100, marginRight: 0 }}
-                    variant="contained"
-                    size="small"
-                  >
-                    <Link href={"/GetAccess"} style={{ textTransform: "none", textDecoration: "none", color: "inherit" }}>
-                      {" "}
-                      Get access
-                    </Link>
-                  </Button>
-                </Box>
+                  <Link href={"/GetAccess"} style={{ textTransform: "none", textDecoration: "none", color: "inherit" }}>
+                    {" "}
+                    Get access
+                  </Link>
+                </Button>
               </Box>
             </Box>
           </Box>

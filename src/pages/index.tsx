@@ -51,12 +51,12 @@ const Home: NextPage = () => {
   }, [videoStickinessMode]);
 
   const logos = [
-    { src: "/images/homePage/logos/NASA.png", w: "112.52px", h: "32px" },
-    { src: "/images/homePage/logos/apple.png", w: "32.56px", h: "40px" },
-    { src: "/images/homePage/logos/stanford.png", w: "106.08px", h: "33px" },
-    { src: "/images/homePage/logos/cambridge.png", w: "137.38px", h: "33px" },
+    { src: "/images/homePage/logos/NASA.svg", w: "140px", h: "40px" },
+    { src: "/images/homePage/logos/apple.svg", w: "140px", h: "40px" },
+    { src: "/images/homePage/logos/stanford.svg", w: "140px", h: "40px" },
+    { src: "/images/homePage/logos/cambridge.svg", w: "140px", h: "40px" },
     { src: "/images/homePage/logos/nhs.svg", w: "140px", h: "40px" },
-    { src: "/images/homePage/logos/honkong.png", w: "126.36px", h: "36px" },
+    { src: "/images/homePage/logos/honkong.svg", w: "140px", h: "40px" },
   ];
 
   // gradient text handler
@@ -219,17 +219,13 @@ const Home: NextPage = () => {
           )}
         </Box>
         <Box
-          pt={30}
-          pb={30}
-          ml={-6}
-          pl={6}
-          mr={-6}
-          pr={6}
+          pt={5}
+          mt={5}
           style={{
             backgroundImage: `url('/images/bg/medicalSpecialities.png')`,
-            backgroundSize: "auto",
+            backgroundSize: "843px 680px",
             backgroundRepeat: "no-repeat",
-            backgroundPosition: "center",
+            backgroundPosition: "bottom ",
           }}
         >
           {isMobileView ? (
@@ -254,7 +250,7 @@ const Home: NextPage = () => {
               </Box>
               <Box width={"70%"} mt={isMobileView ? 2 : 6} style={{ opacity: 0.8 }}>
                 <Typography textAlign={"center"} fontFamily={"SuisseIntl"} color={"#5E5E5E"} lineHeight={"150%"} fontWeight={200} fontSize={"18px"}>
-                  We are proud to satisfy the needs of world{"'"}s leading practitioners across the spectrum of care.{" "}
+                  We are proud to satisfy the needs of world{"'"}s leading practitioners across the <br /> spectrum of care.{" "}
                 </Typography>
               </Box>
             </Box>

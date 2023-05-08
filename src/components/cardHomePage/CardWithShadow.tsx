@@ -123,22 +123,12 @@ const CardWithShadow = () => {
                   data-aos-once="true"
                   data-aos-anchor-placement="center"
                 >
-                  <Box
-                    className={styles.card}
-                    bgcolor={"#FFFFFF"}
-                    borderRadius={"30px"}
-                    p={3}
-                    pr={3}
-                    border={"1px solid #F5F5F7"}
-                    boxShadow={"0px 8px 32px rgba(27, 37, 74, 0.08)"}
-                    // height={"204px"}
-                    // width={"310px"}
-                  >
+                  <Box className={styles.card} bgcolor={"#FFFFFF"} borderRadius={"28px"} p={"28px"} border={"1px solid #F5F5F7"} boxShadow={"0px 8px 32px rgba(27, 37, 74, 0.08)"}>
                     <Image src={element.src} width="32px" height={"32px"} alt={element.title} />
                     <Box mt={3}>
                       <Typography style={{ fontWeight: 300, fontFamily: "FinancierDisplay", fontSize: "28px", color: "rgba(10, 9, 14, 1)" }}>{element.title}</Typography>
                     </Box>
-                    <Box mt={1} width={"70%"}>
+                    <Box mt={1} width={"90%"}>
                       <Typography variant="body6" style={{ fontStyle: "SuisseIntl", lineHeight: "24px", fontWeight: 300, fontSize: "16px", color: "#5E5E5E" }}>
                         {element.description}
                       </Typography>

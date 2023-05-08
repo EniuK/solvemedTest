@@ -115,7 +115,14 @@ const Contact: NextPage<any> = () => {
                       InputProps={{ classes: { input: styles.input } }}
                     />
                   </Grid>
-                  <Button color="primary" variant="contained" size="large" disabled={isSubmitting} style={{ margin: "20px 0", height: "54px", width: "194px" }}>
+                  <Button
+                    color="secondary"
+                    style={{ textTransform: "none", margin: "20px 0", height: "54px", width: "194px" }}
+                    sx={{ backgroundColor: "black" }}
+                    variant="contained"
+                    size="large"
+                    disabled={isSubmitting}
+                  >
                     {Object.keys(errors).length === 0 ? (
                       <a href={`mailto:contact@solvemed.ai?subject=${values.name}&body=From:${values.email} ${values.message}`} className={styles.sendBtnText}>
                         Send Message

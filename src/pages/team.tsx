@@ -144,14 +144,15 @@ const Team: NextPage = () => {
       onClick={() => member?.bio && setMemberDetails(member)}
       style={{ cursor: member?.bio ? "pointer" : "default" }}
       bgcolor="#fff"
-      borderRadius="12px"
+      borderRadius="28px"
       boxShadow={" 0px 8px 32px rgba(27, 37, 74, 0.08)"}
       height={499.27}
       maxWidth={362.3}
-      marginX="auto"
+      marginY={1}
+      marginX={1}
       display="flex"
       flexDirection="column"
-      p="60px 30px 30px 66px"
+      p="40px"
     >
       <Box style={{ width: 140, height: 140, borderRadius: 70, backgroundColor: "#F0F6FA", position: "relative" }}>
         <Image style={{ borderRadius: 70 }} src={member.photo} layout="fill" alt={member.name} />
@@ -239,8 +240,7 @@ const Team: NextPage = () => {
               variants={{ initial: { opacity: 0, y: 50 }, animate: { opacity: 1, y: 0 } }}
               transition={{ duration: 0.7, ease: "easeOut" }}
             >
-              Investors included European and US venture capital firms such as Atmos, <br /> APEX, Tensor, Preface and Techni, alongside Sunfish Partners, which had also <br />{" "}
-              contributed at the pre-seed stage in 2020.
+              Working together to overcome neurological diseases.
             </Typography>
           </Box>
           <Grid container rowSpacing={1.25} columnSpacing={1.25} mb="214px" maxWidth="1110px" margin="0 auto">

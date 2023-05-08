@@ -1,4 +1,4 @@
-import { Box, CardMedia, TextField, Typography, useMediaQuery, video } from "@mui/material";
+import { Box, Button, CardMedia, TextField, Typography, useMediaQuery, video } from "@mui/material";
 import { Form, Formik } from "formik";
 import { NextPage } from "next";
 import Head from "next/head";
@@ -8,8 +8,9 @@ import Image from "next/image";
 import { theme } from "../config/theme";
 const initialValues = {
   name: "",
+  surrname: "",
+  specialization: "",
   email: "",
-  message: "",
 };
 const GetAccess: NextPage<any> = () => {
   const isMobileView = useMediaQuery(theme.breakpoints.down("md"));
@@ -106,13 +107,13 @@ const GetAccess: NextPage<any> = () => {
                             <TextField
                               variant="standard"
                               style={{ width: "100%" }}
-                              name="Surname"
-                              label="Surname"
+                              name="surrname"
+                              label="Surrname"
                               disabled={isSubmitting}
-                              value={values.name}
+                              value={values.surrname}
                               onChange={handleChange}
-                              error={touched.name && Boolean(errors.name)}
-                              helperText={touched.name && Boolean(errors.name) && <Typography variant="h6">Please fill in your name</Typography>}
+                              error={touched.surrname && Boolean(errors.surrname)}
+                              helperText={touched.surrname && Boolean(errors.surrname) && <Typography variant="h6">Please fill in your surname</Typography>}
                               InputLabelProps={{
                                 sx: {
                                   color: "text.primary",
@@ -130,12 +131,12 @@ const GetAccess: NextPage<any> = () => {
                             variant="standard"
                             name="Specialization"
                             style={{ width: "90%" }}
-                            label="Specialization"
+                            label="specialization"
                             disabled={isSubmitting}
-                            value={values.name}
+                            value={values.specialization}
                             onChange={handleChange}
-                            error={touched.name && Boolean(errors.name)}
-                            helperText={touched.name && Boolean(errors.name) && <Typography variant="h6">Please fill in your name</Typography>}
+                            error={touched.specialization && Boolean(errors.specialization)}
+                            helperText={touched.specialization && Boolean(errors.specialization) && <Typography variant="h6">Please fill in your name</Typography>}
                             InputLabelProps={{
                               sx: {
                                 color: "text.primary",
@@ -207,7 +208,7 @@ const GetAccess: NextPage<any> = () => {
                 return (
                   <Form>
                     <Box display={"flex"} justifyContent={"center"} ml={-3} pl={3} pr={20} alignItems={"center"} flexDirection={"row"} width={"100vw"}>
-                      <Box width={"50%"} onClick={(e) => e.preventDefault()}>
+                      <Box width={"100%"} onClick={(e) => e.preventDefault()}>
                         <CardMedia component="video" loop autoPlay src="/images/GetAccess/animation.mov" controls controlsList="nodownload" style={{ pointerEvents: "none" }} />
                       </Box>
 
@@ -241,7 +242,7 @@ const GetAccess: NextPage<any> = () => {
                               name="Surname"
                               label="Surname"
                               disabled={isSubmitting}
-                              value={values.name}
+                              value={values.surname}
                               onChange={handleChange}
                               error={touched.name && Boolean(errors.name)}
                               helperText={touched.name && Boolean(errors.name) && <Typography variant="h6">Please fill in your name</Typography>}
@@ -264,7 +265,7 @@ const GetAccess: NextPage<any> = () => {
                             style={{ width: "100%" }}
                             label="Specialization"
                             disabled={isSubmitting}
-                            value={values.name}
+                            value={values.Specialization}
                             onChange={handleChange}
                             error={touched.name && Boolean(errors.name)}
                             helperText={touched.name && Boolean(errors.name) && <Typography variant="h6">Please fill in your name</Typography>}
@@ -281,11 +282,11 @@ const GetAccess: NextPage<any> = () => {
                         <Box width={"100%"} mt={8}>
                           <TextField
                             variant="standard"
-                            name="Specialization"
+                            name="email"
                             style={{ width: "100%" }}
                             label="Enter your email"
                             disabled={isSubmitting}
-                            value={values.name}
+                            value={values.email}
                             onChange={handleChange}
                             error={touched.name && Boolean(errors.name)}
                             helperText={touched.name && Boolean(errors.name) && <Typography variant="h6">Please fill in your name</Typography>}
@@ -300,6 +301,13 @@ const GetAccess: NextPage<any> = () => {
                           />
                         </Box>
                       </Box>
+                    </Box>
+                    <Box width={"100%"} mt={-10} pr={15} display={"flex"} justifyContent={"flex-end"} alignItems={"flex-end"}>
+                      <Button color="secondary" style={{ textTransform: "none" }} sx={{ backgroundColor: "black" }} variant="contained" size="large">
+                        <Box pt={0.5} pb={0.5}>
+                          Send
+                        </Box>
+                      </Button>
                     </Box>
                   </Form>
                 );

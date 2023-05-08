@@ -157,11 +157,11 @@ const Header = () => {
           {open && (
             <>
               <Box height={"101vh"} width={"100vw"} mr={-3} pr={3} mt={-7} pt={7} zIndex={200}>
-                <Box width={"100vw"} mt={6} pl={4} zIndex={open ? 300 : 1} bgcolor={"rgba(255, 255, 255, 1)"} pb={6}>
+                <Box width={"100vw"} height={"60%"} mt={6} pl={4} zIndex={open ? 300 : 1} bgcolor={"rgba(255, 255, 255, 1)"} pb={6}>
                   <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }}>
                     {menuItems.map((item) => {
                       return (
-                        <Box key={item.title} mt={3} style={{ fontFamily: "SuisseIntl", fontWeight: 100 }}>
+                        <Box key={item.title} mt={4} style={{ fontFamily: "SuisseIntl", fontWeight: 100 }}>
                           <Link href={item.link} prefetch={false}>
                             <MenuItem onClick={handleMenuOpen} dense>
                               <a>{item.title}</a>
@@ -171,7 +171,7 @@ const Header = () => {
                       );
                     })}
                     <Divider sx={{ width: "100vw", ml: -6, mt: 5, mb: 5 }} />
-                    <Box alignItems={"center"} justifyContent={"flex-start"} width={"100%"} display={"flex"} mb={3}>
+                    <Box mt={-1} alignItems={"center"} justifyContent={"flex-start"} width={"100%"} display={"flex"} mb={3}>
                       <Box height={"40px"} display={"flex"} justifyContent={"center"} alignItems={"center"} flexDirection={"row"}>
                         <Link href="https://www.linkedin.com/company/solvemed-group/" target="_blank" rel="noopener">
                           <Image src="/images/icons/linkedin.png" alt="linkedin" width="40px" height="40px" />

@@ -37,7 +37,7 @@ const NewsLetter = ({ status, message, onValidated }: any) => {
 
   return (
     <Box
-      height={isSmallViewport ? "35vh" : "50vh"}
+      height={isSmallViewport ? "35vh" : "100%"}
       width={isSmallViewport ? "90vw" : "330px"}
       style={isSmallViewport ? { marginTop: 20, marginLeft: -30 } : { paddingBottom: 70 }}
       display={"flex"}
@@ -46,18 +46,10 @@ const NewsLetter = ({ status, message, onValidated }: any) => {
       pl={4}
       alignItems={"center"}
     >
-      <Box width={"100%"} pt={3} display={"flex"} flexGrow={1}>
+      <Box width={"100%"} pt={3} display={"flex"} textAlign={"left"} flexGrow={1}>
         <Typography fontFamily={"FinancierDisplay"}>Join Our Newsletter</Typography>
       </Box>
-      <Box
-        ml={isSmallViewport ? 0 : -4}
-        height={isSmallViewport ? "auto" : "45%"}
-        display={"flex"}
-        width={"100%"}
-        justifyContent={"flex-start"}
-        alignItems={"flex-start"}
-        flexDirection={"row"}
-      >
+      <Box mt={4} height={isSmallViewport ? "auto" : "45%"} display={"flex"} width={"100%"} justifyContent={"flex-start"} alignItems={"flex-start"} flexDirection={"row"}>
         {status === "success" ? (
           <Box width={"100%"} ml={-4.5} color={"black"} display={"flex"} justifyContent={"center"} alignItems={"center"}>
             {message}
@@ -82,7 +74,7 @@ const NewsLetter = ({ status, message, onValidated }: any) => {
                 }}
               />
             </form>
-            <Box width={"80%"} display={"flex"} alignItems={"flex-end"} justifyContent={"flex-end"}>
+            <Box ml={14} display={"flex"} alignItems={"center"} justifyContent={"center"}>
               <Button
                 color="secondary"
                 style={{ textTransform: "none" }}

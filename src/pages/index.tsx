@@ -127,15 +127,20 @@ const Home: NextPage = () => {
         {isMobileView ? (
           <>
             <Box width={"100vw"} display={"flex"} justifyContent={"center"} alignContent={"center"} pr={5} pb={600} ref={sectionMobileRef} position={"relative"}>
-              <Box className={`${styles.video} ${videoStickinessMode === 2 ? styles.videoFloating : videoStickinessMode === 3 ? styles.videoSticky : ""}`} ref={elementRef}>
+              <Box
+                zIndex={1}
+                className={`${styles.video} ${videoStickinessMode === 2 ? styles.videoFloating : videoStickinessMode === 3 ? styles.videoSticky : ""}`}
+                ref={elementRef}
+              >
                 <video controls={false} autoPlay loop width="100%">
                   <source src={"/images/homePage/animation.mov"} type="video/mp4" />
                 </video>
               </Box>
-              <Box position={"absolute"}>
-                <Image src={"/images/bg/homegradient1.png"} width={"767.36px"} height={"756.02px"} alt={"gradient"} />
+              <Box position={"absolute"} zIndex={2} width="100%" height="100%" top={0} left={0}>
+                <Image src={"/images/bg/homegradient1.png"} width={"767.36px"} height={"756.02px"} alt={"gradient"} style={{ objectFit: "cover" }} />
               </Box>
             </Box>
+
             <Box display={"flex"} flexDirection={"column"} width={"100%"} mb={10}>
               <Typography fontSize={"32px"} fontWeight={300} color={"black"} fontFamily={"FinancierDisplay"} mb={2} textAlign={"center"}>
                 mPenlight
@@ -153,13 +158,13 @@ const Home: NextPage = () => {
           </>
         ) : (
           <div style={{ position: "relative" }} ref={sectionDesktopRef}>
-            <Box display={"flex"} justifyContent={"center"} alignContent={"center"} pr={5} pb={100} ref={elementRef}>
-              <Box className={`${styles.video} ${videoStickinessMode === 2 ? styles.videoFloating : videoStickinessMode === 3 ? styles.videoSticky : ""}`}>
-                <video controls={false} autoPlay loop width="100%">
+            <Box display={"flex"} pt={1} justifyContent={"center"} alignContent={"center"} pr={5} pb={100} ref={elementRef}>
+              <Box zIndex={2} mt={-6} className={`${styles.video} ${videoStickinessMode === 2 ? styles.videoFloating : videoStickinessMode === 3 ? styles.videoSticky : ""}`}>
+                <video controls={false} autoPlay loop width="100%" height={"100%"}>
                   <source src={"/images/homePage/animation.mov"} type="video/mp4" />
                 </video>
               </Box>
-              <Box position={"absolute"}>
+              <Box zIndex={1} position={"absolute"}>
                 <Image src={"/images/bg/homegradient1.png"} width={"767.36px"} height={"756.02px"} alt={"gradient"} />
               </Box>
             </Box>
@@ -201,7 +206,11 @@ const Home: NextPage = () => {
               variants={{ initial: { opacity: 0, y: 100 }, animate: { opacity: 1, y: 0 } }}
               transition={{ duration: 0.7, ease: "easeOut" }}
             >
-              Designed for <span className={styles.gradient_text}>{text1}</span> looking to end the era of subjective neuro-ophthalmic examination.{" "}
+              Designed for{" "}
+              <motion.span className={styles.gradient_text} key={text1} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.5 }}>
+                {text1}
+              </motion.span>{" "}
+              looking to end the era of subjective neuro-ophthalmic examination.{" "}
             </Typography>
           ) : (
             <Typography
@@ -214,7 +223,11 @@ const Home: NextPage = () => {
               variants={{ initial: { opacity: 0, y: 100 }, animate: { opacity: 1, y: 0 } }}
               transition={{ duration: 0.7, ease: "easeOut" }}
             >
-              Designed for <span className={styles.gradient_text}>{text1}</span> looking to end the era of subjective neuro-ophthalmic examination.
+              Designed for{" "}
+              <motion.span className={styles.gradient_text} key={text1} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.5 }}>
+                {text1}
+              </motion.span>{" "}
+              looking to end the era of subjective neuro-ophthalmic examination.
             </Typography>
           )}
         </Box>

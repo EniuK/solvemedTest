@@ -12,6 +12,8 @@ const menuItems = [
 
 const Footer = ({ home }: any) => {
   const isSmallViewport = useMediaQuery(theme.breakpoints.down("md"));
+  const isLargeviewport = useMediaQuery(theme.breakpoints.up("xl"));
+  console.log(home);
   return (
     <>
       <Divider sx={{ width: "100%", mt: 20 }} />
@@ -79,12 +81,14 @@ const Footer = ({ home }: any) => {
                   </Link>
                 </Box>
               </Box>
-              <Box mt={5} display={"flex"} width={"100vw"} justifyContent={"center"} alignItems={"center"}>
+              <Box mt={5} display={"flex"} width={"100vw"} justifyContent={"center"} style={home ? { position: "fixed", bottom: 5, zIndex: 10 } : {}} alignItems={"center"}>
                 <Box
                   borderRadius={"100px"}
                   height={"40px"}
-                  boxShadow={" 0px 8px 32px rgba(27, 37, 74, 0.08)"}
+                  boxShadow={"0px 8px 32px rgba(27, 37, 74, 0.08)"}
+                  border={"1px solid #F5F5F7"}
                   display={"flex"}
+                  bgcolor={"#FFFFFF"}
                   width={"290px"}
                   flexDirection={"row"}
                   justifyContent={"space-between"}
@@ -196,32 +200,43 @@ const Footer = ({ home }: any) => {
               </Box>
             </Box>
           </Box>
-          <Box display={"flex"} width={"100%"} mb={5} justifyContent={"flex-end"} alignItems={"flex-end"}>
+          <Box
+            display={"flex"}
+            width={isLargeviewport ? "100vw" : "100%"}
+            ml={isLargeviewport ? -35 : -6}
+            pl={isLargeviewport ? 0 : 6}
+            style={home ? { position: "fixed", bottom: 5, justifyContent: "center", alignItems: "center", zIndex: 10 } : {}}
+            mb={5}
+            justifyContent={"flex-end"}
+            alignItems={"flex-end"}
+          >
             <Box
               borderRadius={"100px"}
               height={"40px"}
-              boxShadow={" 0px 8px 32px rgba(27, 37, 74, 0.08)"}
+              boxShadow={"0px 8px 32px rgba(27, 37, 74, 0.08)"}
+              border={"1px solid #F5F5F7"}
               display={"flex"}
-              width={"300px"}
+              bgcolor={"#FFFFFF"}
               flexDirection={"row"}
               justifyContent={"space-between"}
               alignItems={"center"}
               mb={3}
-              pr={3}
             >
               <Box
                 justifyContent={"center"}
                 alignItems={"center"}
                 fontSize={"19px"}
+                display={"flex"}
                 letterSpacing={"0.04em"}
                 lineHeight={"134%"}
                 fontStyle={"italic"}
                 fontFamily={"FinancierDisplay"}
                 fontWeight={600}
+                ml={2}
               >
                 Become early adopter!
               </Box>
-              <Box justifyContent={"center"} alignItems={"center"}>
+              <Box justifyContent={"center"} ml={2} alignItems={"center"}>
                 <Button
                   color="secondary"
                   style={{ textTransform: "none", color: "white" }}

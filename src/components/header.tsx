@@ -235,7 +235,7 @@ const Header = () => {
               <Box key={item.title} mt={1.5}>
                 <Link href={item.link} passHref prefetch={false}>
                   <MenuItem onClick={handleMenuClose} classes={{ root: styles.disableHover }} dense disableRipple>
-                    <a className={`${styles.menuListItemLink} ${isCurrentPath ? styles.menuListItemLinkActive : ""}`}>{item.title}</a>
+                    <a className={`${styles.menuListItemLink} ${isCurrentPath ? styles.menuListItemLinkActive : ""}`}>{item.title.toUpperCase()}</a>
                   </MenuItem>
                 </Link>
               </Box>

@@ -112,30 +112,39 @@ const CardWithShadow = () => {
         <Box width={"100%"} display={"flex"} justifyContent={"center"} alignItems={"center"} flexDirection={"column"}>
           {cardData.map((element, idx: number) => {
             return (
-              <Box width={"90%"} key={idx} display={"flex"} justifyContent={idx % 2 === 0 ? "flex-end" : "flex-start"} alignItems={"center"}>
-                <div
-                  data-aos={idx % 2 === 0 ? "fade-left" : "fade-right"}
-                  data-aos-offset="200"
-                  data-aos-delay="0"
-                  data-aos-duration="500"
-                  data-aos-easing="ease-out"
-                  data-aos-mirror="true"
-                  data-aos-once="true"
-                  data-aos-anchor-placement="center"
-                >
-                  <Box className={styles.card} bgcolor={"#FFFFFF"} borderRadius={"28px"} p={"28px"} border={"1px solid #F5F5F7"} boxShadow={"0px 8px 32px rgba(27, 37, 74, 0.08)"}>
-                    <Image src={element.src} width="32px" height={"32px"} alt={element.title} />
-                    <Box mt={3}>
-                      <Typography style={{ fontWeight: 300, fontFamily: "FinancierDisplay", fontSize: "28px", color: "rgba(10, 9, 14, 1)" }}>{element.title}</Typography>
+              <div id={`trigger${idx}`} key={idx} style={{ width: "100%" }}>
+                <Box width={"90%"} display={"flex"} justifyContent={idx % 2 === 0 ? "flex-end" : "flex-start"} alignItems={"center"}>
+                  <div
+                    data-aos={idx % 2 === 0 ? "fade-left" : "fade-right"}
+                    data-aos-offset="200"
+                    data-aos-delay="0"
+                    data-aos-duration="500"
+                    data-aos-easing="ease-out"
+                    data-aos-once="true"
+                    data-aos-anchor={`#trigger${idx}`}
+                    data-aos-anchor-placement="top-bottom"
+                  >
+                    <Box
+                      className={styles.card}
+                      bgcolor={"#FFFFFF"}
+                      borderRadius={"28px"}
+                      p={"28px"}
+                      border={"1px solid #F5F5F7"}
+                      boxShadow={"0px 8px 32px rgba(27, 37, 74, 0.08)"}
+                    >
+                      <Image src={element.src} width="32px" height={"32px"} alt={element.title} />
+                      <Box mt={3}>
+                        <Typography style={{ fontWeight: 300, fontFamily: "FinancierDisplay", fontSize: "28px", color: "rgba(10, 9, 14, 1)" }}>{element.title}</Typography>
+                      </Box>
+                      <Box mt={1} width={"90%"}>
+                        <Typography variant="body6" style={{ fontStyle: "SuisseIntl", lineHeight: "24px", fontWeight: 300, fontSize: "16px", color: "#5E5E5E" }}>
+                          {element.description}
+                        </Typography>
+                      </Box>
                     </Box>
-                    <Box mt={1} width={"90%"}>
-                      <Typography variant="body6" style={{ fontStyle: "SuisseIntl", lineHeight: "24px", fontWeight: 300, fontSize: "16px", color: "#5E5E5E" }}>
-                        {element.description}
-                      </Typography>
-                    </Box>
-                  </Box>
-                </div>
-              </Box>
+                  </div>
+                </Box>
+              </div>
             );
           })}
         </Box>

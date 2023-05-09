@@ -29,11 +29,11 @@ const MailchimpForms = ({ status, message, onValidated }: any) => {
   const [errorMessage, setErrorMessage] = useState(false);
 
   const handleSubmit = async () => {
-    userData.email &&
-      userData.email.indexOf("@") > -1 &&
-      (await onValidated({
-        MERGE0: userData.email,
-      }));
+    // userData.email &&
+    //   // userData.email.indexOf("@") > -1 &&
+    //   // (await onValidated({
+    //   //   MERGE0: userData.email,
+    //   // }));
 
     if (userData.email.indexOf("@") === -1) {
       setErrorMessage(true);
@@ -136,7 +136,7 @@ const MailchimpForms = ({ status, message, onValidated }: any) => {
         </form>
       ) : (
         <form className="mc__form" onSubmit={() => handleSubmit()}>
-          <Box display={"flex"} justifyContent={"center"} ml={-3} pl={3} pr={20} alignItems={"center"} flexDirection={"row"} width={"100vw"}>
+          <Box display={"flex"} justifyContent={"center"} ml={-3} pr={10} alignItems={"center"} flexDirection={"row"} width={"100vw"}>
             <Box width={"100%"} onClick={(e) => e.preventDefault()}>
               <CardMedia component="video" loop autoPlay src="/images/GetAccess/animation.mov" controls controlsList="nodownload" style={{ pointerEvents: "none" }} />
             </Box>
@@ -161,7 +161,7 @@ const MailchimpForms = ({ status, message, onValidated }: any) => {
                     }}
                   />
                 </Box>
-                <Box style={{ width: "49%" }}>
+                <Box style={{ width: "50%" }}>
                   <TextField
                     variant="standard"
                     style={{ width: "100%" }}
@@ -219,7 +219,7 @@ const MailchimpForms = ({ status, message, onValidated }: any) => {
               </Box>
             </Box>
           </Box>
-          <Box width={"100%"} mt={-10} pr={15} display={"flex"} justifyContent={"flex-end"} alignItems={"flex-end"}>
+          <Box width={"100%"} mt={-20} pr={5} display={"flex"} justifyContent={"flex-end"} alignItems={"flex-end"}>
             <Button color="secondary" style={{ textTransform: "none" }} disabled={closed ? 1 : 0} sx={{ backgroundColor: "black" }} variant="contained" size="large">
               <Box pt={0.5} pb={0.5}>
                 Send

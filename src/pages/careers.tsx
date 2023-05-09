@@ -25,7 +25,7 @@ const careers = [
     ],
   },
   {
-    category: "NEURASCIENCE",
+    category: "NEUROSCIENCE",
     positions: [
       {
         title: "Head of Research",

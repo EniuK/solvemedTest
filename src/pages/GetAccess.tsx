@@ -257,7 +257,7 @@ const GetAccess: NextPage<any> = () => {
                             <TextField
                               variant="standard"
                               style={{ width: "100%" }}
-                              name="surname"
+                              name="surrname"
                               label="Surname"
                               disabled={isSubmitting}
                               value={userData.surrname}
@@ -279,7 +279,7 @@ const GetAccess: NextPage<any> = () => {
                         <Box width={"100%"} mt={8}>
                           <TextField
                             variant="standard"
-                            name="Specialization"
+                            name="specialization"
                             style={{ width: "100%" }}
                             label="Specialization"
                             disabled={isSubmitting}
@@ -321,14 +321,7 @@ const GetAccess: NextPage<any> = () => {
                       </Box>
                     </Box>
                     <Box width={"100%"} mt={-10} pr={15} display={"flex"} justifyContent={"flex-end"} alignItems={"flex-end"}>
-                      <Button
-                        color="secondary"
-                        style={{ textTransform: "none" }}
-                        disabled={closed ? "true" : "false"}
-                        sx={{ backgroundColor: "black" }}
-                        variant="contained"
-                        size="large"
-                      >
+                      <Button color="secondary" style={{ textTransform: "none" }} disabled={closed ? 1 : 0} sx={{ backgroundColor: "black" }} variant="contained" size="large">
                         <Box pt={0.5} pb={0.5}>
                           Send
                         </Box>

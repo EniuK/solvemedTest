@@ -8,10 +8,10 @@ import Image from "next/image";
 import { useScrollBlock } from "./disableScroll";
 
 const menuItems = [
-  { title: "TEAM", link: "/team" },
-  { title: "BLOG", link: "/blog" },
-  { title: "CAREERS", link: "/careers" },
-  { title: "CONTACT", link: "/contact" },
+  { title: "Team", link: "/team" },
+  { title: "Blog", link: "/blog" },
+  { title: "Careers", link: "/careers" },
+  { title: "Contact", link: "/contact" },
 ];
 
 const Header = () => {
@@ -40,6 +40,28 @@ const Header = () => {
     }
   }, [open, isMobileView]);
 
+  // Scroll up -> pojawianie sie menu w mobilce na gorze ekranu
+  // const [scrollDirection, setScrollDirection] = useState("none");
+  // const [prevScrollY, setPrevScrollY] = useState(0);
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     const currentScrollY = window.scrollY;
+  //     if (currentScrollY < prevScrollY) {
+  //       setScrollDirection("up");
+  //     } else if (currentScrollY > prevScrollY) {
+  //       setScrollDirection("down");
+  //     } else {
+  //       setScrollDirection("none");
+  //     }
+  //     setPrevScrollY(currentScrollY);
+  //   };
+
+  //   window.addEventListener("scroll", handleScroll);
+
+  //   return () => {
+  //     window.removeEventListener("scroll", handleScroll);
+  //   };
+  // }, [prevScrollY]);
   const handleMenuClose = () => setOpen(!open);
 
   const { scrollY } = useScroll();
@@ -129,21 +151,6 @@ const Header = () => {
         </Link>
       </Box>
 
-      {/* {router.pathname === "/" && (
-        <LinkMUI
-          href="https://www.linkedin.com/posts/solvemed-group_recently-solvemed-group-had-the-pleasure-activity-6955474167458598912-ws8-/"
-          target="_blank"
-          rel="noopener"
-          className={styles.externalLinkContainer}
-        >
-          <div className={styles.externalLinkContent}>
-            <Typography variant="body2">Clinical Key Opinion Leaders Banquet in Oxford.</Typography>
-          </div>
-          <div className={styles.externalLinkIcon}>
-            <Image src="/icons/arrow-top-right.svg" alt="Arrow top right" width="13" height="12" />
-          </div>
-        </LinkMUI>
-      )} */}
       {isMobileView ? (
         <Box
           width={"100vw"}
@@ -152,6 +159,7 @@ const Header = () => {
           flexDirection={"column"}
           justifyContent={"flex-end"}
           alignItems={"flex-end"}
+          // style={scrollDirection === "up" ? { position: "fixed" } : {}}
           // TODO: {...(open ? { position: "fixed", top: 0, backdropFilter: "blur(4px)" } : {})}
           sx={{
             "&::-webkit-scrollbar": {
@@ -183,7 +191,7 @@ const Header = () => {
           {open && (
             <>
               <Box height={"101vh"} width={"100vw"} mr={-10} pr={3} mt={-7} pt={7} zIndex={200}>
-                <Box width={"100vw"} height={"60%"} mt={6} zIndex={open ? 300 : 1} ml={-6} pl={6} bgcolor={"white"} pb={6}>
+                <Box width={"100vw"} height={"55%"} mt={6} zIndex={open ? 300 : 1} ml={-6} pl={6} bgcolor={"white"} pb={6}>
                   <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }}>
                     {menuItems.map((item) => {
                       return (
@@ -213,7 +221,7 @@ const Header = () => {
                     </Box>
                   </motion.div>
                 </Box>
-                <Box height={"42%"} width={"100vw"} ml={-4} style={{ opacity: 0.6, backdropFilter: " blur(4px)", backgroundColor: "rgba(0, 0, 0, 0.3)" }}></Box>
+                <Box height={"45%"} width={"100vw"} ml={-7} style={{ opacity: 0.6, backdropFilter: " blur(4px)", backgroundColor: "rgba(0, 0, 0, 0.3)" }}></Box>
               </Box>
             </>
           )}

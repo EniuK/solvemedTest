@@ -128,15 +128,15 @@ const Home: NextPage = () => {
           <>
             <Box width={"100vw"} display={"flex"} justifyContent={"center"} alignContent={"center"} pr={5} pb={600} ref={sectionMobileRef} position={"relative"}>
               <Box
-                zIndex={1}
+                zIndex={2}
                 className={`${styles.video} ${videoStickinessMode === 2 ? styles.videoFloating : videoStickinessMode === 3 ? styles.videoSticky : ""}`}
                 ref={elementRef}
               >
                 <video controls={false} autoPlay loop width="100%">
-                  <source src={"/images/homePage/animation.mov"} type="video/mp4" />
+                  <source src={"https://strapi-s3-solvemed-public-images.s3.amazonaws.com/iPhone+animation+looped.mov"} type="video/mp4" />
                 </video>
               </Box>
-              <Box position={"absolute"} zIndex={2} width="100%" height="100%" top={0} left={0}>
+              <Box position={"absolute"} zIndex={1} width="100%" height="100%" top={0} left={0}>
                 <Image src={"/images/bg/homegradient1.png"} width={"767.36px"} height={"756.02px"} alt={"gradient"} style={{ objectFit: "cover" }} />
               </Box>
             </Box>
@@ -161,7 +161,7 @@ const Home: NextPage = () => {
             <Box display={"flex"} pt={1} justifyContent={"center"} alignContent={"center"} pr={5} pb={100} ref={elementRef}>
               <Box zIndex={2} mt={-6} className={`${styles.video} ${videoStickinessMode === 2 ? styles.videoFloating : videoStickinessMode === 3 ? styles.videoSticky : ""}`}>
                 <video controls={false} autoPlay loop width="100%" height={"100%"}>
-                  <source src={"/images/homePage/animation.mov"} type="video/mp4" />
+                  <source src={"https://strapi-s3-solvemed-public-images.s3.amazonaws.com/iPhone+animation+looped.mov"} type="video/mp4" />
                 </video>
               </Box>
               <Box zIndex={1} position={"absolute"}>
@@ -352,8 +352,8 @@ const Home: NextPage = () => {
           {isMobileView ? (
             <Box mt={60} width={"100%"} display="flex" justifyContent={"center"} alignItems={"center"} flexDirection={"column"} flexShrink={1}>
               <Box>
-                <Typography variant="h4" fontSize={"64px"} fontFamily="FinancierDisplay" textAlign={"center"}>
-                  Testing pupil is now simple, objective and{" "}
+                <Typography lineHeight={"120%"} fontSize={"32px"} fontFamily="FinancierDisplay" textAlign={"center"}>
+                  Testing pupil is now <br /> simple, objective and <br />{" "}
                   <span className={styles.gradient_text}>
                     {" "}
                     <b>AI-enabled.</b>

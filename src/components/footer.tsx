@@ -81,14 +81,14 @@ const Footer = ({ home }: any) => {
                   </Link>
                 </Box>
               </Box>
-              <Box mt={5} display={"flex"} width={"100vw"} justifyContent={"center"} style={home ? { position: "fixed", bottom: 5, zIndex: 10 } : {}} alignItems={"center"}>
+              <Box mt={5} display={"flex"} width={"100vw"} justifyContent={"center"} style={home ? { position: "fixed", bottom: 5, zIndex: 300 } : {}} alignItems={"center"}>
                 <Box
                   borderRadius={"100px"}
-                  height={"40px"}
                   boxShadow={"0px 8px 32px rgba(27, 37, 74, 0.08)"}
                   border={"1px solid #F5F5F7"}
                   display={"flex"}
                   bgcolor={"#FFFFFF"}
+                  p={"6px"}
                   width={"290px"}
                   flexDirection={"row"}
                   justifyContent={"space-between"}

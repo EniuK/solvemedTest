@@ -13,7 +13,7 @@ const menuItems = [
 const Footer = ({ home }: any) => {
   const isSmallViewport = useMediaQuery(theme.breakpoints.down("md"));
   const isLargeviewport = useMediaQuery(theme.breakpoints.up("xl"));
-  console.log(home);
+
   return (
     <>
       <Divider sx={{ width: "100%", mt: 20 }} />
@@ -203,10 +203,10 @@ const Footer = ({ home }: any) => {
           <Box
             display={"flex"}
             width={isLargeviewport ? "100vw" : "100%"}
-            ml={isLargeviewport ? -35 : -6}
+            ml={isLargeviewport ? -35 : -11}
             pl={isLargeviewport ? 0 : 6}
-            style={home ? { position: "fixed", bottom: 5, justifyContent: "center", alignItems: "center", zIndex: 10 } : {}}
-            mb={5}
+            style={home ? { position: "fixed", bottom: 0, justifyContent: "center", alignItems: "center", zIndex: 10 } : {}}
+            mb={home ? -2 : 5}
             justifyContent={"flex-end"}
             alignItems={"flex-end"}
           >

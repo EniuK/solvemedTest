@@ -132,11 +132,20 @@ const TeamCarousel = () => {
             {teamData.map((e, idx) => {
               return (
                 <SwiperSlide key={idx}>
-                  <Box ml={5} width={"786px"} height={"553px"} p={8} border={"1px solid #F5F5F7"} boxShadow={"0px 8px 32px rgba(27, 37, 74, 0.08)"} borderRadius={"14px"}>
+                  <Box ml={5} mb={4} width={"786px"} height={"553px"} p={8} border={"1px solid #F5F5F7"} boxShadow={"0px 8px 32px rgba(27, 37, 74, 0.08)"} borderRadius={"14px"}>
                     <Box width={"100%"} display={"flex"} mt={-3} justifyContent={"flex-end"} alignItems={"flex-end"}>
                       {e.titles.map((title) => {
                         return (
-                          <Box bgcolor={"rgba(103, 71, 242, 0.07)"} p={1.5} borderRadius={10} fontWeight={500} key={title} color={"rgba(103, 71, 242, 1)"}>
+                          <Box
+                            bgcolor={"rgba(103, 71, 242, 0.07)"}
+                            fontSize={"14px"}
+                            px={"16px"}
+                            py={"4px"}
+                            borderRadius={10}
+                            fontWeight={500}
+                            key={title}
+                            color={"rgba(103, 71, 242, 1)"}
+                          >
                             {title}
                           </Box>
                         );
@@ -145,10 +154,10 @@ const TeamCarousel = () => {
                     <Box>
                       <Image src={e.avatar} alt={e.name} width={"100px"} height={"100px"} />
                     </Box>
-                    <Box width={"100%"} mt={2} fontSize={"21px"}>
+                    <Box width={"100%"} fontFamily="FinancierDisplay" fontWeight={400} lineHeight={"130%"} letterSpacing={"-0.01em"} mt={2} fontSize={"21px"}>
                       {e.name}
                     </Box>
-                    <Box width={"60%"} height={"30%"} mt={2} fontWeight={300} color={"#5E5E5E"} fontSize={"14px"}>
+                    <Box width={"60%"} height={"30%"} lineHeight={"140%"} mt={2} fontWeight={300} color={"#5E5E5E"} fontSize={"14px"}>
                       {e.description}
                     </Box>
 

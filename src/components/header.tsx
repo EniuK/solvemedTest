@@ -20,8 +20,13 @@ const Header = () => {
 
   const isMobileView = useMediaQuery(theme.breakpoints.down("md"));
   const [open, setOpen] = useState(false);
+
   const handleMenuOpen = () => {
     setOpen(!open);
+  };
+
+  const close = () => {
+    setOpen(false);
   };
 
   useEffect(() => {
@@ -30,7 +35,11 @@ const Header = () => {
     } else {
       allowScroll();
     }
-  }, [open]);
+    if (!isMobileView) {
+      close();
+    }
+  }, [open, isMobileView]);
+
   const handleMenuClose = () => setOpen(!open);
 
   const { scrollY } = useScroll();
@@ -213,6 +222,7 @@ const Header = () => {
         <Box width={"100%"} mt={-1} display={"flex"} justifyContent={"flex-end"} alignItems={"center"}>
           {menuItems.map((item) => {
             const isCurrentPath = item.link === router.pathname;
+
             return (
               <Box key={item.title} mt={1.5}>
                 <Link href={item.link} passHref prefetch={false}>

@@ -10,7 +10,7 @@ import Image from "next/image";
 
 const careers = [
   {
-    category: "Operations",
+    category: "OPERATIONS",
     positions: [
       {
         title: "Head of Research ",
@@ -25,7 +25,7 @@ const careers = [
     ],
   },
   {
-    category: "Neuroscience",
+    category: "NEURASCIENCE",
     positions: [
       {
         title: "Head of Research",
@@ -174,7 +174,7 @@ const Careers: NextPage = () => {
             <Fragment key={sectionItem.category}>
               <Box ml={10}>
                 <Grid item xs={10} mt="100px" mb="42px">
-                  <Typography variant="body3" fontSize={"20px"}>
+                  <Typography fontFamily={"SuisseIntl"} letterSpacing={"-0.02em"} style={{ opacity: 0.6 }} fontSize={"20px"}>
                     {sectionItem.category}
                   </Typography>
                 </Grid>

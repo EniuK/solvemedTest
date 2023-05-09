@@ -37,7 +37,6 @@ const Layout = ({ children }: { children: ReactNode }) => {
     setNotify(false);
   };
 
-  console.log(isHomeRoute);
   const popUpTimer = () => {
     setTimeout(() => {
       setNotify(true);

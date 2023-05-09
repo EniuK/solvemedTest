@@ -223,11 +223,15 @@ const Home: NextPage = () => {
               variants={{ initial: { opacity: 0, y: 100 }, animate: { opacity: 1, y: 0 } }}
               transition={{ duration: 0.7, ease: "easeOut" }}
             >
-              Designed for{" "}
-              <motion.span className={styles.gradient_text} key={text1} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.5 }}>
-                {text1}
-              </motion.span>{" "}
-              looking to end the era of subjective neuro-ophthalmic examination.
+              <span style={{ whiteSpace: "nowrap" }}>
+                Designed for{" "}
+                <motion.span className={styles.gradient_text} key={text1} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.5 }}>
+                  {text1}
+                </motion.span>{" "}
+                looking to
+              </span>{" "}
+              <br />
+              end the era of subjective pupil <br /> reactivity examination.
             </Typography>
           )}
         </Box>
@@ -293,7 +297,7 @@ const Home: NextPage = () => {
             </Box>
             <Box width={"70%"} mt={isMobileView ? 2 : 6} style={{ opacity: 0.8 }}>
               <Typography textAlign={"center"} fontFamily={"SuisseIntl"} color={"#5E5E5E"} lineHeight={"150%"} fontWeight={200} fontSize={"18px"}>
-                We bring to the world the most advanced smartphone-enabled data collection and analytical tools in the field of neurology and ophthalmology.
+                We have worked closely with clinicians to develop game-changing tools that <br /> reshape practice and clinical research.
               </Typography>
             </Box>
           </Box>
@@ -348,7 +352,7 @@ const Home: NextPage = () => {
           {isMobileView ? (
             <Box mt={60} width={"100%"} display="flex" justifyContent={"center"} alignItems={"center"} flexDirection={"column"} flexShrink={1}>
               <Box>
-                <Typography variant="h4" fontSize={"64px"} textAlign={"center"}>
+                <Typography variant="h4" fontSize={"64px"} fontFamily="FinancierDisplay" textAlign={"center"}>
                   Testing pupil is now simple, objective and{" "}
                   <span className={styles.gradient_text}>
                     {" "}
@@ -357,7 +361,7 @@ const Home: NextPage = () => {
                 </Typography>
               </Box>
               <Box mt={4}>
-                <Typography variant="body4" fontSize={"18px"} color={"rgba(94, 94, 94, 1)"} textAlign={"center"}>
+                <Typography variant="body4" fontFamily={"SuisseIntl"} fontSize={"18px"} color={"rgba(94, 94, 94, 1)"} textAlign={"center"}>
                   We bring to the world the most advanced smartphone-enabled data collection and analytical tools in the field of neurology and ophthalmology.
                 </Typography>
               </Box>
@@ -376,12 +380,12 @@ const Home: NextPage = () => {
           ) : (
             <Box mt={60} pl={15} pr={15} width={"100%"} display="flex" justifyContent={"center"} alignItems={"center"} flexDirection={"column"} flexShrink={1}>
               <Box>
-                <Typography variant="h4" fontSize={"64px"} textAlign={"center"}>
-                  Testing pupil is now simple, objective and <span className={styles.gradient_text}>AI-enabled.</span>
+                <Typography fontFamily="FinancierDisplay" lineHeight={"110%"} fontSize={"64px"} textAlign={"center"}>
+                  Testing pupil is now <br /> simple, objective and <span className={styles.gradient_text}>AI-enabled.</span>
                 </Typography>
               </Box>
               <Box mt={4}>
-                <Typography variant="body4" fontSize={"18px"} color={"rgba(94, 94, 94, 1)"} textAlign={"center"}>
+                <Typography fontFamily={"SuisseIntl"} lineHeight={"150%"} fontSize={"18px"} color={"rgba(94, 94, 94, 1)"} textAlign={"center"}>
                   mPenlight is the pupil reactivity testing app of choice for world{"'"}s top practitioners.{" "}
                 </Typography>
               </Box>
@@ -395,7 +399,7 @@ const Home: NextPage = () => {
                     sx={{ backgroundColor: "black", fontSize: "14px", fontWeight: 100, marginRight: 0, height: "44px", paddingX: 5, paddingY: 1 }}
                   >
                     <Typography fontSize={"14px"} variant="body1" fontStyle={"SuisseIntl"} fontWeight={400}>
-                      Get access
+                      Get access!
                     </Typography>
                   </Button>
                 </Link>

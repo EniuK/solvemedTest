@@ -66,6 +66,9 @@ const NewsLetter = ({ status, message, onValidated }: any) => {
                 type="email"
                 InputLabelProps={{
                   sx: {
+                    fontFamily: "SuisseIntl",
+                    fontSize: "15px",
+                    lineHeight: "140%",
                     color: "text.primary",
                     "&.Mui-focused": {
                       color: "gray",

@@ -1,11 +1,11 @@
-import { Box, Button, CardMedia, TextField, Typography, useMediaQuery, video } from "@mui/material";
+import { Box, Button, CardMedia, TextField, Typography, useMediaQuery } from "@mui/material";
 import { Form, Formik } from "formik";
 import { NextPage } from "next";
 import Head from "next/head";
 import { contactSchema, emailFailStatus } from "../utils/helpers";
 import { motion } from "framer-motion";
-import Image from "next/image";
 import { theme } from "../config/theme";
+import { useEffect, useState } from "react";
 const initialValues = {
   name: "",
   surrname: "",
@@ -14,7 +14,25 @@ const initialValues = {
 };
 const GetAccess: NextPage<any> = () => {
   const isMobileView = useMediaQuery(theme.breakpoints.down("md"));
+  const [userData, setUserData] = useState(initialValues);
+  const [closed, setClosed] = useState(false);
 
+  useEffect(() => {
+    const checkValues = () => {
+      if (userData.name === "" || userData.surrname === "" || userData.specialization === "" || userData.email === "") {
+        setClosed(true);
+      }
+    };
+    checkValues();
+  }, [userData]);
+
+  const handleChange = (e: any) => {
+    const { name, value } = e.target;
+    setUserData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
   return (
     <>
       <div>
@@ -76,7 +94,7 @@ const GetAccess: NextPage<any> = () => {
               />
             </Box>
             <Formik initialValues={initialValues} validationSchema={contactSchema} onSubmit={() => console.log()}>
-              {({ errors, touched, isSubmitting, values, handleChange }: any) => {
+              {({ errors, touched, isSubmitting }: any) => {
                 return (
                   <Form>
                     <Box display={"flex"} justifyContent={"center"} ml={-3} pl={3} pr={20} alignItems={"center"} flexDirection={"row"} width={"100vw"}>
@@ -89,7 +107,7 @@ const GetAccess: NextPage<any> = () => {
                               name="name"
                               label="Name"
                               disabled={isSubmitting}
-                              value={values.name}
+                              value={userData.name}
                               onChange={handleChange}
                               error={touched.name && Boolean(errors.name)}
                               helperText={touched.name && Boolean(errors.name) && <Typography variant="h6">Please fill in your name</Typography>}
@@ -110,7 +128,7 @@ const GetAccess: NextPage<any> = () => {
                               name="surrname"
                               label="Surrname"
                               disabled={isSubmitting}
-                              value={values.surrname}
+                              value={userData.surrname}
                               onChange={handleChange}
                               error={touched.surrname && Boolean(errors.surrname)}
                               helperText={touched.surrname && Boolean(errors.surrname) && <Typography variant="h6">Please fill in your surname</Typography>}
@@ -133,7 +151,7 @@ const GetAccess: NextPage<any> = () => {
                             style={{ width: "90%" }}
                             label="specialization"
                             disabled={isSubmitting}
-                            value={values.specialization}
+                            value={userData.specialization}
                             onChange={handleChange}
                             error={touched.specialization && Boolean(errors.specialization)}
                             helperText={touched.specialization && Boolean(errors.specialization) && <Typography variant="h6">Please fill in your name</Typography>}
@@ -154,7 +172,7 @@ const GetAccess: NextPage<any> = () => {
                             style={{ width: "90%" }}
                             label="Enter your email"
                             disabled={isSubmitting}
-                            value={values.name}
+                            value={userData.name}
                             onChange={handleChange}
                             error={touched.name && Boolean(errors.name)}
                             helperText={touched.name && Boolean(errors.name) && <Typography variant="h6">Please fill in your name</Typography>}
@@ -204,7 +222,7 @@ const GetAccess: NextPage<any> = () => {
             </Box>
 
             <Formik initialValues={initialValues} validationSchema={contactSchema} onSubmit={() => console.log()}>
-              {({ errors, touched, isSubmitting, values, handleChange }: any) => {
+              {({ errors, touched, isSubmitting, values }: any) => {
                 return (
                   <Form>
                     <Box display={"flex"} justifyContent={"center"} ml={-3} pl={3} pr={20} alignItems={"center"} flexDirection={"row"} width={"100vw"}>
@@ -221,7 +239,7 @@ const GetAccess: NextPage<any> = () => {
                               name="name"
                               label="Name"
                               disabled={isSubmitting}
-                              value={values.name}
+                              value={userData.name}
                               onChange={handleChange}
                               error={touched.name && Boolean(errors.name)}
                               helperText={touched.name && Boolean(errors.name) && <Typography variant="h6">Please fill in your name</Typography>}
@@ -239,10 +257,10 @@ const GetAccess: NextPage<any> = () => {
                             <TextField
                               variant="standard"
                               style={{ width: "100%" }}
-                              name="Surname"
+                              name="surname"
                               label="Surname"
                               disabled={isSubmitting}
-                              value={values.surname}
+                              value={userData.surrname}
                               onChange={handleChange}
                               error={touched.name && Boolean(errors.name)}
                               helperText={touched.name && Boolean(errors.name) && <Typography variant="h6">Please fill in your name</Typography>}
@@ -265,7 +283,7 @@ const GetAccess: NextPage<any> = () => {
                             style={{ width: "100%" }}
                             label="Specialization"
                             disabled={isSubmitting}
-                            value={values.Specialization}
+                            value={userData.specialization}
                             onChange={handleChange}
                             error={touched.name && Boolean(errors.name)}
                             helperText={touched.name && Boolean(errors.name) && <Typography variant="h6">Please fill in your name</Typography>}
@@ -286,7 +304,7 @@ const GetAccess: NextPage<any> = () => {
                             style={{ width: "100%" }}
                             label="Enter your email"
                             disabled={isSubmitting}
-                            value={values.email}
+                            value={userData.email}
                             onChange={handleChange}
                             error={touched.name && Boolean(errors.name)}
                             helperText={touched.name && Boolean(errors.name) && <Typography variant="h6">Please fill in your name</Typography>}
@@ -303,7 +321,14 @@ const GetAccess: NextPage<any> = () => {
                       </Box>
                     </Box>
                     <Box width={"100%"} mt={-10} pr={15} display={"flex"} justifyContent={"flex-end"} alignItems={"flex-end"}>
-                      <Button color="secondary" style={{ textTransform: "none" }} sx={{ backgroundColor: "black" }} variant="contained" size="large">
+                      <Button
+                        color="secondary"
+                        style={{ textTransform: "none" }}
+                        disabled={closed ? "true" : "false"}
+                        sx={{ backgroundColor: "black" }}
+                        variant="contained"
+                        size="large"
+                      >
                         <Box pt={0.5} pb={0.5}>
                           Send
                         </Box>

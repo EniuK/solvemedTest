@@ -162,7 +162,17 @@ const Team: NextPage = () => {
         {member.name}
       </Typography>
 
-      <Typography fontFamily={"SuisseIntl"} pt={2} lineHeight={"140%"} fontSize={"14px"} mb="20px" maxWidth="200px" pr={10}>
+      <Typography
+        fontFamily={"SuisseIntl"}
+        pt={2}
+        color={"#5E5E5E"}
+        style={{ opacity: 0.8 }}
+        lineHeight={"140%"}
+        fontSize={"14px"}
+        mb="20px"
+        maxWidth="200px"
+        pr={member.name === "Hugo Chrost" ? 4 : 10}
+      >
         {member.position}
       </Typography>
 

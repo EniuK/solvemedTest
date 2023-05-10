@@ -97,7 +97,7 @@ const CardWithShadow = () => {
                         </Typography>
                       </Box>
                       <Box mt={1} width={"100%"}>
-                        <Typography fontSize={"14px"} fontFamily={"SuisseIntl"} lineHeight={"150%"} style={{ color: "rgba(94, 94, 94, 1)", opacity: 0.8 }}>
+                        <Typography fontSize={"14px"} fontFamily={"SuisseIntl"} lineHeight={"150%"} style={{ color: "rgba(94, 94, 94, 1)", opacity: 0.8, fontWeight: 300 }}>
                           {element.description}
                         </Typography>
                       </Box>

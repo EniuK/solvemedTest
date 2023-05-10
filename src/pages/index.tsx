@@ -148,7 +148,7 @@ const Home: NextPage = () => {
               <Typography
                 fontSize={"14px"}
                 fontWeight={300}
-                style={{ fontFamily: "SuisseIntl", opacity: 0.8, lineHeight: "140%", fontStyle: "normal", fontStretch: "ultra-condensed", color: "#5E5E5E" }}
+                style={{ fontFamily: "SuisseIntl", opacity: 0.8, lineHeight: "140%", fontWeight: 300, color: "#5E5E5E" }}
                 textAlign={"center"}
               >
                 Solvemed{"'"}s smartphone-based software medical device enables pupil reactivity measurement in the quantifiable manner without any external hardware needed.{" "}
@@ -170,11 +170,11 @@ const Home: NextPage = () => {
             </Box>
 
             <Box mt={100} mb={100} display={"flex"} flexDirection={"column"} maxWidth={"300px"} ml={10}>
-              <Typography fontSize={"64px"} style={{ fontFamily: "FinancierDisplay", lineHeight: "25.5px", fontWeight: 200 }} mb={5}>
+              <Typography fontSize={"64px"} style={{ fontFamily: "FinancierDisplay", lineHeight: "25.5px", fontWeight: 300 }} mb={5}>
                 mPenlight
               </Typography>
               <Box mt={1}>
-                <Typography fontSize={"17px"} style={{ opacity: 0.8, fontFamily: "SuisseIntl", lineHeight: "25.5px", fontStretch: "ultra-condensed", color: "#5E5E5E" }}>
+                <Typography fontSize={"17px"} style={{ opacity: 0.8, fontFamily: "SuisseIntl", lineHeight: "25.5px", fontWeight: 300, color: "#5E5E5E" }}>
                   Solvemed{"'"}s smartphone-based software medical device enables pupil reactivity measurement in the quantifiable manner without any external hardware needed.{" "}
                 </Typography>
               </Box>
@@ -266,7 +266,7 @@ const Home: NextPage = () => {
                 </Typography>
               </Box>
               <Box width={"70%"} mt={isMobileView ? 2 : 6} style={{ opacity: 0.8 }}>
-                <Typography textAlign={"center"} fontFamily={"SuisseIntl"} color={"#5E5E5E"} lineHeight={"150%"} fontWeight={200} fontSize={"18px"}>
+                <Typography textAlign={"center"} fontFamily={"SuisseIntl"} color={"#5E5E5E"} lineHeight={"150%"} fontWeight={300} fontSize={"18px"}>
                   We are proud to satisfy the needs of world{"'"}s leading practitioners across the <br /> spectrum of care.{" "}
                 </Typography>
               </Box>
@@ -283,7 +283,7 @@ const Home: NextPage = () => {
               </Typography>
             </Box>
             <Box width={"100%"} mt={4} pl={8} pr={8}>
-              <Typography textAlign={"center"} style={{ fontFamily: "FinancierDisplay", fontWeight: 200, lineHeight: "150%", alignSelf: "stretch" }} fontSize={"14px"}>
+              <Typography textAlign={"center"} style={{ fontFamily: "SuisseIntl", fontWeight: 300, lineHeight: "150%", alignSelf: "stretch" }} fontSize={"14px"}>
                 We have worked closely with clinicians to develop game-changing tools that reshape practice and clinical research.{" "}
               </Typography>
             </Box>
@@ -296,7 +296,7 @@ const Home: NextPage = () => {
               </Typography>
             </Box>
             <Box width={"70%"} mt={isMobileView ? 2 : 6} style={{ opacity: 0.8 }}>
-              <Typography textAlign={"center"} fontFamily={"SuisseIntl"} color={"#5E5E5E"} lineHeight={"150%"} fontWeight={200} fontSize={"18px"}>
+              <Typography textAlign={"center"} fontFamily={"SuisseIntl"} color={"#5E5E5E"} lineHeight={"150%"} fontWeight={300} fontSize={"18px"}>
                 We have worked closely with clinicians to develop game-changing tools that <br /> reshape practice and clinical research.
               </Typography>
             </Box>
@@ -361,7 +361,7 @@ const Home: NextPage = () => {
                 </Typography>
               </Box>
               <Box mt={4}>
-                <Typography variant="body4" fontFamily={"SuisseIntl"} fontSize={"18px"} color={"rgba(94, 94, 94, 1)"} textAlign={"center"}>
+                <Typography variant="body4" fontFamily={"SuisseIntl"} fontWeight={300} fontSize={"18px"} color={"rgba(94, 94, 94, 1)"} textAlign={"center"}>
                   We bring to the world the most advanced smartphone-enabled data collection and analytical tools in the field of neurology and ophthalmology.
                 </Typography>
               </Box>
@@ -385,7 +385,7 @@ const Home: NextPage = () => {
                 </Typography>
               </Box>
               <Box mt={4}>
-                <Typography fontFamily={"SuisseIntl"} lineHeight={"150%"} fontSize={"18px"} color={"rgba(94, 94, 94, 1)"} textAlign={"center"}>
+                <Typography fontFamily={"SuisseIntl"} lineHeight={"150%"} fontWeight={300} fontSize={"18px"} color={"rgba(94, 94, 94, 1)"} textAlign={"center"}>
                   mPenlight is the pupil reactivity testing app of choice for world{"'"}s top practitioners.{" "}
                 </Typography>
               </Box>
@@ -396,7 +396,7 @@ const Home: NextPage = () => {
                     style={{ textTransform: "none" }}
                     variant="contained"
                     size="small"
-                    sx={{ backgroundColor: "black", fontSize: "14px", fontWeight: 100, marginRight: 0, height: "44px", paddingX: 5, paddingY: 1 }}
+                    sx={{ backgroundColor: "black", fontSize: "14px", fontFamily: "SuisseIntl", fontWeight: 400, marginRight: 0, height: "44px", paddingX: 5, paddingY: 1 }}
                   >
                     <Typography fontSize={"14px"} variant="body1" fontStyle={"SuisseIntl"} fontWeight={400}>
                       Get access!
@@ -408,7 +408,17 @@ const Home: NextPage = () => {
           )}
         </Box>
         <Box mt={20}>
-          <Box width={"100%"} display={"flex"} alignItems={"center"} justifyContent={"center"} mb={5} fontSize={"15px"} color={"rgba(94, 94, 94, 1)"}>
+          <Box
+            width={"100%"}
+            display={"flex"}
+            alignItems={"center"}
+            fontWeight={300}
+            fontStyle={"SuisseIntl"}
+            justifyContent={"center"}
+            mb={5}
+            fontSize={"15px"}
+            color={"rgba(94, 94, 94, 1)"}
+          >
             Our team comes from
           </Box>
           {isMobileView ? (

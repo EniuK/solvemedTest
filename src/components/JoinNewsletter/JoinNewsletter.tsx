@@ -39,14 +39,14 @@ const NewsLetter = ({ status, message, onValidated }: any) => {
     <Box
       height={isSmallViewport ? "35vh" : "100%"}
       width={isSmallViewport ? "90vw" : "330px"}
-      style={isSmallViewport ? { marginTop: 20, marginLeft: -30 } : { paddingBottom: 70 }}
+      style={isSmallViewport ? { marginTop: 20, marginLeft: -30 } : { paddingBottom: 70, marginTop: 30 }}
       display={"flex"}
       flexDirection={"column"}
       justifyContent={"center"}
       pl={4}
       alignItems={"center"}
     >
-      <Box width={"100%"} pt={3} display={"flex"} textAlign={"left"} flexGrow={1}>
+      <Box width={"100%"} pt={3} display={"flex"} textAlign={"left"}>
         <Typography fontFamily={"FinancierDisplay"}>Join Our Newsletter</Typography>
       </Box>
       <Box mt={4} height={isSmallViewport ? "auto" : "45%"} display={"flex"} width={"100%"} justifyContent={"flex-start"} alignItems={"flex-start"} flexDirection={"row"}>
@@ -58,7 +58,7 @@ const NewsLetter = ({ status, message, onValidated }: any) => {
           <>
             <form className="mc__form" onSubmit={() => handleSubmit()}>
               <TextField
-                sx={{ fontsize: "14px", width: "200%" }}
+                sx={{ fontsize: "14px", width: "100%" }}
                 label="Enter your email"
                 variant="standard"
                 value={email}
@@ -67,6 +67,7 @@ const NewsLetter = ({ status, message, onValidated }: any) => {
                 InputLabelProps={{
                   sx: {
                     fontFamily: "SuisseIntl",
+                    fontWeight: 400,
                     fontSize: "15px",
                     lineHeight: "140%",
                     color: "text.primary",
@@ -77,7 +78,7 @@ const NewsLetter = ({ status, message, onValidated }: any) => {
                 }}
               />
             </form>
-            <Box ml={14} display={"flex"} alignItems={"center"} justifyContent={"center"}>
+            <Box display={"flex"} fontFamily={"SuisseIntl"} fontWeight={400} alignItems={"center"} justifyContent={"center"}>
               <Button
                 color="secondary"
                 style={{ textTransform: "none" }}

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Box, Menu, MenuItem, Typography, useMediaQuery, Link as LinkMUI, useTheme, Stack, Button, Divider } from "@mui/material";
+import { Box, MenuItem, Typography, useMediaQuery, Link as LinkMUI, useTheme, Stack, Button, Divider } from "@mui/material";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { motion, useScroll, useTransform } from "framer-motion";
@@ -9,7 +9,7 @@ import { useScrollBlock } from "./disableScroll";
 
 const menuItems = [
   { title: "Team", link: "/team" },
-  { title: "Blog", link: "/blog" },
+  // { title: "Blog", link: "/blog" },
   { title: "Careers", link: "/careers" },
   { title: "Contact", link: "/contact" },
 ];
@@ -71,7 +71,7 @@ const Header = () => {
 
   return (
     <div className={styles.header}>
-      <Box position={"absolute"} mt={-5} style={open ? { top: 35, left: -2 } : {}}>
+      <Box zIndex={600} onClick={() => setOpen(false)} position={"absolute"} mt={-5} style={open ? { top: 35, left: -2 } : {}}>
         <Link href="/" passHref>
           <a className={styles.logoLinkContainer}>
             <motion.svg width="234" height="35" viewBox="0 0 234 35" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -155,12 +155,12 @@ const Header = () => {
         <Box
           width={"100vw"}
           mt={-1}
+          ml={-4}
           display={"flex"}
           flexDirection={"column"}
           justifyContent={"flex-end"}
           alignItems={"flex-end"}
           // style={scrollDirection === "up" ? { position: "fixed" } : {}}
-          // TODO: {...(open ? { position: "fixed", top: 0, backdropFilter: "blur(4px)" } : {})}
           sx={{
             "&::-webkit-scrollbar": {
               width: "0.4em",

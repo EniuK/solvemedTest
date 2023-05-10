@@ -208,6 +208,13 @@ export const theme = createTheme({
           font-family: 'SuisseIntl';
           font-style: normal;
           font-display: swap;
+          font-weight: 300;
+          src: url('/fonts/SuisseIntl-Light.ttf');
+        }
+        @font-face {
+          font-family: 'SuisseIntl';
+          font-style: normal;
+          font-display: swap;
           font-weight: 400;
           src: url('/fonts/SuisseIntl-Regular.ttf');
         }
@@ -220,6 +227,7 @@ export const theme = createTheme({
         }
       `,
     },
+    //
     MuiTypography: {
       defaultProps: {
         variant: "subtitle2",

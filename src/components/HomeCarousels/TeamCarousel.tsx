@@ -1,18 +1,15 @@
 import { Box, Typography, useMediaQuery, Slide } from "@mui/material";
 import Image from "next/image";
-import React, { useState } from "react";
+import React from "react";
 import { theme } from "../../config/theme";
 import { Swiper, SwiperSlide } from "swiper/react";
 
-// Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
 
-// import required modules
 import { Pagination } from "swiper";
 const TeamCarousel = () => {
   const isMobileView = useMediaQuery(theme.breakpoints.down("md"));
-  const isPhoneView = useMediaQuery(theme.breakpoints.down("sm"));
   const desktop = useMediaQuery(theme.breakpoints.up("lg"));
   const teamData = [
     {
@@ -108,6 +105,7 @@ const TeamCarousel = () => {
                       justifyContent={"flex-end"}
                       alignItems={"flex-end"}
                       fontFamily="SuisseIntl"
+                      fontWeight={400}
                       fontSize={"15px"}
                     >
                       {e.quote}
@@ -157,13 +155,13 @@ const TeamCarousel = () => {
                     <Box width={"100%"} fontFamily="FinancierDisplay" fontWeight={400} lineHeight={"130%"} letterSpacing={"-0.01em"} mt={2} fontSize={"21px"}>
                       {e.name}
                     </Box>
-                    <Box width={"60%"} height={"30%"} lineHeight={"140%"} mt={2} fontWeight={300} color={"#5E5E5E"} fontSize={"14px"}>
+                    <Box width={"55%"} height={"30%"} lineHeight={"140%"} mt={2} fontFamily="SuisseIntl" fontWeight={300} color={"#5E5E5E"} fontSize={"14px"}>
                       {e.description}
                     </Box>
 
                     <Box mt={1} ml={-3} height={"40%"} display={"flex"}>
                       <Box pr={2}> &rdquo;</Box>
-                      <Box width={"70%"} display={"flex"}>
+                      <Box width={"70%"} display={"flex"} fontFamily="SuisseIntl" fontWeight={400}>
                         {e.quote}
                       </Box>
                     </Box>

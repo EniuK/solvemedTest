@@ -1,5 +1,5 @@
 import { ReactNode, useEffect, useState } from "react";
-import { Box, Button, Link, Typography, useMediaQuery } from "@mui/material";
+import { Box, useMediaQuery } from "@mui/material";
 import Footer from "./footer";
 import Header from "./header";
 import { AnimatePresence, motion } from "framer-motion";

@@ -1,4 +1,4 @@
-import { Box, Button, CardMedia, TextField, Typography, useMediaQuery } from "@mui/material";
+import { Box, Button, CardMedia, FormControl, InputLabel, MenuItem, Select, TextField, Typography, useMediaQuery } from "@mui/material";
 import { NextPage } from "next";
 import Head from "next/head";
 import { motion } from "framer-motion";
@@ -6,227 +6,270 @@ import { theme } from "../config/theme";
 import { useEffect, useState } from "react";
 import React from "react";
 import MailchimpSubscribe from "react-mailchimp-subscribe";
-const initialValues = {
-  name: "",
-  surrname: "",
-  specialization: "",
-  email: "",
-};
 
 const MailchimpForms = ({ status, message, onValidated }: any) => {
   const isMobileView = useMediaQuery(theme.breakpoints.down("md"));
-  const [userData, setUserData] = useState(initialValues);
-
-  const handleChange = (e: any) => {
-    const { name, value } = e.target;
-    setUserData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
-    setErrorMessage(false);
-  };
-
+  const [email, setEmail] = useState("");
+  const [name, setName] = useState("");
+  const [surrname, setSurrname] = useState("");
+  const [specialization, setSpecialization] = useState("");
+  const [open, setopen] = useState(true);
   const [errorMessage, setErrorMessage] = useState(false);
+  const [emptyValue, setEmptyValue] = useState(false);
 
-  const handleSubmit = async () => {
-    // userData.email &&
-    //   // userData.email.indexOf("@") > -1 &&
-    //   // (await onValidated({
-    //   //   MERGE0: userData.email,
-    //   // }));
+  const handleSubmit = (e: any) => {
+    e.preventDefault();
 
-    if (userData.email.indexOf("@") === -1) {
+    email &&
+      name !== "" &&
+      surrname !== "" &&
+      specialization !== "" &&
+      email.indexOf("@") > -1 &&
+      onValidated({
+        EMAIL: email,
+        MERGE1: name,
+        MERGE2: surrname,
+        MERGE6: specialization,
+      });
+    if (email === "" || surrname === "" || specialization === "") {
+      setEmptyValue(true);
+    } else {
+      setEmptyValue(false);
+    }
+    if (email.indexOf("@") === -1) {
       setErrorMessage(true);
     } else {
       setErrorMessage(false);
     }
   };
-
   useEffect(() => {
-    if (status === "error" || status === "sending") {
-      setErrorMessage(true);
-    } else {
-      setUserData(initialValues);
+    setEmptyValue(false);
+  }, [email, name, surrname, specialization]);
+  useEffect(() => {
+    if (status === "success") {
+      setName("");
+      setSurrname("");
+      setSpecialization("");
+      setEmail("");
     }
   }, [status]);
+
+  useEffect(() => {
+    if (email !== "" && surrname !== "" && specialization !== "" && email !== "") {
+      setopen(false);
+    }
+  }, [name, surrname, specialization, email, open]);
 
   return (
     <>
       {isMobileView ? (
-        <form className="mc__form" onSubmit={() => handleSubmit()}>
-          <Box display={"flex"} justifyContent={"center"} ml={-3} pl={3} pr={20} alignItems={"center"} flexDirection={"row"} width={"100vw"}>
-            <Box width={"100vw"} pl={14} display={"flex"} justifyContent={"flex-start"} alignItems={"flex-start"} flexDirection={"column"}>
-              <Box width={"100vw"} display={"flex"} justifyContent={"flex-start"} alignItems={"flex-start"} flexDirection={"row"}>
-                <Box style={{ width: "42%" }} mr={2}>
-                  <TextField
-                    style={{ width: "100%" }}
-                    variant="standard"
-                    name="name"
-                    label="Name"
-                    value={userData.name}
-                    onChange={handleChange}
-                    InputLabelProps={{
-                      sx: {
-                        color: "text.primary",
-                        "&.Mui-focused": {
-                          color: "gray",
+        <>
+          <form className="mc__form" onSubmit={(e) => handleSubmit(e)}>
+            <Box display={"flex"} justifyContent={"center"} ml={-3} pl={3} pr={20} alignItems={"center"} flexDirection={"row"} width={"100vw"}>
+              <Box width={"100vw"} pl={14} display={"flex"} justifyContent={"flex-start"} alignItems={"flex-start"} flexDirection={"column"}>
+                <Box width={"100vw"} display={"flex"} justifyContent={"flex-start"} alignItems={"flex-start"} flexDirection={"row"}>
+                  <Box style={{ width: "42%" }} mr={2}>
+                    <TextField
+                      style={{ width: "100%" }}
+                      variant="standard"
+                      name="MERGE1"
+                      label="Name"
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
+                      InputLabelProps={{
+                        sx: {
+                          color: "text.primary",
+                          "&.Mui-focused": {
+                            color: "gray",
+                          },
                         },
-                      },
-                    }}
-                  />
-                </Box>
-                <Box style={{ width: "42%" }}>
-                  <TextField
-                    variant="standard"
-                    style={{ width: "100%" }}
-                    name="surrname"
-                    label="Surrname"
-                    value={userData.surrname}
-                    onChange={handleChange}
-                    InputLabelProps={{
-                      sx: {
-                        color: "text.primary",
-                        "&.Mui-focused": {
-                          color: "gray",
+                      }}
+                    />
+                  </Box>
+                  <Box style={{ width: "42%" }}>
+                    <TextField
+                      variant="standard"
+                      style={{ width: "100%" }}
+                      name="LNAME"
+                      label="Surname"
+                      value={surrname}
+                      onChange={(e) => setSurrname(e.target.value)}
+                      InputLabelProps={{
+                        sx: {
+                          color: "text.primary",
+                          "&.Mui-focused": {
+                            color: "gray",
+                          },
                         },
-                      },
-                    }}
-                  />
+                      }}
+                    />
+                  </Box>
                 </Box>
-              </Box>
 
-              <Box width={"100vw"} mt={8} display={"flex"} justifyContent={"flex-start"}>
-                <TextField
-                  variant="standard"
-                  name="Specialization"
-                  style={{ width: "90%" }}
-                  label="specialization"
-                  value={userData.specialization}
-                  onChange={handleChange}
-                  InputLabelProps={{
-                    sx: {
-                      color: "text.primary",
-                      "&.Mui-focused": {
-                        color: "gray",
+                <Box width={"100vw"} textAlign={"left"} mt={8} display={"flex"} justifyContent={"flex-start"}>
+                  <FormControl variant="standard" style={{ width: "100%" }}>
+                    <InputLabel id="specialization-label">Specialization</InputLabel>
+                    <Select labelId="specialization-label" id="specialization-select" value={specialization} name={"MERGE6"} onChange={(e) => setSpecialization(e.target.value)}>
+                      <MenuItem value="Neurologists">Neurologists</MenuItem>
+                      <MenuItem value="Intensivist">Intensivist</MenuItem>
+                      <MenuItem value="Nurse">Nurse</MenuItem>
+                      <MenuItem value="Anesthesiologists">Anesthesiologists</MenuItem>
+                      <MenuItem value="Ophthalmologist">Ophthalmologist</MenuItem>
+                      <MenuItem value="Neuro-ophthalmologists">Neuro-ophthalmologists</MenuItem>
+                      <MenuItem value="Optometrist">Optometrist</MenuItem>
+                    </Select>
+                  </FormControl>
+                </Box>
+                <Box width={"100vw"} mt={8} display={"flex"} justifyContent={"flex-start"}>
+                  <TextField
+                    variant="standard"
+                    name="EMAIL"
+                    style={{ width: "100%" }}
+                    label="Enter your email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    InputLabelProps={{
+                      sx: {
+                        color: "text.primary",
+                        "&.Mui-focused": {
+                          color: "gray",
+                        },
                       },
-                    },
-                  }}
-                />
-              </Box>
-              <Box width={"100vw"} mt={8} display={"flex"} justifyContent={"flex-start"}>
-                <TextField
-                  variant="standard"
-                  name="Specialization"
-                  style={{ width: "90%" }}
-                  label="Enter your email"
-                  value={userData.name}
-                  onChange={handleChange}
-                  InputLabelProps={{
-                    sx: {
-                      color: "text.primary",
-                      "&.Mui-focused": {
-                        color: "gray",
-                      },
-                    },
-                  }}
-                />
+                    }}
+                  />
+                </Box>
               </Box>
             </Box>
-          </Box>
-        </form>
-      ) : (
-        <form className="mc__form" onSubmit={() => handleSubmit()}>
-          <Box display={"flex"} justifyContent={"center"} ml={-3} pr={10} alignItems={"center"} flexDirection={"row"} width={"100vw"}>
-            <Box width={"100%"} onClick={(e) => e.preventDefault()}>
-              <CardMedia component="video" loop autoPlay src="/images/GetAccess/animation.mov" controls controlsList="nodownload" style={{ pointerEvents: "none" }} />
-            </Box>
-
-            <Box width={"50%"} display={"flex"} justifyContent={"flex-start"} alignItems={"flex-start"} flexDirection={"column"}>
-              <Box width={"100%"} display={"flex"} justifyContent={"flex-start"} alignItems={"flex-start"} flexDirection={"row"}>
-                <Box style={{ width: "49%" }} mr={4}>
-                  <TextField
-                    style={{ width: "100%" }}
-                    variant="standard"
-                    name="name"
-                    label="Name"
-                    value={userData.name}
-                    onChange={handleChange}
-                    InputLabelProps={{
-                      sx: {
-                        color: "text.primary",
-                        "&.Mui-focused": {
-                          color: "gray",
-                        },
-                      },
-                    }}
-                  />
-                </Box>
-                <Box style={{ width: "50%" }}>
-                  <TextField
-                    variant="standard"
-                    style={{ width: "100%" }}
-                    name="surrname"
-                    label="Surname"
-                    value={userData.surrname}
-                    onChange={handleChange}
-                    InputLabelProps={{
-                      sx: {
-                        color: "text.primary",
-                        "&.Mui-focused": {
-                          color: "gray",
-                        },
-                      },
-                    }}
-                  />
-                </Box>
-              </Box>
-
-              <Box width={"100%"} mt={8}>
-                <TextField
-                  variant="standard"
-                  name="specialization"
-                  style={{ width: "100%" }}
-                  label="Specialization"
-                  value={userData.specialization}
-                  onChange={handleChange}
-                  InputLabelProps={{
-                    sx: {
-                      color: "text.primary",
-                      "&.Mui-focused": {
-                        color: "gray",
-                      },
-                    },
-                  }}
-                />
-              </Box>
-              <Box width={"100%"} mt={8}>
-                <TextField
-                  variant="standard"
-                  name="email"
-                  style={{ width: "100%" }}
-                  label="Enter your email"
-                  value={userData.email}
-                  onChange={handleChange}
-                  InputLabelProps={{
-                    sx: {
-                      color: "text.primary",
-                      "&.Mui-focused": {
-                        color: "gray",
-                      },
-                    },
-                  }}
-                />
-              </Box>
-            </Box>
-          </Box>
-          <Box width={"100%"} mt={-20} pr={5} display={"flex"} justifyContent={"flex-end"} alignItems={"flex-end"}>
-            <Button color="secondary" style={{ textTransform: "none" }} disabled={closed ? 1 : 0} sx={{ backgroundColor: "black" }} variant="contained" size="large">
+          </form>
+          <Box width={"100%"} mt={5} pr={5} display={"flex"} justifyContent={"flex-end"} alignItems={"flex-end"}>
+            <Button color="secondary" onClick={(e) => handleSubmit(e)} style={{ textTransform: "none" }} sx={{ backgroundColor: "black" }} variant="contained" size="large">
               <Box pt={0.5} pb={0.5}>
                 Send
               </Box>
             </Button>
           </Box>
-        </form>
+          <Box mt={5} width={"100%"} display={"flex"} flexDirection={"column"} justifyContent={"center"} alignItems={"center"}>
+            {status === "sending" && <Box style={{ color: "blue" }}>sending...</Box>}
+            {status === "error" && errorMessage && <Box style={{ color: "red" }}>invalid email address</Box>}
+            {status === "error" ? null : <>{errorMessage && status !== "sending" ? <Box style={{ color: "red" }}>invalid email address</Box> : null}</>}
+            {emptyValue && <Box style={{ color: "red" }}>Please fill all values</Box>}
+            {status === "success" && errorMessage === false && emptyValue === false && (
+              <Box width={"100%"} ml={-4.5} color={"black"} display={"flex"} justifyContent={"center"} alignItems={"center"}>
+                {message}
+              </Box>
+            )}
+          </Box>
+        </>
+      ) : (
+        <>
+          <form className="mc__form" onSubmit={(e) => handleSubmit(e)}>
+            <Box display={"flex"} justifyContent={"center"} ml={-3} pr={10} alignItems={"center"} flexDirection={"row"} width={"100vw"}>
+              <Box width={"100%"} onClick={(e) => e.preventDefault()}>
+                <CardMedia component="video" loop autoPlay src="/images/GetAccess/animation.mov" controls controlsList="nodownload" style={{ pointerEvents: "none" }} />
+              </Box>
+
+              <Box width={"50%"} display={"flex"} justifyContent={"flex-start"} alignItems={"flex-start"} flexDirection={"column"}>
+                <Box width={"100%"} display={"flex"} justifyContent={"flex-start"} alignItems={"flex-start"} flexDirection={"row"}>
+                  <Box style={{ width: "49%" }} mr={4}>
+                    <TextField
+                      style={{ width: "100%" }}
+                      variant="standard"
+                      name="MERGE1"
+                      label="Name"
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
+                      InputLabelProps={{
+                        sx: {
+                          color: "text.primary",
+                          "&.Mui-focused": {
+                            color: "gray",
+                          },
+                        },
+                      }}
+                    />
+                  </Box>
+                  <Box style={{ width: "50%" }}>
+                    <TextField
+                      variant="standard"
+                      style={{ width: "100%" }}
+                      name="LNAME"
+                      label="Surname"
+                      value={surrname}
+                      onChange={(e) => setSurrname(e.target.value)}
+                      InputLabelProps={{
+                        sx: {
+                          color: "text.primary",
+                          "&.Mui-focused": {
+                            color: "gray",
+                          },
+                        },
+                      }}
+                    />
+                  </Box>
+                </Box>
+
+                <Box textAlign={"left"} width={"100%"} mt={8}>
+                  <FormControl variant="standard" style={{ width: "100%" }}>
+                    <InputLabel id="specialization-label">Specialization</InputLabel>
+                    <Select labelId="specialization-label" id="specialization-select" value={specialization} name={"MERGE6"} onChange={(e) => setSpecialization(e.target.value)}>
+                      <MenuItem value="Neurologists">Neurologists</MenuItem>
+                      <MenuItem value="Intensivist">Intensivist</MenuItem>
+                      <MenuItem value="Nurse">Nurse</MenuItem>
+                      <MenuItem value="Anesthesiologists">Anesthesiologists</MenuItem>
+                      <MenuItem value="Ophthalmologist">Ophthalmologist</MenuItem>
+                      <MenuItem value="Neuro-ophthalmologists">Neuro-ophthalmologists</MenuItem>
+                      <MenuItem value="Optometrist">Optometrist</MenuItem>
+                    </Select>
+                  </FormControl>
+                </Box>
+                <Box width={"100%"} mt={8}>
+                  <TextField
+                    variant="standard"
+                    name="EMAIL"
+                    style={{ width: "100%" }}
+                    label="Enter your email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    InputLabelProps={{
+                      sx: {
+                        color: "text.primary",
+                        "&.Mui-focused": {
+                          color: "gray",
+                        },
+                      },
+                    }}
+                  />
+                </Box>
+              </Box>
+            </Box>
+          </form>
+          <Box width={"100%"} mt={-20} pr={5} display={"flex"} justifyContent={"flex-end"} alignItems={"flex-end"}>
+            <Button
+              color="secondary"
+              onClick={(e) => handleSubmit(e)}
+              disabled={open}
+              style={{ textTransform: "none" }}
+              sx={{ backgroundColor: "black" }}
+              variant="contained"
+              size="large"
+            >
+              <Box pt={0.5} pb={0.5}>
+                Send
+              </Box>
+            </Button>
+          </Box>
+          <Box mt={20}>
+            {status === "sending" && <Box style={{ color: "blue" }}>sending...</Box>}
+            {status === "error" && errorMessage && <Box style={{ color: "red" }}>invalid email address</Box>}
+            {status === "error" ? null : <>{errorMessage && status !== "sending" ? <Box style={{ color: "red" }}>invalid email address</Box> : null}</>}
+            {emptyValue && <Box style={{ color: "red" }}>Please fill all values</Box>}
+            {status === "success" && errorMessage === false && emptyValue === false && (
+              <Box width={"100%"} ml={-4.5} color={"black"} display={"flex"} justifyContent={"center"} alignItems={"center"}>
+                {message}
+              </Box>
+            )}
+          </Box>
+        </>
       )}
     </>
   );
@@ -234,6 +277,7 @@ const MailchimpForms = ({ status, message, onValidated }: any) => {
 
 const MailchimpGetAccessContainer = () => {
   const postUrl = `https://solvemed.us21.list-manage.com/subscribe/post?u=c93c3fe2f3e154caa4df2ce41&id=5e7e7dce89`;
+
   return (
     <div className="mc__form-container">
       <MailchimpSubscribe
@@ -246,25 +290,7 @@ const MailchimpGetAccessContainer = () => {
 
 const GetAccess: NextPage<any> = () => {
   const isMobileView = useMediaQuery(theme.breakpoints.down("md"));
-  const [userData, setUserData] = useState(initialValues);
-  const [closed, setClosed] = useState(false);
 
-  useEffect(() => {
-    const checkValues = () => {
-      if (userData.name === "" || userData.surrname === "" || userData.specialization === "" || userData.email === "") {
-        setClosed(true);
-      }
-    };
-    checkValues();
-  }, [userData]);
-
-  const handleChange = (e: any) => {
-    const { name, value } = e.target;
-    setUserData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
-  };
   return (
     <>
       <div>

@@ -70,11 +70,10 @@ const Careers: NextPage = () => {
               fontFamily={"FinancierDisplay"}
               fontWeight={300}
             >
-              Join Solvemed
+              Career
             </Typography>
             <Typography
               component={motion.p}
-              variant="subtitle1"
               width={{ xs: "100%", sm: "70%" }}
               margin="0 auto 30px auto"
               variants={{ initial: { opacity: 0, y: 50 }, animate: { opacity: 1, y: 0 } }}
@@ -82,11 +81,10 @@ const Careers: NextPage = () => {
               fontFamily={"FinancierDisplay"}
               fontWeight={300}
             >
-              Digital mapping of the human brain is an interdisciplinary challenge.
+              We are looking for experts.
             </Typography>
             <Typography
               component={motion.p}
-              variant="body2"
               width={{ xs: "100%", sm: "70%", md: "50%" }}
               margin="auto"
               mb={{ xs: "60px", lg: "80px" }}
@@ -95,9 +93,10 @@ const Careers: NextPage = () => {
               fontFamily={"FinancierDisplay"}
               fontWeight={300}
               color={"rgba(89, 93, 98, 1)"}
-              fontSize={"18"}
+              fontSize={"16px"}
+              lineHeight={"28.8px"}
             >
-              We are looking to hire a wide range of people with diverse engineering, scientific, and operations expertise.
+              We are looking to hire a wide range of people <br /> with diverse engineering, scientific, operations <br /> expertise.
             </Typography>
             <Box>
               <Image src="/images/career/eye.png" width={"652px"} height={"381px"} alt="Eye" className={styles.eyeImg} />
@@ -139,6 +138,8 @@ const Careers: NextPage = () => {
                   variants={{ initial: { opacity: 0, y: 20 }, animate: { opacity: 1, y: 0 } }}
                   transition={{ duration: 0.7, ease: "easeOut" }}
                   textAlign={"left"}
+                  fontFamily={"SuisseIntl"}
+                  fontWeight={300}
                 >
                   We are looking to hire a wide range of people with diverse engineering, scientific, operations expertise.
                 </Typography>
@@ -165,7 +166,7 @@ const Careers: NextPage = () => {
               backgroundPosition: "center",
             }}
           >
-            <Typography ml={10} fontSize={isMobileView ? "42px" : "64px"}>
+            <Typography ml={10} fontFamily={"FinancierDisplay"} fontWeight={300} fontSize={isMobileView ? "42px" : "64px"}>
               Open Positions
             </Typography>
           </Box>
@@ -174,7 +175,7 @@ const Careers: NextPage = () => {
             <Fragment key={sectionItem.category}>
               <Box ml={10}>
                 <Grid item xs={10} mt="100px" mb="42px">
-                  <Typography fontFamily={"SuisseIntl"} letterSpacing={"-0.02em"} style={{ opacity: 0.6 }} fontSize={"20px"}>
+                  <Typography fontFamily={"SuisseIntl"} fontWeight={300} letterSpacing={"-0.02em"} style={{ opacity: 0.6 }} fontSize={"20px"}>
                     {sectionItem.category}
                   </Typography>
                 </Grid>
@@ -189,13 +190,13 @@ const Careers: NextPage = () => {
                     {isMobileView ? (
                       <Box display={"flex"} flexDirection={"column"}>
                         <Box>
-                          <Typography variant="h3" fontSize={"28px"} fontWeight="600">
+                          <Typography fontFamily={"FinancierDisplay"} fontSize={"28px"} fontWeight="300">
                             {item.title}
                           </Typography>
                         </Box>
                         <Box mt={3} width={"100%"} display={"flex"} flexDirection={"column"}>
                           <Box width={"100%"}>
-                            <Typography variant="body2" paragraph>
+                            <Typography fontFamily={"SuisseIntl"} fontWeight={300} fontSize={"14px"} pr={10} paragraph>
                               {item.description}
                             </Typography>
                           </Box>
@@ -208,13 +209,13 @@ const Careers: NextPage = () => {
                     ) : (
                       <Box display={"flex"} flexDirection={"column"}>
                         <Box>
-                          <Typography variant="h3" fontSize={"28px"} fontWeight="600">
+                          <Typography fontFamily={"FinancierDisplay"} fontWeight={300} fontSize={"28px"}>
                             {item.title}
                           </Typography>
                         </Box>
                         <Box mt={3} width={"100%"} display={"flex"}>
                           <Box width={"80%"}>
-                            <Typography variant="body2" paragraph>
+                            <Typography fontFamily={"SuisseIntl"} fontWeight={300} fontSize={"14px"} paragraph>
                               {item.description}
                             </Typography>
                           </Box>

@@ -113,18 +113,6 @@ const TeamMemberModal: React.FC<Props> = ({ isOpen, onClose, member, members }) 
 
                 <Grid item xs={12} md={8} height="100%">
                   <Box width="80%">
-                    {/* <Typography variant="subtitle2" mb="30px">
-                      {item?.bio?.title}
-                    </Typography> */}
-
-                    {/* <Box display="flex" alignItems="center">
-                      {item?.logos?.map((logo) => (
-                        <div key={logo.id} className={styles.logoWrapper}>
-                          <img src={logo.image} alt={logo.id} className={styles.logo} />
-                        </div>
-                      ))}
-                    </Box> */}
-
                     <Typography variant="body3">{item?.bio?.description}</Typography>
 
                     {(item?.linkedinUrl || item?.twitterUrl) && (

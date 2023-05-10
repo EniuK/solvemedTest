@@ -5,7 +5,7 @@ import JoinNewsletterMailchimp from "./JoinNewsletter/JoinNewsletteMailchimp";
 
 const menuItems = [
   { title: "TEAM", link: "/team" },
-  { title: "BLOG", link: "/blog" },
+  // { title: "BLOG", link: "/blog" },
   { title: "CAREER", link: "/careers" },
   { title: "CONTACT", link: "/contact" },
 ];
@@ -46,7 +46,7 @@ const Footer = ({ home }: any) => {
                     return (
                       <Box key={idx} mr={4}>
                         <Link underline="none" href={e.link}>
-                          <Typography fontSize={"14px"} textAlign={"center"} fontFamily="SuisseIntl">
+                          <Typography fontSize={"14px"} textAlign={"center"} fontFamily={"SuisseIntl"} fontWeight={300}>
                             {e.title}
                           </Typography>
                         </Link>
@@ -60,23 +60,23 @@ const Footer = ({ home }: any) => {
                 <Box minWidth={"330px"} maxWidth={"33vw"} display="flex" flexDirection={"column"} justifyContent="space-between" mb={3.5}>
                   <Box display="flex" width={"100%"} flexDirection="column" justifyContent={"flex-start"} pl={3} alignItems={"flex-start"} mt={3}>
                     <Box flexDirection={"column"} display={"flex"}>
-                      <Typography color="primary.light" variant="body6Wide">
+                      <Typography color="primary.light" fontFamily={"SuisseIntl"} fontWeight={400} fontSize={"12px"}>
                         &copy; 2023 Solvemed Group
                       </Typography>
-                      <Typography color="primary.light" variant="body6Wide" mt={2}>
+                      <Typography color="primary.light" fontFamily={"SuisseIntl"} fontWeight={400} fontSize={"12px"} mt={2}>
                         All Rights reserved
                       </Typography>
                     </Box>
                   </Box>
                 </Box>
                 <Box pl={3}>
-                  <Link href="#" underline="none" color="primary.light" variant="body6Wide" mr="29px">
+                  <Link href="#" underline="none" color="primary.light" fontFamily={"SuisseIntl"} fontWeight={400} fontSize={"12px"} mr="29px">
                     Privacy Policy
                   </Link>
-                  <Link href="#" underline="none" color="primary.light" variant="body6Wide" mr="29px">
+                  <Link href="#" underline="none" color="primary.light" fontFamily={"SuisseIntl"} fontWeight={400} fontSize={"12px"} mr="29px">
                     Terms of Use
                   </Link>
-                  <Link href="#" underline="none" color="primary.light" variant="body6Wide">
+                  <Link href="#" underline="none" color="primary.light" fontFamily={"SuisseIntl"} fontWeight={400} fontSize={"12px"}>
                     Cookie Policy
                   </Link>
                 </Box>
@@ -102,11 +102,11 @@ const Footer = ({ home }: any) => {
                   <Button
                     color="secondary"
                     style={{ textTransform: "none", color: "white" }}
-                    sx={{ backgroundColor: "black", fontSize: "14px", fontWeight: 100, marginRight: 0 }}
+                    sx={{ backgroundColor: "black", fontSize: "14px", fontWeight: 300, marginRight: 0 }}
                     variant="contained"
                     size="small"
                   >
-                    <Link href={"/GetAccess"} style={{ textTransform: "none", textDecoration: "none", color: "inherit" }}>
+                    <Link href={"/GetAccess"} style={{ textTransform: "none", textDecoration: "none", color: "inherit" }} fontFamily={"SuisseIntl"} fontWeight={400}>
                       {" "}
                       Get access
                     </Link>
@@ -132,22 +132,22 @@ const Footer = ({ home }: any) => {
               <Box width={"100%"} alignItems={"flex-start"} justifyContent={"flex-end"} display={"flex"} flexDirection={"column"}>
                 <Image src="/icons/logo-small.svg" alt="logo" width="35" height="46" />
 
-                <Typography color="primary.light" variant="body6Wide" mt={3}>
+                <Typography color="primary.light" fontFamily={"SuisseIntl"} fontWeight={400} fontSize={"12px"} mt={3}>
                   &copy; 2023 Solvemed Group
                 </Typography>
-                <Typography color="primary.light" variant="body6Wide">
+                <Typography color="primary.light" fontFamily={"SuisseIntl"} fontWeight={400} fontSize={"12px"}>
                   All Rights reserved
                 </Typography>
               </Box>
 
               <Box mt={5} justifyContent={"flex-start"} alignItems={"flex-start"} width={"100%"}>
-                <Link href="#" underline="none" color="primary.light" variant="body6Wide" mr="29px">
+                <Link href="#" underline="none" color="primary.light" fontFamily={"SuisseIntl"} fontWeight={400} fontSize={"12px"} mr="29px">
                   Privacy Policy
                 </Link>
-                <Link href="#" underline="none" color="primary.light" variant="body6Wide" mr="29px">
+                <Link href="#" underline="none" color="primary.light" fontFamily={"SuisseIntl"} fontWeight={400} fontSize={"12px"} mr="29px">
                   Terms of Use
                 </Link>
-                <Link href="#" underline="none" color="primary.light" variant="body6Wide">
+                <Link href="#" underline="none" color="primary.light" fontFamily={"SuisseIntl"} fontWeight={400} fontSize={"12px"}>
                   Cookie Policy
                 </Link>
               </Box>
@@ -156,12 +156,12 @@ const Footer = ({ home }: any) => {
               <JoinNewsletterMailchimp />
             </Box>
 
-            <Box height={"100%"} pr={10} minWidth={"330px"} maxWidth={"33vw"} display="flex" flexDirection={"column"} justifyContent="space-between" mb={3.5}>
+            <Box mt={3} height={"100%"} pr={10} minWidth={"330px"} maxWidth={"33vw"} display="flex" flexDirection={"column"} justifyContent="space-between" mb={3.5}>
               <Box height={"100%"} display="flex" width={"100%"} flexDirection="column" justifyContent={"flex-end"} alignItems={"flex-end"} mt={{ xs: 2, sm: 0 }}>
                 <Box flexDirection={"row"} display={"flex"} height={"70%"} justifyContent={"space-between"} width={"90%"}>
                   {menuItems.map((e, idx) => {
                     return (
-                      <Box key={idx} width={"20%"} mr={3} display={"flex"} justifyContent={"flex-end"} alignItems={"flex-end"} textAlign={"flex-end"}>
+                      <Box key={idx} width={"20%"} mr={3} display={"flex"} justifyContent={"flex-end"} alignItems={"flex-end"} textAlign={"right"}>
                         <Link underline="none" href={e.link}>
                           <Typography fontSize={"14px"} fontFamily="SuisseIntl" textAlign={"center"}>
                             {e.title}
@@ -244,7 +244,7 @@ const Footer = ({ home }: any) => {
                   variant="contained"
                   size="small"
                 >
-                  <Link href={"/GetAccess"} style={{ textTransform: "none", textDecoration: "none", color: "inherit" }}>
+                  <Link href={"/GetAccess"} style={{ textTransform: "none", textDecoration: "none", color: "inherit", fontFamily: "SuisseIntl", fontWeight: 300 }}>
                     {" "}
                     Get access
                   </Link>

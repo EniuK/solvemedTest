@@ -164,6 +164,7 @@ const Team: NextPage = () => {
 
       <Typography
         fontFamily={"SuisseIntl"}
+        fontWeight={300}
         pt={2}
         color={"#5E5E5E"}
         style={{ opacity: 0.8 }}
@@ -179,7 +180,7 @@ const Team: NextPage = () => {
       <Box display="flex" pt={2} flexDirection="row">
         {member.roles.map((role, idx) => (
           <Box key={`${role.title}_${idx}`} style={{ backgroundColor: role.color, padding: "5px 12px 5px 12px", width: "fit-content", borderRadius: "1000px" }} mr={1}>
-            <Typography fontFamily={"SuisseIntl"} fontSize={"12px"} lineHeight={"136%"}>
+            <Typography fontFamily={"SuisseIntl"} fontWeight={400} fontSize={"12px"} lineHeight={"136%"}>
               {role.title}
             </Typography>
           </Box>
@@ -261,7 +262,7 @@ const Team: NextPage = () => {
             ))}
 
             <Grid item xs={12} sm={6} md={4} lg={3} mt={{ xs: 2, sm: 2 }} display="flex" justifyContent="center" flexDirection="column" margin="0 auto" zIndex={1}>
-              <Typography variant="body1" textAlign="center">
+              <Typography fontFamily={"SuisseIntl"} fontWeight={400} fontSize={"21px"} textAlign="center">
                 and many more...
               </Typography>
             </Grid>
@@ -278,10 +279,10 @@ const Team: NextPage = () => {
               </Box>
               <Box width={"100%"}>
                 <Box pr={2}>
-                  <Typography variant="body1" fontWeight="600" mb="60px">
+                  <Typography fontFamily={"SuisseIntl"} fontWeight={400} fontSize={"21px"} mb="60px">
                     About Solvemed
                   </Typography>
-                  <Typography variant="subtitle1" mb="116px" pr={2} maxWidth="440px">
+                  <Typography fontFamily={"FinancierDisplay"} fontSize={"42px"} lineHeight={"54.6px"} mb="116px" pr={2} maxWidth="440px">
                     Solvemed champions digital-first care, where cutting-edge technology supports clinicians and empowers patients.
                   </Typography>
                 </Box>
@@ -292,16 +293,16 @@ const Team: NextPage = () => {
                       <Typography fontFamily={"FinancierDisplay"} letterSpacing={"-0.03em"} fontSize={{ xs: "100px", sm: "144px" }} lineHeight="138.24px" fontWeight="300">
                         36
                       </Typography>
-                      <Typography fontFamily={"SuisseIntl"} fontSize={{ xs: "16px" }} fontWeight="300">
+                      <Typography fontFamily={"SuisseIntl"} fontSize={{ xs: "16px" }} fontWeight={400}>
                         Number of emplyees
                       </Typography>
                     </Box>
 
                     <Box>
-                      <Typography fontFamily={"FinancierDisplay"} fontSize={{ xs: "100px", sm: "144px" }} lineHeight="138.24px" fontWeight="300">
+                      <Typography fontFamily={"FinancierDisplay"} fontSize={{ xs: "100px", sm: "144px" }} lineHeight="138.24px" fontWeight="400">
                         4
                       </Typography>
-                      <Typography fontFamily={"SuisseIntl"} fontSize={{ xs: "16px" }} fontWeight="300">
+                      <Typography fontFamily={"SuisseIntl"} fontSize={{ xs: "16px" }} fontWeight={400}>
                         Number of PhDs
                       </Typography>
                     </Box>
@@ -309,19 +310,19 @@ const Team: NextPage = () => {
 
                   <Box width={"100%"} display={"flex"} justifyContent={"space-between"} alignItems={"center"}>
                     <Box>
-                      <Typography fontFamily={"FinancierDisplay"} fontSize={{ xs: "100px", sm: "144px" }} lineHeight="138.24px" fontWeight="300">
+                      <Typography fontFamily={"FinancierDisplay"} fontSize={{ xs: "100px", sm: "144px" }} lineHeight="138.24px" fontWeight={400}>
                         6
                       </Typography>
-                      <Typography fontFamily={"SuisseIntl"} fontSize={{ xs: "16px" }} fontWeight="300">
+                      <Typography fontFamily={"SuisseIntl"} fontSize={{ xs: "16px" }} fontWeight={400}>
                         Number of MDs
                       </Typography>
                     </Box>
 
                     <Box>
-                      <Typography fontFamily={"FinancierDisplay"} fontSize={{ xs: "100px", sm: "144px" }} lineHeight="138.24px" fontWeight="300">
+                      <Typography fontFamily={"FinancierDisplay"} fontSize={{ xs: "100px", sm: "144px" }} lineHeight="138.24px" fontWeight={400}>
                         9
                       </Typography>
-                      <Typography fontFamily={"SuisseIntl"} fontSize={{ xs: "16px" }} fontWeight="300">
+                      <Typography fontFamily={"SuisseIntl"} fontSize={{ xs: "16px" }} fontWeight={400}>
                         Number of MBAs
                       </Typography>
                     </Box>
@@ -356,19 +357,19 @@ const Team: NextPage = () => {
                 <Box display={"flex"} width={"80%"} pr={12} flexDirection={"column"} justifyContent={"center"} alignItems={"center"}>
                   <Box width={"100%"} display={"flex"} justifyContent={"space-between"} alignItems={"center"}>
                     <Box>
-                      <Typography fontFamily={"FinancierDisplay"} letterSpacing={"-0.03em"} fontSize={{ xs: "100px", sm: "144px" }} lineHeight="138.24px" fontWeight="300">
+                      <Typography fontFamily={"FinancierDisplay"} letterSpacing={"-0.03em"} fontSize={{ xs: "100px", sm: "144px" }} lineHeight="138.24px" fontWeight="400">
                         36
                       </Typography>
-                      <Typography fontFamily={"SuisseIntl"} fontSize={{ xs: "16px" }} fontWeight="300">
+                      <Typography fontFamily={"SuisseIntl"} fontSize={{ xs: "16px" }} fontWeight="400">
                         Number of emplyees
                       </Typography>
                     </Box>
 
                     <Box>
-                      <Typography fontFamily={"FinancierDisplay"} fontSize={{ xs: "100px", sm: "144px" }} lineHeight="138.24px" fontWeight="300">
+                      <Typography fontFamily={"FinancierDisplay"} fontSize={{ xs: "100px", sm: "144px" }} lineHeight="138.24px" fontWeight="400">
                         4
                       </Typography>
-                      <Typography fontFamily={"SuisseIntl"} fontSize={{ xs: "16px" }} fontWeight="300">
+                      <Typography fontFamily={"SuisseIntl"} fontSize={{ xs: "16px" }} fontWeight="400">
                         Number of PhDs
                       </Typography>
                     </Box>
@@ -379,7 +380,7 @@ const Team: NextPage = () => {
                       <Typography fontFamily={"FinancierDisplay"} fontSize={{ xs: "100px", sm: "144px" }} lineHeight="138.24px" fontWeight="300">
                         6
                       </Typography>
-                      <Typography fontFamily={"SuisseIntl"} fontSize={{ xs: "16px" }} fontWeight="300">
+                      <Typography fontFamily={"SuisseIntl"} fontSize={{ xs: "16px" }} fontWeight="400">
                         Number of MDs
                       </Typography>
                     </Box>
@@ -388,7 +389,7 @@ const Team: NextPage = () => {
                       <Typography fontFamily={"FinancierDisplay"} fontSize={{ xs: "100px", sm: "144px" }} lineHeight="138.24px" fontWeight="300">
                         9
                       </Typography>
-                      <Typography fontFamily={"SuisseIntl"} fontSize={{ xs: "16px" }} fontWeight="300">
+                      <Typography fontFamily={"SuisseIntl"} fontSize={{ xs: "16px" }} fontWeight="400">
                         Number of MBAs
                       </Typography>
                     </Box>
@@ -403,8 +404,8 @@ const Team: NextPage = () => {
           We come from
         </Typography>
 
-        <Typography fontFamily={"SuisseIntl"} fontSize={"16px"} mb="60px" width={{ xs: "100%", md: "40%" }} mx="auto" textAlign="center">
-          Our team members bring wealth of experience from the world’s most innovative institutions and companies.
+        <Typography fontFamily={"SuisseIntl"} fontWeight={300} fontSize={"16px"} mb="60px" width={{ xs: "100%", md: "40%" }} mx="auto" textAlign="center">
+          Our team members bring wealth of experience from the world’s most <br /> innovative institutions and companies.
         </Typography>
 
         <Grid container direction="row" justifyContent="space-between" alignItems="baseline" rowSpacing={{ md: 8, sm: 8, xs: 6 }} columns={{ md: 5, sm: 4, xs: 2 }}>
@@ -418,7 +419,7 @@ const Team: NextPage = () => {
         </Grid>
 
         <Box>
-          <Typography fontFamily={"SuisseIntl"} fontSize={"18px"} textAlign="center" mb="60px" marginTop={20}>
+          <Typography fontFamily={"SuisseIntl"} fontWeight={300} fontSize={"18px"} textAlign="center" mb="60px" marginTop={20}>
             Solvemed investors
           </Typography>
 

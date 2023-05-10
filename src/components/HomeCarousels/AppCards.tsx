@@ -1,16 +1,13 @@
 import { Box, Link, Typography, Input, Button, useMediaQuery, Avatar } from "@mui/material";
 import Image from "next/image";
 import React from "react";
-import { useEffect, useRef, useState } from "react";
 import { theme } from "../../config/theme";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 
-// Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
 
-// import required modules
 import { Pagination } from "swiper";
 
 const AppCards = () => {
@@ -88,7 +85,16 @@ const AppCards = () => {
                   >
                     {e.title}
                   </Box>
-                  <Box fontSize={"15px"} fontFamily={"SuisseIntl"} color={"#5E5E5E"} display={"flex"} textAlign={"left"} justifyContent={"flex-start"} alignItems="flex-start">
+                  <Box
+                    fontSize={"15px"}
+                    fontWeight={300}
+                    fontFamily={"SuisseIntl"}
+                    color={"#5E5E5E"}
+                    display={"flex"}
+                    textAlign={"left"}
+                    justifyContent={"flex-start"}
+                    alignItems="flex-start"
+                  >
                     {e.description}
                   </Box>
                 </Box>

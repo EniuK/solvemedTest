@@ -208,16 +208,19 @@ const Home: NextPage = () => {
                 </Typography>
               </Box>
             </Box>
-            <Box mt={100} mb={100} display={"flex"} flexDirection={"column"} maxWidth={"300px"} ml={10}>
-              <Typography fontSize={"64px"} style={{ fontFamily: "FinancierDisplay", lineHeight: "25.5px", fontWeight: 300 }} mb={5}>
-                mPenlight
-              </Typography>
-              <Box mt={1}>
-                <Typography fontSize={"17px"} style={{ opacity: 0.8, fontFamily: "SuisseIntl", lineHeight: "25.5px", fontWeight: 300, color: "#5E5E5E" }}>
-                  Solvemed{"'"}s smartphone-based software medical device enables pupil reactivity measurement in a quantifiable manner without any external hardware needed.
+            <Box width={"100%"}>
+              <Box mt={100} mb={100} display={"flex"} flexDirection={"column"} maxWidth={"300px"} width={"21.5%"} ml={"5%"}>
+                <Typography fontSize={"64px"} style={{ fontFamily: "FinancierDisplay", lineHeight: "25.5px", fontWeight: 300 }} mb={5}>
+                  mPenlight
                 </Typography>
+                <Box mt={1}>
+                  <Typography fontSize={"17px"} style={{ opacity: 0.8, fontFamily: "SuisseIntl", lineHeight: "25.5px", fontWeight: 300, color: "#5E5E5E" }}>
+                    Solvemed{"'"}s smartphone-based software medical device enables pupil reactivity measurement in a quantifiable manner without any external hardware needed.
+                  </Typography>
+                </Box>
               </Box>
             </Box>
+
             <CardWithShadow />
           </div>
         )}

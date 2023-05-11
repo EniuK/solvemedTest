@@ -136,8 +136,8 @@ const Home: NextPage = () => {
             <Box
               width={"100vw"}
               display={"flex"}
-              justifyContent={"center"}
               flexDirection={"column"}
+              justifyContent={"center"}
               alignContent={"center"}
               pr={5}
               pb={600}
@@ -146,26 +146,14 @@ const Home: NextPage = () => {
             >
               <Box
                 zIndex={2}
-                width={"100vw"}
-                className={`${styles.video} ${videoStickinessMode === 2 ? styles.videoFloating2 : videoStickinessMode === 3 ? styles.videoSticky : ""}`}
+                className={`${styles.video} ${videoStickinessMode === 2 ? styles.videoFloating : videoStickinessMode === 3 ? styles.videoSticky : ""}`}
                 ref={elementRef}
-                ml={8}
               >
-                <video controls={false} autoPlay loop width="70%" height={"70%"}>
+                <video controls={false} autoPlay loop width="100%">
                   <source src={"https://strapi-s3-solvemed-public-images.s3.amazonaws.com/iPhone+animation+looped.mov"} type="video/mp4" />
                 </video>
               </Box>
-              <Box
-                mt={300}
-                display="flex"
-                flexDirection="column"
-                ml={3}
-                mb={10}
-                data-aos="fade-up"
-                data-aos-duration="1000"
-                style={{ position: "relative", overflow: "hidden" }}
-                data-aos-anchor-placement="bottom"
-              >
+              <Box mt={300} display="flex" flexDirection="column" width="100%" mb={10} data-aos="fade-up" data-aos-duration="500">
                 <Typography fontSize="32px" fontWeight={300} color="black" fontFamily="FinancierDisplay" mb={2} textAlign="center">
                   Forget about forgetting your penlight.
                 </Typography>
@@ -182,7 +170,6 @@ const Home: NextPage = () => {
                 <Image src={"/images/bg/homegradient1.png"} width={"767.36px"} height={"756.02px"} alt={"gradient"} style={{ objectFit: "cover" }} />
               </Box>
             </Box>
-
             <Box display={"flex"} flexDirection={"column"} width={"100%"} mb={10}>
               <Typography fontSize={"32px"} fontWeight={300} color={"black"} fontFamily={"FinancierDisplay"} mb={2} textAlign={"center"}>
                 mPenlight
@@ -201,13 +188,8 @@ const Home: NextPage = () => {
         ) : (
           <div style={{ position: "relative" }} ref={sectionDesktopRef}>
             <Box display={"flex"} pt={1} justifyContent={"center"} alignContent={"center"} pr={5} pb={100} ref={elementRef}>
-              <Box
-                zIndex={2}
-                mt={-6}
-                ml={15}
-                className={`${styles.video} ${videoStickinessMode === 2 ? styles.videoFloating : videoStickinessMode === 3 ? styles.videoSticky : ""}`}
-              >
-                <video controls={false} autoPlay loop width="70%" height={"70%"}>
+              <Box zIndex={2} mt={-6} className={`${styles.video} ${videoStickinessMode === 2 ? styles.videoFloating : videoStickinessMode === 3 ? styles.videoSticky : ""}`}>
+                <video controls={false} autoPlay loop width="100%" height={"100%"}>
                   <source src={"https://strapi-s3-solvemed-public-images.s3.amazonaws.com/iPhone+animation+looped.mov"} type="video/mp4" />
                 </video>
               </Box>
@@ -215,18 +197,7 @@ const Home: NextPage = () => {
                 <Image src={"/images/bg/homegradient1.png"} width={"767.36px"} height={"756.02px"} alt={"gradient"} />
               </Box>
             </Box>
-
-            <Box
-              mt={100}
-              mb={100}
-              display="flex"
-              flexDirection="column"
-              ml={-5}
-              data-aos="fade-up"
-              data-aos-duration="100"
-              style={{ position: "relative", overflow: "hidden" }}
-              data-aos-anchor-placement="bottom"
-            >
+            <Box mt={100} mb={100} display="flex" flexDirection="column" ml={-5} data-aos="fade-up" data-aos-duration="500">
               {/* Twój kod dla animowanego elementu */}
               <Typography fontSize="64px" style={{ fontFamily: "FinancierDisplay", lineHeight: "100%", fontWeight: 300, textAlign: "center" }} mb={5}>
                 Forget about forgetting your penlight.

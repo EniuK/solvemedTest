@@ -98,7 +98,7 @@ const Layout = ({ children }: { children: ReactNode }) => {
               >
                 <div
                   style={{
-                    backgroundColor: "#D3EDFF",
+                    backgroundColor: "white",
                     width: "100%",
                     height: "100%",
                   }}

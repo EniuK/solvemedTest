@@ -143,9 +143,12 @@
 
 .videoFloating {
   position: fixed;
+  bottom: 0;
+}
+.videoFloating2 {
+  position: fixed;
   top: 0;
 }
-
 .videoSticky {
   position: absolute;
   bottom: 0;

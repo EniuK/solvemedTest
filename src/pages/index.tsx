@@ -11,7 +11,8 @@ import AppCards from "../components/HomeCarousels/AppCards";
 import { theme } from "../config/theme";
 import styles from "./index.module.css";
 import { useEffect, useRef, useState } from "react";
-
+import AOS from "aos";
+import "aos/dist/aos.css";
 const Home: NextPage = () => {
   const isMobileView = useMediaQuery(theme.breakpoints.down("md"));
 
@@ -77,6 +78,11 @@ const Home: NextPage = () => {
       clearInterval(interval);
     };
   }, []);
+
+  // fade in forget about forgetting
+  useEffect(() => {
+    AOS.init({ once: true });
+  }, []);
   return (
     <>
       <div>
@@ -127,32 +133,54 @@ const Home: NextPage = () => {
 
         {isMobileView ? (
           <>
-            <Box width={"100vw"} display={"flex"} justifyContent={"center"} alignContent={"center"} pr={5} pb={600} ref={sectionMobileRef} position={"relative"}>
+            <Box
+              width={"100vw"}
+              display={"flex"}
+              justifyContent={"center"}
+              flexDirection={"column"}
+              alignContent={"center"}
+              pr={5}
+              pb={600}
+              ref={sectionMobileRef}
+              position={"relative"}
+            >
               <Box
                 zIndex={2}
-                className={`${styles.video} ${videoStickinessMode === 2 ? styles.videoFloating : videoStickinessMode === 3 ? styles.videoSticky : ""}`}
+                width={"100vw"}
+                className={`${styles.video} ${videoStickinessMode === 2 ? styles.videoFloating2 : videoStickinessMode === 3 ? styles.videoSticky : ""}`}
                 ref={elementRef}
+                ml={8}
               >
-                <video controls={false} autoPlay loop width="100%">
+                <video controls={false} autoPlay loop width="70%" height={"70%"}>
                   <source src={"https://strapi-s3-solvemed-public-images.s3.amazonaws.com/iPhone+animation+looped.mov"} type="video/mp4" />
                 </video>
+              </Box>
+              <Box
+                mt={300}
+                display="flex"
+                flexDirection="column"
+                ml={3}
+                mb={10}
+                data-aos="fade-up"
+                data-aos-duration="1000"
+                style={{ position: "relative", overflow: "hidden" }}
+                data-aos-anchor-placement="bottom"
+              >
+                <Typography fontSize="32px" fontWeight={300} color="black" fontFamily="FinancierDisplay" mb={2} textAlign="center">
+                  Forget about forgetting your penlight.
+                </Typography>
+                <Typography
+                  fontSize="14px"
+                  fontWeight={300}
+                  style={{ fontFamily: "SuisseIntl", opacity: 0.8, lineHeight: "140%", fontWeight: 300, color: "#5E5E5E" }}
+                  textAlign="center"
+                >
+                  We bring the most advanced smartphone-enabled data collection and analytical tools in the world to the field of neurology and ophthalmology.
+                </Typography>
               </Box>
               <Box position={"absolute"} zIndex={1} width="100%" height="100%" top={0} left={0}>
                 <Image src={"/images/bg/homegradient1.png"} width={"767.36px"} height={"756.02px"} alt={"gradient"} style={{ objectFit: "cover" }} />
               </Box>
-            </Box>
-            <Box display={"flex"} flexDirection={"column"} width={"100%"} mb={10}>
-              <Typography fontSize={"32px"} fontWeight={300} color={"black"} fontFamily={"FinancierDisplay"} mb={2} textAlign={"center"}>
-                Forget about forgetting your penlight.
-              </Typography>
-              <Typography
-                fontSize={"14px"}
-                fontWeight={300}
-                style={{ fontFamily: "SuisseIntl", opacity: 0.8, lineHeight: "140%", fontWeight: 300, color: "#5E5E5E" }}
-                textAlign={"center"}
-              >
-                We bring the most advanced smartphone-enabled data collection and analytical tools in the world to the field of neurology and ophthalmology.
-              </Typography>
             </Box>
 
             <Box display={"flex"} flexDirection={"column"} width={"100%"} mb={10}>
@@ -173,8 +201,13 @@ const Home: NextPage = () => {
         ) : (
           <div style={{ position: "relative" }} ref={sectionDesktopRef}>
             <Box display={"flex"} pt={1} justifyContent={"center"} alignContent={"center"} pr={5} pb={100} ref={elementRef}>
-              <Box zIndex={2} mt={-6} className={`${styles.video} ${videoStickinessMode === 2 ? styles.videoFloating : videoStickinessMode === 3 ? styles.videoSticky : ""}`}>
-                <video controls={false} autoPlay loop width="100%" height={"100%"}>
+              <Box
+                zIndex={2}
+                mt={-6}
+                ml={15}
+                className={`${styles.video} ${videoStickinessMode === 2 ? styles.videoFloating : videoStickinessMode === 3 ? styles.videoSticky : ""}`}
+              >
+                <video controls={false} autoPlay loop width="70%" height={"70%"}>
                   <source src={"https://strapi-s3-solvemed-public-images.s3.amazonaws.com/iPhone+animation+looped.mov"} type="video/mp4" />
                 </video>
               </Box>
@@ -182,13 +215,25 @@ const Home: NextPage = () => {
                 <Image src={"/images/bg/homegradient1.png"} width={"767.36px"} height={"756.02px"} alt={"gradient"} />
               </Box>
             </Box>
-            <Box mt={100} mb={100} display={"flex"} flexDirection={"column"} maxWidth={"300px"} ml={10}>
-              <Typography fontSize={"64px"} style={{ fontFamily: "FinancierDisplay", lineHeight: "100%", fontWeight: 300 }} mb={5}>
+
+            <Box
+              mt={100}
+              mb={100}
+              display="flex"
+              flexDirection="column"
+              ml={-5}
+              data-aos="fade-up"
+              data-aos-duration="100"
+              style={{ position: "relative", overflow: "hidden" }}
+              data-aos-anchor-placement="bottom"
+            >
+              {/* Twój kod dla animowanego elementu */}
+              <Typography fontSize="64px" style={{ fontFamily: "FinancierDisplay", lineHeight: "100%", fontWeight: 300, textAlign: "center" }} mb={5}>
                 Forget about forgetting your penlight.
               </Typography>
               <Box mt={1}>
-                <Typography fontSize={"17px"} style={{ opacity: 0.8, fontFamily: "SuisseIntl", lineHeight: "25.5px", fontWeight: 300, color: "#5E5E5E" }}>
-                  We bring the most advanced smartphone-enabled data collection and analytical tools in the world to the field of neurology and ophthalmology.
+                <Typography fontSize="17px" style={{ opacity: 0.8, fontFamily: "SuisseIntl", lineHeight: "25.5px", fontWeight: 300, color: "#5E5E5E", textAlign: "center" }}>
+                  We bring the most advanced smartphone-enabled data collection and analytical <br /> tools in the world to the field of neurology and ophthalmology.
                 </Typography>
               </Box>
             </Box>

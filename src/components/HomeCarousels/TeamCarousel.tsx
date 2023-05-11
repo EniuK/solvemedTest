@@ -37,7 +37,7 @@ const TeamCarousel = () => {
   ];
 
   return (
-    <Box width={"100vw"} ml={-3} pl={1} mt={isMobileView ? 5 : 10}>
+    <Box width={"100vw"} mt={isMobileView ? 5 : 10}>
       {isMobileView ? (
         <Box>
           <Swiper

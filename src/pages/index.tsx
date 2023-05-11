@@ -139,8 +139,8 @@ const Home: NextPage = () => {
               flexDirection={"column"}
               justifyContent={"center"}
               alignContent={"center"}
-              pr={5}
-              pb={600}
+              pr={2.5}
+              pb={200}
               ref={sectionMobileRef}
               position={"relative"}
             >
@@ -153,7 +153,7 @@ const Home: NextPage = () => {
                   <source src={"https://strapi-s3-solvemed-public-images.s3.amazonaws.com/iPhone+animation+looped.mov"} type="video/mp4" />
                 </video>
               </Box>
-              <Box mt={300} display="flex" flexDirection="column" width="100%" mb={10} data-aos="fade-up" data-aos-duration="500">
+              <Box mt={150} display="flex" flexDirection="column" width="100%" mb={10} data-aos="fade-up" data-aos-duration="500">
                 <Typography fontSize="32px" fontWeight={300} color="black" fontFamily="FinancierDisplay" mb={2} textAlign="center">
                   Forget about forgetting your penlight.
                 </Typography>
@@ -187,7 +187,7 @@ const Home: NextPage = () => {
           </>
         ) : (
           <div style={{ position: "relative" }} ref={sectionDesktopRef}>
-            <Box display={"flex"} pt={1} justifyContent={"center"} alignContent={"center"} pr={5} pb={100} ref={elementRef}>
+            <Box display={"flex"} pt={1} justifyContent={"center"} alignContent={"center"} pb={100} ref={elementRef}>
               <Box zIndex={2} mt={-6} className={`${styles.video} ${videoStickinessMode === 2 ? styles.videoFloating : videoStickinessMode === 3 ? styles.videoSticky : ""}`}>
                 <video controls={false} autoPlay loop width="100%" height={"100%"}>
                   <source src={"https://strapi-s3-solvemed-public-images.s3.amazonaws.com/iPhone+animation+looped.mov"} type="video/mp4" />
@@ -285,7 +285,7 @@ const Home: NextPage = () => {
           }}
         >
           {isMobileView ? (
-            <Box display={"flex"} width={"100vw"} ml={-3} mt={20} justifyContent={"center"} alignItems={"center"} flexDirection={"column"}>
+            <Box display={"flex"} width={"100vw"} mt={20} justifyContent={"center"} alignItems={"center"} flexDirection={"column"}>
               <Box width={"100%"}>
                 <Typography style={{ fontFamily: "FinancierDisplay", fontWeight: 400 }} fontSize={"32px"} textAlign={"center"}>
                   Medical specialties we empower
@@ -346,9 +346,7 @@ const Home: NextPage = () => {
         <Box
           pt={30}
           pb={30}
-          ml={-6}
           pl={6}
-          mr={-6}
           pr={6}
           style={{
             backgroundImage: `url('/images/bg/eyeEvaluation.png')`,
@@ -358,7 +356,7 @@ const Home: NextPage = () => {
           }}
         >
           {isMobileView ? (
-            <Box mt={60} px={1} width={"100%"} display="flex" justifyContent={"center"} alignItems={"center"} flexShrink={1}>
+            <Box mt={10} px={1} width={"100%"} display="flex" justifyContent={"center"} alignItems={"center"} flexShrink={1}>
               <Typography lineHeight={"120%"} fontSize={"32px"} fontFamily="FinancierDisplay" textAlign={"center"}>
                 Testing pupil is now <br /> simple, objective and <br />{" "}
                 <span className={styles.gradient_text}>
@@ -368,7 +366,7 @@ const Home: NextPage = () => {
               </Typography>
             </Box>
           ) : (
-            <Box mt={60} width={"100%"} display="flex" justifyContent={"center"} alignItems={"center"} flexShrink={1}>
+            <Box mt={10} width={"100%"} display="flex" justifyContent={"center"} alignItems={"center"} flexShrink={1}>
               <Typography variant="h4" fontSize={"64px"} textAlign={"center"}>
                 Testing pupil is now <br /> simple, objective and{" "}
                 <span className={styles.gradient_text}>
@@ -383,9 +381,7 @@ const Home: NextPage = () => {
         <Box
           pt={30}
           pb={30}
-          ml={-6}
           pl={6}
-          mr={-6}
           pr={6}
           style={{
             backgroundImage: `url('/images/bg/aiEnabled.png')`,
@@ -395,7 +391,7 @@ const Home: NextPage = () => {
           }}
         >
           {isMobileView ? (
-            <Box mt={60} width={"100%"} display="flex" justifyContent={"center"} alignItems={"center"} flexDirection={"column"} flexShrink={1}>
+            <Box mt={10} width={"100%"} display="flex" justifyContent={"center"} alignItems={"center"} flexDirection={"column"} flexShrink={1}>
               <Box>
                 <Typography fontWeight={200} fontFamily="FinancierDisplay" lineHeight={"130%"} fontSize={"32px"} textAlign={"center"}>
                   Decoding neurology. In the blink of <span className={styles.gradient_text}>AI</span>.
@@ -419,7 +415,7 @@ const Home: NextPage = () => {
               </Box>
             </Box>
           ) : (
-            <Box mt={60} pl={15} pr={15} width={"100%"} display="flex" justifyContent={"center"} alignItems={"center"} flexDirection={"column"} flexShrink={1}>
+            <Box mt={10} pl={15} pr={15} width={"100%"} display="flex" justifyContent={"center"} alignItems={"center"} flexDirection={"column"} flexShrink={1}>
               <Box>
                 <Typography fontFamily="FinancierDisplay" lineHeight={"110%"} fontSize={"64px"} textAlign={"center"}>
                   Decoding neurology. In the blink of <span className={styles.gradient_text}>AI</span>.
@@ -448,7 +444,7 @@ const Home: NextPage = () => {
             </Box>
           )}
         </Box>
-        <Box mt={20}>
+        <Box mt={10}>
           <Box
             width={"100%"}
             display={"flex"}

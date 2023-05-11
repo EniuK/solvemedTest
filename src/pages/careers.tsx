@@ -61,10 +61,13 @@ const Careers: NextPage = () => {
       <Grid container item xs={10} lg={8} columns={10} margin="auto" alignItems="center">
         {isMobileView ? (
           <Grid item xs={10} textAlign="center">
+            <Box position={"absolute"} width={"100vw"} pr={5} pb={20} height={"50%"} display={"flex"} justifyContent={"center"} alignItems={"center"}>
+              <img src={"/images/career/gradient.png"} width={"400"} height={"370"} alt={"bg"} />
+            </Box>
             <Typography
               component={motion.p}
               variant="h3"
-              mb={{ xs: "60px", lg: "80px" }}
+              mb={{ xs: "30px", lg: "80px" }}
               variants={{ initial: { opacity: 0, y: 100 }, animate: { opacity: 1, y: 0 } }}
               transition={{ duration: 0.7, ease: "easeOut" }}
               fontFamily={"FinancierDisplay"}
@@ -72,35 +75,37 @@ const Careers: NextPage = () => {
             >
               Career
             </Typography>
+
             <Typography
+              mb={3}
               component={motion.p}
               width={{ xs: "100%", sm: "70%" }}
-              margin="0 auto 30px auto"
               variants={{ initial: { opacity: 0, y: 50 }, animate: { opacity: 1, y: 0 } }}
               transition={{ duration: 0.7, ease: "easeOut" }}
               fontFamily={"FinancierDisplay"}
               fontWeight={300}
+              letterSpacing={"-0.02em"}
             >
               We are looking for experts.
             </Typography>
             <Typography
               component={motion.p}
               width={{ xs: "100%", sm: "70%", md: "50%" }}
-              margin="auto"
               mb={{ xs: "60px", lg: "80px" }}
               variants={{ initial: { opacity: 0, y: 20 }, animate: { opacity: 1, y: 0 } }}
               transition={{ duration: 0.7, ease: "easeOut" }}
-              fontFamily={"FinancierDisplay"}
+              fontFamily={"SuisseIntl"}
               fontWeight={300}
               color={"rgba(89, 93, 98, 1)"}
               fontSize={"16px"}
-              lineHeight={"28.8px"}
+              lineHeight={"180%"}
             >
               We are looking to hire a wide range of people <br /> with diverse engineering, scientific, operations <br /> expertise.
             </Typography>
-            <Box>
+
+            {/* <Box>
               <Image src="/images/career/eye.png" width={"652px"} height={"381px"} alt="Eye" className={styles.eyeImg} />
-            </Box>
+            </Box> */}
           </Grid>
         ) : (
           <Grid item textAlign="left" width={"100%"} ml={3}>

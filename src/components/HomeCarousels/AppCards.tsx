@@ -1,4 +1,4 @@
-import { Box, Link, Typography, Input, Button, useMediaQuery, Avatar } from "@mui/material";
+import { Box, useMediaQuery } from "@mui/material";
 import Image from "next/image";
 import React from "react";
 import { theme } from "../../config/theme";
@@ -15,7 +15,7 @@ const AppCards = () => {
   const istabletView = useMediaQuery(theme.breakpoints.down("md"));
   const appData = [
     {
-      title: "Reliable patient monitoring",
+      title: "Reliable patient screening",
       description: "Data driven medical results ",
       src: "/images/homePage/appPhotos/phone.png",
     },
@@ -31,23 +31,23 @@ const AppCards = () => {
     },
     {
       title: "Quality assurance & standardisation.",
-      description: "Data driven medical results ",
+      description: "Consistent and reliable results every time.",
       src: "/images/homePage/appPhotos/cells.png",
     },
     {
-      title: "Reducing the risk of human error",
-      description: "Data driven medical results ",
+      title: "Al-powered Software ",
+      description: "Advanced algorithms and machine learning to assist in medical decision-making.",
       src: "/images/homePage/appPhotos/hgw.png",
     },
     {
       title: "Advanced analytics for demanding users",
-      description: "Data driven medical results",
+      description: "Complex data sets for important decisions.",
       src: "/images/homePage/appPhotos/phone2.png",
     },
   ];
 
   return (
-    <Box display={"flex"} justifyContent={"center"} alignItems={"center"} ml={istabletView ? -1 : 10} mt={15}>
+    <Box display={"flex"} justifyContent={"center"} alignItems={"center"} ml={istabletView ? -1 : -10} pl={istabletView ? 0 : 10} mt={15}>
       <Swiper
         slidesPerView={istabletView ? 1.17 : isMobileView ? 2 : 3.2}
         spaceBetween={10}
@@ -94,6 +94,7 @@ const AppCards = () => {
                     textAlign={"left"}
                     justifyContent={"flex-start"}
                     alignItems="flex-start"
+                    pr={istabletView ? 0 : 3}
                   >
                     {e.description}
                   </Box>

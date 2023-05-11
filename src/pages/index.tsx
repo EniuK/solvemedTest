@@ -124,6 +124,7 @@ const Home: NextPage = () => {
             </Typography>
           )}
         </Box>
+
         {isMobileView ? (
           <>
             <Box width={"100vw"} display={"flex"} justifyContent={"center"} alignContent={"center"} pr={5} pb={600} ref={sectionMobileRef} position={"relative"}>
@@ -139,6 +140,19 @@ const Home: NextPage = () => {
               <Box position={"absolute"} zIndex={1} width="100%" height="100%" top={0} left={0}>
                 <Image src={"/images/bg/homegradient1.png"} width={"767.36px"} height={"756.02px"} alt={"gradient"} style={{ objectFit: "cover" }} />
               </Box>
+            </Box>
+            <Box display={"flex"} flexDirection={"column"} width={"100%"} mb={10}>
+              <Typography fontSize={"32px"} fontWeight={300} color={"black"} fontFamily={"FinancierDisplay"} mb={2} textAlign={"center"}>
+                Forget about forgetting your penlight.
+              </Typography>
+              <Typography
+                fontSize={"14px"}
+                fontWeight={300}
+                style={{ fontFamily: "SuisseIntl", opacity: 0.8, lineHeight: "140%", fontWeight: 300, color: "#5E5E5E" }}
+                textAlign={"center"}
+              >
+                We bring the most advanced smartphone-enabled data collection and analytical tools in the world to the field of neurology and ophthalmology.
+              </Typography>
             </Box>
 
             <Box display={"flex"} flexDirection={"column"} width={"100%"} mb={10}>
@@ -168,14 +182,23 @@ const Home: NextPage = () => {
                 <Image src={"/images/bg/homegradient1.png"} width={"767.36px"} height={"756.02px"} alt={"gradient"} />
               </Box>
             </Box>
-
+            <Box mt={100} mb={100} display={"flex"} flexDirection={"column"} maxWidth={"300px"} ml={10}>
+              <Typography fontSize={"64px"} style={{ fontFamily: "FinancierDisplay", lineHeight: "100%", fontWeight: 300 }} mb={5}>
+                Forget about forgetting your penlight.
+              </Typography>
+              <Box mt={1}>
+                <Typography fontSize={"17px"} style={{ opacity: 0.8, fontFamily: "SuisseIntl", lineHeight: "25.5px", fontWeight: 300, color: "#5E5E5E" }}>
+                  We bring the most advanced smartphone-enabled data collection and analytical tools in the world to the field of neurology and ophthalmology.
+                </Typography>
+              </Box>
+            </Box>
             <Box mt={100} mb={100} display={"flex"} flexDirection={"column"} maxWidth={"300px"} ml={10}>
               <Typography fontSize={"64px"} style={{ fontFamily: "FinancierDisplay", lineHeight: "25.5px", fontWeight: 300 }} mb={5}>
                 mPenlight
               </Typography>
               <Box mt={1}>
                 <Typography fontSize={"17px"} style={{ opacity: 0.8, fontFamily: "SuisseIntl", lineHeight: "25.5px", fontWeight: 300, color: "#5E5E5E" }}>
-                  Solvemed{"'"}s smartphone-based software medical device enables pupil reactivity measurement in the quantifiable manner without any external hardware needed.{" "}
+                  Solvemed{"'"}s smartphone-based software medical device enables pupil reactivity measurement in a quantifiable manner without any external hardware needed.
                 </Typography>
               </Box>
             </Box>
@@ -254,7 +277,7 @@ const Home: NextPage = () => {
               </Box>
               <Box width={"100%"} mt={4} pl={4} mb={2} pr={4}>
                 <Typography textAlign={"center"} style={{ opacity: 0.7, fontFamily: "SuisseIntl", fontWeight: 300, lineHeight: "150%", alignSelf: "stretch" }} fontSize={"18px"}>
-                  We are proud to satisfy the needs of world{"'"}s leading practitioners across the spectrum of care.{" "}
+                  We are proud to satisfy the needs of the world{"'"}s leading practitioners across <br /> the spectrum of care.{" "}
                 </Typography>
               </Box>
             </Box>
@@ -267,7 +290,7 @@ const Home: NextPage = () => {
               </Box>
               <Box width={"70%"} mt={isMobileView ? 2 : 6} style={{ opacity: 0.8 }}>
                 <Typography textAlign={"center"} fontFamily={"SuisseIntl"} color={"#5E5E5E"} lineHeight={"150%"} fontWeight={300} fontSize={"18px"}>
-                  We are proud to satisfy the needs of world{"'"}s leading practitioners across the <br /> spectrum of care.{" "}
+                  We are proud to satisfy the needs of the world{"'"}s leading practitioners across the <br /> spectrum of care.{" "}
                 </Typography>
               </Box>
             </Box>
@@ -320,16 +343,22 @@ const Home: NextPage = () => {
         >
           {isMobileView ? (
             <Box mt={60} px={1} width={"100%"} display="flex" justifyContent={"center"} alignItems={"center"} flexShrink={1}>
-              <Typography fontWeight={200} fontFamily="FinancierDisplay" lineHeight={"130%"} fontSize={"32px"} textAlign={"center"}>
-                Solvemed transforms <span className={styles.gradient_text}>complex eye evaluation </span> processes into one connected system to help you offer better, more
-                efficient care.
+              <Typography lineHeight={"120%"} fontSize={"32px"} fontFamily="FinancierDisplay" textAlign={"center"}>
+                Testing pupil is now <br /> simple, objective and <br />{" "}
+                <span className={styles.gradient_text}>
+                  {" "}
+                  <b>AI-enabled.</b>
+                </span>
               </Typography>
             </Box>
           ) : (
-            <Box mt={60} pl={15} pr={15} width={"100%"} display="flex" justifyContent={"center"} alignItems={"center"} flexShrink={1}>
+            <Box mt={60} width={"100%"} display="flex" justifyContent={"center"} alignItems={"center"} flexShrink={1}>
               <Typography variant="h4" fontSize={"64px"} textAlign={"center"}>
-                Solvemed transforms complex <span className={styles.gradient_text}>eye evaluation processes</span> into one connected system to help you offer better, more
-                efficient care.{" "}
+                Testing pupil is now <br /> simple, objective and{" "}
+                <span className={styles.gradient_text}>
+                  {" "}
+                  <b>AI-enabled.</b>
+                </span>
               </Typography>
             </Box>
           )}
@@ -352,17 +381,13 @@ const Home: NextPage = () => {
           {isMobileView ? (
             <Box mt={60} width={"100%"} display="flex" justifyContent={"center"} alignItems={"center"} flexDirection={"column"} flexShrink={1}>
               <Box>
-                <Typography lineHeight={"120%"} fontSize={"32px"} fontFamily="FinancierDisplay" textAlign={"center"}>
-                  Testing pupil is now <br /> simple, objective and <br />{" "}
-                  <span className={styles.gradient_text}>
-                    {" "}
-                    <b>AI-enabled.</b>
-                  </span>
+                <Typography fontWeight={200} fontFamily="FinancierDisplay" lineHeight={"130%"} fontSize={"32px"} textAlign={"center"}>
+                  Decoding neurology. In the blink of <span className={styles.gradient_text}>AI</span>.
                 </Typography>
               </Box>
               <Box mt={4}>
                 <Typography variant="body4" fontFamily={"SuisseIntl"} fontWeight={300} fontSize={"18px"} color={"rgba(94, 94, 94, 1)"} textAlign={"center"}>
-                  We bring to the world the most advanced smartphone-enabled data collection and analytical tools in the field of neurology and ophthalmology.
+                  mPenlight is the pupil reactivity testing app of choice for world{"'"}s top practitioners.
                 </Typography>
               </Box>
               <Box justifyContent={"center"} alignItems={"center"} mt={10}>
@@ -381,7 +406,7 @@ const Home: NextPage = () => {
             <Box mt={60} pl={15} pr={15} width={"100%"} display="flex" justifyContent={"center"} alignItems={"center"} flexDirection={"column"} flexShrink={1}>
               <Box>
                 <Typography fontFamily="FinancierDisplay" lineHeight={"110%"} fontSize={"64px"} textAlign={"center"}>
-                  Testing pupil is now <br /> simple, objective and <span className={styles.gradient_text}>AI-enabled.</span>
+                  Decoding neurology. In the blink of <span className={styles.gradient_text}>AI</span>.
                 </Typography>
               </Box>
               <Box mt={4}>

@@ -1,5 +1,4 @@
 import { Box, Typography, useMediaQuery } from "@mui/material";
-import { useAnimation } from "framer-motion";
 import Image from "next/image";
 import { useEffect } from "react";
 import { theme } from "../../config/theme";
@@ -22,22 +21,22 @@ const cardData = [
   },
   {
     title: "User friendly",
-    description: "Quicker to use then traditional penlight",
+    description: "Faster to use than a traditional penlight.",
     src: "/images/homePage/userwithhearth.png",
   },
   {
     title: "Clinically tested",
-    description: "Measurement accuracy and reliability proven clinically",
+    description: "Measurement accuracy and reliability proven clinically.",
     src: "/images/homePage/cross.png",
   },
   {
     title: "Reduces risks ",
-    description: "Offers trust you need when examining the brain.",
+    description: "Offers the trust you need when examining the brain.",
     src: "/images/homePage/warning.png",
   },
   {
     title: "AI Driven ",
-    description: "Supported by cutting-edge Machine Learning technology",
+    description: "Supported by cutting-edge Machine Learning technology.",
     src: "/images/homePage/Ai.png",
   },
   {
@@ -137,7 +136,7 @@ const CardWithShadow = () => {
                         <Typography style={{ fontWeight: 300, fontFamily: "FinancierDisplay", fontSize: "28px", color: "rgba(10, 9, 14, 1)" }}>{element.title}</Typography>
                       </Box>
                       <Box mt={1} width={"90%"}>
-                        <Typography variant="body6" style={{ fontStyle: "SuisseIntl", lineHeight: "24px", fontWeight: 300, fontSize: "16px", color: "#5E5E5E" }}>
+                        <Typography variant="body6" style={{ fontStyle: "SuisseIntl", lineHeight: "150%", fontWeight: 300, fontSize: "16px", color: "#5E5E5E" }}>
                           {element.description}
                         </Typography>
                       </Box>

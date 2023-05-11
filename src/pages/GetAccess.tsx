@@ -68,7 +68,7 @@ const MailchimpForms = ({ status, message, onValidated }: any) => {
             <Box display={"flex"} justifyContent={"center"} ml={-3} pl={3} pr={20} alignItems={"center"} flexDirection={"row"} width={"100vw"}>
               <Box width={"100vw"} pl={14} display={"flex"} justifyContent={"flex-start"} alignItems={"flex-start"} flexDirection={"column"}>
                 <Box width={"100vw"} display={"flex"} justifyContent={"flex-start"} alignItems={"flex-start"} flexDirection={"row"}>
-                  <Box style={{ width: "42%" }} mr={2}>
+                  <Box style={{ width: "45%" }} mr={2}>
                     <TextField
                       style={{ width: "100%" }}
                       variant="standard"
@@ -86,7 +86,7 @@ const MailchimpForms = ({ status, message, onValidated }: any) => {
                       }}
                     />
                   </Box>
-                  <Box style={{ width: "42%" }}>
+                  <Box style={{ width: "45%" }}>
                     <TextField
                       variant="standard"
                       style={{ width: "100%" }}
@@ -142,7 +142,15 @@ const MailchimpForms = ({ status, message, onValidated }: any) => {
             </Box>
           </form>
           <Box width={"100%"} mt={5} pr={5} display={"flex"} justifyContent={"flex-end"} alignItems={"flex-end"}>
-            <Button color="secondary" onClick={(e) => handleSubmit(e)} style={{ textTransform: "none" }} sx={{ backgroundColor: "black" }} variant="contained" size="large">
+            <Button
+              color="secondary"
+              disabled={open}
+              onClick={(e) => handleSubmit(e)}
+              style={{ textTransform: "none" }}
+              sx={{ backgroundColor: "black" }}
+              variant="contained"
+              size="large"
+            >
               <Box pt={0.5} pb={0.5}>
                 Send
               </Box>
@@ -311,7 +319,11 @@ const GetAccess: NextPage<any> = () => {
         ml={-3}
         mt={-10}
         pt={10}
-        style={{ backgroundImage: 'url("/images/GetAccess/gradient.png")', backgroundPosition: "center", backgroundRepeat: "no-repeat" }}
+        style={
+          isMobileView
+            ? { backgroundImage: 'url("/images/GetAccess/gradient.png")', backgroundPosition: "top", backgroundRepeat: "no-repeat" }
+            : { backgroundImage: 'url("/images/GetAccess/gradient.png")', backgroundPosition: "center", backgroundRepeat: "no-repeat" }
+        }
       >
         {isMobileView ? (
           <Box mt={-4}>
@@ -325,7 +337,7 @@ const GetAccess: NextPage<any> = () => {
                 transition={{ duration: 0.7, ease: "easeOut" }}
                 style={{ fontFamily: "FinancierDisplay", lineHeight: "25.5px", fontWeight: 200, fontSize: "42px" }}
               >
-                Become early adopter
+                It{"'"}s time for an upgrade.
               </Typography>
 
               <Typography
@@ -337,7 +349,7 @@ const GetAccess: NextPage<any> = () => {
                 variants={{ initial: { opacity: 0, y: 20 }, animate: { opacity: 1, y: 0 } }}
                 transition={{ duration: 0.7, ease: "easeOut" }}
               >
-                There is going to be up to 1 high quality email a month.
+                Revolutionise patient care with Solvemed app and experience cutting-edge technology. Sign up now to improve your diagnostic!
               </Typography>
             </Box>
             <Box width={"100vw"} justifyContent={"center"} alignItems={"center"} display={"flex"} onClick={(e) => e.preventDefault()}>
@@ -366,18 +378,20 @@ const GetAccess: NextPage<any> = () => {
                 transition={{ duration: 0.7, ease: "easeOut" }}
                 style={{ fontFamily: "FinancierDisplay", lineHeight: "25.5px", fontWeight: 200 }}
               >
-                Become early adopter
+                It{"'"}s time for an upgrade.
               </Typography>
 
               <Typography
                 component={motion.p}
-                variant="body2"
+                fontFamily={"SuisseIntl"}
+                fontWeight={300}
+                fontSize={"16px"}
                 style={{ margin: "0 auto 100px" }}
                 width={{ xs: "100%", md: "40%" }}
                 variants={{ initial: { opacity: 0, y: 20 }, animate: { opacity: 1, y: 0 } }}
                 transition={{ duration: 0.7, ease: "easeOut" }}
               >
-                There is going to be up to 1 high quality email a month.
+                Revolutionise patient care with Solvemed app and experience cutting-edge technology. Sign up now to improve your diagnostic!
               </Typography>
             </Box>
             <MailchimpGetAccessContainer />

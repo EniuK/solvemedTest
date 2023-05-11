@@ -150,6 +150,7 @@ const Team: NextPage = () => {
       maxWidth={362.3}
       marginY={1}
       marginX={1}
+      ml={isMobileView ? -1 : 1}
       display="flex"
       flexDirection="column"
       p="40px"

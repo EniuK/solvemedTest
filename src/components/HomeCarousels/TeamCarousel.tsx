@@ -19,6 +19,7 @@ const TeamCarousel = () => {
       quote:
         "If an App could be developed allowing pupil measurements to be made using a smartphone then this would be hugely valuable and I predict would very quickly become part of standard clinical practice.",
       titles: ["Neuro-opthalmologist"],
+      sm: false,
     },
     {
       name: "Professor Sanjay Manohar, M.D.",
@@ -26,6 +27,7 @@ const TeamCarousel = () => {
       avatar: "/images/homePage/avatars/Manohar.png",
       quote: "Solvemed is likely to succeed because of its unique combination of scientists, programmers and clinicians working on the problem.",
       titles: ["Neurologist"],
+      sm: false,
     },
     {
       name: "Dr. James Neffendorf, M.D.",
@@ -33,6 +35,7 @@ const TeamCarousel = () => {
       avatar: "/images/homePage/avatars/Neffendorf.png",
       quote: "The Solvemed AI penlight/pupillometer has the potential to modernise pupillary assessment and improve patient care.",
       titles: ["Ophthalmologist"],
+      sm: false,
     },
     {
       name: "Dr. Gregg J. Berdy",
@@ -47,11 +50,11 @@ const TeamCarousel = () => {
   ];
 
   return (
-    <Box width={"100vw"} mt={isMobileView ? 5 : 10}>
+    <Box mt={isMobileView ? 5 : 10}>
       {isMobileView ? (
         <Box>
           <Swiper
-            slidesPerView={1.2}
+            slidesPerView={1.15}
             spaceBetween={10}
             pagination={{
               clickable: true,
@@ -63,14 +66,13 @@ const TeamCarousel = () => {
               return (
                 <SwiperSlide key={idx}>
                   <Box
-                    key={idx}
                     width={"303px"}
-                    height={"452px"}
+                    minHeight={"452px"}
                     p={3}
+                    position={"relative"}
                     pr={6}
                     mt={3}
                     mb={5}
-                    ml={1}
                     border={"1px solid #F5F5F7"}
                     boxShadow={"0px 8px 32px rgba(27, 37, 74, 0.08)"}
                     borderRadius={"14px"}
@@ -79,23 +81,25 @@ const TeamCarousel = () => {
                       <Box>
                         <Image src={e.avatar} alt={e.name} width={"72px"} height={"72px"} />
                       </Box>
-                      {e.titles.map((title) => {
-                        return (
-                          <Box
-                            bgcolor={"rgba(103, 71, 242, 0.07)"}
-                            p={0.5}
-                            pl={2}
-                            pr={2}
-                            borderRadius={10}
-                            fontWeight={500}
-                            fontSize={"12px"}
-                            key={title}
-                            color={"rgba(103, 71, 242, 1)"}
-                          >
-                            {title}
-                          </Box>
-                        );
-                      })}
+                      <Box>
+                        {e.titles.map((title) => {
+                          return (
+                            <Box
+                              bgcolor={"rgba(103, 71, 242, 0.07)"}
+                              p={0.5}
+                              pl={2}
+                              pr={2}
+                              borderRadius={10}
+                              fontWeight={500}
+                              fontSize={"12px"}
+                              key={title}
+                              color={"rgba(103, 71, 242, 1)"}
+                            >
+                              {title}
+                            </Box>
+                          );
+                        })}
+                      </Box>
                     </Box>
 
                     <Box width={"100%"} mt={4} fontSize={"18px"}>

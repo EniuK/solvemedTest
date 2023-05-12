@@ -149,7 +149,7 @@ const Home: NextPage = () => {
                 className={`${styles.video} ${videoStickinessMode === 2 ? styles.videoFloating : videoStickinessMode === 3 ? styles.videoSticky : ""}`}
                 ref={elementRef}
               >
-                <video controls={false} autoPlay loop width="100%">
+                <video poster="/images/homePage/Phone.png" controls={false} autoPlay loop width="100%">
                   <source src={"https://strapi-s3-solvemed-public-images.s3.amazonaws.com/iPhone+animation+looped.mov"} type="video/mp4" />
                 </video>
               </Box>
@@ -189,7 +189,7 @@ const Home: NextPage = () => {
           <div style={{ position: "relative" }} ref={sectionDesktopRef}>
             <Box display={"flex"} pt={1} justifyContent={"center"} alignContent={"center"} pb={100} ref={elementRef}>
               <Box zIndex={2} mt={-6} className={`${styles.video} ${videoStickinessMode === 2 ? styles.videoFloating : videoStickinessMode === 3 ? styles.videoSticky : ""}`}>
-                <video controls={false} autoPlay loop width="100%" height={"100%"}>
+                <video poster="/images/homePage/Phone.png" controls={false} autoPlay loop width="100%" height={"100%"}>
                   <source src={"https://strapi-s3-solvemed-public-images.s3.amazonaws.com/iPhone+animation+looped.mov"} type="video/mp4" />
                 </video>
               </Box>

@@ -69,18 +69,18 @@ const TeamCarousel = () => {
                     minHeight={"452px"}
                     p={3}
                     position={"relative"}
-                    pr={6}
+                    pr={0}
                     mt={3}
                     mb={5}
                     border={"1px solid #F5F5F7"}
                     boxShadow={"0px 8px 32px rgba(27, 37, 74, 0.08)"}
                     borderRadius={"14px"}
                   >
-                    <Box width={"110%"} display={"flex"} justifyContent={"space-between"} alignItems={"flex-start"}>
+                    <Box width={"100%"} display={"flex"} justifyContent={"space-between"} alignItems={"flex-start"}>
                       <Box>
                         <Image src={e.avatar} alt={e.name} width={"72px"} height={"72px"} />
                       </Box>
-                      <Box>
+                      <Box mr={2}>
                         {e.titles.map((title) => {
                           return (
                             <Box
@@ -101,12 +101,12 @@ const TeamCarousel = () => {
                       </Box>
                     </Box>
 
-                    <Box width={"100%"} mt={4} fontSize={"18px"}>
+                    <Box width={"100%"} mt={4} mr={6} fontSize={"18px"}>
                       <Typography fontFamily="FinancierDisplay" fontWeight={400} lineHeight={"130%"} letterSpacing={"-0.01em"}>
                         {e.name}
                       </Typography>
                     </Box>
-                    <Box width={"100%"} mt={2} pr={1} fontFamily="SuisseIntl" lineHeight={"140%"} fontWeight={300} color={"#5E5E5E"} fontSize={"12px"}>
+                    <Box width={"100%"} mt={2} pr={6} fontFamily="SuisseIntl" lineHeight={"140%"} fontWeight={300} color={"#5E5E5E"} fontSize={"12px"}>
                       {e.description}
                     </Box>
                     <Box mt={3}> &rdquo;</Box>
@@ -119,6 +119,7 @@ const TeamCarousel = () => {
                       alignItems={"flex-end"}
                       fontFamily="SuisseIntl"
                       fontWeight={400}
+                      mr={6}
                       fontSize={"15px"}
                     >
                       {e.quote}

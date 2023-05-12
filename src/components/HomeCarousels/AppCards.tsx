@@ -47,7 +47,7 @@ const AppCards = () => {
   ];
 
   return (
-    <Box display={"flex"} justifyContent={"center"} alignItems={"center"} ml={istabletView ? -1 : -10} pl={istabletView ? 0 : 10} mt={15}>
+    <Box display={"flex"} width={"100vw"} justifyContent={"center"} alignItems={"center"} ml={istabletView ? -5 : -10} pl={istabletView ? 0 : 5} mt={15}>
       <Swiper
         slidesPerView={istabletView ? 1.17 : isMobileView ? 2 : 3.2}
         spaceBetween={10}
@@ -61,10 +61,8 @@ const AppCards = () => {
           return (
             <SwiperSlide key={idx}>
               <Box
-                width={istabletView ? "280px" : "350px"}
-                minWidth={"280px"}
-                maxHeight={istabletView ? "417px" : "523px"}
                 overflow={"hidden"}
+                maxWidth={"356px"}
                 key={idx}
                 mb={10}
                 bgcolor={"rgba(255, 255, 255, 1)"}
@@ -72,16 +70,16 @@ const AppCards = () => {
                 boxShadow={"0px 8px 32px rgba(27, 37, 74, 0.08)"}
                 borderRadius={"28px"}
               >
-                <Box width={"100%"} height={"137px"} pl={3} pr={3} pt={3}>
+                <Box width={"100%"} height={"137px"} pl={3} pt={3}>
                   <Box
-                    fontSize={"20px"}
+                    fontSize={isMobileView ? "20px" : "24px"}
                     display={"flex"}
                     fontFamily={"SuisseIntl"}
                     fontWeight={600}
                     justifyContent={"flex-start"}
                     textAlign={"left"}
                     alignItems="flex-start"
-                    pr={10}
+                    pr={6.5}
                   >
                     {e.title}
                   </Box>
@@ -100,7 +98,7 @@ const AppCards = () => {
                   </Box>
                 </Box>
 
-                <Box height={istabletView ? "" : "360px"}>
+                <Box mb={-1}>
                   <Image src={e.src} width={"350px"} height={"360px"} alt={e.title} />
                 </Box>
               </Box>

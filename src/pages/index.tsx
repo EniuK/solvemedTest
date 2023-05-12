@@ -349,7 +349,8 @@ const Home: NextPage = () => {
         <Box
           pt={30}
           pb={30}
-          pl={6}
+          ml={-30}
+          pl={36}
           pr={6}
           style={{
             backgroundImage: `url('/images/bg/eyeEvaluation.png')`,

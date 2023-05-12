@@ -37,8 +37,8 @@ const NewsLetter = ({ status, message, onValidated }: any) => {
 
   return (
     <Box
-      height={isSmallViewport ? "35vh" : "100%"}
-      width={isSmallViewport ? "90vw" : "330px"}
+      height={isSmallViewport ? "25vh" : "100%"}
+      width={isSmallViewport ? "100vw" : "330px"}
       style={isSmallViewport ? { marginTop: 20, marginLeft: -30 } : { paddingBottom: 70, marginTop: 30 }}
       display={"flex"}
       flexDirection={"column"}
@@ -57,28 +57,37 @@ const NewsLetter = ({ status, message, onValidated }: any) => {
         ) : (
           <>
             <form className="mc__form" onSubmit={() => handleSubmit()}>
-              <TextField
-                sx={{ fontsize: "14px", width: "100%" }}
-                label="Enter your email"
-                variant="standard"
-                value={email}
-                onChange={handleEmail}
-                type="email"
-                InputLabelProps={{
-                  sx: {
-                    fontFamily: "SuisseIntl",
-                    fontWeight: 400,
-                    fontSize: "15px",
-                    lineHeight: "140%",
-                    color: "text.primary",
-                    "&.Mui-focused": {
-                      color: "gray",
+              <Box width={isSmallViewport ? "260px" : "auto"}>
+                <TextField
+                  sx={{ fontsize: "14px", width: "100%" }}
+                  label="Enter your email"
+                  variant="standard"
+                  value={email}
+                  onChange={handleEmail}
+                  type="email"
+                  InputLabelProps={{
+                    sx: {
+                      fontFamily: "SuisseIntl",
+                      fontWeight: 400,
+                      fontSize: "15px",
+                      lineHeight: "140%",
+                      color: "text.primary",
+                      "&.Mui-focused": {
+                        color: "gray",
+                      },
                     },
-                  },
-                }}
-              />
+                  }}
+                />
+              </Box>
             </form>
-            <Box display={"flex"} fontFamily={"SuisseIntl"} fontWeight={400} alignItems={"center"} justifyContent={"center"}>
+            <Box
+              style={isSmallViewport ? { paddingBottom: 10, marginLeft: 2 } : {}}
+              display={"flex"}
+              fontFamily={"SuisseIntl"}
+              fontWeight={400}
+              alignItems={"center"}
+              justifyContent={"center"}
+            >
               <Button
                 color="secondary"
                 style={{ textTransform: "none" }}

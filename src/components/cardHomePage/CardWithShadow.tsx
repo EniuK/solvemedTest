@@ -56,6 +56,10 @@ const CardWithShadow = () => {
   const isMobileView = useMediaQuery(theme.breakpoints.down("md"));
   useEffect(() => {
     AOS.init();
+
+    return () => {
+      AOS.refresh();
+    };
   }, [AOS]);
 
   return (

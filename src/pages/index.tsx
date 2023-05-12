@@ -79,9 +79,14 @@ const Home: NextPage = () => {
     };
   }, []);
 
-  // fade in forget about forgetting
   useEffect(() => {
-    AOS.init({ once: true });
+    AOS.init({
+      duration: 1200,
+    });
+
+    return () => {
+      AOS.refresh();
+    };
   }, []);
   return (
     <>
@@ -466,7 +471,17 @@ const Home: NextPage = () => {
             <Box display={"flex"} justifyContent={"center"} width={"100%"} alignItems={"center"} flexWrap={"wrap"}>
               {logos.map((e, idx) => {
                 return (
-                  <Box key={idx} width={"50%"} mb={6} display={"flex"} justifyContent={"center"} alignItems={"center"}>
+                  <Box
+                    key={idx}
+                    width={"50%"}
+                    mb={6}
+                    display={"flex"}
+                    justifyContent={"center"}
+                    alignItems={"center"}
+                    data-aos="fade-up"
+                    data-aos-duration="2000"
+                    data-aos-anchor-placement="bottom"
+                  >
                     <Image src={e.src} width={e.w} height={e.h} alt={"company"} />
                   </Box>
                 );
@@ -476,7 +491,7 @@ const Home: NextPage = () => {
             <Box display={"flex"} justifyContent={"center"} alignItems={"center"}>
               {logos.map((e, idx) => {
                 return (
-                  <Box key={idx} mr={6}>
+                  <Box key={idx} mr={6} data-aos="fade-up" data-aos-duration="1000" data-aos-anchor-placement="top">
                     <Image src={e.src} width={e.w} height={e.h} alt={"company"} />
                   </Box>
                 );

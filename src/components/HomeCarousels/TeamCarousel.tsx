@@ -34,6 +34,16 @@ const TeamCarousel = () => {
       quote: "The Solvemed AI penlight/pupillometer has the potential to modernise pupillary assessment and improve patient care.",
       titles: ["Ophthalmologist"],
     },
+    {
+      name: "Dr. Gregg J. Berdy",
+      description:
+        "President of Ophthalmology Associates, ran the FDA’s pivotal Xalatan trial. Anterior segment surgeon, elected to membership in the prestigious Castroviejo Corneal Society.",
+      avatar: "/images/homePage/avatars/Berdy.png",
+      quote:
+        "Nobody tracks pupils accurately, and it sucks - from medical school, through residency, through fellowship specialisation. Industry-wide standardised pupillary measurements are very important to the future of care.There is high demand for a smartphone-enabled, reproducible, reliable, scalable noninvasive diagnostic. This would be adopted across the entire industry.",
+      titles: ["Ophthalmologist"],
+      sm: true,
+    },
   ];
 
   return (
@@ -155,13 +165,13 @@ const TeamCarousel = () => {
                     <Box width={"100%"} fontFamily="FinancierDisplay" fontWeight={400} lineHeight={"130%"} letterSpacing={"-0.01em"} mt={2} fontSize={"21px"}>
                       {e.name}
                     </Box>
-                    <Box width={"55%"} height={"30%"} lineHeight={"140%"} mt={2} fontFamily="SuisseIntl" fontWeight={300} color={"#5E5E5E"} fontSize={"14px"}>
+                    <Box width={"55%"} height={e.sm ? "25%" : "30%"} lineHeight={"140%"} mt={2} fontFamily="SuisseIntl" fontWeight={300} color={"#5E5E5E"} fontSize={"14px"}>
                       {e.description}
                     </Box>
 
-                    <Box mt={1} ml={-3} height={"40%"} display={"flex"}>
+                    <Box mt={1} ml={-3} height={e.sm ? "45%" : "40%"} display={"flex"}>
                       <Box pr={2}> &rdquo;</Box>
-                      <Box width={"70%"} display={"flex"} fontFamily="SuisseIntl" fontWeight={400}>
+                      <Box width={e.sm ? "100%" : "70%"} display={"flex"} lineHeight={e.sm ? "22.1px" : "24.7px"} fontFamily="SuisseIntl" fontWeight={400}>
                         {e.quote}
                       </Box>
                     </Box>

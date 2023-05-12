@@ -66,7 +66,6 @@ const TeamCarousel = () => {
               return (
                 <SwiperSlide key={idx}>
                   <Box
-                    width={"303px"}
                     minHeight={"452px"}
                     p={3}
                     position={"relative"}

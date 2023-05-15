@@ -144,7 +144,7 @@ const TeamCarousel = () => {
             {teamData.map((e, idx) => {
               return (
                 <SwiperSlide key={idx}>
-                  <Box ml={5} mb={4} width={"786px"} height={"553px"} p={8} border={"1px solid #F5F5F7"} boxShadow={"0px 8px 32px rgba(27, 37, 74, 0.08)"} borderRadius={"14px"}>
+                  <Box ml={5} mb={10} width={"786px"} height={"553px"} p={8} border={"1px solid #F5F5F7"} boxShadow={"0px 8px 32px rgba(27, 37, 74, 0.08)"} borderRadius={"14px"}>
                     <Box width={"100%"} display={"flex"} mt={-3} justifyContent={"flex-end"} alignItems={"flex-end"}>
                       {e.titles.map((title) => {
                         return (

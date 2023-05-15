@@ -37,7 +37,7 @@ const AppCards = () => {
     {
       title: "Al-powered Software ",
       description: "Advanced algorithms and machine learning to assist in medical decision-making.",
-      src: "/images/homePage/appPhotos/hgw.png",
+      src: "/images/homePage/appPhotos/lines.png",
     },
     {
       title: "Advanced analytics for demanding users",

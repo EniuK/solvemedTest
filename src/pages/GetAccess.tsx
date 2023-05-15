@@ -66,11 +66,11 @@ const MailchimpForms = ({ status, message, onValidated }: any) => {
         <>
           <form className="mc__form" onSubmit={(e) => handleSubmit(e)}>
             <Box display={"flex"} justifyContent={"center"} ml={-3} pl={3} pr={20} alignItems={"center"} flexDirection={"row"} width={"100vw"}>
-              <Box width={"100vw"} pl={14} display={"flex"} justifyContent={"flex-start"} alignItems={"flex-start"} flexDirection={"column"}>
+              <Box width={"100vw"} pl={15} display={"flex"} justifyContent={"flex-start"} alignItems={"flex-start"} flexDirection={"column"}>
                 <Box width={"100vw"} display={"flex"} justifyContent={"flex-start"} alignItems={"flex-start"} flexDirection={"row"}>
                   <Box style={{ width: "45%" }} mr={2}>
                     <TextField
-                      style={{ width: "100%" }}
+                      style={{ width: "90%" }}
                       variant="standard"
                       name="MERGE1"
                       label="Name"
@@ -86,10 +86,10 @@ const MailchimpForms = ({ status, message, onValidated }: any) => {
                       }}
                     />
                   </Box>
-                  <Box style={{ width: "45%" }}>
+                  <Box style={{ width: "45%" }} pr={1}>
                     <TextField
                       variant="standard"
-                      style={{ width: "100%" }}
+                      style={{ width: "90%" }}
                       name="LNAME"
                       label="Surname"
                       value={surrname}
@@ -107,7 +107,7 @@ const MailchimpForms = ({ status, message, onValidated }: any) => {
                 </Box>
 
                 <Box width={"100vw"} textAlign={"left"} mt={8} display={"flex"} justifyContent={"flex-start"}>
-                  <FormControl variant="standard" style={{ width: "100%" }}>
+                  <FormControl variant="standard" style={{ width: "90%" }}>
                     <InputLabel id="specialization-label">Specialization</InputLabel>
                     <Select labelId="specialization-label" id="specialization-select" value={specialization} name={"MERGE6"} onChange={(e) => setSpecialization(e.target.value)}>
                       <MenuItem value="Neurologists">Neurologists</MenuItem>
@@ -124,7 +124,7 @@ const MailchimpForms = ({ status, message, onValidated }: any) => {
                   <TextField
                     variant="standard"
                     name="EMAIL"
-                    style={{ width: "100%" }}
+                    style={{ width: "90%" }}
                     label="Enter your email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
@@ -173,7 +173,16 @@ const MailchimpForms = ({ status, message, onValidated }: any) => {
           <form className="mc__form" onSubmit={(e) => handleSubmit(e)}>
             <Box display={"flex"} justifyContent={"center"} ml={-3} pr={10} alignItems={"center"} flexDirection={"row"} width={"100vw"}>
               <Box width={"100%"} onClick={(e) => e.preventDefault()}>
-                <CardMedia component="video" loop autoPlay src="/images/GetAccess/animation.mov" controls controlsList="nodownload" style={{ pointerEvents: "none" }} />
+                <CardMedia
+                  poster="/images/GetAccess/phones.png"
+                  component="video"
+                  loop
+                  autoPlay
+                  src="/images/GetAccess/animation.mov"
+                  controls
+                  controlsList="nodownload"
+                  style={{ pointerEvents: "none" }}
+                />
               </Box>
 
               <Box width={"50%"} display={"flex"} justifyContent={"flex-start"} alignItems={"flex-start"} flexDirection={"column"}>
@@ -354,6 +363,7 @@ const GetAccess: NextPage<any> = () => {
             </Box>
             <Box width={"100vw"} justifyContent={"center"} alignItems={"center"} display={"flex"} onClick={(e) => e.preventDefault()}>
               <CardMedia
+                poster="/images/GetAccess/phones.png"
                 component="video"
                 loop
                 autoPlay

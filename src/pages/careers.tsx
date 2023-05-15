@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useEffect } from "react";
 import { NextPage } from "next";
 import { Box, Grid, Typography, useMediaQuery } from "@mui/material";
 import styles from "./careers.module.css";
@@ -7,7 +7,8 @@ import AnimatedButton from "../components/AnimatedButton/AnimatedButton";
 import { motion } from "framer-motion";
 import { theme } from "../config/theme";
 import Image from "next/image";
-
+import AOS from "aos";
+import "aos/dist/aos.css";
 const careers = [
   {
     category: "OPERATIONS",
@@ -44,6 +45,13 @@ const careers = [
 const Careers: NextPage = () => {
   const isMobileView = useMediaQuery(theme.breakpoints.down("md"));
 
+  useEffect(() => {
+    AOS.init();
+
+    return () => {
+      AOS.refresh();
+    };
+  }, []);
   return (
     <>
       <div>
@@ -180,9 +188,11 @@ const Careers: NextPage = () => {
             <Fragment key={sectionItem.category}>
               <Box ml={10}>
                 <Grid item xs={10} mt="100px" mb="42px">
-                  <Typography fontFamily={"SuisseIntl"} fontWeight={300} letterSpacing={"-0.02em"} style={{ opacity: 0.6 }} fontSize={"20px"}>
-                    {sectionItem.category}
-                  </Typography>
+                  <Box data-aos="fade-up" data-aos-duration="1000">
+                    <Typography fontFamily={"SuisseIntl"} fontWeight={300} letterSpacing={"-0.02em"} style={{ opacity: 0.6 }} fontSize={"20px"}>
+                      {sectionItem.category}
+                    </Typography>
+                  </Box>
                 </Grid>
 
                 {sectionItem.positions.map((item, idx) => (
@@ -194,38 +204,38 @@ const Careers: NextPage = () => {
                     )}
                     {isMobileView ? (
                       <Box display={"flex"} flexDirection={"column"}>
-                        <Box>
+                        <Box data-aos="fade-up" data-aos-duration="1000" data-aos-anchor-placement="top">
                           <Typography fontFamily={"FinancierDisplay"} fontSize={"28px"} fontWeight="300">
                             {item.title}
                           </Typography>
                         </Box>
                         <Box mt={3} width={"100%"} display={"flex"} flexDirection={"column"}>
-                          <Box width={"100%"}>
+                          <Box data-aos="fade-up" data-aos-duration="1000" width={"100%"} data-aos-anchor-placement="top">
                             <Typography fontFamily={"SuisseIntl"} fontWeight={300} fontSize={"14px"} pr={10} paragraph>
                               {item.description}
                             </Typography>
                           </Box>
 
-                          <Box width={"100%"} justifyContent={"flex-end"} alignItems={"flex-end"}>
+                          <Box width={"100%"} justifyContent={"flex-end"} alignItems={"flex-end"} data-aos="fade-up" data-aos-duration="1000" data-aos-anchor-placement="top">
                             <AnimatedButton url={item.url}>Contact us</AnimatedButton>
                           </Box>
                         </Box>
                       </Box>
                     ) : (
                       <Box display={"flex"} flexDirection={"column"}>
-                        <Box>
+                        <Box data-aos="fade-up" data-aos-duration="1000" data-aos-anchor-placement="top">
                           <Typography fontFamily={"FinancierDisplay"} fontWeight={300} fontSize={"28px"}>
                             {item.title}
                           </Typography>
                         </Box>
                         <Box mt={3} width={"100%"} display={"flex"}>
-                          <Box width={"80%"}>
+                          <Box width={"80%"} data-aos="fade-up" data-aos-duration="1000" data-aos-anchor-placement="top">
                             <Typography fontFamily={"SuisseIntl"} fontWeight={300} fontSize={"14px"} paragraph>
                               {item.description}
                             </Typography>
                           </Box>
 
-                          <Box width={"20%"}>
+                          <Box width={"20%"} data-aos="fade-up" data-aos-duration="1000" data-aos-anchor-placement="top">
                             <AnimatedButton url={item.url}>Contact us</AnimatedButton>
                           </Box>
                         </Box>

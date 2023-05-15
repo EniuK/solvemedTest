@@ -2,11 +2,13 @@ import { Box, Grid, Link, Typography, useMediaQuery } from "@mui/material";
 import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import TeamMemberModal from "../components/TeamMemberModal/TeamMemberModal";
 import { motion } from "framer-motion";
 import { theme } from "../config/theme";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 export type TeamMember = {
   name: string;
@@ -138,7 +140,13 @@ const weComeFrom = [
 const Team: NextPage = () => {
   const [memberDetails, setMemberDetails] = useState<TeamMember | null>(null);
   const isMobileView = useMediaQuery(theme.breakpoints.down("md"));
+  useEffect(() => {
+    AOS.init();
 
+    return () => {
+      AOS.refresh();
+    };
+  }, []);
   const MemberListItem = ({ member }: { member: TeamMember }) => (
     <Box
       onClick={() => member?.bio && setMemberDetails(member)}
@@ -154,6 +162,10 @@ const Team: NextPage = () => {
       display="flex"
       flexDirection="column"
       p="40px"
+      data-aos="fade-up"
+      aos-once="false"
+      data-aos-duration="5000"
+      data-aos-anchor-placement="top"
     >
       <Box style={{ width: 140, height: 140, borderRadius: 70, backgroundColor: "#F0F6FA", position: "relative" }}>
         <Image style={{ borderRadius: 70 }} src={member.photo} layout="fill" alt={member.name} />

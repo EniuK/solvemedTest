@@ -13,6 +13,8 @@ import styles from "./index.module.css";
 import { useEffect, useRef, useState } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { LazyLoadComponent } from "react-lazy-load-image-component";
+
 const Home: NextPage = () => {
   const isMobileView = useMediaQuery(theme.breakpoints.down("md"));
 
@@ -155,9 +157,11 @@ const Home: NextPage = () => {
                 className={`${styles.video} ${videoStickinessMode === 2 ? styles.videoFloating : videoStickinessMode === 3 ? styles.videoSticky : ""}`}
                 ref={elementRef}
               >
-                <video poster="/images/homePage/Phone.png" controls={false} autoPlay loop width="100%">
-                  <source src={"https://strapi-s3-solvemed-public-images.s3.amazonaws.com/iPhone+animation+looped.mov"} type="video/mp4" />
-                </video>
+                <LazyLoadComponent>
+                  <video poster="/images/homePage/Phone.png" controls={false} preload="none" autoPlay loop width="100%">
+                    <source src={"https://strapi-s3-solvemed-public-images.s3.amazonaws.com/iPhone+animation+looped.mov"} type="video/mp4" />
+                  </video>
+                </LazyLoadComponent>
               </Box>
               <Box mt={150} display="flex" flexDirection="column" width="100%" mb={10} data-aos="fade-up" data-aos-duration="500">
                 <Typography fontSize="32px" fontWeight={300} color="black" fontFamily="FinancierDisplay" mb={2} textAlign="center">
@@ -195,16 +199,17 @@ const Home: NextPage = () => {
           <div style={{ position: "relative" }} ref={sectionDesktopRef}>
             <Box display={"flex"} pt={1} justifyContent={"center"} alignContent={"center"} pb={100} ref={elementRef}>
               <Box zIndex={2} mt={-3} className={`${styles.video} ${videoStickinessMode === 2 ? styles.videoFloating : videoStickinessMode === 3 ? styles.videoSticky : ""}`}>
-                <video poster="/images/homePage/Phone.png" controls={false} autoPlay loop width="100%" height={"100%"}>
-                  <source src={"https://strapi-s3-solvemed-public-images.s3.amazonaws.com/iPhone+animation+looped.mov"} type="video/mp4" />
-                </video>
+                <LazyLoadComponent>
+                  <video poster="/images/homePage/Phone.png" controls={false} preload="none" autoPlay loop width="100%" height={"100%"}>
+                    <source src={"https://strapi-s3-solvemed-public-images.s3.amazonaws.com/iPhone+animation+looped.mov"} type="video/mp4" />
+                  </video>
+                </LazyLoadComponent>
               </Box>
               <Box zIndex={1} position={"absolute"}>
                 <Image src={"/images/bg/homegradient1.png"} width={"767.36px"} height={"756.02px"} alt={"gradient"} />
               </Box>
             </Box>
             <Box mt={100} mb={100} display="flex" flexDirection="column" ml={-5} data-aos="fade-up" data-aos-duration="500">
-              {/* Twój kod dla animowanego elementu */}
               <Typography fontSize="64px" style={{ fontFamily: "FinancierDisplay", lineHeight: "100%", fontWeight: 300, textAlign: "center" }} mb={5}>
                 Forget about forgetting your penlight.
               </Typography>

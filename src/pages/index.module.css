@@ -185,11 +185,13 @@
   .videoSticky {
     left: 0;
     right: 0;
+    margin-right: 12vw;
   }
 }
 
 @media (max-width: 600px) {
   .videoFloating {
-    padding: 0vh 3vh;
+    padding: 0vh 4vh;
+  padding-left: 5.5vh;
   }
 }

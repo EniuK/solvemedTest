@@ -71,7 +71,7 @@ const Header = () => {
 
   return (
     <div className={styles.header}>
-      <Box zIndex={600} onClick={() => setOpen(false)} position={"absolute"} mt={-5} style={open ? { top: 35, left: -2 } : {}}>
+      <Box zIndex={600} onClick={() => setOpen(false)} position={"absolute"} mt={-5} style={open ? { top: 37.5, left: 0 } : {}}>
         <Link href="/" passHref>
           <a className={styles.logoLinkContainer}>
             <motion.svg width="234" height="35" viewBox="0 0 234 35" fill="none" xmlns="http://www.w3.org/2000/svg">

@@ -38,7 +38,7 @@ const Home: NextPage = () => {
         const xSectionReached = calculateSection && calculateSection.bottom <= calculateSection.height && calculateSection.bottom - element.height <= 0;
         const xIsSticky = calculateSection && calculateSection.bottom <= calculateSection.height && element.top <= 0;
 
-        const mode = xIsSticky && !xSectionReached ? 2 : xSectionReached ? 3 : 1;
+        const mode = xIsSticky && !xSectionReached ? 2 : xSectionReached ? 3 : xIsSticky ? 2 : 1;
 
         setVideoStickinessMode(mode);
       }

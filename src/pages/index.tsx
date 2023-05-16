@@ -26,7 +26,6 @@ const Home: NextPage = () => {
   // 1 nic
   // 2 - sticky
   // 3 - section reached
-
   useEffect(() => {
     const handleScroll = () => {
       if ((sectionMobileRef?.current || sectionDesktopRef?.current) && elementRef.current) {
@@ -40,9 +39,11 @@ const Home: NextPage = () => {
         const xIsSticky = calculateSection && calculateSection.bottom <= calculateSection.height && element.top <= 0;
 
         const mode = xIsSticky && !xSectionReached ? 2 : xSectionReached ? 3 : 1;
+
         setVideoStickinessMode(mode);
       }
     };
+
     window.addEventListener("scroll", handleScroll);
     return () => {
       window.removeEventListener("scroll", handleScroll);
@@ -148,6 +149,7 @@ const Home: NextPage = () => {
               justifyContent={"center"}
               alignContent={"center"}
               pr={2.5}
+              pl={1}
               pb={200}
               ref={sectionMobileRef}
               position={"relative"}
@@ -299,13 +301,13 @@ const Home: NextPage = () => {
           }}
         >
           {isMobileView ? (
-            <Box display={"flex"} width={"100vw"} mt={20} justifyContent={"center"} alignItems={"center"} flexDirection={"column"}>
+            <Box display={"flex"} width={"100vw"} mt={20} pr={2} justifyContent={"center"} alignItems={"center"} flexDirection={"column"}>
               <Box width={"100%"}>
                 <Typography style={{ fontFamily: "FinancierDisplay", fontWeight: 400 }} fontSize={"32px"} textAlign={"center"}>
                   Medical specialties we empower
                 </Typography>
               </Box>
-              <Box width={"100%"} mt={4} pl={4} mb={2} pr={4}>
+              <Box width={"100%"} mt={4} pl={3} mb={2} pr={3}>
                 <Typography textAlign={"center"} style={{ opacity: 0.7, fontFamily: "SuisseIntl", fontWeight: 300, lineHeight: "150%", alignSelf: "stretch" }} fontSize={"18px"}>
                   We are proud to satisfy the needs of the world{"'"}s leading practitioners across <br /> the spectrum of care.{" "}
                 </Typography>
@@ -329,7 +331,7 @@ const Home: NextPage = () => {
           <AiCards />
         </Box>
         {isMobileView ? (
-          <Box display={"flex"} width={"100vw"} ml={-3} mt={20} justifyContent={"center"} alignItems={"center"} flexDirection={"column"}>
+          <Box display={"flex"} width={"100vw"} ml={-1} mt={20} justifyContent={"center"} alignItems={"center"} flexDirection={"column"}>
             <Box width={"100%"}>
               <Typography style={{ fontFamily: "FinancierDisplay", fontWeight: 400 }} fontSize={"32px"} textAlign={"center"}>
                 What experts say

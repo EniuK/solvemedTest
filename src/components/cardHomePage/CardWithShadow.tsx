@@ -65,7 +65,7 @@ const CardWithShadow = () => {
   return (
     <Box>
       {isMobileView ? (
-        <Box display={"flex"} ml={-3} pl={3} width={"100vw"} flexDirection={"row"} flexWrap={"wrap"}>
+        <Box display={"flex"} width={"100vw"} ml={-1} flexDirection={"row"} flexWrap={"wrap"} justifyContent={"space-between"} pl={1}>
           {cardData.map((element, idx: number) => {
             return (
               <Box key={idx} width={"50%"} display={"flex"} justifyContent={"center"} alignItems={"center"} mb={2}>

@@ -300,8 +300,8 @@ const Team: NextPage = () => {
                   </Typography>
                 </Box>
 
-                <Box display={"flex"} width={"90%"} flexDirection={"column"}>
-                  <Box width={"100%"} display={"flex"} justifyContent={"space-between"} alignItems={"center"}>
+                <Box display={"flex"} width={"100%"} flexDirection={"column"} ml={2}>
+                  <Box width={"90%"} display={"flex"} justifyContent={"space-between"} alignItems={"center"}>
                     <Box>
                       <Typography fontFamily={"FinancierDisplay"} letterSpacing={"-0.03em"} fontSize={{ xs: "100px", sm: "144px" }} lineHeight="138.24px" fontWeight="300">
                         36
@@ -321,7 +321,7 @@ const Team: NextPage = () => {
                     </Box>
                   </Box>
 
-                  <Box width={"100%"} display={"flex"} justifyContent={"space-between"} alignItems={"center"}>
+                  <Box width={"90%"} display={"flex"} justifyContent={"space-between"} alignItems={"center"}>
                     <Box>
                       <Typography fontFamily={"FinancierDisplay"} fontSize={{ xs: "100px", sm: "144px" }} lineHeight="138.24px" fontWeight={400}>
                         6

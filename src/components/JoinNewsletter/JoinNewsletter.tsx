@@ -39,7 +39,7 @@ const NewsLetter = ({ status, message, onValidated }: any) => {
     <Box
       height={isSmallViewport ? "25vh" : "100%"}
       width={isSmallViewport ? "100vw" : "330px"}
-      style={isSmallViewport ? { marginTop: 20, marginLeft: -30 } : { paddingBottom: 70, marginTop: 30 }}
+      style={isSmallViewport ? { marginLeft: -30 } : { paddingBottom: 70, marginTop: 30 }}
       display={"flex"}
       flexDirection={"column"}
       justifyContent={"center"}
@@ -47,9 +47,11 @@ const NewsLetter = ({ status, message, onValidated }: any) => {
       alignItems={"center"}
     >
       <Box width={"100%"} pt={3} display={"flex"} textAlign={"left"}>
-        <Typography fontFamily={"FinancierDisplay"}>Join Our Newsletter</Typography>
+        <Typography fontFamily={"FinancierDisplay"} color={"#141415"} lineHeight={"110%"} letterSpacing={"0.01em"}>
+          Join Our Newsletter
+        </Typography>
       </Box>
-      <Box mt={4} height={isSmallViewport ? "auto" : "45%"} display={"flex"} width={"100%"} justifyContent={"flex-start"} alignItems={"flex-start"} flexDirection={"row"}>
+      <Box mt={1} height={isSmallViewport ? "auto" : "45%"} display={"flex"} width={"100%"} justifyContent={"flex-start"} alignItems={"flex-start"} flexDirection={"row"}>
         {status === "success" ? (
           <Box width={"100%"} ml={-4.5} color={"black"} display={"flex"} justifyContent={"center"} alignItems={"center"}>
             {message}
@@ -69,9 +71,10 @@ const NewsLetter = ({ status, message, onValidated }: any) => {
                     sx: {
                       fontFamily: "SuisseIntl",
                       fontWeight: 400,
+
                       fontSize: "15px",
                       lineHeight: "140%",
-                      color: "text.primary",
+                      color: "gray",
                       "&.Mui-focused": {
                         color: "gray",
                       },
@@ -81,7 +84,7 @@ const NewsLetter = ({ status, message, onValidated }: any) => {
               </Box>
             </form>
             <Box
-              style={isSmallViewport ? { paddingBottom: 10, marginLeft: 2 } : {}}
+              style={isSmallViewport ? { paddingBottom: 10, marginLeft: 5, marginTop: -10 } : {}}
               display={"flex"}
               fontFamily={"SuisseIntl"}
               fontWeight={400}

@@ -1,6 +1,6 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import { Box, Typography, Divider, Button, useMediaQuery, Link } from "@mui/material";
+import { Box, Typography, Button, useMediaQuery, Link, CardMedia } from "@mui/material";
 import "animate.css";
 import { motion } from "framer-motion";
 import Image from "next/image";
@@ -23,6 +23,8 @@ const Home: NextPage = () => {
   const sectionDesktopRef = useRef(null);
 
   const [videoStickinessMode, setVideoStickinessMode] = useState(1);
+  const hasWindow = typeof window !== "undefined";
+  const heighter = hasWindow ? window.innerHeight : null;
   // 1 nic
   // 2 - sticky
   // 3 - section reached
@@ -38,7 +40,7 @@ const Home: NextPage = () => {
         const xSectionReached = calculateSection && calculateSection.bottom <= calculateSection.height && calculateSection.bottom - element.height <= 0;
         const xIsSticky = calculateSection && calculateSection.bottom <= calculateSection.height && element.top <= 0;
 
-        const mode = xIsSticky && !xSectionReached ? 2 : xSectionReached ? 3 : xIsSticky ? 2 : 1;
+        const mode = xIsSticky && !xSectionReached ? 2 : xSectionReached ? 3 : 1;
 
         setVideoStickinessMode(mode);
       }
@@ -120,7 +122,7 @@ const Home: NextPage = () => {
               variants={{ initial: { opacity: 0, y: 100 }, animate: { opacity: 1, y: 0 } }}
               transition={{ duration: 0.7, ease: "easeOut" }}
             >
-              Pupil reactivity testing. Now in your smartphone.
+              Pupil reactivity <br /> testing. Now in your <br /> smartphone.
             </Typography>
           ) : (
             <Typography
@@ -160,12 +162,27 @@ const Home: NextPage = () => {
                 ref={elementRef}
               >
                 <LazyLoadComponent>
-                  <video poster="/images/homePage/Phone.png" controls={false} preload="none" autoPlay loop width="100%">
-                    <source src={"https://strapi-s3-solvemed-public-images.s3.amazonaws.com/iPhone+animation+looped.mov"} type="video/mp4" />
-                  </video>
+                  {/* <CardMedia
+                    poster="/images/homePage/Phone.png"
+                    component="video"
+                    loop
+                    autoPlay
+                    src={"https://strapi-s3-solvemed-public-images.s3.amazonaws.com/iPhone+animation+looped.mov"}
+                    controls={false}
+                    controlsList="nodownload"
+                    style={{ pointerEvents: "none", width: "100%" }}
+                  /> */}
+                  {/* trying to fix ios. do not delete */}
+                  {/* style={heighter > 770 ? { marginTop: -100 } : {}}> */}
+                  <Box>
+                    <video poster="/images/homePage/Phone.png" controls={false} autoPlay loop width="100%">
+                      <source src={"/images/homePage/phonene.mov"} type="video/mp4" />
+                    </video>
+                  </Box>
+                  {/* data-data-aos-once="true" */}
                 </LazyLoadComponent>
               </Box>
-              <Box mt={150} display="flex" flexDirection="column" width="100%" mb={10} data-aos="fade-up" data-aos-duration="500">
+              <Box mt={150} display="flex" flexDirection="column" width="100%" mb={10} data-aos="fade-up" data-aos-duration="500" data-aos-once="true">
                 <Typography fontSize="32px" fontWeight={300} color="black" fontFamily="FinancierDisplay" mb={2} textAlign="center">
                   Forget about forgetting your penlight.
                 </Typography>
@@ -211,7 +228,7 @@ const Home: NextPage = () => {
                 <Image src={"/images/bg/homegradient1.png"} width={"767.36px"} height={"756.02px"} alt={"gradient"} />
               </Box>
             </Box>
-            <Box mt={100} mb={100} display="flex" flexDirection="column" ml={-5} data-aos="fade-up" data-aos-duration="500">
+            <Box mt={100} mb={100} display="flex" flexDirection="column" ml={-5} data-aos="fade-up" data-aos-duration="500" data-aos-once="true">
               <Typography fontSize="64px" style={{ fontFamily: "FinancierDisplay", lineHeight: "100%", fontWeight: 300, textAlign: "center" }} mb={5}>
                 Forget about forgetting your penlight.
               </Typography>
@@ -258,8 +275,9 @@ const Home: NextPage = () => {
               width={{ xs: "100%", md: "80%", lg: "70%" }}
               fontSize={"32px"}
               fontWeight={200}
-              variants={{ initial: { opacity: 0, y: 100 }, animate: { opacity: 1, y: 0 } }}
-              transition={{ duration: 0.7, ease: "easeOut" }}
+              data-aos="fade-up"
+              data-aos-duration="1000"
+              data-aos-once="true"
             >
               Designed for{" "}
               <motion.span className={styles.gradient_text} key={text1} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.5 }}>
@@ -275,8 +293,9 @@ const Home: NextPage = () => {
               marginX="auto"
               width={{ xs: "100%", md: "80%", lg: "70%" }}
               fontSize={"64px"}
-              variants={{ initial: { opacity: 0, y: 100 }, animate: { opacity: 1, y: 0 } }}
-              transition={{ duration: 0.7, ease: "easeOut" }}
+              data-aos="fade-up"
+              data-aos-duration="1000"
+              data-aos-once="true"
             >
               <span style={{ whiteSpace: "nowrap" }}>
                 Designed for{" "}
@@ -301,7 +320,18 @@ const Home: NextPage = () => {
           }}
         >
           {isMobileView ? (
-            <Box display={"flex"} width={"100vw"} mt={20} pr={2} justifyContent={"center"} alignItems={"center"} flexDirection={"column"}>
+            <Box
+              display={"flex"}
+              width={"100vw"}
+              mt={20}
+              pr={2}
+              justifyContent={"center"}
+              alignItems={"center"}
+              flexDirection={"column"}
+              data-aos="fade-up"
+              data-aos-duration="1000"
+              data-aos-once="true"
+            >
               <Box width={"100%"}>
                 <Typography style={{ fontFamily: "FinancierDisplay", fontWeight: 400 }} fontSize={"32px"} textAlign={"center"}>
                   Medical specialties we empower
@@ -314,7 +344,7 @@ const Home: NextPage = () => {
               </Box>
             </Box>
           ) : (
-            <Box display={"flex"} mt={20} justifyContent={"center"} alignItems={"center"} flexDirection={"column"}>
+            <Box display={"flex"} mt={20} justifyContent={"center"} alignItems={"center"} flexDirection={"column"} data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
               <Box>
                 <Typography fontSize={"64px"} fontFamily="FinancierDisplay" textAlign={"center"}>
                   Medical specialties we empower
@@ -331,7 +361,18 @@ const Home: NextPage = () => {
           <AiCards />
         </Box>
         {isMobileView ? (
-          <Box display={"flex"} width={"100vw"} ml={-1} mt={20} justifyContent={"center"} alignItems={"center"} flexDirection={"column"}>
+          <Box
+            display={"flex"}
+            width={"100vw"}
+            ml={-1}
+            mt={20}
+            justifyContent={"center"}
+            alignItems={"center"}
+            flexDirection={"column"}
+            data-aos="fade-up"
+            data-aos-duration="1000"
+            data-aos-once="true"
+          >
             <Box width={"100%"}>
               <Typography style={{ fontFamily: "FinancierDisplay", fontWeight: 400 }} fontSize={"32px"} textAlign={"center"}>
                 What experts say
@@ -344,7 +385,7 @@ const Home: NextPage = () => {
             </Box>
           </Box>
         ) : (
-          <Box display={"flex"} mt={20} justifyContent={"center"} alignItems={"center"} flexDirection={"column"}>
+          <Box display={"flex"} mt={20} justifyContent={"center"} alignItems={"center"} flexDirection={"column"} data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
             <Box>
               <Typography fontSize={"64px"} fontFamily="FinancierDisplay" textAlign={"center"}>
                 What experts say
@@ -374,7 +415,18 @@ const Home: NextPage = () => {
           }}
         >
           {isMobileView ? (
-            <Box mt={10} px={1} width={"100%"} display="flex" justifyContent={"center"} alignItems={"center"} flexShrink={1}>
+            <Box
+              mt={10}
+              px={1}
+              width={"100%"}
+              display="flex"
+              justifyContent={"center"}
+              alignItems={"center"}
+              flexShrink={1}
+              data-aos="fade-up"
+              data-aos-duration="1000"
+              data-aos-once="true"
+            >
               <Typography lineHeight={"120%"} fontSize={"32px"} fontFamily="FinancierDisplay" textAlign={"center"}>
                 Testing pupil is now <br /> simple, objective and <br />{" "}
                 <span className={styles.gradient_text}>
@@ -384,7 +436,17 @@ const Home: NextPage = () => {
               </Typography>
             </Box>
           ) : (
-            <Box mt={10} width={"100%"} display="flex" justifyContent={"center"} alignItems={"center"} flexShrink={1}>
+            <Box
+              mt={10}
+              width={"100%"}
+              display="flex"
+              justifyContent={"center"}
+              alignItems={"center"}
+              flexShrink={1}
+              data-aos="fade-up"
+              data-aos-duration="1000"
+              data-aos-once="true"
+            >
               <Typography variant="h4" fontSize={"64px"} textAlign={"center"}>
                 Testing pupil is now <br /> simple, objective and{" "}
                 <span className={styles.gradient_text}>
@@ -409,7 +471,18 @@ const Home: NextPage = () => {
           }}
         >
           {isMobileView ? (
-            <Box mt={10} width={"100%"} display="flex" justifyContent={"center"} alignItems={"center"} flexDirection={"column"} flexShrink={1}>
+            <Box
+              mt={10}
+              width={"100%"}
+              display="flex"
+              justifyContent={"center"}
+              alignItems={"center"}
+              flexDirection={"column"}
+              flexShrink={1}
+              data-aos="fade-up"
+              data-aos-duration="1000"
+              data-aos-once="true"
+            >
               <Box>
                 <Typography fontWeight={200} fontFamily="FinancierDisplay" lineHeight={"130%"} fontSize={"32px"} textAlign={"center"}>
                   Decoding neurology. In the blink of <span className={styles.gradient_text}>AI</span>.
@@ -433,7 +506,20 @@ const Home: NextPage = () => {
               </Box>
             </Box>
           ) : (
-            <Box mt={10} pl={15} pr={15} width={"100%"} display="flex" justifyContent={"center"} alignItems={"center"} flexDirection={"column"} flexShrink={1}>
+            <Box
+              mt={10}
+              pl={15}
+              pr={15}
+              width={"100%"}
+              display="flex"
+              justifyContent={"center"}
+              alignItems={"center"}
+              flexDirection={"column"}
+              flexShrink={1}
+              data-aos="fade-up"
+              data-aos-duration="1000"
+              data-aos-once="true"
+            >
               <Box>
                 <Typography fontFamily="FinancierDisplay" lineHeight={"110%"} fontSize={"64px"} textAlign={"center"}>
                   Decoding neurology. In the blink of <span className={styles.gradient_text}>AI</span>.
@@ -490,6 +576,7 @@ const Home: NextPage = () => {
                     data-aos="fade-up"
                     data-aos-duration="2000"
                     data-aos-anchor-placement="bottom"
+                    data-aos-once={"true"}
                   >
                     <Image src={e.src} width={e.w} height={e.h} alt={"company"} />
                   </Box>

@@ -16,9 +16,9 @@ const Footer = ({ home }: any) => {
 
   return (
     <>
-      <Divider sx={{ width: "100%", mt: 20 }} />
+      <Divider sx={isSmallViewport ? { width: "110vw", mt: 20 } : { width: "100%", mt: 20 }} />
       {isSmallViewport ? (
-        <Box width={"100%"} ml={-3}>
+        <Box width={"100%"} ml={-2}>
           <Box height={"100%"} width={"100%"} flexWrap={"wrap"} paddingY={4.75} display={"flex"} justifyContent={"space-between"} flexDirection={"row"}>
             <Box display={"flex"} flexDirection={"column"} height={"100%"} justifyContent={"flex-end"} alignItems={"flex-end"}>
               <Box paddingX={3} width={"100%"} height={"80%"} alignItems={"flex-start"} justifyContent={"flex-end"} display={"flex"} flexDirection={"column"}>
@@ -26,7 +26,7 @@ const Footer = ({ home }: any) => {
                   <Box width={"50%"}>
                     <Image src="/icons/logo-small.svg" alt="logo" width="35" height="46" />
                   </Box>
-                  <Box alignItems={"center"} justifyContent={"center"} width={"50%"} display={"flex"}>
+                  <Box alignItems={"flex-end"} justifyContent={"flex-end"} width={"50%"} display={"flex"}>
                     <Link href="https://www.linkedin.com/company/solvemed-group/" target="_blank" rel="noopener">
                       <Image src="/images/icons/linkedin.png" alt="linkedin" width="40px" height="40px" />
                     </Link>
@@ -46,7 +46,7 @@ const Footer = ({ home }: any) => {
                     return (
                       <Box key={idx} mr={4}>
                         <Link underline="none" href={e.link}>
-                          <Typography fontSize={"14px"} textAlign={"center"} fontFamily={"SuisseIntl"} fontWeight={300}>
+                          <Typography fontSize={"14px"} textAlign={"center"} fontFamily={"SuisseIntl"} fontWeight={300} lineHeight={"120%"} letterSpacing={"0.04em"}>
                             {e.title}
                           </Typography>
                         </Link>
@@ -60,16 +60,16 @@ const Footer = ({ home }: any) => {
                 <Box minWidth={"330px"} maxWidth={"33vw"} display="flex" flexDirection={"column"} justifyContent="space-between" mb={3.5}>
                   <Box display="flex" width={"100%"} flexDirection="column" justifyContent={"flex-start"} pl={3} alignItems={"flex-start"} mt={3}>
                     <Box flexDirection={"column"} display={"flex"}>
-                      <Typography color="primary.light" fontFamily={"SuisseIntl"} fontWeight={400} fontSize={"12px"}>
-                        &copy; 2023 Solvemed Group
+                      <Typography color="primary.light" fontFamily={"SuisseIntl"} fontWeight={400} fontSize={"12px"} ml={-2}>
+                        2023 Solvemed Group
                       </Typography>
-                      <Typography color="primary.light" fontFamily={"SuisseIntl"} fontWeight={400} fontSize={"12px"} mt={2}>
+                      <Typography color="primary.light" fontFamily={"SuisseIntl"} fontWeight={400} fontSize={"12px"} ml={-2} marginTop={-1}>
                         All Rights reserved
                       </Typography>
                     </Box>
                   </Box>
                 </Box>
-                <Box pl={3}>
+                <Box pl={1}>
                   <Link href="#" underline="none" color="primary.light" fontFamily={"SuisseIntl"} fontWeight={400} fontSize={"12px"} mr="29px">
                     Privacy Policy
                   </Link>

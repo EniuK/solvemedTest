@@ -145,6 +145,7 @@
 @media (max-width: 600px) {
   .video {
     width: 80vw;
+
   }
 }
 
@@ -191,7 +192,7 @@
 
 @media (max-width: 600px) {
   .videoFloating {
-    padding: 0vh 4vh;
+    /* padding: 0vh 4vh; */
   padding-left: 5.5vh;
   }
 }

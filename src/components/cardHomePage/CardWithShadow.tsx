@@ -52,6 +52,51 @@ const cardData = [
   },
 ];
 
+const cardDataMobile = [
+  {
+    title: "FDA-listed",
+    description: "class I medical device.",
+    src: "/images/homePage/securityicon.png",
+  },
+
+  {
+    title: "HIPPA  compliant",
+    description: "Designed for privacy and security. ",
+    src: "/images/homePage/medicalicon.png",
+  },
+  {
+    title: "User friendly",
+    description: "Faster to use than a traditional penlight.",
+    src: "/images/homePage/userwithhearth.png",
+  },
+  {
+    title: "Clinically tested",
+    description: "Measurement accuracy and reliability proven clinically.",
+    src: "/images/homePage/cross.png",
+  },
+  {
+    title: "AI Driven ",
+    description: "Supported by cutting-edge Machine Learning technology.",
+    src: "/images/homePage/Ai.png",
+  },
+  {
+    title: "Works offline",
+    description: "No internet access needed to conduct tests.",
+    src: "/images/homePage/connection.png",
+  },
+  {
+    title: "Reduces risks ",
+    description: "Offers the trust you need when examining the brain.",
+    src: "/images/homePage/warning.png",
+  },
+
+  {
+    title: "Sustainable ",
+    description: "Designed with the planet in mind.",
+    src: "/images/homePage/leafempty.png",
+  },
+];
+
 const CardWithShadow = () => {
   const isMobileView = useMediaQuery(theme.breakpoints.down("md"));
   useEffect(() => {
@@ -65,8 +110,8 @@ const CardWithShadow = () => {
   return (
     <Box>
       {isMobileView ? (
-        <Box display={"flex"} width={"100vw"} ml={-1} flexDirection={"row"} flexWrap={"wrap"} justifyContent={"space-between"} pl={1}>
-          {cardData.map((element, idx: number) => {
+        <Box display={"flex"} width={"100vw"} ml={-1} flexDirection={"row"} flexWrap={"wrap"} justifyContent={"space-between"} pl={2}>
+          {cardDataMobile.map((element, idx: number) => {
             return (
               <Box key={idx} width={"50%"} display={"flex"} justifyContent={"center"} alignItems={"center"} mb={2}>
                 <div
@@ -116,7 +161,7 @@ const CardWithShadow = () => {
           {cardData.map((element, idx: number) => {
             return (
               <div id={`trigger${idx}`} key={idx} style={{ width: "100%" }}>
-                <Box width={"90%"} display={"flex"} justifyContent={idx % 2 === 0 ? "flex-end" : "flex-start"} alignItems={"center"}>
+                <Box margin={"0 auto"} width={"94%"} display={"flex"} justifyContent={idx % 2 === 0 ? "flex-end" : "flex-start"} alignItems={"center"}>
                   <div
                     data-aos={idx % 2 === 0 ? "fade-left" : "fade-right"}
                     data-aos-offset="200"

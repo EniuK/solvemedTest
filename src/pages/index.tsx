@@ -1,6 +1,6 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import { Box, Typography, Button, useMediaQuery, Link, CardMedia } from "@mui/material";
+import { Box, Typography, Button, useMediaQuery, Link, CardMedia, debounce } from "@mui/material";
 import "animate.css";
 import { motion } from "framer-motion";
 import Image from "next/image";
@@ -19,38 +19,36 @@ const Home: NextPage = () => {
   const isMobileView = useMediaQuery(theme.breakpoints.down("md"));
 
   const elementRef = useRef(null);
-  const sectionMobileRef = useRef(null);
-  const sectionDesktopRef = useRef(null);
+  const section = useRef(null);
 
   const [videoStickinessMode, setVideoStickinessMode] = useState(1);
   const hasWindow = typeof window !== "undefined";
   const heighter = hasWindow ? window.innerHeight : null;
+  const [elementheight, setElementHeight] = useState("");
   // 1 nic
   // 2 - sticky
   // 3 - section reached
-  useEffect(() => {
-    const handleScroll = () => {
-      if ((sectionMobileRef?.current || sectionDesktopRef?.current) && elementRef.current) {
-        const sectionMobile = sectionMobileRef?.current?.getBoundingClientRect?.();
-        const sectionDesktop = sectionDesktopRef?.current?.getBoundingClientRect?.();
-        const element = elementRef.current?.getBoundingClientRect?.();
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     if (section?.current && elementRef.current) {
+  //       const sectionContainer = section?.current?.getBoundingClientRect?.();
+  //       const element = elementRef.current?.getBoundingClientRect?.();
+  //       setElementHeight(element.height);
 
-        const calculateSection = isMobileView ? sectionMobile : sectionDesktop;
+  //       const xSectionReached = sectionContainer && sectionContainer.bottom <= sectionContainer.height && sectionContainer.bottom - element.height <= 0;
+  //       const xIsSticky = sectionContainer && sectionContainer.bottom <= sectionContainer.height && element.top <= 0;
 
-        const xSectionReached = calculateSection && calculateSection.bottom <= calculateSection.height && calculateSection.bottom - element.height <= 0;
-        const xIsSticky = calculateSection && calculateSection.bottom <= calculateSection.height && element.top <= 0;
+  //       const mode = xIsSticky && !xSectionReached ? 2 : xSectionReached ? 3 : 1;
 
-        const mode = xIsSticky && !xSectionReached ? 2 : xSectionReached ? 3 : 1;
+  //       setVideoStickinessMode(mode);
+  //     }
+  //   };
+  //   window.addEventListener("scroll", handleScroll);
 
-        setVideoStickinessMode(mode);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [isMobileView]);
+  //   return () => {
+  //     window.removeEventListener("scroll", handleScroll);
+  //   };
+  // }, [isMobileView]);
 
   useEffect(() => {
     console.log({ videoStickinessMode });
@@ -59,6 +57,14 @@ const Home: NextPage = () => {
   const logos = [
     { src: "/images/homePage/logos/NASA.svg", w: "140px", h: "40px" },
     { src: "/images/homePage/logos/apple.svg", w: "140px", h: "40px" },
+    { src: "/images/homePage/logos/stanford.svg", w: "140px", h: "40px" },
+    { src: "/images/homePage/logos/cambridge.svg", w: "140px", h: "40px" },
+    { src: "/images/homePage/logos/nhs.svg", w: "140px", h: "40px" },
+    { src: "/images/homePage/logos/honkong.svg", w: "140px", h: "40px" },
+  ];
+  const logosMobile = [
+    { src: "/images/homePage/logos/apple.svg", w: "140px", h: "40px" },
+    { src: "/images/homePage/logos/NASA.svg", w: "140px", h: "40px" },
     { src: "/images/homePage/logos/stanford.svg", w: "140px", h: "40px" },
     { src: "/images/homePage/logos/cambridge.svg", w: "140px", h: "40px" },
     { src: "/images/homePage/logos/nhs.svg", w: "140px", h: "40px" },
@@ -109,263 +115,126 @@ const Home: NextPage = () => {
       </div>
       <Box>
         <Box>
-          {isMobileView ? (
-            <Typography
-              component={motion.p}
-              fontWeight={200}
-              fontFamily={"FinancierDisplay"}
-              lineHeight={"120%"}
-              align="center"
-              marginX="auto"
-              fontSize={"44px"}
-              width={{ xs: "100%", md: "80%", lg: "75%" }}
-              variants={{ initial: { opacity: 0, y: 100 }, animate: { opacity: 1, y: 0 } }}
-              transition={{ duration: 0.7, ease: "easeOut" }}
-            >
-              Pupil reactivity <br /> testing. Now in your <br /> smartphone.
-            </Typography>
-          ) : (
-            <Typography
-              component={motion.p}
-              fontWeight={200}
-              fontFamily={"FinancierDisplay"}
-              fontSize={"100px"}
-              lineHeight={"120%"}
-              align="center"
-              marginX="auto"
-              width={{ xs: "100%", md: "80%", lg: "70%" }}
-              variants={{ initial: { opacity: 0, y: 100 }, animate: { opacity: 1, y: 0 } }}
-              transition={{ duration: 0.7, ease: "easeOut" }}
-            >
-              Pupil reactivity testing. Now in your smartphone.
-            </Typography>
-          )}
+          <Typography
+            component={motion.p}
+            variant={"fin100"}
+            align="center"
+            marginX="auto"
+            width={{ xs: "100%", md: "80%", lg: "75%" }}
+            variants={{ initial: { opacity: 0, y: 100 }, animate: { opacity: 1, y: 0 } }}
+            transition={{ duration: 0.7, ease: "easeOut" }}
+          >
+            Pupil reactivity <br /> testing. Now in your <br /> smartphone.
+          </Typography>
         </Box>
 
-        {isMobileView ? (
-          <>
-            <Box
-              width={"100vw"}
-              display={"flex"}
-              flexDirection={"column"}
-              justifyContent={"center"}
-              alignContent={"center"}
-              pr={2.5}
-              pl={1}
-              pb={200}
-              ref={sectionMobileRef}
-              position={"relative"}
-            >
-              <Box
-                zIndex={2}
-                className={`${styles.video} ${videoStickinessMode === 2 ? styles.videoFloating : videoStickinessMode === 3 ? styles.videoSticky : ""}`}
-                ref={elementRef}
-              >
-                <LazyLoadComponent>
-                  {/* <CardMedia
-                    poster="/images/homePage/Phone.png"
-                    component="video"
-                    loop
-                    autoPlay
-                    src={"https://strapi-s3-solvemed-public-images.s3.amazonaws.com/iPhone+animation+looped.mov"}
-                    controls={false}
-                    controlsList="nodownload"
-                    style={{ pointerEvents: "none", width: "100%" }}
-                  /> */}
-                  {/* trying to fix ios. do not delete */}
-                  {/* style={heighter > 770 ? { marginTop: -100 } : {}}> */}
-                  <Box>
-                    <video poster="/images/homePage/Phone.png" controls={false} autoPlay loop width="100%">
-                      <source src={"/images/homePage/phonene.mov"} type="video/mp4" />
-                    </video>
-                  </Box>
-                  {/* data-data-aos-once="true" */}
-                </LazyLoadComponent>
-              </Box>
-              <Box mt={150} display="flex" flexDirection="column" width="100%" mb={10} data-aos="fade-up" data-aos-duration="500" data-aos-once="true">
-                <Typography fontSize="32px" fontWeight={300} color="black" fontFamily="FinancierDisplay" mb={2} textAlign="center">
-                  Forget about forgetting your penlight.
-                </Typography>
-                <Typography
-                  fontSize="14px"
-                  fontWeight={300}
-                  style={{ fontFamily: "SuisseIntl", opacity: 0.8, lineHeight: "140%", fontWeight: 300, color: "#5E5E5E" }}
-                  textAlign="center"
-                >
-                  We bring the most advanced smartphone-enabled data collection and analytical tools in the world to the field of neurology and ophthalmology.
-                </Typography>
-              </Box>
-              <Box position={"absolute"} zIndex={1} width="100%" height="100%" top={0} left={0}>
-                <Image src={"/images/bg/homegradient1.png"} width={"767.36px"} height={"756.02px"} alt={"gradient"} style={{ objectFit: "cover" }} />
-              </Box>
+        {/* video section start  */}
+
+        <Box className={styles.videoContainer} height={"500vh"} ref={section} position={"relative"}>
+          {/* box z wysokoscia telefonu by strona sie nie rozpadla jak zmienia sie styl telefonu */}
+          {/* <Box style={videoStickinessMode === 2 || videoStickinessMode === 3 ? { height: elementheight } : {}} /> */}
+          <Box height={elementheight}></Box>
+
+          <Box zIndex={2} className={`${styles.video} ${videoStickinessMode === 2 ? styles.videoFloating : videoStickinessMode === 3 ? styles.videoSticky : ""}`} ref={elementRef}>
+            {/* <LazyLoadComponent>
+              <video poster="/images/homePage/phone.png" preload="none" controls={false} autoPlay loop width="100%" height={"100%"}>
+                <source src={"https://strapi-s3-solvemed-public-images.s3.amazonaws.com/iPhone+animation+looped.mov"} type="video/mp4" />
+              </video>
+            </LazyLoadComponent> */}
+          </Box>
+
+          {!isMobileView && (
+            <Box zIndex={1} position={"absolute"} top={0}>
+              <Image src={"/images/bg/homegradient1.png"} width={"767.36px"} height={"756.02px"} alt={"gradient"} />
             </Box>
-            <Box display={"flex"} flexDirection={"column"} width={"100%"} mb={10}>
-              <Typography fontSize={"32px"} fontWeight={300} color={"black"} fontFamily={"FinancierDisplay"} mb={2} textAlign={"center"}>
-                mPenlight
+          )}
+          {isMobileView ? (
+            <Box mt={200} className={styles.forgetQuoteContainer} data-aos="fade-up" data-aos-duration="2000" data-aos-once="true">
+              <Typography className={styles.title1}>Forget about forgetting your penlight.</Typography>
+              <Typography className={styles.subtitle1}>
+                We bring the most advanced smartphone-enabled data collection and analytical tools in the world to the field of neurology and ophthalmology.
               </Typography>
-              <Typography
-                fontSize={"14px"}
-                fontWeight={300}
-                style={{ fontFamily: "SuisseIntl", opacity: 0.8, lineHeight: "140%", fontWeight: 300, color: "#5E5E5E" }}
-                textAlign={"center"}
-              >
-                Solvemed{"'"}s smartphone-based software medical device enables pupil reactivity measurement in the quantifiable manner without any external hardware needed.{" "}
+            </Box>
+          ) : (
+            <Box mt={100} position={"relative"} data-aos="fade-up" data-aos-duration="2000" data-aos-once="true">
+              <Typography className={styles.title1}>Forget about forgetting your penlight.</Typography>
+              <Typography className={styles.subtitle1}>
+                We bring the most advanced smartphone-enabled data collection and analytical tools in the world to the field of neurology and ophthalmology.
               </Typography>
+            </Box>
+          )}
+
+          {isMobileView && (
+            <Box position={"absolute"} zIndex={1} width="100%" height="100%" top={0} left={0}>
+              <Image src={"/images/bg/homegradient1.png"} width={"767.36px"} height={"756.02px"} alt={"gradient"} style={{ objectFit: "cover" }} />
+            </Box>
+          )}
+          {!isMobileView && (
+            <>
+              <Box className={styles.penlightContainerExternal} mt={100}>
+                <Box className={styles.penlightContainer}>
+                  <Typography className={styles.title2}>mPenlight</Typography>
+                  <Box mt={1}>
+                    <Typography className={styles.subtitle2}>
+                      Solvemed{"'"}s smartphone-based software medical device enables pupil reactivity measurement in a quantifiable manner without any external hardware needed.
+                    </Typography>
+                  </Box>
+                </Box>
+              </Box>
+              <Box width={"100vw"}>
+                <CardWithShadow />
+              </Box>
+            </>
+          )}
+        </Box>
+        {/* end of vide section to desktop  */}
+        {isMobileView && (
+          <>
+            <Box className={styles.penlightContainer}>
+              <Box className={styles.titleContainer}>
+                <Typography className={styles.title2}>mPenlight</Typography>
+                <Typography className={styles.subtitle2}>
+                  Solvemed{"'"}s smartphone-based software medical device enables pupil reactivity measurement in the quantifiable manner without any external hardware needed.{" "}
+                </Typography>
+              </Box>
             </Box>
             <CardWithShadow />
           </>
-        ) : (
-          <div style={{ position: "relative" }} ref={sectionDesktopRef}>
-            <Box display={"flex"} pt={1} justifyContent={"center"} alignContent={"center"} pb={100} ref={elementRef}>
-              <Box zIndex={2} mt={-3} className={`${styles.video} ${videoStickinessMode === 2 ? styles.videoFloating : videoStickinessMode === 3 ? styles.videoSticky : ""}`}>
-                <LazyLoadComponent>
-                  <video poster="/images/homePage/Phone.png" controls={false} preload="none" autoPlay loop width="100%" height={"100%"}>
-                    <source src={"https://strapi-s3-solvemed-public-images.s3.amazonaws.com/iPhone+animation+looped.mov"} type="video/mp4" />
-                  </video>
-                </LazyLoadComponent>
-              </Box>
-              <Box zIndex={1} position={"absolute"}>
-                <Image src={"/images/bg/homegradient1.png"} width={"767.36px"} height={"756.02px"} alt={"gradient"} />
-              </Box>
-            </Box>
-            <Box mt={100} mb={100} display="flex" flexDirection="column" ml={-5} data-aos="fade-up" data-aos-duration="500" data-aos-once="true">
-              <Typography fontSize="64px" style={{ fontFamily: "FinancierDisplay", lineHeight: "100%", fontWeight: 300, textAlign: "center" }} mb={5}>
-                Forget about forgetting your penlight.
-              </Typography>
-              <Box mt={1}>
-                <Typography fontSize="17px" style={{ opacity: 0.8, fontFamily: "SuisseIntl", lineHeight: "25.5px", fontWeight: 300, color: "#5E5E5E", textAlign: "center" }}>
-                  We bring the most advanced smartphone-enabled data collection and analytical <br /> tools in the world to the field of neurology and ophthalmology.
-                </Typography>
-              </Box>
-            </Box>
-            <Box width={"100%"}>
-              <Box mt={100} mb={100} display={"flex"} flexDirection={"column"} maxWidth={"300px"} width={"21.5%"} ml={"5%"}>
-                <Typography fontSize={"64px"} style={{ fontFamily: "FinancierDisplay", lineHeight: "25.5px", fontWeight: 300 }} mb={5}>
-                  mPenlight
-                </Typography>
-                <Box mt={1}>
-                  <Typography fontSize={"17px"} style={{ opacity: 0.8, fontFamily: "SuisseIntl", lineHeight: "25.5px", fontWeight: 300, color: "#5E5E5E" }}>
-                    Solvemed{"'"}s smartphone-based software medical device enables pupil reactivity measurement in a quantifiable manner without any external hardware needed.
-                  </Typography>
-                </Box>
-              </Box>
-            </Box>
-
-            <CardWithShadow />
-          </div>
         )}
+        {/* end of video section mobile */}
 
-        <Box
-          pt={30}
-          pb={30}
-          ml={-6}
-          pl={6}
-          style={{
-            backgroundImage: `url('/images/bg/homegradient2.png')`,
-            backgroundSize: "auto",
-            backgroundRepeat: "no-repeat",
-            backgroundPosition: "center",
-          }}
-        >
-          {isMobileView ? (
-            <Typography
-              component={motion.p}
-              align="center"
-              marginX="auto"
-              width={{ xs: "100%", md: "80%", lg: "70%" }}
-              fontSize={"32px"}
-              fontWeight={200}
-              data-aos="fade-up"
-              data-aos-duration="1000"
-              data-aos-once="true"
-            >
-              Designed for{" "}
-              <motion.span className={styles.gradient_text} key={text1} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.5 }}>
-                {text1}
-              </motion.span>{" "}
-              looking to end the era of subjective neuro-ophthalmic examination.{" "}
-            </Typography>
-          ) : (
-            <Typography
-              component={motion.p}
-              align="center"
-              variant="h3"
-              marginX="auto"
-              width={{ xs: "100%", md: "80%", lg: "70%" }}
-              fontSize={"64px"}
-              data-aos="fade-up"
-              data-aos-duration="1000"
-              data-aos-once="true"
-            >
-              <span style={{ whiteSpace: "nowrap" }}>
+        <Box mt={{ lg: 50, md: 100 }}>
+          <Box style={{ position: "absolute", margin: "90px auto ", rotate: "180deg", left: "20%" }}>
+            <Image src={"/images/bg/medicalSpecialities.png"} width={"428.33px"} height={"434.42px"} alt={"gradientBackground"}></Image>
+          </Box>
+          <Box pt={30} pb={30}>
+            <Box>
+              <Typography
+                component={motion.p}
+                align="center"
+                marginX="auto"
+                width={{ xs: "90%", md: "80%", lg: "60%" }}
+                variant={"fin64"}
+                data-aos="fade-up"
+                data-aos-duration="1000"
+                data-aos-once="true"
+              >
                 Designed for{" "}
                 <motion.span className={styles.gradient_text} key={text1} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.5 }}>
                   {text1}
                 </motion.span>{" "}
-                looking to
-              </span>{" "}
-              <br />
-              end the era of subjective pupil <br /> reactivity examination.
-            </Typography>
-          )}
+                looking to end the era of subjective pupil reactivity examination.{" "}
+              </Typography>
+            </Box>
+          </Box>
         </Box>
-        <Box
-          pt={5}
-          mt={5}
-          style={{
-            backgroundImage: `url('/images/bg/medicalSpecialities.png')`,
-            backgroundSize: "843px 680px",
-            backgroundRepeat: "no-repeat",
-            backgroundPosition: "bottom ",
-          }}
-        >
-          {isMobileView ? (
-            <Box
-              display={"flex"}
-              width={"100vw"}
-              mt={20}
-              pr={2}
-              justifyContent={"center"}
-              alignItems={"center"}
-              flexDirection={"column"}
-              data-aos="fade-up"
-              data-aos-duration="1000"
-              data-aos-once="true"
-            >
-              <Box width={"100%"}>
-                <Typography style={{ fontFamily: "FinancierDisplay", fontWeight: 400 }} fontSize={"32px"} textAlign={"center"}>
-                  Medical specialties we empower
-                </Typography>
-              </Box>
-              <Box width={"100%"} mt={4} pl={3} mb={2} pr={3}>
-                <Typography textAlign={"center"} style={{ opacity: 0.7, fontFamily: "SuisseIntl", fontWeight: 300, lineHeight: "150%", alignSelf: "stretch" }} fontSize={"18px"}>
-                  We are proud to satisfy the needs of the world{"'"}s leading practitioners across <br /> the spectrum of care.{" "}
-                </Typography>
-              </Box>
-            </Box>
-          ) : (
-            <Box display={"flex"} mt={20} justifyContent={"center"} alignItems={"center"} flexDirection={"column"} data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
-              <Box>
-                <Typography fontSize={"64px"} fontFamily="FinancierDisplay" textAlign={"center"}>
-                  Medical specialties we empower
-                </Typography>
-              </Box>
-              <Box width={"70%"} mt={isMobileView ? 2 : 6} style={{ opacity: 0.8 }}>
-                <Typography textAlign={"center"} fontFamily={"SuisseIntl"} color={"#5E5E5E"} lineHeight={"150%"} fontWeight={300} fontSize={"18px"}>
-                  We are proud to satisfy the needs of the world{"'"}s leading practitioners across the <br /> spectrum of care.{" "}
-                </Typography>
-              </Box>
-            </Box>
-          )}
 
-          <AiCards />
-        </Box>
-        {isMobileView ? (
+        <Box pt={5} mt={5}>
           <Box
             display={"flex"}
             width={"100vw"}
-            ml={-1}
             mt={20}
+            pr={2}
             justifyContent={"center"}
             alignItems={"center"}
             flexDirection={"column"}
@@ -373,47 +242,86 @@ const Home: NextPage = () => {
             data-aos-duration="1000"
             data-aos-once="true"
           >
-            <Box width={"100%"}>
-              <Typography style={{ fontFamily: "FinancierDisplay", fontWeight: 400 }} fontSize={"32px"} textAlign={"center"}>
-                What experts say
-              </Typography>
+            <Box width={{ lg: "100%", xs: "60%" }} textAlign={"center"}>
+              <Typography variant="fin64">Medical specialties we empower</Typography>
             </Box>
-            <Box width={"100%"} mt={4} pl={8} pr={8}>
-              <Typography textAlign={"center"} style={{ fontFamily: "SuisseIntl", fontWeight: 300, lineHeight: "150%", alignSelf: "stretch" }} fontSize={"14px"}>
-                We have worked closely with clinicians to develop game-changing tools that reshape practice and clinical research.{" "}
+            <Box width={"100%"} mt={4} pl={3} mb={2} pr={3}>
+              <Typography
+                textAlign={"center"}
+                lineHeight={"150%"}
+                style={{ opacity: 0.7, fontFamily: "SuisseIntl", fontWeight: 300, lineHeight: "150%", alignSelf: "stretch" }}
+                fontSize={"18px"}
+              >
+                We are proud to satisfy the needs of the world{"'"}s leading practitioners across <br /> the spectrum of care.{" "}
               </Typography>
             </Box>
           </Box>
-        ) : (
-          <Box display={"flex"} mt={20} justifyContent={"center"} alignItems={"center"} flexDirection={"column"} data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
-            <Box>
-              <Typography fontSize={"64px"} fontFamily="FinancierDisplay" textAlign={"center"}>
-                What experts say
-              </Typography>
+
+          <AiCards />
+        </Box>
+
+        {isMobileView && (
+          <Box>
+            <Box style={{ position: "absolute", margin: "90px auto ", rotate: "180deg", left: "20%" }}>
+              <Image src={"/images/bg/medicalSpecialities.png"} width={"428.33px"} height={"434.42px"} alt={"gradientBackground"}></Image>
             </Box>
-            <Box width={"70%"} mt={isMobileView ? 2 : 6} style={{ opacity: 0.8 }}>
-              <Typography textAlign={"center"} fontFamily={"SuisseIntl"} color={"#5E5E5E"} lineHeight={"150%"} fontWeight={300} fontSize={"18px"}>
-                We have worked closely with clinicians to develop game-changing tools that <br /> reshape practice and clinical research.
-              </Typography>
+            <Box pt={30} pb={30}>
+              <Box>
+                <Typography
+                  component={motion.p}
+                  align="center"
+                  marginX="auto"
+                  width={{ xs: "100%", md: "80%", lg: "70%" }}
+                  variant={"fin64"}
+                  data-aos="fade-up"
+                  data-aos-duration="1000"
+                  data-aos-once="true"
+                >
+                  Designed for{" "}
+                  <motion.span className={styles.gradient_text} key={text1} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.5 }}>
+                    {text1}
+                  </motion.span>{" "}
+                  <br /> looking to end the era of <br /> subjective neuro-ophthalmic <br /> examination.
+                </Typography>
+              </Box>
             </Box>
           </Box>
         )}
+
+        <Box
+          display={"flex"}
+          width={"100%"}
+          ml={-1}
+          mt={20}
+          justifyContent={"center"}
+          alignItems={"center"}
+          flexDirection={"column"}
+          data-aos="fade-up"
+          data-aos-duration="1000"
+          data-aos-once="true"
+        >
+          <Box margin={"0 auto"}>
+            <Typography variant="fin64" lineHeight={isMobileView ? "120%" : "134%"} textAlign={"center"}>
+              What experts say
+            </Typography>
+          </Box>
+          <Box margin={"0 auto"} mt={4} textAlign={"center"}>
+            {isMobileView ? (
+              <Typography textAlign={"center"} variant="sus18_300" color={"#5E5E5E"}>
+                We are proud to satisfy the needs of the world{"'"}s <br /> leading practitioners across the spectrum of care.{" "}
+              </Typography>
+            ) : (
+              <Typography variant="sus18_300" color={"#5E5E5E"}>
+                We have worked closely with clinicians to develop game-changing tools that <br /> reshape practice and clinical research.{" "}
+              </Typography>
+            )}
+          </Box>
+        </Box>
+
         <Box ml={isMobileView ? 0 : -12}>
           <TeamCarousel />
         </Box>
-        <Box
-          pt={30}
-          pb={30}
-          ml={-30}
-          pl={36}
-          pr={6}
-          style={{
-            backgroundImage: `url('/images/bg/eyeEvaluation.png')`,
-            backgroundSize: "auto",
-            backgroundRepeat: "no-repeat",
-            backgroundPosition: "center",
-          }}
-        >
+        <Box pt={30} pb={30} ml={-30} pl={36} pr={6}>
           {isMobileView ? (
             <Box
               mt={10}
@@ -458,18 +366,7 @@ const Home: NextPage = () => {
           )}
           <AppCards />
         </Box>
-        <Box
-          pt={30}
-          pb={30}
-          pl={6}
-          pr={6}
-          style={{
-            backgroundImage: `url('/images/bg/aiEnabled.png')`,
-            backgroundSize: "auto",
-            backgroundRepeat: "no-repeat",
-            backgroundPosition: "center",
-          }}
-        >
+        <Box pt={30} pl={6} pr={6} pb={15}>
           {isMobileView ? (
             <Box
               mt={10}
@@ -485,24 +382,29 @@ const Home: NextPage = () => {
             >
               <Box>
                 <Typography fontWeight={200} fontFamily="FinancierDisplay" lineHeight={"130%"} fontSize={"32px"} textAlign={"center"}>
-                  Decoding neurology. In the blink of <span className={styles.gradient_text}>AI</span>.
+                  Decoding neurology. <br /> In the blink of <span className={styles.gradient_text}>AI</span>.
                 </Typography>
               </Box>
-              <Box mt={4}>
-                <Typography variant="body4" fontFamily={"SuisseIntl"} fontWeight={300} fontSize={"18px"} color={"rgba(94, 94, 94, 1)"} textAlign={"center"}>
+              <Box style={{ position: "absolute", margin: "0 0 150px 0", rotate: "180deg" }} width={"100%"} zIndex={-1}>
+                <Image src={"/images/bg/aiEnabled.png"} width={"880px"} height={"489px"} alt="gradientBackground"></Image>
+              </Box>
+              <Box mt={4} width={"85vw"}>
+                <Typography fontFamily={"SuisseIntl"} fontWeight={300} lineHeight={"150%"} fontSize={"14px"} color={"rgba(94, 94, 94, 1)"} textAlign={"center"}>
                   mPenlight is the pupil reactivity testing app of choice for world{"'"}s top practitioners.
                 </Typography>
               </Box>
-              <Box justifyContent={"center"} alignItems={"center"} mt={10}>
-                <Button
-                  color="secondary"
-                  sx={{ backgroundColor: "black", fontSize: "14px", fontWeight: 100, marginRight: 0, padding: 1, pl: 4, pr: 4 }}
-                  variant="contained"
-                  style={{ textTransform: "none" }}
-                  size="small"
-                >
-                  Get access!
-                </Button>
+              <Box justifyContent={"center"} alignItems={"center"} mt={5}>
+                <Link href={"/GetAccess"}>
+                  <Button
+                    color="secondary"
+                    sx={{ backgroundColor: "black", fontSize: "14px", fontWeight: 100, marginRight: 0, padding: "12px 22px" }}
+                    variant="contained"
+                    style={{ textTransform: "none" }}
+                    size="small"
+                  >
+                    Get access!
+                  </Button>
+                </Link>
               </Box>
             </Box>
           ) : (
@@ -547,8 +449,13 @@ const Home: NextPage = () => {
               </Box>
             </Box>
           )}
+          {!isMobileView && (
+            <Box style={{ position: "absolute", left: "20%" }} zIndex={-1}>
+              <Image src={"/images/bg/aiEnabled.png"} width={"880px"} height={"489px"} alt="gradientBackground"></Image>
+            </Box>
+          )}
         </Box>
-        <Box mt={10}>
+        <Box>
           <Box
             width={"100%"}
             display={"flex"}
@@ -564,7 +471,7 @@ const Home: NextPage = () => {
           </Box>
           {isMobileView ? (
             <Box display={"flex"} justifyContent={"center"} width={"100%"} alignItems={"center"} flexWrap={"wrap"}>
-              {logos.map((e, idx) => {
+              {logosMobile.map((e, idx) => {
                 return (
                   <Box
                     key={idx}

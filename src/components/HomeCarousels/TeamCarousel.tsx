@@ -1,9 +1,10 @@
 import { Box, Typography, useMediaQuery, Slide } from "@mui/material";
 import Image from "next/image";
-import React from "react";
+import React, { useEffect } from "react";
 import { theme } from "../../config/theme";
 import { Swiper, SwiperSlide } from "swiper/react";
-
+import AOS from "aos";
+import styles from "./cardWithShadow.module.css";
 import "swiper/css";
 import "swiper/css/pagination";
 
@@ -11,6 +12,13 @@ import { Pagination } from "swiper";
 const TeamCarousel = () => {
   const isMobileView = useMediaQuery(theme.breakpoints.down("md"));
   const desktop = useMediaQuery(theme.breakpoints.up("lg"));
+  useEffect(() => {
+    AOS.init();
+
+    return () => {
+      AOS.refresh();
+    };
+  }, [AOS]);
   const teamData = [
     {
       name: "Dr Fion Bremner, MD",
@@ -43,14 +51,22 @@ const TeamCarousel = () => {
         "President of Ophthalmology Associates, ran the FDA’s pivotal Xalatan trial. Anterior segment surgeon, elected to membership in the prestigious Castroviejo Corneal Society.",
       avatar: "/images/homePage/avatars/Berdy.png",
       quote:
-        "Nobody tracks pupils accurately, and it sucks - from medical school, through residency, through fellowship specialisation. Industry-wide standardised pupillary measurements are very important to the future of care.There is high demand for a smartphone-enabled, reproducible, reliable, scalable noninvasive diagnostic. This would be adopted across the entire industry.",
+        "Nobody tracks pupils accurately, and it sucks - from medical school, through residency, through fellowship specialisation. Industry-wide standardised pupillary measurements are very important to the future of care. There is high demand for a smartphone-enabled, reproducible, reliable, scalable noninvasive diagnostic. This would be adopted across the entire industry.",
       titles: ["Ophthalmologist"],
       sm: true,
     },
   ];
 
   return (
-    <Box mt={isMobileView ? 5 : 10}>
+    <Box
+      mt={isMobileView ? 5 : 10}
+      data-aos={"fade-up"}
+      data-aos-delay="50"
+      data-aos-duration="1000"
+      data-aos-easing="ease-out"
+      data-aos-once="true"
+      data-aos-anchor-placement="center"
+    >
       {isMobileView ? (
         <Box>
           <Swiper
@@ -101,17 +117,17 @@ const TeamCarousel = () => {
                       </Box>
                     </Box>
 
-                    <Box width={"100%"} mt={4} mr={6} fontSize={"18px"}>
-                      <Typography fontFamily="FinancierDisplay" fontWeight={400} lineHeight={"130%"} letterSpacing={"-0.01em"}>
+                    <Box width={"100%"} mt={4} mr={6}>
+                      <Typography fontFamily="FinancierDisplay" fontSize={"18px"} fontWeight={400} lineHeight={"130%"} letterSpacing={"-0.01em"}>
                         {e.name}
                       </Typography>
                     </Box>
-                    <Box width={"100%"} mt={2} pr={6} fontFamily="SuisseIntl" lineHeight={"140%"} fontWeight={300} color={"#5E5E5E"} fontSize={"12px"}>
+                    <Box width={"100%"} mt={2} pr={10} fontFamily="SuisseIntl" lineHeight={"140%"} fontWeight={300} color={"#5E5E5E"} fontSize={"12px"}>
                       {e.description}
                     </Box>
                     <Box mt={3}> &rdquo;</Box>
                     <Box
-                      width={"100%"}
+                      width={"80%"}
                       lineHeight={"140%"}
                       display={"flex"}
                       sx={{ flexGrow: 1 }}

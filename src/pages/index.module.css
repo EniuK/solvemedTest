@@ -190,9 +190,151 @@
   }
 }
 
+/* video component */
+.videoContainer {
+  display: flex;
+  padding-top: 1;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 100;
+}
+
+.forgetQuoteContainer {
+  margin-top:1000px;
+  width: 100%;
+ margin: 0 auto;
+  margin-bottom: 600px;
+  display: flex;
+  flex-direction: column;
+ justify-content: center;
+ align-items: center;
+}
+.title1 {
+  font-size: 64px;
+  font-family: "FinancierDisplay";
+  line-height: 100% ;
+  font-weight: 300;
+  text-align: center;
+  margin-bottom: 20px;
+}
+.subtitle1 {
+  font-size:  17px;
+  opacity: 0.8;
+  font-family: "SuisseIntl";
+  line-height: 25.5px ;
+  font-weight: 300;
+  color:"#5E5E5E" ;
+  text-align: center;
+}
+
+
+.penlightContainerExternal {
+  width: 100%;
+
+}
+.penlightContainer {
+  margin-top: 300px;
+  margin-bottom: 300px;
+  display: flex;
+  flex-direction: column;
+ max-width: 300px;
+ width: 21.5%;
+ margin-left: 5%;
+ 
+}
+.title2{
+  font-size: 64px; 
+  font-family: "FinancierDisplay" ;
+  line-height: 25.5px;
+  font-weight: 300;
+  margin-bottom: 20px;
+}
+
+.subtitle2 {
+  font-size: 17px;
+  opacity: 0.8;
+  font-family:"SuisseIntl" ;
+  line-height: 25.5px;
+  font-weight: 300;
+  color: "#5E5E5E";
+  text-align: left;
+}
+@media (max-width: 900px) {
+
+  .title2{
+    font-size: 32px;
+    font-weight: 300;
+    color: black;
+    font-family: "FinancierDisplay";
+    margin-bottom: 2;
+    text-align: center;
+  }
+  .subtitle2{
+    font-size: 14px;
+    font-weight: 300;
+    width: 100%;
+    margin: 0 auto;
+    font-family: "SuisseIntl";
+    opacity: 0.8;
+    line-height: 140%;
+    color:"#5E5E5E"  ;
+    text-align: center;
+  }
+}
 @media (max-width: 600px) {
   .videoFloating {
-    /* padding: 0vh 4vh; */
   padding-left: 5.5vh;
   }
+  .videoContainer {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    padding-right: 2.5;
+    padding-left: 1;
+    padding-bottom: 200;
+  }
+  .forgetQuote {
+    margin-top: 150;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 10;
+  }
+  .subtitle1 {
+    font-size: 14px;
+    font-weight: 300;
+    font-family: "SuisseIntl";
+    opacity: 0.8;
+    padding: 0 30px;
+    line-height: 140%;
+   color: "#5E5E5E" ;
+   text-align: center;
+  }
+  .title1 {
+    font-size: 32px;
+    font-weight: 300;
+    color: black;
+    font-family: "FinancierDisplay";
+  padding: 0 40px;
+
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  .penlightContainerExternal{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 10;
+
+  }
+  .penlightContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+width: 100%;
+margin: 0 auto 50px;
+  }
+
 }

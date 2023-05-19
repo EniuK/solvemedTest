@@ -66,7 +66,14 @@ const Careers: NextPage = () => {
         </Head>
       </div>
 
-      <Grid container item xs={10} lg={8} columns={10} margin="auto" alignItems="center">
+      <Grid
+        container
+        item
+        xs={10}
+        lg={8}
+        columns={10}
+        style={isMobileView ? { margin: "0 auto", alignItems: "center", display: "flex", justifyContent: "center" } : { margin: "0 auto", alignItems: "center" }}
+      >
         {isMobileView ? (
           <Grid item xs={10} textAlign="center">
             <Box position={"absolute"} width={"100vw"} pr={5} pb={20} height={"50%"} display={"flex"} justifyContent={"center"} alignItems={"center"}>
@@ -75,6 +82,7 @@ const Careers: NextPage = () => {
             <Typography
               component={motion.p}
               variant="h3"
+              width={{ xs: "100%", sm: "100%" }}
               mb={{ xs: "30px", lg: "80px" }}
               variants={{ initial: { opacity: 0, y: 100 }, animate: { opacity: 1, y: 0 } }}
               transition={{ duration: 0.7, ease: "easeOut" }}
@@ -87,7 +95,7 @@ const Careers: NextPage = () => {
             <Typography
               mb={3}
               component={motion.p}
-              width={{ xs: "100%", sm: "70%" }}
+              width={{ xs: "100%", sm: "100%" }}
               variants={{ initial: { opacity: 0, y: 50 }, animate: { opacity: 1, y: 0 } }}
               transition={{ duration: 0.7, ease: "easeOut" }}
               fontFamily={"FinancierDisplay"}
@@ -98,7 +106,7 @@ const Careers: NextPage = () => {
             </Typography>
             <Typography
               component={motion.p}
-              width={{ xs: "100%", sm: "70%", md: "50%" }}
+              width={{ xs: "100%", sm: "100%" }}
               mb={{ xs: "60px", lg: "80px" }}
               variants={{ initial: { opacity: 0, y: 20 }, animate: { opacity: 1, y: 0 } }}
               transition={{ duration: 0.7, ease: "easeOut" }}
@@ -199,7 +207,7 @@ const Careers: NextPage = () => {
                   <Fragment key={item.title}>
                     {idx === 0 && (
                       <Grid item xs={10} marginY="30px">
-                        <Box height="1px" bgcolor="rgba(0, 0, 0, 0.2)" />
+                        <Box height="1px" bgcolor="rgba(0, 0, 0, 0.2)" data-aos="fade-up" data-aos-duration="1000" data-aos-anchor-placement="top" />
                       </Grid>
                     )}
                     {isMobileView ? (
@@ -243,7 +251,7 @@ const Careers: NextPage = () => {
                     )}
 
                     <Grid item xs={10} marginY="30px">
-                      <Box height="1px" bgcolor="rgba(0, 0, 0, 0.2)" />
+                      <Box height="1px" bgcolor="rgba(0, 0, 0, 0.2)" data-aos="fade-up" data-aos-duration="1000" data-aos-anchor-placement="top" />
                     </Grid>
                   </Fragment>
                 ))}

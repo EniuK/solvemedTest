@@ -66,7 +66,7 @@ const Layout = ({ children }: { children: ReactNode }) => {
           backgroundSize: "cover",
         }}
       >
-        <Box paddingY={4.75} maxWidth="1467px" margin={"0 auto"} paddingX={{ xs: 1, md: 6.25 }} overflow="visible">
+        <Box paddingY={4.75} maxWidth="1467px" margin={"0 auto"} overflow="visible">
           <Header />
           <AnimatePresence mode="wait" initial={true}>
             <motion.main key={asPath} variants={variants} initial="initial" animate="animate" exit="exit">

@@ -1,8 +1,9 @@
 import { Box, useMediaQuery } from "@mui/material";
 import Image from "next/image";
-import React from "react";
+import React, { useEffect } from "react";
 import { theme } from "../../config/theme";
-
+import AOS from "aos";
+import styles from "./cardWithShadow.module.css";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import "swiper/css";
@@ -13,10 +14,17 @@ import { Pagination } from "swiper";
 const AppCards = () => {
   const isMobileView = useMediaQuery(theme.breakpoints.down("lg"));
   const istabletView = useMediaQuery(theme.breakpoints.down("md"));
+  useEffect(() => {
+    AOS.init();
+
+    return () => {
+      AOS.refresh();
+    };
+  }, [AOS]);
   const appData = [
     {
       title: "Reliable patient screening",
-      description: "Data driven medical results ",
+      description: "Precision that removes guess-work. ",
       src: "/images/homePage/appPhotos/phone.png",
     },
     {
@@ -47,7 +55,21 @@ const AppCards = () => {
   ];
 
   return (
-    <Box display={"flex"} width={"100vw"} justifyContent={"center"} alignItems={"center"} ml={istabletView ? -5 : -10} pl={istabletView ? 0 : 5} mt={15}>
+    <Box
+      data-aos={"fade-up"}
+      data-aos-delay="50"
+      data-aos-duration="1000"
+      data-aos-easing="ease-out"
+      data-aos-once="true"
+      data-aos-anchor-placement="center"
+      display={"flex"}
+      width={"100vw"}
+      justifyContent={"center"}
+      alignItems={"center"}
+      ml={istabletView ? -5 : -10}
+      pl={istabletView ? 0 : 5}
+      mt={15}
+    >
       <Swiper
         slidesPerView={istabletView ? 1.17 : isMobileView ? 2 : 3.2}
         spaceBetween={10}
@@ -92,14 +114,16 @@ const AppCards = () => {
                     textAlign={"left"}
                     justifyContent={"flex-start"}
                     alignItems="flex-start"
+                    lineHeight={"140%"}
                     pr={istabletView ? 0 : 3}
+                    mt={2}
                   >
                     {e.description}
                   </Box>
                 </Box>
 
                 <Box mb={-1}>
-                  <Image src={e.src} width={"350px"} height={"360px"} alt={e.title} />
+                  <Image src={e.src} width={"356px"} height={"360px"} alt={e.title} />
                 </Box>
               </Box>
             </SwiperSlide>

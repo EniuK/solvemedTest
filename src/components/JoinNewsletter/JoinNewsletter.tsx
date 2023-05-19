@@ -59,7 +59,7 @@ const NewsLetter = ({ status, message, onValidated }: any) => {
         ) : (
           <>
             <form className="mc__form" onSubmit={() => handleSubmit()}>
-              <Box width={isSmallViewport ? "260px" : "auto"}>
+              <Box width={isSmallViewport ? "100%" : "auto"}>
                 <TextField
                   sx={{ fontsize: "14px", width: "100%" }}
                   label="Enter your email"
@@ -71,12 +71,13 @@ const NewsLetter = ({ status, message, onValidated }: any) => {
                     sx: {
                       fontFamily: "SuisseIntl",
                       fontWeight: 400,
-
+                      opacity: 0.4,
                       fontSize: "15px",
                       lineHeight: "140%",
-                      color: "gray",
+                      color: "black",
                       "&.Mui-focused": {
-                        color: "gray",
+                        color: "black",
+                        opacity: 0.4,
                       },
                     },
                   }}
@@ -84,7 +85,9 @@ const NewsLetter = ({ status, message, onValidated }: any) => {
               </Box>
             </form>
             <Box
-              style={isSmallViewport ? { paddingBottom: 10, marginLeft: 5, marginTop: -10 } : {}}
+              style={
+                isSmallViewport ? { paddingBottom: 10, marginLeft: 5, marginTop: -10, flexGrow: 1, justifyContent: "flex-start", alignItems: "flex-start", paddingLeft: 20 } : {}
+              }
               display={"flex"}
               fontFamily={"SuisseIntl"}
               fontWeight={400}
@@ -92,9 +95,8 @@ const NewsLetter = ({ status, message, onValidated }: any) => {
               justifyContent={"center"}
             >
               <Button
-                color="secondary"
                 style={{ textTransform: "none" }}
-                sx={{ backgroundColor: "black", marginTop: "20px" }}
+                sx={{ backgroundColor: "white", marginTop: "20px", color: "black", border: "1px solid rgba(20, 20, 21, 0.2)" }}
                 onClick={() => handleSubmit()}
                 variant="contained"
                 size="large"

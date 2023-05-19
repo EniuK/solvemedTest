@@ -1,8 +1,9 @@
 import { Box, useMediaQuery } from "@mui/material";
 import Image from "next/image";
-import React from "react";
+import React, { useEffect } from "react";
 import { theme } from "../../config/theme";
-
+import AOS from "aos";
+import styles from "./cardWithShadow.module.css";
 const AiCards = () => {
   const isMobileView = useMediaQuery(theme.breakpoints.down("md"));
   const cardDataBig = [
@@ -112,13 +113,24 @@ const AiCards = () => {
       h: "60px",
     },
   ];
+  useEffect(() => {
+    AOS.init();
+
+    return () => {
+      AOS.refresh();
+    };
+  }, [AOS]);
+
   return (
     <Box width={"100%"}>
+      <Box style={{ position: "absolute", margin: "0 auto 100px", rotate: "180deg", left: "20%", zIndex: -2 }} marginBottom={isMobileView ? 0 : 100}>
+        <Image src={"/images/bg/medicalSpecialities.png"} width={"880px"} height={"843px"} alt={"gradientBackground"}></Image>
+      </Box>
       {isMobileView ? (
-        <Box width={"100%"} display={"flex"} alignItems={"center"} justifyContent={"space-between"} flexWrap={"wrap"}>
+        <Box width={"100%"} display={"flex"} alignItems={"center"} justifyContent={"center"} flexWrap={"wrap"}>
           {cardDataSmall.map((e, idx) => {
             return (
-              <Box key={idx} width={"48%"} display={"flex"} justifyContent={"center"} alignItems={"center"}>
+              <Box key={idx} width={"46%"} display={"flex"} justifyContent={"center"} alignItems={"center"}>
                 <Box
                   border={"1px solid #F5F5F7"}
                   boxShadow={"0px 8px 32px rgba(27, 37, 74, 0.08)"}
@@ -134,6 +146,11 @@ const AiCards = () => {
                   justifyContent={"flex-end"}
                   alignItems={"center"}
                   flexDirection={"column"}
+                  data-aos={idx % 2 === 0 ? "fade-left" : "fade-right"}
+                  data-aos-easing="ease-out"
+                  data-aos-duration="1500"
+                  data-aos-once="true"
+                  data-aos-anchor-placement="top-bottom"
                 >
                   <Box width={"100%"} height={"60%"} style={{ opacity: e.op || 1 }} display={"flex"} justifyContent={"flex-start"} alignItems={"center"} color={"#5E5E5E"}>
                     <Image src={e.src} width={e.w} height={e.h} alt={e.title} />
@@ -177,6 +194,11 @@ const AiCards = () => {
                   justifyContent={"flex-end"}
                   alignItems={"center"}
                   flexDirection={"column"}
+                  data-aos={idx % 2 === 0 ? "fade-left" : "fade-right"}
+                  data-aos-easing="ease-out"
+                  data-aos-duration="1500"
+                  data-aos-once="true"
+                  data-aos-anchor-placement="top-bottom"
                 >
                   <Box width={"100%"} height={"60%"} style={{ opacity: e.op || 1 }} display={"flex"} justifyContent={"flex-start"} alignItems={"center"} color={"#5E5E5E"}>
                     <Image src={e.src} width={e.w} height={e.h} alt={e.title} />

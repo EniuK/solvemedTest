@@ -65,9 +65,9 @@ const MailchimpForms = ({ status, message, onValidated }: any) => {
       {isMobileView ? (
         <>
           <form className="mc__form" onSubmit={(e) => handleSubmit(e)}>
-            <Box display={"flex"} justifyContent={"center"} ml={-3} pl={3} pr={20} alignItems={"center"} flexDirection={"row"} width={"100vw"}>
+            <Box display={"flex"} justifyContent={"center"} ml={-3} pl={4} pr={20} alignItems={"center"} flexDirection={"row"} width={"100vw"}>
               <Box width={"100vw"} pl={15} display={"flex"} justifyContent={"flex-start"} alignItems={"flex-start"} flexDirection={"column"}>
-                <Box width={"100vw"} display={"flex"} justifyContent={"flex-start"} alignItems={"flex-start"} flexDirection={"row"}>
+                <Box mt={5} ml={-1} width={"100vw"} display={"flex"} justifyContent={"flex-start"} alignItems={"flex-start"} flexDirection={"row"}>
                   <Box style={{ width: "45%" }} mr={2}>
                     <TextField
                       style={{ width: "90%" }}
@@ -76,11 +76,14 @@ const MailchimpForms = ({ status, message, onValidated }: any) => {
                       label="Name"
                       value={name}
                       onChange={(e) => setName(e.target.value)}
+                      InputProps={{
+                        style: { paddingBottom: 10 },
+                      }}
                       InputLabelProps={{
                         sx: {
-                          color: "text.primary",
+                          color: "#9B9B9B",
                           "&.Mui-focused": {
-                            color: "gray",
+                            color: "#9B9B9B",
                           },
                         },
                       }}
@@ -94,11 +97,14 @@ const MailchimpForms = ({ status, message, onValidated }: any) => {
                       label="Surname"
                       value={surrname}
                       onChange={(e) => setSurrname(e.target.value)}
+                      InputProps={{
+                        style: { paddingBottom: 10 },
+                      }}
                       InputLabelProps={{
                         sx: {
-                          color: "text.primary",
+                          color: "#9B9B9B",
                           "&.Mui-focused": {
-                            color: "gray",
+                            color: "#9B9B9B",
                           },
                         },
                       }}
@@ -109,7 +115,14 @@ const MailchimpForms = ({ status, message, onValidated }: any) => {
                 <Box width={"100vw"} textAlign={"left"} mt={8} display={"flex"} justifyContent={"flex-start"}>
                   <FormControl variant="standard" style={{ width: "90%" }}>
                     <InputLabel id="specialization-label">Specialization</InputLabel>
-                    <Select labelId="specialization-label" id="specialization-select" value={specialization} name={"MERGE6"} onChange={(e) => setSpecialization(e.target.value)}>
+                    <Select
+                      style={{ paddingBottom: 10 }}
+                      labelId="specialization-label"
+                      id="specialization-select"
+                      value={specialization}
+                      name={"MERGE6"}
+                      onChange={(e) => setSpecialization(e.target.value)}
+                    >
                       <MenuItem value="Neurologists">Neurologists</MenuItem>
                       <MenuItem value="Intensivist">Intensivist</MenuItem>
                       <MenuItem value="Nurse">Nurse</MenuItem>
@@ -128,11 +141,14 @@ const MailchimpForms = ({ status, message, onValidated }: any) => {
                     label="Enter your email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
+                    InputProps={{
+                      style: { paddingBottom: 10 },
+                    }}
                     InputLabelProps={{
                       sx: {
-                        color: "text.primary",
+                        color: "#9B9B9B",
                         "&.Mui-focused": {
-                          color: "gray",
+                          color: "#9B9B9B",
                         },
                       },
                     }}
@@ -251,7 +267,7 @@ const MailchimpForms = ({ status, message, onValidated }: any) => {
                       sx: {
                         color: "text.primary",
                         "&.Mui-focused": {
-                          color: "gray",
+                          color: "#9B9B9B",
                         },
                       },
                     }}
@@ -355,6 +371,8 @@ const GetAccess: NextPage<any> = () => {
                 style={{ margin: "0 auto 20px", fontSize: "16px" }}
                 width={{ xs: "100%", md: "40%" }}
                 lineHeight={"180%"}
+                color={"#595D62"}
+                fontFamily={"SuisseIntl"}
                 variants={{ initial: { opacity: 0, y: 20 }, animate: { opacity: 1, y: 0 } }}
                 transition={{ duration: 0.7, ease: "easeOut" }}
               >

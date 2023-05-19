@@ -71,7 +71,7 @@ const Header = () => {
 
   return (
     <div className={styles.header}>
-      <Box zIndex={600} onClick={() => setOpen(false)} position={"absolute"} mt={-5} style={open ? { top: 37.5, left: 0 } : {}}>
+      <Box zIndex={600} onClick={() => setOpen(false)} position={"absolute"} mt={-5} style={open ? { top: 37.5, left: 20 } : { left: 20 }}>
         <Link href="/" passHref>
           <a className={styles.logoLinkContainer}>
             <motion.svg width="234" height="35" viewBox="0 0 234 35" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -191,28 +191,31 @@ const Header = () => {
           {open && (
             <>
               <Box height={"101vh"} width={"100vw"} mr={-10} pr={3} mt={-7} pt={7} zIndex={200}>
-                <Box width={"100vw"} height={"55%"} mt={6} zIndex={open ? 300 : 1} ml={-6} pl={6} bgcolor={"white"} pb={6}>
+                <Box width={"100vw"} mt={6} zIndex={open ? 300 : 1} ml={-7} pl={7} bgcolor={"white"} pb={6}>
                   <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }}>
-                    {menuItems.map((item) => {
-                      return (
-                        <Box key={item.title} mt={4} style={{ fontFamily: "SuisseIntl", fontWeight: 100 }}>
-                          <Link href={item.link} prefetch={false}>
-                            <MenuItem onClick={handleMenuOpen} dense>
-                              <a>{item.title}</a>
-                            </MenuItem>
-                          </Link>
-                        </Box>
-                      );
-                    })}
+                    <Box ml={-7} mt={8}>
+                      {menuItems.map((item) => {
+                        return (
+                          <Box key={item.title} mt={3} style={{ fontFamily: "SuisseIntl", fontWeight: 100, fontSize: "20px", lineHeight: "150%" }}>
+                            <Link href={item.link} prefetch={false}>
+                              <MenuItem onClick={handleMenuOpen} dense>
+                                <a>{item.title}</a>
+                              </MenuItem>
+                            </Link>
+                          </Box>
+                        );
+                      })}
+                    </Box>
+
                     <Divider sx={{ width: "100vw", ml: -6, mt: 5, mb: 5 }} />
-                    <Box mt={-1} alignItems={"center"} justifyContent={"flex-start"} width={"100vw"} ml={-3} display={"flex"} mb={3}>
+                    <Box mt={-1} alignItems={"center"} justifyContent={"flex-start"} width={"100vw"} ml={-5} display={"flex"}>
                       <Box height={"40px"} display={"flex"} justifyContent={"center"} alignItems={"center"} flexDirection={"row"}>
                         <Link href="https://www.linkedin.com/company/solvemed-group/" target="_blank" rel="noopener">
                           <Image src="/images/icons/linkedin.png" alt="linkedin" width="40px" height="40px" />
                         </Link>
                         <Box ml={2}>Linkedin</Box>
                       </Box>
-                      <Box height={"40px"} display={"flex"} justifyContent={"center"} alignItems={"center"} flexDirection={"row"} ml={5}>
+                      <Box height={"40px"} display={"flex"} justifyContent={"center"} alignItems={"center"} flexDirection={"row"} ml={3}>
                         <Link href="https://twitter.com/solvemed" target="_blank" rel="noopener">
                           <Image src="/images/icons/twitter.png" alt="twitter" width="40px" height="40px" />
                         </Link>
@@ -221,7 +224,13 @@ const Header = () => {
                     </Box>
                   </motion.div>
                 </Box>
-                <Box height={"45%"} width={"100vw"} ml={-7} style={{ opacity: 0.6, backdropFilter: " blur(4px)", backgroundColor: "rgba(0, 0, 0, 0.3)" }}></Box>
+                <Box
+                  height={"100%"}
+                  width={"100vw"}
+                  left={0}
+                  position={"fixed"}
+                  style={{ opacity: 0.6, backdropFilter: " blur(4px)", backgroundColor: "rgba(0, 0, 0, 0.7)" }}
+                ></Box>
               </Box>
             </>
           )}

@@ -40,7 +40,7 @@ const Footer = ({ home }: any) => {
                   <JoinNewsletterMailchimp />
                 </Box>
 
-                <Divider sx={{ width: "110vw", ml: -6, mt: 20, position: "absolute" }} />
+                <Divider sx={{ width: "100vw", ml: -6, mt: 20, position: "absolute" }} />
                 <Box flexDirection={"row"} display={"flex"} height={"100px"} alignItems={"center"} justifyContent={"flex-start"} width={"100%"}>
                   {menuItems.map((e, idx) => {
                     return (
@@ -81,14 +81,7 @@ const Footer = ({ home }: any) => {
                   </Link>
                 </Box>
               </Box>
-              <Box
-                mt={5}
-                display={"flex"}
-                width={"100%"}
-                justifyContent={"center"}
-                style={home ? { position: "fixed", bottom: 5, zIndex: 300, marginRight: -15 } : {}}
-                alignItems={"center"}
-              >
+              <Box mt={5} display={"flex"} width={"100vw"} justifyContent={"center"} style={home ? { position: "fixed", bottom: 5, zIndex: 300 } : {}} alignItems={"center"}>
                 <Box
                   borderRadius={"100px"}
                   boxShadow={"0px 8px 32px rgba(27, 37, 74, 0.08)"}
@@ -159,7 +152,7 @@ const Footer = ({ home }: any) => {
                 </Link>
               </Box>
             </Box>
-            <Box display={"flex"} pt={3} height={"100%"} pb={4} justifyContent={"flex-end"} alignItems={"flex-end"}>
+            <Box display={"flex"} pt={6} height={"100%"} pb={4} justifyContent={"flex-end"} alignItems={"flex-end"}>
               <JoinNewsletterMailchimp />
             </Box>
 

@@ -11,6 +11,9 @@ declare module "@mui/material/styles" {
     body2Wide: React.CSSProperties;
     body4Wide: React.CSSProperties;
     body6Wide: React.CSSProperties;
+    fin64: any;
+    fin100: any;
+    sus18_300: any;
   }
   interface TypographyVariantsOptions {
     subtitle3?: React.CSSProperties;
@@ -22,6 +25,9 @@ declare module "@mui/material/styles" {
     body2Wide?: React.CSSProperties;
     body4Wide?: React.CSSProperties;
     body6Wide?: React.CSSProperties;
+    fin64: any;
+    fin100: any;
+    sus18_300: any;
   }
 }
 declare module "@mui/material/Typography" {
@@ -35,6 +41,9 @@ declare module "@mui/material/Typography" {
     body2Wide: true;
     body4Wide: true;
     body6Wide: true;
+    fin64: true;
+    fin100: true;
+    sus18_300: true;
   }
 }
 
@@ -72,6 +81,7 @@ export const theme = createTheme({
         lineHeight: "61px",
       },
     },
+
     h2: {
       fontSize: "100px",
       fontWeight: "300",
@@ -92,6 +102,38 @@ export const theme = createTheme({
       "@media (max-width:900px)": {
         fontSize: "64px",
         lineHeight: "61px",
+      },
+    },
+    fin100: {
+      fontFamily: ["FinancierDisplay", "Times", "serif"].join(","),
+      fontSize: "100px",
+      lineHeight: "120%",
+
+      fontWeight: "300",
+      letterSpacing: "-0.03em",
+      "@media (max-width:900px)": {
+        fontSize: "44px",
+      },
+    },
+    fin64: {
+      fontFamily: ["FinancierDisplay", "Times", "serif"].join(","),
+      fontSize: "64px",
+      lineHeight: "83.2px",
+
+      fontWeight: "300",
+      "@media (max-width:600px)": {
+        fontSize: "32px",
+        lineHeight: "41.6px",
+      },
+    },
+    sus18_300: {
+      fontFamily: ["SuisseIntl", "Times", "serif"].join(","),
+      fontSize: "18px",
+      lineHeight: "150%",
+      fontWeight: "300",
+
+      "@media (max-width:900px)": {
+        fontSize: "14px",
       },
     },
     subtitle1: {

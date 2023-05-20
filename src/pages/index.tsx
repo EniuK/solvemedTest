@@ -154,7 +154,7 @@ const Home: NextPage = () => {
             textAlign={"center"}
             position={isMobileView ? "sticky" : "relative"}
             data-aos="fade-up"
-            data-aos-duration="2000"
+            data-aos-duration="1000"
             data-aos-once="true"
             width={{ xs: "80%" }}
           >
@@ -206,7 +206,7 @@ const Home: NextPage = () => {
         {/* end of video section mobile */}
 
         <Box mt={{ lg: 50, md: 100 }}>
-          <Box style={{ position: "absolute", margin: "90px auto ", rotate: "180deg", left: "20%" }}>
+          <Box style={{ position: "absolute", margin: "90px auto ", rotate: "180deg", left: "30%" }}>
             <Image src={"/images/bg/medicalSpecialities.png"} width={"428.33px"} height={"434.42px"} alt={"gradientBackground"}></Image>
           </Box>
           <Box pt={30} pb={30}>
@@ -234,7 +234,7 @@ const Home: NextPage = () => {
         <Box pt={5} mt={5}>
           <Box
             display={"flex"}
-            width={"100vw"}
+            width={"100%"}
             mt={20}
             pr={2}
             justifyContent={"center"}
@@ -320,14 +320,13 @@ const Home: NextPage = () => {
           </Box>
         </Box>
 
-        <Box ml={isMobileView ? 0 : -12}>
+        <Box>
           <TeamCarousel />
         </Box>
-        <Box pt={30} pb={30} ml={-30} pl={36} pr={6}>
+        <Box pt={30} pb={30}>
           {isMobileView ? (
             <Box
               mt={10}
-              px={1}
               width={"100%"}
               display="flex"
               justifyContent={"center"}

@@ -147,7 +147,7 @@ const TeamCarousel = () => {
           </Swiper>
         </Box>
       ) : (
-        <Box width={"100vw"} pl={5} mt={10}>
+        <Box width={"100%"} mt={10}>
           <Swiper
             slidesPerView={desktop ? 1.5 : 1}
             spaceBetween={10}

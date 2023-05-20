@@ -346,18 +346,19 @@ const Team: NextPage = () => {
           ) : (
             <>
               <Box
-                width={"50%"}
+                maxWidth={"50%"}
                 display={"flex"}
                 // style={{ backgroundImage: "url(/images/team/brainGradient.png)", backgroundRepeat: "no-repeat", backgroundSize: "cover", backgroundPosition: "center" }}
                 justifyContent={"center"}
                 alignItems={"center"}
+                mr={4}
               >
                 <Image src="/images/team/brain.png" width={"650px"} height={"454px"} alt="Brain" />
                 <Box position={"absolute"} width={"100%"} height={"100%"} display={"flex"} justifyContent={"center"} alignItems={"center"}>
                   <Image src={"/images/team/brainGradient.png"} width={"650px"} height={"454px"} alt={"bg"} />
                 </Box>
               </Box>
-              <Box width={"50%"}>
+              <Box width={"40%"}>
                 <Box>
                   <Typography variant="body1" fontWeight="600" mb="60px">
                     About Solvemed
@@ -367,9 +368,9 @@ const Team: NextPage = () => {
                   </Typography>
                 </Box>
 
-                <Box display={"flex"} width={"80%"} pr={12} flexDirection={"column"} justifyContent={"center"} alignItems={"center"}>
-                  <Box width={"100%"} display={"flex"} justifyContent={"space-between"} alignItems={"center"}>
-                    <Box>
+                <Box display={"flex"} minWidth={"60%"} flexDirection={"column"} justifyContent={"flex-start"} alignItems={"flex-start"}>
+                  <Box display={"flex"} justifyContent={"space-between"} alignItems={"center"}>
+                    <Box mr={20}>
                       <Typography fontFamily={"FinancierDisplay"} letterSpacing={"-0.03em"} fontSize={{ xs: "100px", sm: "144px" }} lineHeight="138.24px" fontWeight="400">
                         36
                       </Typography>
@@ -388,8 +389,8 @@ const Team: NextPage = () => {
                     </Box>
                   </Box>
 
-                  <Box width={"100%"} display={"flex"} justifyContent={"space-between"} alignItems={"center"}>
-                    <Box>
+                  <Box display={"flex"} justifyContent={"space-between"} alignItems={"center"}>
+                    <Box mr={24}>
                       <Typography fontFamily={"FinancierDisplay"} fontSize={{ xs: "100px", sm: "144px" }} lineHeight="138.24px" fontWeight="300">
                         6
                       </Typography>

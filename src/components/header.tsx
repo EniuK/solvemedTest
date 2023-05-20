@@ -71,7 +71,7 @@ const Header = () => {
 
   return (
     <div className={styles.header}>
-      <Box zIndex={600} onClick={() => setOpen(false)} position={"absolute"} mt={-5} style={open ? { top: 35, left: 15 } : { left: 20 }}>
+      <Box zIndex={600} onClick={() => setOpen(false)} position={"absolute"} mt={-5} style={open ? { top: 37.5, left: 20 } : { left: 20 }}>
         <Link href="/" passHref>
           <a className={styles.logoLinkContainer}>
             <motion.svg width="234" height="35" viewBox="0 0 234 35" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -160,7 +160,6 @@ const Header = () => {
           flexDirection={"column"}
           justifyContent={"flex-end"}
           alignItems={"flex-end"}
-          // style={scrollDirection === "up" ? { position: "fixed" } : {}}
           sx={{
             "&::-webkit-scrollbar": {
               width: "0.4em",
@@ -190,10 +189,10 @@ const Header = () => {
 
           {open && (
             <>
-              <Box height={"101vh"} width={"100vw"} mr={-10} pr={3} mt={-7} pt={7} zIndex={200}>
-                <Box width={"100vw"} mt={6} zIndex={open ? 300 : 1} ml={-7} pl={7} bgcolor={"white"} pb={6}>
+              <Box height={"101vh"} width={"100vw"} mr={-10} pr={3} mt={-10} pt={8} zIndex={200}>
+                <Box width={"100vw"} mt={5} zIndex={open ? 300 : 1} ml={-7} pl={7} bgcolor={"white"} pb={6}>
                   <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }}>
-                    <Box ml={-7} mt={8}>
+                    <Box ml={-5} mt={8}>
                       {menuItems.map((item) => {
                         return (
                           <Box key={item.title} mt={3} style={{ fontFamily: "SuisseIntl", fontWeight: 100, fontSize: "20px", lineHeight: "150%" }}>

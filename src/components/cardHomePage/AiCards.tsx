@@ -146,7 +146,7 @@ const AiCards = () => {
                   justifyContent={"flex-end"}
                   alignItems={"center"}
                   flexDirection={"column"}
-                  data-aos={idx % 2 === 0 ? "fade-left" : "fade-right"}
+                  data-aos={"fade-up"}
                   data-aos-easing="ease-out"
                   data-aos-duration="1500"
                   data-aos-once="true"
@@ -194,7 +194,7 @@ const AiCards = () => {
                   justifyContent={"flex-end"}
                   alignItems={"center"}
                   flexDirection={"column"}
-                  data-aos={idx % 2 === 0 ? "fade-left" : "fade-right"}
+                  data-aos={"fade-up"}
                   data-aos-easing="ease-out"
                   data-aos-duration="1500"
                   data-aos-once="true"

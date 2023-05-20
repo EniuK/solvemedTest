@@ -66,12 +66,10 @@ const AppCards = () => {
       width={"100vw"}
       justifyContent={"center"}
       alignItems={"center"}
-      ml={istabletView ? -5 : -10}
-      pl={istabletView ? 0 : 5}
       mt={15}
     >
       <Swiper
-        slidesPerView={istabletView ? 1.17 : isMobileView ? 2 : 3.2}
+        slidesPerView={istabletView ? 1.17 : isMobileView ? 2 : 3.3}
         spaceBetween={10}
         pagination={{
           clickable: true,

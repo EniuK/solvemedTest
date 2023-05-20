@@ -291,7 +291,7 @@ const Team: NextPage = () => {
                 </Box>
               </Box>
               <Box width={"100%"}>
-                <Box pr={2}>
+                <Box pr={{ xs: 0, md: 2, lg: 2 }} pl={2}>
                   <Typography fontFamily={"SuisseIntl"} fontWeight={400} fontSize={"21px"} mb="60px">
                     About Solvemed
                   </Typography>
@@ -417,7 +417,7 @@ const Team: NextPage = () => {
           We come from
         </Typography>
 
-        <Typography fontFamily={"SuisseIntl"} fontWeight={300} fontSize={"16px"} mb="60px" width={{ xs: "100%", md: "40%" }} mx="auto" textAlign="center">
+        <Typography fontFamily={"SuisseIntl"} fontWeight={300} fontSize={"16px"} mb="60px" width={{ xs: "95%", md: "40%" }} mx="auto" textAlign="center">
           Our team members bring wealth of experience from the world’s most <br /> innovative institutions and companies.
         </Typography>
 

@@ -14,6 +14,7 @@ declare module "@mui/material/styles" {
     fin64: any;
     fin100: any;
     sus18_300: any;
+    sus17_300: any;
   }
   interface TypographyVariantsOptions {
     subtitle3?: React.CSSProperties;
@@ -28,6 +29,7 @@ declare module "@mui/material/styles" {
     fin64: any;
     fin100: any;
     sus18_300: any;
+    sus17_300: any;
   }
 }
 declare module "@mui/material/Typography" {
@@ -44,6 +46,7 @@ declare module "@mui/material/Typography" {
     fin64: true;
     fin100: true;
     sus18_300: true;
+    sus17_300: true;
   }
 }
 
@@ -121,7 +124,7 @@ export const theme = createTheme({
       lineHeight: "83.2px",
 
       fontWeight: "300",
-      "@media (max-width:600px)": {
+      "@media (max-width:900px)": {
         fontSize: "32px",
         lineHeight: "41.6px",
       },
@@ -129,6 +132,16 @@ export const theme = createTheme({
     sus18_300: {
       fontFamily: ["SuisseIntl", "Times", "serif"].join(","),
       fontSize: "18px",
+      lineHeight: "150%",
+      fontWeight: "300",
+
+      "@media (max-width:900px)": {
+        fontSize: "14px",
+      },
+    },
+    sus17_300: {
+      fontFamily: ["SuisseIntl", "Times", "serif"].join(","),
+      fontSize: "17px",
       lineHeight: "150%",
       fontWeight: "300",
 

@@ -72,7 +72,7 @@ const Careers: NextPage = () => {
         xs={10}
         lg={8}
         columns={10}
-        style={isMobileView ? { margin: "0 auto", alignItems: "center", display: "flex", justifyContent: "center" } : { margin: "0 auto", alignItems: "center" }}
+        style={isMobileView ? { margin: "0", paddingLeft: 30, alignItems: "center", display: "flex", justifyContent: "center" } : { margin: "0 auto", alignItems: "center" }}
       >
         {isMobileView ? (
           <Grid item xs={10} textAlign="center">
@@ -179,6 +179,7 @@ const Careers: NextPage = () => {
             pb={10}
             mt={-10}
             mb={-10}
+            pl={2}
             width={"500px"}
             style={{
               backgroundImage: `url('/images/career/gradient2.png')`,
@@ -194,7 +195,7 @@ const Careers: NextPage = () => {
 
           {careers.map((sectionItem) => (
             <Fragment key={sectionItem.category}>
-              <Box ml={10}>
+              <Box pl={12} width={"100%"}>
                 <Grid item xs={10} mt="100px" mb="42px">
                   <Box data-aos="fade-up" data-aos-duration="1000">
                     <Typography fontFamily={"SuisseIntl"} fontWeight={300} letterSpacing={"-0.02em"} style={{ opacity: 0.6 }} fontSize={"20px"}>

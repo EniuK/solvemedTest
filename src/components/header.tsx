@@ -71,7 +71,7 @@ const Header = () => {
 
   return (
     <div className={styles.header}>
-      <Box zIndex={600} onClick={() => setOpen(false)} position={"absolute"} mt={-5} style={open ? { top: 37.5, left: 20 } : { left: 20 }}>
+      <Box zIndex={600} onClick={() => setOpen(false)} position={"absolute"} mt={-5} style={open ? { top: 35, left: 15 } : { left: 20 }}>
         <Link href="/" passHref>
           <a className={styles.logoLinkContainer}>
             <motion.svg width="234" height="35" viewBox="0 0 234 35" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -176,7 +176,7 @@ const Header = () => {
         >
           <Box zIndex={300}>
             {open ? (
-              <Box onClick={handleMenuClose} mt={1}>
+              <Box onClick={handleMenuClose} width={20} height={34.5} justifyContent="center" mt={1}>
                 <Image src={"/images/icons/closeicon2.png"} width={"15px"} height={"15px"} alt={"close"} />
               </Box>
             ) : (

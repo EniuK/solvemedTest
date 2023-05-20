@@ -51,43 +51,47 @@ const NewsLetter = ({ status, message, onValidated }: any) => {
           Join Our Newsletter
         </Typography>
       </Box>
-      <Box mt={1} height={isSmallViewport ? "auto" : "45%"} display={"flex"} width={"100%"} justifyContent={"flex-start"} alignItems={"flex-start"} flexDirection={"row"}>
+      <Box mt={2} height={isSmallViewport ? "auto" : "45%"} display={"flex"} width={"100%"} justifyContent={"flex-start"} alignItems={"flex-start"} flexDirection={"row"}>
         {status === "success" ? (
           <Box width={"100%"} ml={-4.5} color={"black"} display={"flex"} justifyContent={"center"} alignItems={"center"}>
             {message}
           </Box>
         ) : (
           <>
-            <form className="mc__form" onSubmit={() => handleSubmit()}>
-              <Box width={isSmallViewport ? "100%" : "auto"}>
-                <TextField
-                  sx={{ fontsize: "14px", width: "100%" }}
-                  label="Enter your email"
-                  variant="standard"
-                  value={email}
-                  onChange={handleEmail}
-                  type="email"
-                  InputLabelProps={{
-                    sx: {
-                      fontFamily: "SuisseIntl",
-                      fontWeight: 400,
-                      opacity: 0.4,
-                      fontSize: "15px",
-                      lineHeight: "140%",
-                      color: "black",
-                      "&.Mui-focused": {
-                        color: "black",
+            <Box width={"75%"}>
+              <form className="mc__form" onSubmit={() => handleSubmit()}>
+                <Box width={isSmallViewport ? "100%" : "auto"}>
+                  <TextField
+                    sx={{ fontsize: "14px", width: "100%" }}
+                    label="Enter your email"
+                    variant="standard"
+                    value={email}
+                    onChange={handleEmail}
+                    type="email"
+                    InputProps={{
+                      style: { paddingBottom: 10 },
+                    }}
+                    InputLabelProps={{
+                      sx: {
+                        fontFamily: "SuisseIntl",
+                        fontWeight: 400,
                         opacity: 0.4,
+                        fontSize: "15px",
+                        lineHeight: "140%",
+                        color: "black",
+                        "&.Mui-focused": {
+                          color: "black",
+                          opacity: 0.4,
+                        },
                       },
-                    },
-                  }}
-                />
-              </Box>
-            </form>
+                    }}
+                  />
+                </Box>
+              </form>
+            </Box>
+
             <Box
-              style={
-                isSmallViewport ? { paddingBottom: 10, marginLeft: 5, marginTop: -10, flexGrow: 1, justifyContent: "flex-start", alignItems: "flex-start", paddingLeft: 20 } : {}
-              }
+              style={isSmallViewport ? { paddingBottom: 10, marginLeft: 5, marginTop: -5, paddingLeft: 20, width: "25%", marginRight: 3 } : {}}
               display={"flex"}
               fontFamily={"SuisseIntl"}
               fontWeight={400}

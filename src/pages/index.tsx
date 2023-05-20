@@ -148,21 +148,22 @@ const Home: NextPage = () => {
               <Image src={"/images/bg/homegradient1.png"} width={"767.36px"} height={"756.02px"} alt={"gradient"} />
             </Box>
           )}
-          {isMobileView ? (
-            <Box mt={200} className={styles.forgetQuoteContainer} data-aos="fade-up" data-aos-duration="2000" data-aos-once="true">
-              <Typography className={styles.title1}>Forget about forgetting your penlight.</Typography>
-              <Typography className={styles.subtitle1}>
-                We bring the most advanced smartphone-enabled data collection and analytical tools in the world to the field of neurology and ophthalmology.
-              </Typography>
-            </Box>
-          ) : (
-            <Box mt={100} position={"relative"} data-aos="fade-up" data-aos-duration="2000" data-aos-once="true">
-              <Typography className={styles.title1}>Forget about forgetting your penlight.</Typography>
-              <Typography className={styles.subtitle1}>
-                We bring the most advanced smartphone-enabled data collection and analytical tools in the world to the field of neurology and ophthalmology.
-              </Typography>
-            </Box>
-          )}
+
+          <Box
+            mt={isMobileView ? 200 : 100}
+            textAlign={"center"}
+            position={isMobileView ? "sticky" : "relative"}
+            data-aos="fade-up"
+            data-aos-duration="2000"
+            data-aos-once="true"
+            width={{ xs: "80%" }}
+          >
+            <Typography variant="fin64">Forget about forgetting your penlight.</Typography>
+            <br />
+            <Typography variant="sus18_300" mt={5}>
+              We bring the most advanced smartphone-enabled data collection and analytical tools in the world to the field of neurology and ophthalmology.
+            </Typography>
+          </Box>
 
           {isMobileView && (
             <Box position={"absolute"} zIndex={1} width="100%" height="100%" top={0} left={0}>
@@ -171,11 +172,11 @@ const Home: NextPage = () => {
           )}
           {!isMobileView && (
             <>
-              <Box className={styles.penlightContainerExternal} mt={100}>
-                <Box className={styles.penlightContainer}>
-                  <Typography className={styles.title2}>mPenlight</Typography>
-                  <Box mt={1}>
-                    <Typography className={styles.subtitle2}>
+              <Box mt={100} mb={50}>
+                <Box textAlign={"left"}>
+                  <Typography variant="fin64">mPenlight</Typography>
+                  <Box textAlign={"left"} maxWidth={"25%"}>
+                    <Typography variant="sus17_300">
                       Solvemed{"'"}s smartphone-based software medical device enables pupil reactivity measurement in a quantifiable manner without any external hardware needed.
                     </Typography>
                   </Box>
@@ -190,10 +191,11 @@ const Home: NextPage = () => {
         {/* end of vide section to desktop  */}
         {isMobileView && (
           <>
-            <Box className={styles.penlightContainer}>
-              <Box className={styles.titleContainer}>
-                <Typography className={styles.title2}>mPenlight</Typography>
-                <Typography className={styles.subtitle2}>
+            <Box width={"100%"} textAlign={"center"} display={"flex"} flexDirection={"column"} justifyContent={"center"} alignItems={"center"}>
+              <Box width={"90%"} mb={10}>
+                <Typography variant="fin64">mPenlight</Typography>
+                <br />
+                <Typography variant="sus17_300">
                   Solvemed{"'"}s smartphone-based software medical device enables pupil reactivity measurement in the quantifiable manner without any external hardware needed.{" "}
                 </Typography>
               </Box>

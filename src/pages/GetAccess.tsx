@@ -9,6 +9,7 @@ import MailchimpSubscribe from "react-mailchimp-subscribe";
 
 const MailchimpForms = ({ status, message, onValidated }: any) => {
   const isMobileView = useMediaQuery(theme.breakpoints.down("md"));
+  const isTabletView = useMediaQuery(theme.breakpoints.down("lg"));
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [surrname, setSurrname] = useState("");
@@ -189,16 +190,9 @@ const MailchimpForms = ({ status, message, onValidated }: any) => {
           <form className="mc__form" onSubmit={(e) => handleSubmit(e)}>
             <Box display={"flex"} justifyContent={"center"} ml={-3} pr={10} alignItems={"center"} flexDirection={"row"} width={"100vw"}>
               <Box width={"100%"} onClick={(e) => e.preventDefault()}>
-                <CardMedia
-                  poster="/images/GetAccess/phones.png"
-                  component="video"
-                  loop
-                  autoPlay
-                  src="/images/GetAccess/animation.mov"
-                  controls
-                  controlsList="nodownload"
-                  style={{ pointerEvents: "none" }}
-                />
+                <video poster="/images/GetAccess/phones.png" preload="none" controls={false} autoPlay loop width="100%" height={"100%"}>
+                  <source src={"/images/GetAccess/animation.mov"} type="video/mp4" />
+                </video>
               </Box>
 
               <Box width={"50%"} display={"flex"} justifyContent={"flex-start"} alignItems={"flex-start"} flexDirection={"column"}>
@@ -211,11 +205,14 @@ const MailchimpForms = ({ status, message, onValidated }: any) => {
                       label="Name"
                       value={name}
                       onChange={(e) => setName(e.target.value)}
+                      InputProps={{
+                        style: { paddingBottom: 10 },
+                      }}
                       InputLabelProps={{
                         sx: {
-                          color: "text.primary",
+                          color: "#9B9B9B",
                           "&.Mui-focused": {
-                            color: "gray",
+                            color: "#9B9B9B",
                           },
                         },
                       }}
@@ -229,11 +226,14 @@ const MailchimpForms = ({ status, message, onValidated }: any) => {
                       label="Surname"
                       value={surrname}
                       onChange={(e) => setSurrname(e.target.value)}
+                      InputProps={{
+                        style: { paddingBottom: 10 },
+                      }}
                       InputLabelProps={{
                         sx: {
-                          color: "text.primary",
+                          color: "#9B9B9B",
                           "&.Mui-focused": {
-                            color: "gray",
+                            color: "#9B9B9B",
                           },
                         },
                       }}
@@ -243,8 +243,17 @@ const MailchimpForms = ({ status, message, onValidated }: any) => {
 
                 <Box textAlign={"left"} width={"100%"} mt={8}>
                   <FormControl variant="standard" style={{ width: "100%" }}>
-                    <InputLabel id="specialization-label">Specialization</InputLabel>
-                    <Select labelId="specialization-label" id="specialization-select" value={specialization} name={"MERGE6"} onChange={(e) => setSpecialization(e.target.value)}>
+                    <InputLabel id="specialization-label" style={{ color: "#9B9B9B" }}>
+                      Specialization
+                    </InputLabel>
+                    <Select
+                      style={{ paddingBottom: 10 }}
+                      labelId="specialization-label"
+                      id="specialization-select"
+                      value={specialization}
+                      name={"MERGE6"}
+                      onChange={(e) => setSpecialization(e.target.value)}
+                    >
                       <MenuItem value="Neurologists">Neurologists</MenuItem>
                       <MenuItem value="Intensivist">Intensivist</MenuItem>
                       <MenuItem value="Nurse">Nurse</MenuItem>
@@ -263,9 +272,12 @@ const MailchimpForms = ({ status, message, onValidated }: any) => {
                     label="Enter your email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
+                    InputProps={{
+                      style: { paddingBottom: 10 },
+                    }}
                     InputLabelProps={{
                       sx: {
-                        color: "text.primary",
+                        color: "#9B9B9B",
                         "&.Mui-focused": {
                           color: "#9B9B9B",
                         },
@@ -276,7 +288,7 @@ const MailchimpForms = ({ status, message, onValidated }: any) => {
               </Box>
             </Box>
           </form>
-          <Box width={"100%"} mt={-20} pr={5} display={"flex"} justifyContent={"flex-end"} alignItems={"flex-end"}>
+          <Box width={"100%"} mt={isTabletView ? -6 : -15} pr={17} display={"flex"} justifyContent={"flex-end"} alignItems={"flex-end"}>
             <Button
               color="secondary"
               onClick={(e) => handleSubmit(e)}
@@ -380,16 +392,9 @@ const GetAccess: NextPage<any> = () => {
               </Typography>
             </Box>
             <Box width={"100vw"} justifyContent={"center"} alignItems={"center"} display={"flex"} onClick={(e) => e.preventDefault()}>
-              <CardMedia
-                poster="/images/GetAccess/phones.png"
-                component="video"
-                loop
-                autoPlay
-                src="/images/GetAccess/animation.mov"
-                controls={false}
-                controlsList="nodownload"
-                style={{ pointerEvents: "none", width: "500px" }}
-              />
+              <video poster="/images/GetAccess/phones.png" preload="none" controls={false} autoPlay loop width="500px" height={"100%"}>
+                <source src={"/images/GetAccess/animation.mov"} type="video/mp4" />
+              </video>
             </Box>
             <MailchimpGetAccessContainer />
           </Box>

@@ -18,7 +18,7 @@ const Footer = ({ home }: any) => {
     <>
       <Divider sx={isSmallViewport ? { width: "110vw", mt: 20 } : { width: "100%", mt: 20 }} />
       {isSmallViewport ? (
-        <Box width={"100%"} ml={-2}>
+        <Box width={"100%"} ml={-1}>
           <Box height={"100%"} width={"100%"} flexWrap={"wrap"} paddingY={4.75} display={"flex"} justifyContent={"space-between"} flexDirection={"row"}>
             <Box display={"flex"} flexDirection={"column"} height={"100%"} justifyContent={"flex-end"} alignItems={"flex-end"}>
               <Box paddingX={3} width={"100%"} height={"80%"} alignItems={"flex-start"} justifyContent={"flex-end"} display={"flex"} flexDirection={"column"}>

@@ -52,6 +52,8 @@ const Layout = ({ children }: { children: ReactNode }) => {
     }
   }, []);
 
+  // scroll up
+
   return (
     <Box>
       {notify ? <MailchimpSubscribe onClose={closeNotify} /> : null}
@@ -66,8 +68,9 @@ const Layout = ({ children }: { children: ReactNode }) => {
           backgroundSize: "cover",
         }}
       >
-        <Box paddingY={4.75} maxWidth="1467px" margin={"0 auto"} overflow="visible">
+        <Box paddingY={4.75} maxWidth="1440px" margin={"0 auto"} overflow="visible">
           <Header />
+
           <AnimatePresence mode="wait" initial={true}>
             <motion.main key={asPath} variants={variants} initial="initial" animate="animate" exit="exit">
               {children}

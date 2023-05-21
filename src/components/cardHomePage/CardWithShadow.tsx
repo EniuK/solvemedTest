@@ -63,6 +63,7 @@ const cardDataMobile = [
     title: "HIPPA  compliant",
     description: "Designed for privacy and security. ",
     src: "/images/homePage/medicalicon.png",
+    paddingR: true,
   },
   {
     title: "User friendly",
@@ -88,6 +89,7 @@ const cardDataMobile = [
     title: "Reduces risks ",
     description: "Offers the trust you need when examining the brain.",
     src: "/images/homePage/warning.png",
+    paddingR: true,
   },
 
   {
@@ -110,10 +112,18 @@ const CardWithShadow = () => {
   return (
     <Box>
       {isMobileView ? (
-        <Box display={"flex"} width={"100vw"} ml={-1} flexDirection={"row"} flexWrap={"wrap"} justifyContent={"space-between"} pl={2}>
+        <Box display={"flex"} width={"100%"} ml={-1} mt={-5} flexDirection={"row"} flexWrap={"wrap"} justifyContent={"space-between"} pl={2}>
           {cardDataMobile.map((element, idx: number) => {
             return (
-              <Box key={idx} width={"50%"} display={"flex"} justifyContent={"center"} alignItems={"center"} mb={2}>
+              <Box
+                key={idx}
+                width={"50%"}
+                display={"flex"}
+                justifyContent={idx % 2 === 0 ? "flex-end" : "flex-start"}
+                alignItems={idx % 2 === 0 ? "flex-end" : "flex-start"}
+                mb={1}
+                p={0.5}
+              >
                 <div
                   data-aos={idx % 2 === 0 ? "fade-right" : "fade-left"}
                   data-aos-offset="200"
@@ -126,21 +136,20 @@ const CardWithShadow = () => {
                 >
                   <Box
                     bgcolor={"#FFFFFF"}
-                    borderRadius={"10px"}
-                    p={2}
-                    pr={3}
+                    borderRadius={"22px"}
+                    p={"20px"}
+                    style={element.paddingR ? { paddingRight: "24px" } : {}}
                     border={"1px solid #F5F5F7"}
                     height={"204px"}
                     boxShadow={"0px 8px 32px rgba(27, 37, 74, 0.08)"}
                     width={"162px"}
-                    mr={1}
                   >
                     <Box height={"10%"}>
                       <Image src={element.src} width="24px" height={"24px"} alt={element.title} />
                     </Box>
                     <Box display={"flex"} height={"90%"} alignItems={"flex-start"} justifyContent={"flex-end"} flexDirection={"column"}>
                       <Box mt={2}>
-                        <Typography style={{ fontFamily: "FinancierDisplay" }} fontSize={"28px"} variant="body1">
+                        <Typography style={{ fontFamily: "FinancierDisplay" }} fontSize={"20px"} lineHeight={"110%"}>
                           {element.title}
                         </Typography>
                       </Box>
@@ -157,7 +166,7 @@ const CardWithShadow = () => {
           })}
         </Box>
       ) : (
-        <Box width={"100%"} display={"flex"} justifyContent={"center"} alignItems={"center"} flexDirection={"column"}>
+        <Box width={"100%"} px={"5%"} maxWidth={"1467px"} display={"flex"} justifyContent={"center"} alignItems={"center"} flexDirection={"column"}>
           {cardData.map((element, idx: number) => {
             return (
               <div id={`trigger${idx}`} key={idx} style={{ width: "100%" }}>
@@ -171,6 +180,7 @@ const CardWithShadow = () => {
                     data-aos-once="true"
                     data-aos-anchor={`#trigger${idx}`}
                     data-aos-anchor-placement="top-bottom"
+                    style={idx % 2 === 0 ? { marginLeft: "5%" } : { marginRight: "5%" }}
                   >
                     <Box
                       className={styles.card}

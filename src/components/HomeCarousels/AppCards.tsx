@@ -66,11 +66,12 @@ const AppCards = () => {
       width={"100vw"}
       justifyContent={"center"}
       alignItems={"center"}
-      mt={15}
+      mt={"40px"}
+      pl={!istabletView ? "131.53px" : ""}
     >
       <Swiper
-        slidesPerView={istabletView ? 1.17 : isMobileView ? 2 : 3.3}
-        spaceBetween={10}
+        slidesPerView={istabletView ? 1.3 : isMobileView ? 2 : 3.3}
+        spaceBetween={0}
         pagination={{
           clickable: true,
         }}
@@ -83,6 +84,7 @@ const AppCards = () => {
               <Box
                 overflow={"hidden"}
                 maxWidth={"356px"}
+                style={istabletView ? { width: "280px", height: "417px" } : {}}
                 key={idx}
                 mb={10}
                 bgcolor={"rgba(255, 255, 255, 1)"}
@@ -90,7 +92,7 @@ const AppCards = () => {
                 boxShadow={"0px 8px 32px rgba(27, 37, 74, 0.08)"}
                 borderRadius={"28px"}
               >
-                <Box width={"100%"} height={"137px"} pl={3} pt={3}>
+                <Box width={"100%"} minHeight={"137px"} p={"24px"} pb={0}>
                   <Box
                     fontSize={isMobileView ? "20px" : "24px"}
                     display={"flex"}
@@ -99,7 +101,6 @@ const AppCards = () => {
                     justifyContent={"flex-start"}
                     textAlign={"left"}
                     alignItems="flex-start"
-                    pr={6.5}
                   >
                     {e.title}
                   </Box>

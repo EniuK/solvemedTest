@@ -7,8 +7,9 @@
   position: relative;
   height: 35px;
   z-index: 200;
-  background-color: transparent;
+
   padding: 0 30px ;
+  background-color: "red";
 }
 
 .logoLinkContainer {
@@ -22,6 +23,7 @@
   .header {
     padding: 0 9px;
     margin-bottom: 92px;
+    
   }
 }
 

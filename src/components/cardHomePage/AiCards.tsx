@@ -130,16 +130,15 @@ const AiCards = () => {
         <Box width={"100%"} display={"flex"} alignItems={"center"} justifyContent={"center"} flexWrap={"wrap"}>
           {cardDataSmall.map((e, idx) => {
             return (
-              <Box key={idx} width={"46%"} display={"flex"} justifyContent={"center"} alignItems={"center"}>
+              <Box key={idx} width={"50%"} display={"flex"} justifyContent={idx % 2 === 0 ? "flex-end" : "flex-start"} alignItems={idx % 2 === 0 ? "flex-end" : "flex-start"}>
                 <Box
                   border={"1px solid #F5F5F7"}
                   boxShadow={"0px 8px 32px rgba(27, 37, 74, 0.08)"}
                   borderRadius={"14px"}
                   bgcolor={"white"}
                   mt={1}
-                  pt={3}
-                  pl={1}
-                  pb={2}
+                  p={"16px"}
+                  style={idx % 2 === 0 ? { marginRight: "6px" } : { marginLeft: "6px" }}
                   width={"161.5px"}
                   height={"132px"}
                   display={"flex"}
@@ -158,7 +157,6 @@ const AiCards = () => {
                   <Box
                     fontSize={"15px"}
                     display={"flex"}
-                    pt={3}
                     justifyContent={"flex-start"}
                     alignItems={"flex-end"}
                     fontWeight={600}
@@ -166,7 +164,6 @@ const AiCards = () => {
                     fontFamily={"SuisseIntl"}
                     width={"100%"}
                     textAlign={"left"}
-                    pr={2}
                   >
                     {e.title}
                   </Box>

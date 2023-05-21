@@ -59,7 +59,7 @@ const TeamCarousel = () => {
 
   return (
     <Box
-      mt={isMobileView ? 5 : 10}
+      mt={isMobileView ? 5 : "40px"}
       data-aos={"fade-up"}
       data-aos-delay="50"
       data-aos-duration="1000"
@@ -86,17 +86,18 @@ const TeamCarousel = () => {
                     p={3}
                     position={"relative"}
                     pr={0}
+                    pt={"16px"}
                     mt={3}
                     mb={5}
                     border={"1px solid #F5F5F7"}
                     boxShadow={"0px 8px 32px rgba(27, 37, 74, 0.08)"}
-                    borderRadius={"14px"}
+                    borderRadius={"22px"}
                   >
                     <Box width={"100%"} display={"flex"} justifyContent={"space-between"} alignItems={"flex-start"}>
                       <Box>
                         <Image src={e.avatar} alt={e.name} width={"72px"} height={"72px"} />
                       </Box>
-                      <Box mr={2}>
+                      <Box mr={"16px"}>
                         {e.titles.map((title) => {
                           return (
                             <Box
@@ -147,7 +148,7 @@ const TeamCarousel = () => {
           </Swiper>
         </Box>
       ) : (
-        <Box width={"100%"} mt={10}>
+        <Box width={"100%"} mt={10} ml={"131.53px"}>
           <Swiper
             slidesPerView={desktop ? 1.5 : 1}
             spaceBetween={10}
@@ -160,7 +161,7 @@ const TeamCarousel = () => {
             {teamData.map((e, idx) => {
               return (
                 <SwiperSlide key={idx}>
-                  <Box ml={5} mb={10} width={"786px"} height={"553px"} p={8} border={"1px solid #F5F5F7"} boxShadow={"0px 8px 32px rgba(27, 37, 74, 0.08)"} borderRadius={"14px"}>
+                  <Box ml={5} mb={10} width={"781px"} height={"553px"} p={8} border={"1px solid #F5F5F7"} boxShadow={"0px 8px 32px rgba(27, 37, 74, 0.08)"} borderRadius={"14px"}>
                     <Box width={"100%"} display={"flex"} mt={-3} justifyContent={"flex-end"} alignItems={"flex-end"}>
                       {e.titles.map((title) => {
                         return (

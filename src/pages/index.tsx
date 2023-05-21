@@ -1,6 +1,6 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import { Box, Typography, Button, useMediaQuery, Link, CardMedia, debounce } from "@mui/material";
+import { Box, Typography, Button, useMediaQuery, Link } from "@mui/material";
 import "animate.css";
 import { motion } from "framer-motion";
 import Image from "next/image";
@@ -14,62 +14,32 @@ import { useEffect, useRef, useState } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { LazyLoadComponent } from "react-lazy-load-image-component";
+import { Sticky, StickyContainer } from "react-sticky";
+
+const logos = [
+  { src: "/images/homePage/logos/NASA.svg", w: "140px", h: "40px" },
+  { src: "/images/homePage/logos/apple.svg", w: "140px", h: "40px" },
+  { src: "/images/homePage/logos/stanford.svg", w: "140px", h: "40px" },
+  { src: "/images/homePage/logos/cambridge.svg", w: "140px", h: "40px" },
+  { src: "/images/homePage/logos/nhs.svg", w: "140px", h: "40px" },
+  { src: "/images/homePage/logos/honkong.svg", w: "140px", h: "40px" },
+];
+const logosMobile = [
+  { src: "/images/homePage/logos/apple.svg", w: "140px", h: "40px" },
+  { src: "/images/homePage/logos/NASA.svg", w: "140px", h: "40px" },
+  { src: "/images/homePage/logos/stanford.svg", w: "140px", h: "40px" },
+  { src: "/images/homePage/logos/cambridge.svg", w: "140px", h: "40px" },
+  { src: "/images/homePage/logos/nhs.svg", w: "140px", h: "40px" },
+  { src: "/images/homePage/logos/honkong.svg", w: "140px", h: "40px" },
+];
 
 const Home: NextPage = () => {
   const isMobileView = useMediaQuery(theme.breakpoints.down("md"));
 
-  const elementRef = useRef(null);
-  const section = useRef(null);
-
-  const [videoStickinessMode, setVideoStickinessMode] = useState(1);
-  const hasWindow = typeof window !== "undefined";
-  const heighter = hasWindow ? window.innerHeight : null;
   const [elementheight, setElementHeight] = useState("");
-  // 1 nic
-  // 2 - sticky
-  // 3 - section reached
-  // useEffect(() => {
-  //   const handleScroll = () => {
-  //     if (section?.current && elementRef.current) {
-  //       const sectionContainer = section?.current?.getBoundingClientRect?.();
-  //       const element = elementRef.current?.getBoundingClientRect?.();
-  //       setElementHeight(element.height);
+  // start text
 
-  //       const xSectionReached = sectionContainer && sectionContainer.bottom <= sectionContainer.height && sectionContainer.bottom - element.height <= 0;
-  //       const xIsSticky = sectionContainer && sectionContainer.bottom <= sectionContainer.height && element.top <= 0;
-
-  //       const mode = xIsSticky && !xSectionReached ? 2 : xSectionReached ? 3 : 1;
-
-  //       setVideoStickinessMode(mode);
-  //     }
-  //   };
-  //   window.addEventListener("scroll", handleScroll);
-
-  //   return () => {
-  //     window.removeEventListener("scroll", handleScroll);
-  //   };
-  // }, [isMobileView]);
-
-  useEffect(() => {
-    console.log({ videoStickinessMode });
-  }, [videoStickinessMode]);
-
-  const logos = [
-    { src: "/images/homePage/logos/NASA.svg", w: "140px", h: "40px" },
-    { src: "/images/homePage/logos/apple.svg", w: "140px", h: "40px" },
-    { src: "/images/homePage/logos/stanford.svg", w: "140px", h: "40px" },
-    { src: "/images/homePage/logos/cambridge.svg", w: "140px", h: "40px" },
-    { src: "/images/homePage/logos/nhs.svg", w: "140px", h: "40px" },
-    { src: "/images/homePage/logos/honkong.svg", w: "140px", h: "40px" },
-  ];
-  const logosMobile = [
-    { src: "/images/homePage/logos/apple.svg", w: "140px", h: "40px" },
-    { src: "/images/homePage/logos/NASA.svg", w: "140px", h: "40px" },
-    { src: "/images/homePage/logos/stanford.svg", w: "140px", h: "40px" },
-    { src: "/images/homePage/logos/cambridge.svg", w: "140px", h: "40px" },
-    { src: "/images/homePage/logos/nhs.svg", w: "140px", h: "40px" },
-    { src: "/images/homePage/logos/honkong.svg", w: "140px", h: "40px" },
-  ];
+  //end test
 
   // gradient text handler
   const gradientText1 = ["practitioners", "students", "nurses", "researchers"];
@@ -120,59 +90,88 @@ const Home: NextPage = () => {
             variant={"fin100"}
             align="center"
             marginX="auto"
-            width={{ xs: "100%", md: "80%", lg: "75%" }}
+            width={{ xs: "80%", md: "80%", lg: "60%" }}
             variants={{ initial: { opacity: 0, y: 100 }, animate: { opacity: 1, y: 0 } }}
             transition={{ duration: 0.7, ease: "easeOut" }}
           >
-            Pupil reactivity <br /> testing. Now in your <br /> smartphone.
+            Pupil reactivity testing. Now in your smartphone.
           </Typography>
         </Box>
+        {isMobileView ? (
+          //
+          <div>
+            <StickyContainer>
+              <Sticky>
+                {({ style }: any) => (
+                  <div style={{ ...style, zIndex: 3, display: "flex", justifyContent: "center", alignItems: "center" }}>
+                    <LazyLoadComponent visibleByDefault={true}>
+                      <Box mt={-7} width={"264.63px"} height={"567.63px"} zIndex={3}>
+                        <video controls={false} autoPlay loop width="100%" height={"100%"}>
+                          <source src={"https://strapi-s3-solvemed-public-images.s3.amazonaws.com/iPhone+animation+looped.mov"} type="video/mp4" />
+                        </video>
+                      </Box>
+                    </LazyLoadComponent>
+                  </div>
+                )}
+              </Sticky>
+              <Box zIndex={-1} position={"absolute"} top={300}>
+                <Image src={"/images/bg/homegradient1.png"} width={"767.36px"} height={"756.02px"} alt={"gradient"} />
+              </Box>
+              <Box mt={150} mb={100} textAlign={"center"} position={"relative"} data-aos="fade-up" data-aos-duration="1000" data-aos-once="true" width={{ xs: "100%" }}>
+                <Typography variant="fin64">
+                  Forget about forgetting <br /> your penlight.
+                </Typography>
+                <br />
+                <Box mt={3}>
+                  <Typography variant="sus18_300" color={"#5E5E5E"}>
+                    We bring the most advanced smartphone-enabled <br /> data collection and analytical tools in the world to the <br /> field of neurology and ophthalmology.
+                  </Typography>
+                </Box>
+              </Box>
 
-        {/* video section start  */}
-
-        <Box className={styles.videoContainer} height={"500vh"} ref={section} position={"relative"}>
-          {/* box z wysokoscia telefonu by strona sie nie rozpadla jak zmienia sie styl telefonu */}
-          {/* <Box style={videoStickinessMode === 2 || videoStickinessMode === 3 ? { height: elementheight } : {}} /> */}
-          <Box height={elementheight}></Box>
-
-          <Box zIndex={2} className={`${styles.video} ${videoStickinessMode === 2 ? styles.videoFloating : videoStickinessMode === 3 ? styles.videoSticky : ""}`} ref={elementRef}>
-            {/* <LazyLoadComponent>
-              <video poster="/images/homePage/phone.png" preload="none" controls={false} autoPlay loop width="100%" height={"100%"}>
-                <source src={"https://strapi-s3-solvemed-public-images.s3.amazonaws.com/iPhone+animation+looped.mov"} type="video/mp4" />
-              </video>
-            </LazyLoadComponent> */}
-          </Box>
-
-          {!isMobileView && (
-            <Box zIndex={1} position={"absolute"} top={0}>
-              <Image src={"/images/bg/homegradient1.png"} width={"767.36px"} height={"756.02px"} alt={"gradient"} />
+              <Box height={10}></Box>
+            </StickyContainer>
+            <Box width={"100%"} textAlign={"center"} display={"flex"} flexDirection={"column"} justifyContent={"center"} alignItems={"center"}>
+              <Box width={"90%"} mb={10}>
+                <Typography variant="fin64">mPenlight</Typography>
+                <br />
+                <Typography variant="sus17_300" color={"#5E5E5E"}>
+                  Solvemed{"'"}s smartphone-based software medical device enables pupil reactivity measurement in the quantifiable manner without any external hardware needed.{" "}
+                </Typography>
+              </Box>
             </Box>
-          )}
-
-          <Box
-            mt={isMobileView ? 200 : 100}
-            textAlign={"center"}
-            position={isMobileView ? "sticky" : "relative"}
-            data-aos="fade-up"
-            data-aos-duration="1000"
-            data-aos-once="true"
-            width={{ xs: "80%" }}
-          >
-            <Typography variant="fin64">Forget about forgetting your penlight.</Typography>
-            <br />
-            <Typography variant="sus18_300" mt={5}>
-              We bring the most advanced smartphone-enabled data collection and analytical tools in the world to the field of neurology and ophthalmology.
-            </Typography>
-          </Box>
-
-          {isMobileView && (
-            <Box position={"absolute"} zIndex={1} width="100%" height="100%" top={0} left={0}>
-              <Image src={"/images/bg/homegradient1.png"} width={"767.36px"} height={"756.02px"} alt={"gradient"} style={{ objectFit: "cover" }} />
-            </Box>
-          )}
-          {!isMobileView && (
-            <>
-              <Box mt={100} mb={50}>
+            <CardWithShadow />
+          </div>
+        ) : (
+          // desktop
+          <div>
+            <StickyContainer>
+              <Sticky>
+                {({ style }: any) => (
+                  <div style={{ ...style, zIndex: 3, display: "flex", justifyContent: "center", alignItems: "center" }}>
+                    <LazyLoadComponent visibleByDefault={true}>
+                      <Box mt={-7} maxWidth={"426.92px"} maxHeight={"750px"} zIndex={3}>
+                        <video controls={false} autoPlay loop width="100%" height={"100%"} style={{ zIndex: 3 }}>
+                          <source src={"https://strapi-s3-solvemed-public-images.s3.amazonaws.com/iPhone+animation+looped.mov"} type="video/mp4" />
+                        </video>
+                      </Box>
+                    </LazyLoadComponent>
+                  </div>
+                )}
+              </Sticky>
+              <Box zIndex={-1} position={"absolute"} top={350} left={"20%"}>
+                <Image src={"/images/bg/homegradient1.png"} width={"767.36px"} height={"756.02px"} alt={"gradient"} />
+              </Box>
+              <Box mt={100} textAlign={"center"} position={"relative"} data-aos="fade-up" data-aos-duration="1000" data-aos-once="true" width={{ xs: "100%" }} mb={100}>
+                <Typography variant="fin64">Forget about forgetting your penlight.</Typography>
+                <br />
+                <Box mt={3}>
+                  <Typography variant="sus18_300">
+                    We bring the most advanced smartphone-enabled data collection and analytical <br /> tools in the world to the field of neurology and ophthalmology.
+                  </Typography>
+                </Box>
+              </Box>
+              <Box mt={100} ml={"131.53px"}>
                 <Box textAlign={"left"}>
                   <Typography variant="fin64">mPenlight</Typography>
                   <Box textAlign={"left"} maxWidth={"25%"}>
@@ -185,25 +184,9 @@ const Home: NextPage = () => {
               <Box width={"100vw"}>
                 <CardWithShadow />
               </Box>
-            </>
-          )}
-        </Box>
-        {/* end of vide section to desktop  */}
-        {isMobileView && (
-          <>
-            <Box width={"100%"} textAlign={"center"} display={"flex"} flexDirection={"column"} justifyContent={"center"} alignItems={"center"}>
-              <Box width={"90%"} mb={10}>
-                <Typography variant="fin64">mPenlight</Typography>
-                <br />
-                <Typography variant="sus17_300">
-                  Solvemed{"'"}s smartphone-based software medical device enables pupil reactivity measurement in the quantifiable manner without any external hardware needed.{" "}
-                </Typography>
-              </Box>
-            </Box>
-            <CardWithShadow />
-          </>
+            </StickyContainer>
+          </div>
         )}
-        {/* end of video section mobile */}
 
         <Box mt={{ lg: 50, md: 100 }}>
           <Box style={{ position: "absolute", margin: "90px auto ", rotate: "180deg", left: "30%" }}>
@@ -230,7 +213,6 @@ const Home: NextPage = () => {
             </Box>
           </Box>
         </Box>
-
         <Box pt={5} mt={5}>
           <Box
             display={"flex"}
@@ -247,7 +229,7 @@ const Home: NextPage = () => {
             <Box width={{ lg: "100%", xs: "60%" }} textAlign={"center"}>
               <Typography variant="fin64">Medical specialties we empower</Typography>
             </Box>
-            <Box width={"100%"} mt={4} pl={3} mb={2} pr={3}>
+            <Box width={"100%"} mt={"12px"} pl={3} mb={2} pr={3}>
               <Typography
                 textAlign={"center"}
                 lineHeight={"150%"}
@@ -261,7 +243,6 @@ const Home: NextPage = () => {
 
           <AiCards />
         </Box>
-
         {isMobileView && (
           <Box>
             <Box style={{ position: "absolute", margin: "90px auto ", rotate: "180deg", left: "20%" }}>
@@ -289,7 +270,6 @@ const Home: NextPage = () => {
             </Box>
           </Box>
         )}
-
         <Box
           display={"flex"}
           width={"100%"}
@@ -307,7 +287,7 @@ const Home: NextPage = () => {
               What experts say
             </Typography>
           </Box>
-          <Box margin={"0 auto"} mt={4} textAlign={"center"}>
+          <Box margin={"0 auto"} mt={"12px"} textAlign={"center"}>
             {isMobileView ? (
               <Typography textAlign={"center"} variant="sus18_300" color={"#5E5E5E"}>
                 We are proud to satisfy the needs of the world{"'"}s <br /> leading practitioners across the spectrum of care.{" "}
@@ -319,8 +299,7 @@ const Home: NextPage = () => {
             )}
           </Box>
         </Box>
-
-        <Box>
+        <Box ml={1}>
           <TeamCarousel />
         </Box>
         <Box pt={30} pb={30}>
@@ -365,7 +344,9 @@ const Home: NextPage = () => {
               </Typography>
             </Box>
           )}
-          <AppCards />
+          <Box ml={"16px"}>
+            <AppCards />
+          </Box>
         </Box>
         <Box pt={30} pl={6} pr={6} pb={15}>
           {isMobileView ? (

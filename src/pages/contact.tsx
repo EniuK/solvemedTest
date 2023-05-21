@@ -64,7 +64,7 @@ const Contact: NextPage<any> = () => {
           {({ errors, touched, isSubmitting, values, handleChange }: any) => {
             return (
               <Form>
-                <Box maxWidth="664px" margin="0 10px">
+                <Box maxWidth="664px" margin="0 auto" padding="0 10px">
                   <Grid item xs={12}>
                     <TextField
                       variant="standard"

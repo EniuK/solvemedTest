@@ -40,34 +40,32 @@ const Header = () => {
     }
   }, [open, isMobileView]);
 
-  // Scroll up -> pojawianie sie menu w mobilce na gorze ekranu
-  // const [scrollDirection, setScrollDirection] = useState("none");
-  // const [prevScrollY, setPrevScrollY] = useState(0);
-  // useEffect(() => {
-  //   const handleScroll = () => {
-  //     const currentScrollY = window.scrollY;
-  //     if (currentScrollY < prevScrollY) {
-  //       setScrollDirection("up");
-  //     } else if (currentScrollY > prevScrollY) {
-  //       setScrollDirection("down");
-  //     } else {
-  //       setScrollDirection("none");
-  //     }
-  //     setPrevScrollY(currentScrollY);
-  //   };
-
-  //   window.addEventListener("scroll", handleScroll);
-
-  //   return () => {
-  //     window.removeEventListener("scroll", handleScroll);
-  //   };
-  // }, [prevScrollY]);
   const handleMenuClose = () => setOpen(!open);
 
   const { scrollY } = useScroll();
   const offset = useTransform(scrollY, [0, 400], [0, -5]);
   const opacity = useTransform(scrollY, [0, 600], [1, 0]);
   const [blockScroll, allowScroll] = useScrollBlock();
+
+  // scroll
+  const [scrollDirection, setScrollDirection] = useState("");
+
+  useEffect(() => {
+    let lastScrollY = window.pageYOffset;
+
+    const updateScrollDirection = () => {
+      const scrollY = window.pageYOffset;
+      const direction = scrollY > lastScrollY ? "down" : "up";
+      if (direction !== scrollDirection && (scrollY - lastScrollY > 10 || scrollY - lastScrollY < -10)) {
+        setScrollDirection(direction);
+      }
+      lastScrollY = scrollY > 0 ? scrollY : 0;
+    };
+    window.addEventListener("scroll", updateScrollDirection); // add event listener
+    return () => {
+      window.removeEventListener("scroll", updateScrollDirection); // clean up
+    };
+  }, [scrollDirection]);
 
   return (
     <div className={styles.header}>
@@ -80,6 +78,7 @@ const Header = () => {
                 fill="#47474C"
                 style={{ x: offset, opacity }}
               />
+
               <motion.path
                 d="M87.1694 16.6415C87.1004 14.3256 85.9949 12.5942 83.4898 12.1202C81.4427 11.7327 78.7645 12.6893 78.3588 15.2022C78.1668 16.3933 78.1948 17.6254 78.1818 18.8394C78.1628 20.6371 79.3468 22.1949 81.0504 22.713C83.3947 23.4258 86.0324 22.4585 86.6943 20.3727C86.9798 19.4736 87.1694 18.4657 87.1694 17.554V16.6415ZM82.6188 24.4587C79.0066 24.5561 76.6268 22.1092 76.2783 18.7786C76.1131 17.1948 76.2108 15.6888 76.749 14.2514C77.5856 12.0184 79.3539 10.81 81.6746 10.5586C83.7681 10.332 85.7497 10.7279 87.2771 12.363C88.2643 13.4199 88.7126 14.6966 88.9168 16.1308C89.1435 17.7261 89.0241 19.2743 88.4666 20.7425C87.5893 23.0517 85.4843 24.5167 82.6188 24.4587Z"
                 fill="#47474C"

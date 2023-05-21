@@ -189,7 +189,7 @@ const MailchimpForms = ({ status, message, onValidated }: any) => {
         <>
           <Box width={"100%"} display={"flex"} justifyContent={"center"} alignItems={"center"}>
             <Box width={"50%"} onClick={(e) => e.preventDefault()}>
-              <video poster="/images/GetAccess/phones.png" preload="none" controls={false} autoPlay loop width="100%" height={"100%"}>
+              <video poster="/images/GetAccess/phones.png" preload="none" controls={false} autoPlay loop muted width="100%" height={"100%"}>
                 <source src={"/images/GetAccess/animation.mov"} type="video/mp4" />
               </video>
             </Box>
@@ -395,7 +395,7 @@ const GetAccess: NextPage<any> = () => {
               </Typography>
             </Box>
             <Box width={"100vw"} justifyContent={"center"} alignItems={"center"} display={"flex"} onClick={(e) => e.preventDefault()}>
-              <video poster="/images/GetAccess/phones.png" preload="none" controls={false} autoPlay loop width="500px" height={"100%"}>
+              <video poster="/images/GetAccess/phones.png" preload="none" controls={false} autoPlay loop muted width="500px" height={"100%"}>
                 <source src={"/images/GetAccess/animation.mov"} type="video/mp4" />
               </video>
             </Box>

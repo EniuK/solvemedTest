@@ -92,7 +92,7 @@ const TeamMemberModal: React.FC<Props> = ({ isOpen, onClose, member, members }) 
 
               <Grid container height="100%" style={{ overflowY: "auto" }}>
                 <Grid item xs={12} md={4} display="flex" flexDirection="column">
-                  <div className={styles.avatar}>{item?.photo && <Image src={item?.photo} style={{ borderRadius: 60 }} layout="fill" alt={item?.name} />}</div>
+                  <div className={styles.avatar}>{item?.photo && <Image src={item?.photo} style={{ borderRadius: 60 }} layout="fill" alt={item?.name} priority />}</div>
 
                   <Typography variant="body2Wide" fontWeight="600" mt="30px">
                     {item?.name}

@@ -82,7 +82,7 @@ const PopUp = ({ onClose, status, message, onValidated }: any) => {
               },
             }}
           >
-            <Image src="/images/icons/closeicon.png" alt="X" height="30px" width="30px" onClick={onClose} />
+            <Image src="/images/icons/closeicon.png" alt="X" height="30px" width="30px" onClick={onClose} priority />
           </Box>
         </Box>
         <Typography

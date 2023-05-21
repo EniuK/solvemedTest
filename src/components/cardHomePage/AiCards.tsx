@@ -124,7 +124,7 @@ const AiCards = () => {
   return (
     <Box width={"100%"}>
       <Box style={{ position: "absolute", margin: "0 auto 100px", rotate: "180deg", left: "20%", zIndex: -2 }} marginBottom={isMobileView ? 0 : 100}>
-        <Image src={"/images/bg/medicalSpecialities.png"} width={"880px"} height={"843px"} alt={"gradientBackground"}></Image>
+        <Image src={"/images/bg/medicalSpecialities.png"} width={"880px"} height={"843px"} alt={"gradientBackground"} priority />
       </Box>
       {isMobileView ? (
         <Box width={"100%"} display={"flex"} alignItems={"center"} justifyContent={"center"} flexWrap={"wrap"}>
@@ -152,7 +152,7 @@ const AiCards = () => {
                   data-aos-anchor-placement="top-bottom"
                 >
                   <Box width={"100%"} height={"60%"} style={{ opacity: e.op || 1 }} display={"flex"} justifyContent={"flex-start"} alignItems={"center"} color={"#5E5E5E"}>
-                    <Image src={e.src} width={e.w} height={e.h} alt={e.title} />
+                    <Image src={e.src} width={e.w} height={e.h} alt={e.title} priority />
                   </Box>
                   <Box
                     fontSize={"15px"}
@@ -198,7 +198,7 @@ const AiCards = () => {
                   data-aos-anchor-placement="top-bottom"
                 >
                   <Box width={"100%"} height={"60%"} style={{ opacity: e.op || 1 }} display={"flex"} justifyContent={"flex-start"} alignItems={"center"} color={"#5E5E5E"}>
-                    <Image src={e.src} width={e.w} height={e.h} alt={e.title} />
+                    <Image src={e.src} width={e.w} height={e.h} alt={e.title} priority />
                   </Box>
                   <Box
                     fontSize={"21px"}

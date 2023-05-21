@@ -168,7 +168,7 @@ const Team: NextPage = () => {
       data-aos-anchor-placement="top"
     >
       <Box style={{ width: 140, height: 140, borderRadius: 70, backgroundColor: "#F0F6FA", position: "relative" }}>
-        <Image style={{ borderRadius: 70 }} src={member.photo} layout="fill" alt={member.name} />
+        <Image style={{ borderRadius: 70 }} src={member.photo} layout="fill" alt={member.name} priority />
       </Box>
 
       <Typography fontFamily={"FinancierDisplay"} lineHeight={"130%"} fontSize={"22px"} fontWeight="600" mt="30px">
@@ -285,9 +285,9 @@ const Team: NextPage = () => {
           {isMobileView ? (
             <Box width={"100%"} display={"flex"} flexDirection={"column"}>
               <Box width={"100%"} display={"flex"} justifyContent={"center"} alignItems={"center"} mb={10} pr={8}>
-                <Image src="/images/team/brain.png" width={"650px"} height={"454px"} alt="Brain" />
+                <Image src="/images/team/brain.png" width={"650px"} height={"454px"} alt="Brain" priority />
                 <Box position={"absolute"} width={"100%"} height={"100%"} display={"flex"} justifyContent={"center"} alignItems={"center"}>
-                  <Image src={"/images/team/brainGradient.png"} width={"650px"} height={"454px"} alt={"bg"} />
+                  <Image src={"/images/team/brainGradient.png"} width={"650px"} height={"454px"} alt={"bg"} priority />
                 </Box>
               </Box>
               <Box width={"100%"}>
@@ -353,9 +353,9 @@ const Team: NextPage = () => {
                 alignItems={"center"}
                 mr={4}
               >
-                <Image src="/images/team/brain.png" width={"650px"} height={"454px"} alt="Brain" />
+                <Image src="/images/team/brain.png" width={"650px"} height={"454px"} alt="Brain" priority />
                 <Box position={"absolute"} width={"100%"} height={"100%"} display={"flex"} justifyContent={"center"} alignItems={"center"}>
-                  <Image src={"/images/team/brainGradient.png"} width={"650px"} height={"454px"} alt={"bg"} />
+                  <Image src={"/images/team/brainGradient.png"} width={"650px"} height={"454px"} alt={"bg"} priority />
                 </Box>
               </Box>
               <Box width={"40%"}>
@@ -426,7 +426,7 @@ const Team: NextPage = () => {
           {weComeFrom.map((item) => (
             <Grid item key={item.id} alignSelf="center" justifyContent="center" md={1} xs={1} sm={1}>
               <Box display="flex" justifyContent="center" alignItems="center">
-                <Image src={item.image} alt={item.id} width={item.width} height={item.height} layout="fixed" objectFit="scale-down" />
+                <Image src={item.image} alt={item.id} width={item.width} height={item.height} layout="fixed" objectFit="scale-down" priority />
               </Box>
             </Grid>
           ))}
@@ -441,7 +441,7 @@ const Team: NextPage = () => {
             {investors.map((item) => (
               <Grid item key={item.id} md={1} xs={1} sm={1}>
                 <Box marginBottom={0} display="flex" justifyContent="center" alignItems="center">
-                  <Image src={item.image} alt={item.id} width={item.width} height={item.height} objectFit="contain" />
+                  <Image src={item.image} alt={item.id} width={item.width} height={item.height} objectFit="contain" priority />
                 </Box>
               </Grid>
             ))}

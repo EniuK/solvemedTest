@@ -115,7 +115,7 @@ const Home: NextPage = () => {
                 )}
               </Sticky>
               <Box zIndex={-1} position={"absolute"} top={300}>
-                <Image src={"/images/bg/homegradient1.png"} width={"767.36px"} height={"756.02px"} alt={"gradient"} />
+                <Image src={"/images/bg/homegradient1.png"} width={"767.36px"} height={"756.02px"} alt={"gradient"} priority />
               </Box>
               <Box mt={150} mb={100} textAlign={"center"} position={"relative"} data-aos="fade-up" data-aos-duration="1000" data-aos-once="true" width={{ xs: "100%" }}>
                 <Typography variant="fin64">
@@ -160,7 +160,7 @@ const Home: NextPage = () => {
                 )}
               </Sticky>
               <Box zIndex={-1} position={"absolute"} top={350} left={"20%"}>
-                <Image src={"/images/bg/homegradient1.png"} width={"767.36px"} height={"756.02px"} alt={"gradient"} />
+                <Image src={"/images/bg/homegradient1.png"} width={"767.36px"} height={"756.02px"} alt={"gradient"} priority />
               </Box>
               <Box mt={100} textAlign={"center"} position={"relative"} data-aos="fade-up" data-aos-duration="1000" data-aos-once="true" width={{ xs: "100%" }} mb={100}>
                 <Typography variant="fin64">Forget about forgetting your penlight.</Typography>
@@ -190,7 +190,7 @@ const Home: NextPage = () => {
 
         <Box mt={{ lg: 50, md: 100 }}>
           <Box style={{ position: "absolute", margin: "90px auto ", rotate: "180deg", left: "30%" }}>
-            <Image src={"/images/bg/medicalSpecialities.png"} width={"428.33px"} height={"434.42px"} alt={"gradientBackground"}></Image>
+            <Image src={"/images/bg/medicalSpecialities.png"} width={"428.33px"} height={"434.42px"} alt={"gradientBackground"} priority />
           </Box>
           <Box pt={30} pb={30}>
             <Box>
@@ -246,7 +246,7 @@ const Home: NextPage = () => {
         {isMobileView && (
           <Box>
             <Box style={{ position: "absolute", margin: "90px auto ", rotate: "180deg", left: "20%" }}>
-              <Image src={"/images/bg/medicalSpecialities.png"} width={"428.33px"} height={"434.42px"} alt={"gradientBackground"}></Image>
+              <Image src={"/images/bg/medicalSpecialities.png"} width={"428.33px"} height={"434.42px"} alt={"gradientBackground"} priority />
             </Box>
             <Box pt={30} pb={30}>
               <Box>
@@ -368,7 +368,7 @@ const Home: NextPage = () => {
                 </Typography>
               </Box>
               <Box style={{ position: "absolute", margin: "0 0 150px 0", rotate: "180deg" }} width={"100%"} zIndex={-1}>
-                <Image src={"/images/bg/aiEnabled.png"} width={"880px"} height={"489px"} alt="gradientBackground"></Image>
+                <Image src={"/images/bg/aiEnabled.png"} width={"880px"} height={"489px"} alt="gradientBackground" priority />
               </Box>
               <Box mt={4} width={"85vw"}>
                 <Typography fontFamily={"SuisseIntl"} fontWeight={300} lineHeight={"150%"} fontSize={"14px"} color={"rgba(94, 94, 94, 1)"} textAlign={"center"}>
@@ -433,7 +433,7 @@ const Home: NextPage = () => {
           )}
           {!isMobileView && (
             <Box style={{ position: "absolute", left: "20%" }} zIndex={-1}>
-              <Image src={"/images/bg/aiEnabled.png"} width={"880px"} height={"489px"} alt="gradientBackground"></Image>
+              <Image src={"/images/bg/aiEnabled.png"} width={"880px"} height={"489px"} alt="gradientBackground" priority />
             </Box>
           )}
         </Box>
@@ -467,7 +467,7 @@ const Home: NextPage = () => {
                     data-aos-anchor-placement="bottom"
                     data-aos-once={"true"}
                   >
-                    <Image src={e.src} width={e.w} height={e.h} alt={"company"} />
+                    <Image src={e.src} width={e.w} height={e.h} alt={"company"} priority />
                   </Box>
                 );
               })}
@@ -477,7 +477,7 @@ const Home: NextPage = () => {
               {logos.map((e, idx) => {
                 return (
                   <Box key={idx} mr={6} data-aos="fade-up" data-aos-duration="1000" data-aos-anchor-placement="top">
-                    <Image src={e.src} width={e.w} height={e.h} alt={"company"} />
+                    <Image src={e.src} width={e.w} height={e.h} alt={"company"} priority />
                   </Box>
                 );
               })}

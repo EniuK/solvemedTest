@@ -98,7 +98,7 @@ const TeamCarousel = () => {
                   >
                     <Box width={"100%"} display={"flex"} justifyContent={"space-between"} alignItems={"flex-start"}>
                       <Box>
-                        <Image src={e.avatar} alt={e.name} width={"72px"} height={"72px"} />
+                        <Image src={e.avatar} alt={e.name} width={"72px"} height={"72px"} priority />
                       </Box>
                       <Box mr={"16px"}>
                         {e.titles.map((title) => {
@@ -214,7 +214,7 @@ const TeamCarousel = () => {
                       })}
                     </Box>
                     <Box>
-                      <Image src={e.avatar} alt={e.name} width={"100px"} height={"100px"} />
+                      <Image src={e.avatar} alt={e.name} width={"100px"} height={"100px"} priority />
                     </Box>
                     <Box width={"100%"} fontFamily="FinancierDisplay" fontWeight={400} lineHeight={"130%"} letterSpacing={"-0.01em"} mt={2} fontSize={"21px"}>
                       {e.name}

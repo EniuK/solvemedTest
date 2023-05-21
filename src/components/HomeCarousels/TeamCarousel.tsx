@@ -148,7 +148,7 @@ const TeamCarousel = () => {
           </Swiper>
         </Box>
       ) : (
-        <Box width={"100%"} mt={10} ml={"131.53px"}>
+        <Box width={"100%"} mt={10}>
           <Swiper
             slidesPerView={desktop ? 1.5 : 1}
             spaceBetween={10}
@@ -157,6 +157,8 @@ const TeamCarousel = () => {
             }}
             modules={[Pagination]}
             className="mySwiper"
+            slidesOffsetBefore={50}
+            slidesOffsetAfter={50}
           >
             {teamData.map((e, idx) => {
               return (

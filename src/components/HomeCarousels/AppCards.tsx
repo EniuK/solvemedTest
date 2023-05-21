@@ -67,7 +67,6 @@ const AppCards = () => {
       justifyContent={"center"}
       alignItems={"center"}
       mt={"40px"}
-      pl={!istabletView ? "131.53px" : ""}
     >
       <Swiper
         slidesPerView={istabletView ? 1.3 : isMobileView ? 2 : 3.3}
@@ -77,6 +76,8 @@ const AppCards = () => {
         }}
         modules={[Pagination]}
         className="mySwiper"
+        slidesOffsetBefore={!isMobileView ? 70 : 0}
+        slidesOffsetAfter={!isMobileView ? 70 : 0}
       >
         {appData.map((e, idx) => {
           return (

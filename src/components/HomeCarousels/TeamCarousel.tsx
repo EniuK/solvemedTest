@@ -4,7 +4,7 @@ import React, { useEffect } from "react";
 import { theme } from "../../config/theme";
 import { Swiper, SwiperSlide } from "swiper/react";
 import AOS from "aos";
-import styles from "./cardWithShadow.module.css";
+import styles from "../../components/cardHomePage/cardWithShadow.module.css";
 import "swiper/css";
 import "swiper/css/pagination";
 
@@ -66,6 +66,7 @@ const TeamCarousel = () => {
       data-aos-easing="ease-out"
       data-aos-once="true"
       data-aos-anchor-placement="center"
+      className={styles.onBigScreen}
     >
       {isMobileView ? (
         <Box>
@@ -77,6 +78,8 @@ const TeamCarousel = () => {
             }}
             modules={[Pagination]}
             className="mySwiper"
+            slidesOffsetBefore={0}
+            slidesOffsetAfter={0}
           >
             {teamData.map((e, idx) => {
               return (
@@ -150,8 +153,7 @@ const TeamCarousel = () => {
       ) : (
         <Box width={"100%"} mt={10}>
           <Swiper
-            slidesPerView={desktop ? 1.5 : 1}
-            spaceBetween={10}
+            spaceBetween={20}
             pagination={{
               clickable: true,
             }}
@@ -159,11 +161,40 @@ const TeamCarousel = () => {
             className="mySwiper"
             slidesOffsetBefore={50}
             slidesOffsetAfter={50}
+            breakpoints={{
+              // when window width is >= 320px
+              320: {
+                slidesPerView: 1,
+                spaceBetween: 20,
+              },
+              // when window width is >= 480px
+              480: {
+                slidesPerView: 1,
+                spaceBetween: 20,
+              },
+              // when window width is >= 640px
+              600: {
+                slidesPerView: 1.5,
+                spaceBetween: 20,
+              },
+              900: {
+                slidesPerView: 1.5,
+                spaceBetween: 20,
+              },
+              1200: {
+                slidesPerView: 1.5,
+                spaceBetween: 20,
+              },
+              1536: {
+                slidesPerView: 2.5,
+                spaceBetween: 20,
+              },
+            }}
           >
             {teamData.map((e, idx) => {
               return (
                 <SwiperSlide key={idx}>
-                  <Box ml={5} mb={10} width={"781px"} height={"553px"} p={8} border={"1px solid #F5F5F7"} boxShadow={"0px 8px 32px rgba(27, 37, 74, 0.08)"} borderRadius={"14px"}>
+                  <Box ml={5} mb={10} height={"553px"} p={8} border={"1px solid #F5F5F7"} boxShadow={"0px 8px 32px rgba(27, 37, 74, 0.08)"} borderRadius={"14px"}>
                     <Box width={"100%"} display={"flex"} mt={-3} justifyContent={"flex-end"} alignItems={"flex-end"}>
                       {e.titles.map((title) => {
                         return (

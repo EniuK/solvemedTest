@@ -3,7 +3,7 @@ import Image from "next/image";
 import React, { useEffect } from "react";
 import { theme } from "../../config/theme";
 import AOS from "aos";
-import styles from "./cardWithShadow.module.css";
+import styles from "../../components/cardHomePage/cardWithShadow.module.css";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import "swiper/css";
@@ -67,6 +67,7 @@ const AppCards = () => {
       justifyContent={"center"}
       alignItems={"center"}
       mt={"40px"}
+      className={styles.onBigScreen}
     >
       <Swiper
         slidesPerView={istabletView ? 1.3 : isMobileView ? 2 : 3.3}

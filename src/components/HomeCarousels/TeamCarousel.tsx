@@ -55,7 +55,7 @@ const TeamCarousel = () => {
         "President of Ophthalmology Associates, ran the FDA’s pivotal Xalatan trial. Anterior segment surgeon, elected to membership in the prestigious Castroviejo Corneal Society.",
       avatar: "/images/homePage/avatars/Berdy.png",
       quote:
-        "Nobody tracks pupils accurately, and it sucks - from medical school, through residency, through fellowship specialisation. Industry-wide standardised pupillary measurements are very important to the future of care. There is high demand for a smartphone-enabled, reproducible, reliable, scalable noninvasive diagnostic. This would be adopted across the entire industry.",
+        "Nobody tracks pupils accurately. Industry-wide standardised pupillary measurements are the future of care. There is high demand for a smartphone-enabled, reliable, scalable noninvasive diagnostic. This would be adopted across the entire industry.",
       titles: ["Ophthalmologist"],
       sm: true,
     },
@@ -130,13 +130,13 @@ const TeamCarousel = () => {
                         {e.name}
                       </Typography>
                     </Box>
-                    <Box width={"100%"} mt={2} pr={10} fontFamily="SuisseIntl" lineHeight={"140%"} fontWeight={300} color={"#5E5E5E"} fontSize={"12px"}>
+                    <Box width={"100%"} mt={2} pr={10} fontFamily="SuisseIntl" lineHeight={"150%"} fontWeight={300} color={"#5E5E5E"} fontSize={"12px"}>
                       {e.description}
                     </Box>
                     <Box mt={3}> &rdquo;</Box>
                     <Box
                       width={"80%"}
-                      lineHeight={"140%"}
+                      lineHeight={"150%"}
                       display={"flex"}
                       sx={{ flexGrow: 1 }}
                       justifyContent={"flex-end"}
@@ -197,7 +197,7 @@ const TeamCarousel = () => {
               return (
                 <SwiperSlide key={idx}>
                   <Box
-                    style={isMobileView ? { maxWidth: "310px", height: "452px" } : { maxWidth: "781px", minHeight: "553px", padding: "72px" }}
+                    style={{ maxWidth: "781px", minHeight: "603px", padding: "72px" }}
                     mb={4}
                     border={"1px solid #F5F5F7"}
                     boxShadow={"0px 8px 32px rgba(27, 37, 74, 0.08)"}
@@ -227,14 +227,16 @@ const TeamCarousel = () => {
                     <Box width={"100%"} fontFamily="FinancierDisplay" fontWeight={400} lineHeight={"130%"} letterSpacing={"-0.01em"} mt={2} fontSize={"21px"}>
                       {e.name}
                     </Box>
-                    <Box width={"55%"} height={e.sm ? "25%" : "30%"} lineHeight={"140%"} mt={2} fontFamily="SuisseIntl" fontWeight={300} color={"#5E5E5E"} fontSize={"14px"}>
-                      {e.description}
-                    </Box>
+                    <Box flexGrow={1} style={e.sm ? { marginBottom: -10 } : {}}>
+                      <Box width={"55%"} height={"40%"} lineHeight={"150%"} mt={2} fontFamily="SuisseIntl" fontWeight={300} color={"#5E5E5E"} fontSize={"14px"}>
+                        {e.description}
+                      </Box>
 
-                    <Box mt={6} ml={-3} height={e.sm ? "45%" : "40%"} display={"flex"}>
-                      <Box pr={2}> &rdquo;</Box>
-                      <Box width={e.sm ? "100%" : "70%"} display={"flex"} lineHeight={e.sm ? "22.1px" : "24.7px"} fontFamily="SuisseIntl" fontWeight={400}>
-                        {e.quote}
+                      <Box mt={6} ml={-3} height={"60%"} display={"flex"}>
+                        <Box pr={2}> &rdquo;</Box>
+                        <Box width={e.sm ? "100%" : "85%"} display={"flex"} lineHeight={"150%"} fontFamily="SuisseIntl" fontWeight={400}>
+                          {e.quote}
+                        </Box>
                       </Box>
                     </Box>
                   </Box>

@@ -96,8 +96,8 @@ const Footer = () => {
                   alignItems={"center"}
                 >
                   <Box justifyContent={"center"} alignItems={"center"}>
-                    <Typography pl={2} fontSize={"19px"} letterSpacing={"0.04em"} fontStyle={"italic"} fontFamily={"FinancierDisplay"} fontWeight={400}>
-                      Become early adopter!
+                    <Typography pl={1} fontSize={"19px"} letterSpacing={"0.04em"} fontStyle={"italic"} fontFamily={"FinancierDisplay"} fontWeight={400}>
+                      Become an early adopter!
                     </Typography>
                   </Box>
                   <Button
@@ -109,7 +109,7 @@ const Footer = () => {
                   >
                     <Link href={"/GetAccess"} style={{ textTransform: "none", textDecoration: "none", color: "inherit" }} fontFamily={"SuisseIntl"} fontWeight={400}>
                       {" "}
-                      Get access
+                      Get access!
                     </Link>
                   </Button>
                 </Box>
@@ -214,6 +214,7 @@ const Footer = () => {
             <Box
               borderRadius={"100px"}
               height={"40px"}
+              width={"328px"}
               boxShadow={"0px 8px 32px rgba(27, 37, 74, 0.08)"}
               border={"1px solid #F5F5F7"}
               display={"flex"}
@@ -233,9 +234,9 @@ const Footer = () => {
                 fontStyle={"italic"}
                 fontFamily={"FinancierDisplay"}
                 fontWeight={600}
-                ml={2}
+                ml={3}
               >
-                Become early adopter!
+                Become an early adopter!
               </Box>
               <Box justifyContent={"center"} ml={2} alignItems={"center"}>
                 <Button
@@ -247,7 +248,7 @@ const Footer = () => {
                 >
                   <Link href={"/GetAccess"} style={{ textTransform: "none", textDecoration: "none", color: "inherit", fontFamily: "SuisseIntl", fontWeight: 300 }}>
                     {" "}
-                    Get access
+                    Get access!
                   </Link>
                 </Button>
               </Box>

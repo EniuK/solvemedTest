@@ -201,12 +201,12 @@ const MailchimpForms = ({ status, message, onValidated }: any) => {
       ) : (
         <>
           <Box width={"100%"} display={"flex"} justifyContent={"center"} alignItems={"center"}>
-            <Box width={"50%"} onClick={(e) => e.preventDefault()}>
+            <Box width={"60%"} onClick={(e) => e.preventDefault()}>
               <video poster="/images/GetAccess/phones.png" preload="none" controls={false} autoPlay loop muted playsInline width="100%" height={"100%"}>
                 <source src={"/images/GetAccess/animation.mov"} type="video/mp4" />
               </video>
             </Box>
-            <Box width={"50%"} pr={5}>
+            <Box width={"40%"} pr={5}>
               <form className="mc__form" onSubmit={(e) => handleSubmit(e)}>
                 <Box display={"flex"} justifyContent={"center"} pr={10} alignItems={"center"} flexDirection={"row"}>
                   <Box mt={10} width={"100%"} display={"flex"} justifyContent={"flex-start"} alignItems={"flex-start"} flexDirection={"column"}>
@@ -408,7 +408,7 @@ const GetAccess: NextPage<any> = () => {
               </Typography>
             </Box>
             <Box width={"100vw"} justifyContent={"center"} alignItems={"center"} display={"flex"} onClick={(e) => e.preventDefault()}>
-              <video poster="/images/GetAccess/phones.png" preload="none" controls={false} autoPlay loop muted playsInline width="500px" height={"100%"}>
+              <video poster="/images/GetAccess/phones.png" preload="none" controls={false} autoPlay loop muted playsInline width="600px" height={"100%"}>
                 <source src={"/images/GetAccess/animation.mov"} type="video/mp4" />
               </video>
             </Box>

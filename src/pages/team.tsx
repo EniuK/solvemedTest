@@ -419,7 +419,7 @@ const Team: NextPage = () => {
         </Typography>
 
         <Typography fontFamily={"SuisseIntl"} fontWeight={300} fontSize={"16px"} mb="60px" width={{ xs: "95%", md: "40%" }} mx="auto" textAlign="center">
-          Our team members bring wealth of experience from the world’s most <br /> innovative institutions and companies.
+          Our team members bring a wealth of experience from the world’s most <br /> innovative institutions and companies.
         </Typography>
 
         <Grid container direction="row" justifyContent="space-between" alignItems="baseline" rowSpacing={{ md: 8, sm: 8, xs: 6 }} columns={{ md: 5, sm: 4, xs: 2 }}>

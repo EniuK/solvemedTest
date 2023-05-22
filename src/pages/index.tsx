@@ -337,7 +337,7 @@ const Home: NextPage = () => {
               data-aos-once="true"
             >
               <Typography variant="h4" fontSize={"64px"} textAlign={"center"}>
-                Testing pupil is now <br /> simple, objective and{" "}
+                Pupil testing is now <br /> simple, objective and{" "}
                 <span className={styles.gradient_text}>
                   {" "}
                   <b>AI-enabled.</b>

@@ -26,6 +26,11 @@ const PopUp = ({ onClose, status, message, onValidated }: any) => {
       setErrorMessage(false);
     }
   };
+  useEffect(() => {
+    if (status === "success") {
+      localStorage.setItem("solvemed-email-popup", "true");
+    }
+  }, [status]);
 
   const handleEmail = (e: any) => {
     setEmail(e.target.value);

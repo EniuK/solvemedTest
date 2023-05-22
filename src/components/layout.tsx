@@ -42,13 +42,23 @@ const Layout = ({ children }: { children: ReactNode }) => {
       setNotify(true);
     }, 30000);
   };
-  useEffect(() => {
-    const isVariableSet = localStorage.getItem("solvemed-email-popup-shown");
+  //   const popupAlreadyShown = localstorage.getItem... === 'true'
 
-    if (!isVariableSet) {
+  // const popupAlreadyShownInSession = sessionStorage.getItem === 'true'
+
+  // if (!popupAlreadyShown && !popupAlreadyShownInSession) {
+  //     wykonaj kod
+  // }
+  useEffect(() => {
+    const isVariableSet = sessionStorage.getItem("solvemed-email-popup-shown");
+    const secondVariable = localStorage.getItem("solvemed-email-popup");
+
+    if (!secondVariable && !isVariableSet) {
       popUpTimer();
 
-      localStorage.setItem("solvemed-email-popup-shown", "true");
+      sessionStorage.setItem("solvemed-email-popup-shown", "true");
+    } else if (isVariableSet && !secondVariable) {
+      popUpTimer();
     }
   }, []);
 

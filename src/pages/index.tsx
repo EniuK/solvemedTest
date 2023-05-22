@@ -98,7 +98,7 @@ const Home: NextPage = () => {
           </Typography>
         </Box>
         {isMobileView ? (
-          //
+          // mobile
           <div>
             <StickyContainer>
               <Sticky>
@@ -106,7 +106,7 @@ const Home: NextPage = () => {
                   <div style={{ ...style, zIndex: 3, display: "flex", justifyContent: "center", alignItems: "center" }}>
                     <LazyLoadComponent visibleByDefault={true}>
                       <Box mt={-7} width={"264.63px"} height={"567.63px"} zIndex={3}>
-                        <video controls={false} autoPlay loop width="100%" height={"100%"}>
+                        <video controls={false} autoPlay muted loop width="100%" height={"100%"}>
                           <source src={"https://strapi-s3-solvemed-public-images.s3.amazonaws.com/iPhone+animation+looped.mov"} type="video/mp4" />
                         </video>
                       </Box>
@@ -151,7 +151,7 @@ const Home: NextPage = () => {
                   <div style={{ ...style, zIndex: 3, display: "flex", justifyContent: "center", alignItems: "center" }}>
                     <LazyLoadComponent visibleByDefault={true}>
                       <Box mt={-7} maxWidth={"426.92px"} maxHeight={"750px"} zIndex={3}>
-                        <video controls={false} autoPlay loop width="100%" height={"100%"} style={{ zIndex: 3 }}>
+                        <video controls={false} autoPlay muted loop width="100%" height={"100%"} style={{ zIndex: 3 }}>
                           <source src={"https://strapi-s3-solvemed-public-images.s3.amazonaws.com/iPhone+animation+looped.mov"} type="video/mp4" />
                         </video>
                       </Box>

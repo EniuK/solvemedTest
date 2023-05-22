@@ -63,7 +63,7 @@ const AppCards = () => {
       data-aos-once="true"
       data-aos-anchor-placement="center"
       display={"flex"}
-      width={"100vw"}
+      width={"100"}
       justifyContent={"center"}
       alignItems={"center"}
       mt={"40px"}

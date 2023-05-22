@@ -8,6 +8,8 @@ import Image from "next/image";
 import { useScrollBlock } from "./disableScroll";
 
 const menuItems = [
+  { title: "Product", link: "/" },
+
   { title: "Team", link: "/team" },
   // { title: "Blog", link: "/blog" },
   { title: "Careers", link: "/careers" },
@@ -154,7 +156,6 @@ const Header = () => {
         <Box
           width={"100vw"}
           mt={-1}
-          ml={-4}
           display={"flex"}
           flexDirection={"column"}
           justifyContent={"flex-end"}
@@ -172,7 +173,7 @@ const Header = () => {
             },
           }}
         >
-          <Box zIndex={300}>
+          <Box zIndex={300} pr={"16px"}>
             {open ? (
               <Box onClick={handleMenuClose} width={20} height={34.5} justifyContent="center" mt={1}>
                 <Image src={"/images/icons/closeicon2.png"} width={"15px"} height={"15px"} alt={"close"} />
@@ -188,16 +189,18 @@ const Header = () => {
 
           {open && (
             <>
-              <Box height={"101vh"} width={"100vw"} mr={-10} pr={3} mt={-10} pt={8} zIndex={200}>
-                <Box width={"100vw"} mt={5} zIndex={open ? 300 : 1} ml={-7} pl={7} bgcolor={"white"} pb={6}>
+              <Box height={"100vh"} width={"100vw"} zIndex={200} position={"fixed"} top={0} left={0}>
+                <Box width={"100vw"} pt={5} zIndex={10} bgcolor={"white"} pb={6} position={"absolute"}>
                   <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }}>
-                    <Box ml={-5} mt={8}>
+                    <Box mt={10}>
                       {menuItems.map((item) => {
                         return (
-                          <Box key={item.title} mt={3} style={{ fontFamily: "SuisseIntl", fontWeight: 100, fontSize: "20px", lineHeight: "150%" }}>
+                          <Box key={item.title} mt={3}>
                             <Link href={item.link} prefetch={false}>
                               <MenuItem onClick={handleMenuOpen} dense>
-                                <a>{item.title}</a>
+                                <Typography style={{ fontFamily: "SuisseIntl", fontWeight: 100, fontSize: "20px", lineHeight: "150%" }}>
+                                  <a>{item.title}</a>
+                                </Typography>
                               </MenuItem>
                             </Link>
                           </Box>
@@ -205,27 +208,33 @@ const Header = () => {
                       })}
                     </Box>
 
-                    <Divider sx={{ width: "100vw", ml: -6, mt: 5, mb: 5 }} />
-                    <Box mt={-1} alignItems={"center"} justifyContent={"flex-start"} width={"100vw"} ml={-5} display={"flex"}>
+                    <Divider sx={{ width: "100vw", mt: 5, mb: 5 }} />
+                    <Box mt={-1} alignItems={"center"} justifyContent={"flex-start"} pl={"16px"} width={"100vw"} display={"flex"}>
                       <Box height={"40px"} display={"flex"} justifyContent={"center"} alignItems={"center"} flexDirection={"row"}>
                         <Link href="https://www.linkedin.com/company/solvemed-group/" target="_blank" rel="noopener">
-                          <Image src="/images/icons/linkedin.png" alt="linkedin" width="40px" height="40px" />
+                          <Image src="/images/icons/linkedin.svg" alt="linkedin" width="40px" height="40px" />
                         </Link>
-                        <Box ml={2}>Linkedin</Box>
+                        <Box ml={2} style={{ fontFamily: "SuisseIntl", fontWeight: 100, fontSize: "15px", lineHeight: "24px" }}>
+                          Linkedin
+                        </Box>
                       </Box>
                       <Box height={"40px"} display={"flex"} justifyContent={"center"} alignItems={"center"} flexDirection={"row"} ml={3}>
                         <Link href="https://twitter.com/solvemed" target="_blank" rel="noopener">
-                          <Image src="/images/icons/twitter.png" alt="twitter" width="40px" height="40px" />
+                          <Image src="/images/icons/twitter.svg" alt="twitter" width="40px" height="40px" />
                         </Link>
-                        <Box ml={2}>Twitter</Box>
+                        <Box ml={2} style={{ fontFamily: "SuisseIntl", fontWeight: 100, fontSize: "15px", lineHeight: "24px", letterSpacing: "0.03em" }}>
+                          Twitter
+                        </Box>
                       </Box>
                     </Box>
                   </motion.div>
                 </Box>
                 <Box
-                  height={"100%"}
+                  height={"100vh"}
                   width={"100vw"}
+                  bottom={0}
                   left={0}
+                  zIndex={-10}
                   position={"fixed"}
                   style={{ opacity: 0.6, backdropFilter: " blur(4px)", backgroundColor: "rgba(0, 0, 0, 0.7)" }}
                 ></Box>
@@ -234,7 +243,7 @@ const Header = () => {
           )}
         </Box>
       ) : (
-        <Box width={"100%"} mt={-1} display={"flex"} justifyContent={"flex-end"} alignItems={"center"}>
+        <Box width={"100%"} mt={-1} pr={"16px"} zIndex={300} display={"flex"} justifyContent={"flex-end"} alignItems={"center"}>
           {menuItems.map((item) => {
             const isCurrentPath = item.link === router.pathname;
 

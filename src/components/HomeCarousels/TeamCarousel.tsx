@@ -3,15 +3,19 @@ import Image from "next/image";
 import React, { useEffect } from "react";
 import { theme } from "../../config/theme";
 import { Swiper, SwiperSlide } from "swiper/react";
+import SwiperCore, { Navigation } from "swiper";
 import AOS from "aos";
 import styles from "../../components/cardHomePage/cardWithShadow.module.css";
 import "swiper/css";
 import "swiper/css/pagination";
+import "swiper/swiper.min.css";
 
 import { Pagination } from "swiper";
 const TeamCarousel = () => {
   const isMobileView = useMediaQuery(theme.breakpoints.down("md"));
   const desktop = useMediaQuery(theme.breakpoints.up("lg"));
+  SwiperCore.use([Navigation]);
+
   useEffect(() => {
     AOS.init();
 
@@ -66,13 +70,13 @@ const TeamCarousel = () => {
       data-aos-easing="ease-out"
       data-aos-once="true"
       data-aos-anchor-placement="center"
-      className={styles.onBigScreen}
     >
       {isMobileView ? (
         <Box>
           <Swiper
             slidesPerView={1.15}
-            spaceBetween={10}
+            spaceBetween={20}
+            navigation
             pagination={{
               clickable: true,
             }}
@@ -157,6 +161,7 @@ const TeamCarousel = () => {
             pagination={{
               clickable: true,
             }}
+            navigation
             modules={[Pagination]}
             className="mySwiper"
             slidesOffsetBefore={50}
@@ -164,12 +169,11 @@ const TeamCarousel = () => {
             breakpoints={{
               // when window width is >= 320px
               320: {
-                slidesPerView: 1,
-                spaceBetween: 20,
+                slidesPerView: 1.17,
               },
               // when window width is >= 480px
               480: {
-                slidesPerView: 1,
+                slidesPerView: 1.3,
                 spaceBetween: 20,
               },
               // when window width is >= 640px
@@ -178,23 +182,27 @@ const TeamCarousel = () => {
                 spaceBetween: 20,
               },
               900: {
-                slidesPerView: 1.5,
+                slidesPerView: 1.8,
                 spaceBetween: 20,
               },
               1200: {
-                slidesPerView: 1.5,
-                spaceBetween: 20,
+                slidesPerView: 1.8,
               },
               1536: {
                 slidesPerView: 2.5,
-                spaceBetween: 20,
               },
             }}
           >
             {teamData.map((e, idx) => {
               return (
                 <SwiperSlide key={idx}>
-                  <Box ml={5} mb={10} height={"553px"} p={8} border={"1px solid #F5F5F7"} boxShadow={"0px 8px 32px rgba(27, 37, 74, 0.08)"} borderRadius={"14px"}>
+                  <Box
+                    style={isMobileView ? { maxWidth: "310px", height: "452px" } : { maxWidth: "781px", minHeight: "553px", padding: "72px" }}
+                    mb={4}
+                    border={"1px solid #F5F5F7"}
+                    boxShadow={"0px 8px 32px rgba(27, 37, 74, 0.08)"}
+                    borderRadius={"14px"}
+                  >
                     <Box width={"100%"} display={"flex"} mt={-3} justifyContent={"flex-end"} alignItems={"flex-end"}>
                       {e.titles.map((title) => {
                         return (
@@ -223,7 +231,7 @@ const TeamCarousel = () => {
                       {e.description}
                     </Box>
 
-                    <Box mt={1} ml={-3} height={e.sm ? "45%" : "40%"} display={"flex"}>
+                    <Box mt={6} ml={-3} height={e.sm ? "45%" : "40%"} display={"flex"}>
                       <Box pr={2}> &rdquo;</Box>
                       <Box width={e.sm ? "100%" : "70%"} display={"flex"} lineHeight={e.sm ? "22.1px" : "24.7px"} fontFamily="SuisseIntl" fontWeight={400}>
                         {e.quote}

@@ -6,107 +6,18 @@
   flex-wrap: wrap;
   position: relative;
   height: 35px;
-  z-index: 200;
 
-  padding: 0 30px ;
-  background-color: "red";
+
+
+  
 }
 
 .logoLinkContainer {
-  z-index: 101;
+
   position: absolute;
 
   display: flex;
   width: "10%";
-}
-@media (max-width: 900px) {
-  .header {
-    padding: 0 9px;
-    margin-bottom: 92px;
-    
-  }
-}
-
-.logoLinkContainer {
-  z-index: 101;
-  position: absolute;
-
-  display: flex;
-  width: "10%";
-  background-color: transparent;
-}
-
-.externalLinkContainer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  text-align: center;
-  text-decoration: none;
-  margin: 0 auto !important;
-  position: absolute;
-  left: 0;
-  width: auto;
-  max-width: 475px;
-  z-index: 101;
-  border-radius: 16px;
-  border: 1px solid #5242ee;
-  padding: 8px 20px;
-  top: 150%;
-  right: 0;
-}
-
-.externalLinkIcon {
-  position: absolute;
-  right: 10px;
-}
-
-@media (min-width: 900px) {
-  .externalLinkContainer {
-    padding: 16px 24px;
-  }
-}
-
-@media (min-width: 1200px) {
-  .externalLinkContainer {
-    top: 50%;
-    transform: translateY(-50%);
-  }
-}
-
-.externalLinkContent {
-  margin: 0 16px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex: 1;
-  flex-direction: column;
-  text-decoration: underline;
-}
-
-@media (min-width: 900px) {
-  .externalLinkContent {
-    flex-direction: row;
-  }
-}
-
-.menu {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  position: fixed;
-  top: 38px;
-  right: 24px;
-  left: 0;
-  margin: 0 auto;
-  max-width: 1467px;
-  z-index: 100;
-}
-
-.menuList {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  margin: 0;
 }
 
 .menuListItemLink {
@@ -118,10 +29,6 @@
   font-size: 14px;
   letter-spacing: 0.4;
 }
-.disableHover:hover {
-  background: none;
-}
-
 .menuListItemLinkActive:after {
   content: url("/images/elipse.svg");
   position: absolute;
@@ -129,11 +36,13 @@
   top: calc(50% / 0.7);
   left: calc(50% - 7px / 2);
 }
-
-.menuListItemUnderline {
+.logoLinkContainer {
+  z-index: 101;
   position: absolute;
-  bottom: 0;
-  left: 0;
-  height: 1px;
-  background-color: #141415;
+
+  display: flex;
+  width: "10%";
+  background-color: transparent;
 }
+
+

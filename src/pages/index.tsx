@@ -99,6 +99,7 @@ const Home: NextPage = () => {
         </Box>
         {isMobileView ? (
           // mobile
+          // mobile
           <div>
             <StickyContainer>
               <Sticky>
@@ -106,7 +107,7 @@ const Home: NextPage = () => {
                   <div style={{ ...style, zIndex: 3, display: "flex", justifyContent: "center", alignItems: "center" }}>
                     <LazyLoadComponent visibleByDefault={true}>
                       <Box mt={-7} width={"264.63px"} height={"567.63px"} zIndex={3}>
-                        <video controls={false} autoPlay muted loop width="100%" height={"100%"}>
+                        <video controls={false} autoPlay muted loop playsInline width="100%" height={"100%"}>
                           <source src={"https://strapi-s3-solvemed-public-images.s3.amazonaws.com/iPhone+animation+looped.mov"} type="video/mp4" />
                         </video>
                       </Box>
@@ -151,7 +152,7 @@ const Home: NextPage = () => {
                   <div style={{ ...style, zIndex: 3, display: "flex", justifyContent: "center", alignItems: "center" }}>
                     <LazyLoadComponent visibleByDefault={true}>
                       <Box mt={-7} maxWidth={"426.92px"} maxHeight={"750px"} zIndex={3}>
-                        <video controls={false} autoPlay muted loop width="100%" height={"100%"} style={{ zIndex: 3 }}>
+                        <video controls={false} autoPlay muted loop playsInline width="100%" height={"100%"} style={{ zIndex: 3 }}>
                           <source src={"https://strapi-s3-solvemed-public-images.s3.amazonaws.com/iPhone+animation+looped.mov"} type="video/mp4" />
                         </video>
                       </Box>
@@ -192,7 +193,7 @@ const Home: NextPage = () => {
           <Box style={{ position: "absolute", margin: "90px auto ", rotate: "180deg", left: "30%" }}>
             <Image src={"/images/bg/medicalSpecialities.png"} width={"428.33px"} height={"434.42px"} alt={"gradientBackground"} priority />
           </Box>
-          <Box pt={30} pb={30}>
+          <Box pt={30} pb={10}>
             <Box>
               <Typography
                 component={motion.p}
@@ -213,7 +214,7 @@ const Home: NextPage = () => {
             </Box>
           </Box>
         </Box>
-        <Box pt={5} mt={5}>
+        <Box pt={5}>
           <Box
             display={"flex"}
             width={"100%"}
@@ -299,7 +300,7 @@ const Home: NextPage = () => {
             )}
           </Box>
         </Box>
-        <Box ml={1}>
+        <Box style={isMobileView ? { marginLeft: "16px" } : { marginLeft: "131.53px" }}>
           <TeamCarousel />
         </Box>
         <Box pt={30} pb={30}>
@@ -344,7 +345,7 @@ const Home: NextPage = () => {
               </Typography>
             </Box>
           )}
-          <Box ml={"16px"}>
+          <Box style={isMobileView ? { marginLeft: "16px" } : { marginLeft: "131.53px" }}>
             <AppCards />
           </Box>
         </Box>

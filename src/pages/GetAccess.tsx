@@ -32,7 +32,7 @@ const MailchimpForms = ({ status, message, onValidated }: any) => {
         MERGE2: surrname,
         MERGE6: specialization,
       });
-    if (email === "" || surrname === "" || specialization === "") {
+    if (email === "" || surrname === "" || specialization === "" || name === "") {
       setEmptyValue(true);
     } else {
       setEmptyValue(false);
@@ -43,6 +43,13 @@ const MailchimpForms = ({ status, message, onValidated }: any) => {
       setErrorMessage(false);
     }
   };
+
+  useEffect(() => {
+    if (status === "success") {
+      setopen(true);
+    }
+  }, [status]);
+
   useEffect(() => {
     setEmptyValue(false);
   }, [email, name, surrname, specialization]);
@@ -59,6 +66,9 @@ const MailchimpForms = ({ status, message, onValidated }: any) => {
     if (email !== "" && surrname !== "" && specialization !== "" && email !== "") {
       setopen(false);
     }
+    if (email === "" || surrname === "" || specialization === "" || email === "") {
+      setopen(true);
+    }
   }, [name, surrname, specialization, email, open]);
 
   return (
@@ -66,9 +76,9 @@ const MailchimpForms = ({ status, message, onValidated }: any) => {
       {isMobileView ? (
         <>
           <form className="mc__form" onSubmit={(e) => handleSubmit(e)}>
-            <Box display={"flex"} justifyContent={"center"} ml={-3} pl={4} pr={20} alignItems={"center"} flexDirection={"row"} width={"100vw"}>
-              <Box width={"100vw"} pl={15} display={"flex"} justifyContent={"flex-start"} alignItems={"flex-start"} flexDirection={"column"}>
-                <Box mt={5} ml={-1} width={"100vw"} display={"flex"} justifyContent={"flex-start"} alignItems={"flex-start"} flexDirection={"row"}>
+            <Box px={"20px"} display={"flex"} justifyContent={"center"} alignItems={"center"} flexDirection={"row"} width={"100%"}>
+              <Box width={"100%"} display={"flex"} flexDirection={"column"}>
+                <Box mt={5} width={"100%"} display={"flex"} justifyContent={"center"} flexDirection={"row"}>
                   <Box style={{ width: "45%" }} mr={2}>
                     <TextField
                       style={{ width: "90%" }}
@@ -90,7 +100,7 @@ const MailchimpForms = ({ status, message, onValidated }: any) => {
                       }}
                     />
                   </Box>
-                  <Box style={{ width: "45%" }} pr={1}>
+                  <Box style={{ width: "45%" }}>
                     <TextField
                       variant="standard"
                       style={{ width: "90%" }}
@@ -113,7 +123,7 @@ const MailchimpForms = ({ status, message, onValidated }: any) => {
                   </Box>
                 </Box>
 
-                <Box width={"100vw"} textAlign={"left"} mt={8} display={"flex"} justifyContent={"flex-start"}>
+                <Box width={"100%"} textAlign={"left"} mt={8} display={"flex"} justifyContent={"center"}>
                   <FormControl variant="standard" style={{ width: "90%" }}>
                     <InputLabel id="specialization-label">Specialization</InputLabel>
                     <Select
@@ -131,10 +141,11 @@ const MailchimpForms = ({ status, message, onValidated }: any) => {
                       <MenuItem value="Ophthalmologist">Ophthalmologist</MenuItem>
                       <MenuItem value="Neuro-ophthalmologists">Neuro-ophthalmologists</MenuItem>
                       <MenuItem value="Optometrist">Optometrist</MenuItem>
+                      <MenuItem value="Optometrist">Other</MenuItem>
                     </Select>
                   </FormControl>
                 </Box>
-                <Box width={"100vw"} mt={8} display={"flex"} justifyContent={"flex-start"}>
+                <Box width={"100%"} mt={8} display={"flex"} justifyContent={"center"}>
                   <TextField
                     variant="standard"
                     name="EMAIL"
@@ -158,38 +169,40 @@ const MailchimpForms = ({ status, message, onValidated }: any) => {
               </Box>
             </Box>
           </form>
-          <Box width={"100%"} mt={5} pr={5} display={"flex"} justifyContent={"flex-end"} alignItems={"flex-end"}>
-            <Button
-              color="secondary"
-              disabled={open}
-              onClick={(e) => handleSubmit(e)}
-              style={{ textTransform: "none" }}
-              sx={{ backgroundColor: "black" }}
-              variant="contained"
-              size="large"
-            >
-              <Box pt={0.5} pb={0.5}>
-                Send
-              </Box>
-            </Button>
-          </Box>
-          <Box mt={5} width={"100%"} display={"flex"} flexDirection={"column"} justifyContent={"center"} alignItems={"center"}>
-            {status === "sending" && <Box style={{ color: "blue" }}>sending...</Box>}
-            {status === "error" && errorMessage && <Box style={{ color: "red" }}>invalid email address</Box>}
-            {status === "error" ? null : <>{errorMessage && status !== "sending" ? <Box style={{ color: "red" }}>invalid email address</Box> : null}</>}
-            {emptyValue && <Box style={{ color: "red" }}>Please fill all values</Box>}
-            {status === "success" && errorMessage === false && emptyValue === false && (
-              <Box width={"100%"} ml={-4.5} color={"black"} display={"flex"} justifyContent={"center"} alignItems={"center"}>
-                {message}
-              </Box>
-            )}
+          <Box width={"100%"} mt={5} display={"flex"} height={"50px"} justifyContent={"center"} alignItems={"center"}>
+            <Box pl={"16px"} width={"70%"} height={"100%"} display={"flex"} flexDirection={"column"} justifyContent={"center"} alignItems={"center"}>
+              {status === "sending" && <Box style={{ color: "blue" }}>sending...</Box>}
+              {status === "error" && errorMessage && <Box style={{ color: "red" }}>Invalid email adress</Box>}
+              {status === "error" ? null : <>{errorMessage && status !== "sending" ? <Box style={{ color: "red" }}>Invalid email adress</Box> : null}</>}
+              {emptyValue && <Box style={{ color: "red" }}>Please fill all values</Box>}
+              {status === "success" && errorMessage === false && emptyValue === false && (
+                <Box width={"100%"} color={"#1E8800"} display={"flex"} justifyContent={"center"} alignItems={"center"}>
+                  Request send successfully!
+                </Box>
+              )}
+            </Box>
+            <Box display={"flex"} height={"100%"} justifyContent={"center"} alignItems={"flex-end"} width={"30%"}>
+              <Button
+                color="secondary"
+                disabled={open}
+                onClick={(e) => handleSubmit(e)}
+                style={{ textTransform: "none" }}
+                sx={{ backgroundColor: "black" }}
+                variant="contained"
+                size="large"
+              >
+                <Box pt={0.5} pb={0.5}>
+                  Send
+                </Box>
+              </Button>
+            </Box>
           </Box>
         </>
       ) : (
         <>
           <Box width={"100%"} display={"flex"} justifyContent={"center"} alignItems={"center"}>
             <Box width={"50%"} onClick={(e) => e.preventDefault()}>
-              <video poster="/images/GetAccess/phones.png" preload="none" controls={false} autoPlay loop width="100%" height={"100%"}>
+              <video poster="/images/GetAccess/phones.png" preload="none" controls={false} autoPlay loop muted playsInline width="100%" height={"100%"}>
                 <source src={"/images/GetAccess/animation.mov"} type="video/mp4" />
               </video>
             </Box>
@@ -366,7 +379,7 @@ const GetAccess: NextPage<any> = () => {
         }
       >
         {isMobileView ? (
-          <Box mt={-4}>
+          <Box mt={-4} px={"16px"}>
             <Box>
               <Typography
                 component={motion.p}
@@ -382,8 +395,8 @@ const GetAccess: NextPage<any> = () => {
 
               <Typography
                 component={motion.p}
-                px={10}
                 style={{ margin: "0 auto 20px", fontSize: "16px" }}
+                px={7}
                 width={{ xs: "100%", md: "40%" }}
                 lineHeight={"180%"}
                 color={"#595D62"}
@@ -395,7 +408,7 @@ const GetAccess: NextPage<any> = () => {
               </Typography>
             </Box>
             <Box width={"100vw"} justifyContent={"center"} alignItems={"center"} display={"flex"} onClick={(e) => e.preventDefault()}>
-              <video poster="/images/GetAccess/phones.png" preload="none" controls={false} autoPlay loop width="500px" height={"100%"}>
+              <video poster="/images/GetAccess/phones.png" preload="none" controls={false} autoPlay loop muted playsInline width="500px" height={"100%"}>
                 <source src={"/images/GetAccess/animation.mov"} type="video/mp4" />
               </video>
             </Box>

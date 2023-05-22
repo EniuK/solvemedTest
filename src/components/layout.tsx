@@ -110,7 +110,7 @@ const Layout = ({ children }: { children: ReactNode }) => {
             </motion.main>
           </AnimatePresence>
 
-          <Footer home={isHomeRoute} />
+          <Footer />
         </Box>
       </Box>
     </Box>

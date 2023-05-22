@@ -72,7 +72,7 @@ const Careers: NextPage = () => {
         xs={10}
         lg={8}
         columns={10}
-        style={isMobileView ? { margin: "0", paddingLeft: 30, alignItems: "center", display: "flex", justifyContent: "center" } : { margin: "0 auto", alignItems: "center" }}
+        style={isMobileView ? { margin: "0", alignItems: "center", display: "flex", justifyContent: "center" } : { margin: "0 auto", alignItems: "center" }}
       >
         {isMobileView ? (
           <Grid item xs={10} textAlign="center">
@@ -173,7 +173,7 @@ const Careers: NextPage = () => {
             </Box>
           </Grid>
         )}
-        <Box mt={20} ml={-9}>
+        <Box mt={20} style={isMobileView ? {} : { marginLeft: -70 }}>
           <Box
             pt={10}
             pb={10}
@@ -195,7 +195,7 @@ const Careers: NextPage = () => {
 
           {careers.map((sectionItem) => (
             <Fragment key={sectionItem.category}>
-              <Box pl={12} width={"100%"}>
+              <Box pl={12} pr={12} width={"100%"}>
                 <Grid item xs={10} mt="100px" mb="42px">
                   <Box data-aos="fade-up" data-aos-duration="1000">
                     <Typography fontFamily={"SuisseIntl"} fontWeight={300} letterSpacing={"-0.02em"} style={{ opacity: 0.6 }} fontSize={"20px"}>
@@ -220,7 +220,7 @@ const Careers: NextPage = () => {
                         </Box>
                         <Box mt={3} width={"100%"} display={"flex"} flexDirection={"column"}>
                           <Box data-aos="fade-up" data-aos-duration="1000" width={"100%"} data-aos-anchor-placement="top">
-                            <Typography fontFamily={"SuisseIntl"} fontWeight={300} fontSize={"14px"} pr={10} paragraph>
+                            <Typography fontFamily={"SuisseIntl"} fontWeight={300} fontSize={"14px"} paragraph>
                               {item.description}
                             </Typography>
                           </Box>

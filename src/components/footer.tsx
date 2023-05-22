@@ -10,7 +10,7 @@ const menuItems = [
   { title: "CONTACT", link: "/contact" },
 ];
 
-const Footer = ({ home }: any) => {
+const Footer = () => {
   const isSmallViewport = useMediaQuery(theme.breakpoints.down("md"));
   const isLargeviewport = useMediaQuery(theme.breakpoints.up("xl"));
 
@@ -81,74 +81,39 @@ const Footer = ({ home }: any) => {
                   </Link>
                 </Box>
               </Box>
-              {home ? (
-                <Box mt={5} display={"flex"} width={"100vw"} justifyContent={"center"} style={{ position: "fixed", bottom: 10, zIndex: 300 }} alignItems={"center"}>
-                  <Box
-                    borderRadius={"100px"}
-                    boxShadow={"0px 8px 32px rgba(27, 37, 74, 0.08)"}
-                    border={"1px solid #F5F5F7"}
-                    display={"flex"}
-                    bgcolor={"#FFFFFF"}
-                    p={"6px"}
-                    width={"335px"}
-                    height={"56px"}
-                    flexDirection={"row"}
-                    justifyContent={"space-between"}
-                    alignItems={"center"}
-                  >
-                    <Box justifyContent={"center"} alignItems={"center"}>
-                      <Typography pl={2} fontSize={"19px"} letterSpacing={"0.04em"} fontStyle={"italic"} fontFamily={"FinancierDisplay"} fontWeight={400}>
-                        Become early adopter!
-                      </Typography>
-                    </Box>
-                    <Button
-                      color="secondary"
-                      style={{ textTransform: "none", color: "white", padding: "9px 20px" }}
-                      sx={{ backgroundColor: "black", fontSize: "14px", fontWeight: 300, marginRight: 0 }}
-                      variant="contained"
-                      size="small"
-                    >
-                      <Link href={"/GetAccess"} style={{ textTransform: "none", textDecoration: "none", color: "inherit" }} fontFamily={"SuisseIntl"} fontWeight={400}>
-                        {" "}
-                        Get access
-                      </Link>
-                    </Button>
+              <Box mt={5} display={"flex"} width={"100vw"} justifyContent={"center"} style={{ position: "fixed", bottom: 10, zIndex: 300 }} alignItems={"center"}>
+                <Box
+                  borderRadius={"100px"}
+                  boxShadow={"0px 8px 32px rgba(27, 37, 74, 0.08)"}
+                  border={"1px solid #F5F5F7"}
+                  display={"flex"}
+                  bgcolor={"#FFFFFF"}
+                  p={"6px"}
+                  width={"335px"}
+                  height={"56px"}
+                  flexDirection={"row"}
+                  justifyContent={"space-between"}
+                  alignItems={"center"}
+                >
+                  <Box justifyContent={"center"} alignItems={"center"}>
+                    <Typography pl={2} fontSize={"19px"} letterSpacing={"0.04em"} fontStyle={"italic"} fontFamily={"FinancierDisplay"} fontWeight={400}>
+                      Become early adopter!
+                    </Typography>
                   </Box>
-                </Box>
-              ) : (
-                <Box mt={5} display={"flex"} width={"100vw"} justifyContent={"center"} alignItems={"center"}>
-                  <Box
-                    borderRadius={"100px"}
-                    boxShadow={"0px 8px 32px rgba(27, 37, 74, 0.08)"}
-                    border={"1px solid #F5F5F7"}
-                    display={"flex"}
-                    bgcolor={"#FFFFFF"}
-                    p={"6px"}
-                    width={"290px"}
-                    flexDirection={"row"}
-                    justifyContent={"space-between"}
-                    alignItems={"center"}
+                  <Button
+                    color="secondary"
+                    style={{ textTransform: "none", color: "white", padding: "9px 20px" }}
+                    sx={{ backgroundColor: "black", fontSize: "14px", fontWeight: 300, marginRight: 0 }}
+                    variant="contained"
+                    size="small"
                   >
-                    <Box justifyContent={"center"} alignItems={"center"}>
-                      <Typography pl={2} fontSize={"19px"} fontFamily={"FinancierDisplay"} fontWeight={400}>
-                        Become early adopter!
-                      </Typography>
-                    </Box>
-                    <Button
-                      color="secondary"
-                      style={{ textTransform: "none", color: "white" }}
-                      sx={{ backgroundColor: "black", fontSize: "14px", fontWeight: 300, marginRight: 0 }}
-                      variant="contained"
-                      size="small"
-                    >
-                      <Link href={"/GetAccess"} style={{ textTransform: "none", textDecoration: "none", color: "inherit" }} fontFamily={"SuisseIntl"} fontWeight={400}>
-                        {" "}
-                        Get access
-                      </Link>
-                    </Button>
-                  </Box>
+                    <Link href={"/GetAccess"} style={{ textTransform: "none", textDecoration: "none", color: "inherit" }} fontFamily={"SuisseIntl"} fontWeight={400}>
+                      {" "}
+                      Get access
+                    </Link>
+                  </Button>
                 </Box>
-              )}
+              </Box>
             </Box>
           </Box>
         </Box>
@@ -241,8 +206,8 @@ const Footer = ({ home }: any) => {
             width={isLargeviewport ? "100vw" : "100%"}
             ml={isLargeviewport ? -35 : -11}
             pl={isLargeviewport ? 0 : 6}
-            style={home ? { position: "fixed", bottom: 0, justifyContent: "flex-end", alignItems: "flex-end", zIndex: 10 } : {}}
-            mb={home ? -2 : 5}
+            style={{ position: "fixed", bottom: 0, justifyContent: "flex-end", alignItems: "flex-end", zIndex: 10 }}
+            mb={-2}
             justifyContent={"flex-end"}
             alignItems={"flex-end"}
           >

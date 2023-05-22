@@ -55,6 +55,9 @@ const TeamCarousel = () => {
       titles: ["Ophthalmologist"],
       sm: true,
     },
+    {
+      og: true,
+    },
   ];
 
   return (
@@ -84,67 +87,71 @@ const TeamCarousel = () => {
             {teamData.map((e, idx) => {
               return (
                 <SwiperSlide key={idx}>
-                  <Box
-                    minHeight={"452px"}
-                    p={3}
-                    position={"relative"}
-                    pr={0}
-                    pt={"16px"}
-                    mt={3}
-                    mb={5}
-                    border={"1px solid #F5F5F7"}
-                    boxShadow={"0px 8px 32px rgba(27, 37, 74, 0.08)"}
-                    borderRadius={"22px"}
-                  >
-                    <Box width={"100%"} display={"flex"} justifyContent={"space-between"} alignItems={"flex-start"}>
-                      <Box>
-                        <Image src={e.avatar} alt={e.name} width={"72px"} height={"72px"} priority />
-                      </Box>
-                      <Box mr={"16px"}>
-                        {e.titles.map((title) => {
-                          return (
-                            <Box
-                              bgcolor={"rgba(103, 71, 242, 0.07)"}
-                              p={0.5}
-                              pl={2}
-                              pr={2}
-                              borderRadius={10}
-                              fontWeight={500}
-                              fontSize={"12px"}
-                              key={title}
-                              color={"rgba(103, 71, 242, 1)"}
-                            >
-                              {title}
-                            </Box>
-                          );
-                        })}
-                      </Box>
-                    </Box>
-
-                    <Box width={"100%"} mt={4} mr={6}>
-                      <Typography fontFamily="FinancierDisplay" fontSize={"18px"} fontWeight={400} lineHeight={"130%"} letterSpacing={"-0.01em"}>
-                        {e.name}
-                      </Typography>
-                    </Box>
-                    <Box width={"100%"} mt={2} pr={10} fontFamily="SuisseIntl" lineHeight={"140%"} fontWeight={300} color={"#5E5E5E"} fontSize={"12px"}>
-                      {e.description}
-                    </Box>
-                    <Box mt={3}> &rdquo;</Box>
+                  {e.og ? (
+                    <Box minHeight={"100px"} width={"100px"} />
+                  ) : (
                     <Box
-                      width={"80%"}
-                      lineHeight={"140%"}
-                      display={"flex"}
-                      sx={{ flexGrow: 1 }}
-                      justifyContent={"flex-end"}
-                      alignItems={"flex-end"}
-                      fontFamily="SuisseIntl"
-                      fontWeight={400}
-                      mr={6}
-                      fontSize={"15px"}
+                      minHeight={"452px"}
+                      p={3}
+                      position={"relative"}
+                      pr={0}
+                      pt={"16px"}
+                      mt={3}
+                      mb={5}
+                      border={"1px solid #F5F5F7"}
+                      boxShadow={"0px 8px 32px rgba(27, 37, 74, 0.08)"}
+                      borderRadius={"22px"}
                     >
-                      {e.quote}
+                      <Box width={"100%"} display={"flex"} justifyContent={"space-between"} alignItems={"flex-start"}>
+                        <Box>
+                          <Image src={e.avatar} alt={e.name} width={"72px"} height={"72px"} priority />
+                        </Box>
+                        <Box mr={"16px"}>
+                          {e.titles.map((title) => {
+                            return (
+                              <Box
+                                bgcolor={"rgba(103, 71, 242, 0.07)"}
+                                p={0.5}
+                                pl={2}
+                                pr={2}
+                                borderRadius={10}
+                                fontWeight={500}
+                                fontSize={"12px"}
+                                key={title}
+                                color={"rgba(103, 71, 242, 1)"}
+                              >
+                                {title}
+                              </Box>
+                            );
+                          })}
+                        </Box>
+                      </Box>
+
+                      <Box width={"100%"} mt={4} mr={6}>
+                        <Typography fontFamily="FinancierDisplay" fontSize={"18px"} fontWeight={400} lineHeight={"130%"} letterSpacing={"-0.01em"}>
+                          {e.name}
+                        </Typography>
+                      </Box>
+                      <Box width={"100%"} mt={2} pr={10} fontFamily="SuisseIntl" lineHeight={"140%"} fontWeight={300} color={"#5E5E5E"} fontSize={"12px"}>
+                        {e.description}
+                      </Box>
+                      <Box mt={3}> &rdquo;</Box>
+                      <Box
+                        width={"80%"}
+                        lineHeight={"140%"}
+                        display={"flex"}
+                        sx={{ flexGrow: 1 }}
+                        justifyContent={"flex-end"}
+                        alignItems={"flex-end"}
+                        fontFamily="SuisseIntl"
+                        fontWeight={400}
+                        mr={6}
+                        fontSize={"15px"}
+                      >
+                        {e.quote}
+                      </Box>
                     </Box>
-                  </Box>
+                  )}
                 </SwiperSlide>
               );
             })}
@@ -164,12 +171,11 @@ const TeamCarousel = () => {
             breakpoints={{
               // when window width is >= 320px
               320: {
-                slidesPerView: 1,
-                spaceBetween: 20,
+                slidesPerView: 1.17,
               },
               // when window width is >= 480px
               480: {
-                slidesPerView: 1,
+                slidesPerView: 1.3,
                 spaceBetween: 20,
               },
               // when window width is >= 640px
@@ -178,23 +184,27 @@ const TeamCarousel = () => {
                 spaceBetween: 20,
               },
               900: {
-                slidesPerView: 1.5,
+                slidesPerView: 1.8,
                 spaceBetween: 20,
               },
               1200: {
-                slidesPerView: 1.5,
-                spaceBetween: 20,
+                slidesPerView: 1.8,
               },
               1536: {
                 slidesPerView: 2.5,
-                spaceBetween: 20,
               },
             }}
           >
             {teamData.map((e, idx) => {
               return (
                 <SwiperSlide key={idx}>
-                  <Box ml={5} mb={10} height={"553px"} p={8} border={"1px solid #F5F5F7"} boxShadow={"0px 8px 32px rgba(27, 37, 74, 0.08)"} borderRadius={"14px"}>
+                  <Box
+                    style={isMobileView ? { maxWidth: "310px", height: "452px" } : { maxWidth: "781px", minHeight: "553px", padding: "72px" }}
+                    mb={4}
+                    border={"1px solid #F5F5F7"}
+                    boxShadow={"0px 8px 32px rgba(27, 37, 74, 0.08)"}
+                    borderRadius={"14px"}
+                  >
                     <Box width={"100%"} display={"flex"} mt={-3} justifyContent={"flex-end"} alignItems={"flex-end"}>
                       {e.titles.map((title) => {
                         return (
@@ -223,7 +233,7 @@ const TeamCarousel = () => {
                       {e.description}
                     </Box>
 
-                    <Box mt={1} ml={-3} height={e.sm ? "45%" : "40%"} display={"flex"}>
+                    <Box mt={6} ml={-3} height={e.sm ? "45%" : "40%"} display={"flex"}>
                       <Box pr={2}> &rdquo;</Box>
                       <Box width={e.sm ? "100%" : "70%"} display={"flex"} lineHeight={e.sm ? "22.1px" : "24.7px"} fontFamily="SuisseIntl" fontWeight={400}>
                         {e.quote}

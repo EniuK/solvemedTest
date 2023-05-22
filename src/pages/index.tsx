@@ -98,7 +98,7 @@ const Home: NextPage = () => {
           </Typography>
         </Box>
         {isMobileView ? (
-          //
+          // mobile
           <div>
             <StickyContainer>
               <Sticky>
@@ -192,7 +192,7 @@ const Home: NextPage = () => {
           <Box style={{ position: "absolute", margin: "90px auto ", rotate: "180deg", left: "30%" }}>
             <Image src={"/images/bg/medicalSpecialities.png"} width={"428.33px"} height={"434.42px"} alt={"gradientBackground"} priority />
           </Box>
-          <Box pt={30} pb={30}>
+          <Box pt={30} pb={10}>
             <Box>
               <Typography
                 component={motion.p}
@@ -213,7 +213,7 @@ const Home: NextPage = () => {
             </Box>
           </Box>
         </Box>
-        <Box pt={5} mt={5}>
+        <Box pt={5}>
           <Box
             display={"flex"}
             width={"100%"}
@@ -299,7 +299,7 @@ const Home: NextPage = () => {
             )}
           </Box>
         </Box>
-        <Box ml={1}>
+        <Box style={isMobileView ? { marginLeft: "16px" } : { marginLeft: "131.53px" }}>
           <TeamCarousel />
         </Box>
         <Box pt={30} pb={30}>
@@ -344,7 +344,7 @@ const Home: NextPage = () => {
               </Typography>
             </Box>
           )}
-          <Box ml={"16px"}>
+          <Box style={isMobileView ? { marginLeft: "16px" } : { marginLeft: "131.53px" }}>
             <AppCards />
           </Box>
         </Box>

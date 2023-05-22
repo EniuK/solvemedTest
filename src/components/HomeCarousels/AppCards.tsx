@@ -63,14 +63,14 @@ const AppCards = () => {
       data-aos-once="true"
       data-aos-anchor-placement="center"
       display={"flex"}
-      width={"100vw"}
+      width={"100"}
       justifyContent={"center"}
       alignItems={"center"}
       mt={"40px"}
       className={styles.onBigScreen}
     >
       <Swiper
-        slidesPerView={istabletView ? 1.3 : isMobileView ? 2 : 3.3}
+        slidesPerView={istabletView ? 1.13 : isMobileView ? 2 : 3.7}
         spaceBetween={0}
         pagination={{
           clickable: true,
@@ -86,7 +86,7 @@ const AppCards = () => {
               <Box
                 overflow={"hidden"}
                 maxWidth={"356px"}
-                style={istabletView ? { width: "280px", height: "417px" } : {}}
+                style={istabletView ? { width: "301px", height: "417px" } : {}}
                 key={idx}
                 mb={10}
                 bgcolor={"rgba(255, 255, 255, 1)"}

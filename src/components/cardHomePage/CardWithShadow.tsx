@@ -11,44 +11,44 @@ const cardData = [
   {
     title: "FDA-listed",
     description: "class I medical device.",
-    src: "/images/homePage/securityicon.png",
+    src: "/images/homePage/securityicon.svg",
   },
 
   {
     title: "HIPPA  compliant",
     description: "Designed for privacy and security. ",
-    src: "/images/homePage/medicalicon.png",
+    src: "/images/homePage/medicalicon.svg",
   },
   {
     title: "User friendly",
     description: "Faster to use than a traditional penlight.",
-    src: "/images/homePage/userwithhearth.png",
+    src: "/images/homePage/userwithhearth.svg",
   },
   {
     title: "Clinically tested",
     description: "Measurement accuracy and reliability proven clinically.",
-    src: "/images/homePage/cross.png",
+    src: "/images/homePage/cross.svg",
   },
   {
     title: "Reduces risks ",
     description: "Offers the trust you need when examining the brain.",
-    src: "/images/homePage/warning.png",
+    src: "/images/homePage/warning.svg",
   },
   {
     title: "AI Driven ",
     description: "Supported by cutting-edge Machine Learning technology.",
-    src: "/images/homePage/Ai.png",
+    src: "/images/homePage/Ai.svg",
   },
   {
     title: "Works offline",
     description: "No internet access needed to conduct tests.",
-    src: "/images/homePage/connection.png",
+    src: "/images/homePage/connection.svg",
   },
 
   {
     title: "Sustainable ",
     description: "Designed with the planet in mind.",
-    src: "/images/homePage/leafempty.png",
+    src: "/images/homePage/leafempty.svg",
   },
 ];
 
@@ -56,46 +56,46 @@ const cardDataMobile = [
   {
     title: "FDA-listed",
     description: "class I medical device.",
-    src: "/images/homePage/securityicon.png",
+    src: "/images/homePage/securityicon.svg",
   },
 
   {
     title: "HIPPA  compliant",
     description: "Designed for privacy and security. ",
-    src: "/images/homePage/medicalicon.png",
+    src: "/images/homePage/medicalicon.svg",
     paddingR: true,
   },
   {
     title: "User friendly",
     description: "Faster to use than a traditional penlight.",
-    src: "/images/homePage/userwithhearth.png",
+    src: "/images/homePage/userwithhearth.svg",
   },
   {
     title: "Clinically tested",
     description: "Measurement accuracy and reliability proven clinically.",
-    src: "/images/homePage/cross.png",
+    src: "/images/homePage/cross.svg",
   },
   {
     title: "AI Driven ",
     description: "Supported by cutting-edge Machine Learning technology.",
-    src: "/images/homePage/Ai.png",
+    src: "/images/homePage/Ai.svg",
   },
   {
     title: "Works offline",
     description: "No internet access needed to conduct tests.",
-    src: "/images/homePage/connection.png",
+    src: "/images/homePage/connection.svg",
   },
   {
     title: "Reduces risks ",
     description: "Offers the trust you need when examining the brain.",
-    src: "/images/homePage/warning.png",
+    src: "/images/homePage/warning.svg",
     paddingR: true,
   },
 
   {
     title: "Sustainable ",
     description: "Designed with the planet in mind.",
-    src: "/images/homePage/leafempty.png",
+    src: "/images/homePage/leafempty.svg",
   },
 ];
 

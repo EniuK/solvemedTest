@@ -1,16 +1,52 @@
 import { Box, Typography, useMediaQuery, Slide } from "@mui/material";
 import Image from "next/image";
-import React, { useEffect } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { theme } from "../../config/theme";
-import { Swiper, SwiperSlide } from "swiper/react";
-import SwiperCore, { Navigation } from "swiper";
 import AOS from "aos";
-import styles from "../../components/cardHomePage/cardWithShadow.module.css";
-import "swiper/css";
-import "swiper/css/pagination";
-import "swiper/swiper.min.css";
 
-import { Pagination } from "swiper";
+import SwiperCore, { Navigation } from "swiper";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+const teamData = [
+  {
+    name: "Dr Fion Bremner, MD",
+    description: "Consultant Neuro-ophthalmologist and Ophthalmic Surgeon, University College London Hospitals, President of European Neuro-Ophthalmology Association",
+    avatar: "/images/homePage/avatars/Bremner.png",
+    quote:
+      "If an App could be developed allowing pupil measurements to be made using a smartphone then this would be hugely valuable and I predict would very quickly become part of standard clinical practice.",
+    titles: ["Neuro-opthalmologist"],
+    sm: false,
+  },
+  {
+    name: "Professor Sanjay Manohar, M.D.",
+    description: "Neurologist and Clinical Researcher, Oxford University",
+    avatar: "/images/homePage/avatars/Manohar.png",
+    quote: "Solvemed is likely to succeed because of its unique combination of scientists, programmers and clinicians working on the problem.",
+    titles: ["Neurologist"],
+    sm: false,
+  },
+  {
+    name: "Dr. James Neffendorf, M.D.",
+    description: "Consultant Ophthalmologist and Vitreoretinal Surgeon (Locum) at King’s College Hospital NHS Foundation Trust",
+    avatar: "/images/homePage/avatars/Neffendorf.png",
+    quote: "The Solvemed AI penlight/pupillometer has the potential to modernise pupillary assessment and improve patient care.",
+    titles: ["Ophthalmologist"],
+    sm: false,
+  },
+  {
+    name: "Dr. Gregg J. Berdy",
+    description:
+      "President of Ophthalmology Associates, ran the FDA’s pivotal Xalatan trial. Anterior segment surgeon, elected to membership in the prestigious Castroviejo Corneal Society.",
+    avatar: "/images/homePage/avatars/Berdy.png",
+    quote:
+      "Nobody tracks pupils accurately. Industry-wide standardised pupillary measurements are the future of care. There is high demand for a smartphone-enabled, reliable, scalable noninvasive diagnostic. This would be adopted across the entire industry.",
+    titles: ["Ophthalmologist"],
+    sm: true,
+  },
+];
+
 const TeamCarousel = () => {
   const isMobileView = useMediaQuery(theme.breakpoints.down("md"));
   const desktop = useMediaQuery(theme.breakpoints.up("lg"));
@@ -18,48 +54,26 @@ const TeamCarousel = () => {
 
   useEffect(() => {
     AOS.init();
-
     return () => {
       AOS.refresh();
     };
   }, [AOS]);
-  const teamData = [
-    {
-      name: "Dr Fion Bremner, MD",
-      description: "Consultant Neuro-ophthalmologist and Ophthalmic Surgeon, University College London Hospitals, President of European Neuro-Ophthalmology Association",
-      avatar: "/images/homePage/avatars/Bremner.png",
-      quote:
-        "If an App could be developed allowing pupil measurements to be made using a smartphone then this would be hugely valuable and I predict would very quickly become part of standard clinical practice.",
-      titles: ["Neuro-opthalmologist"],
-      sm: false,
-    },
-    {
-      name: "Professor Sanjay Manohar, M.D.",
-      description: "Neurologist and Clinical Researcher, Oxford University",
-      avatar: "/images/homePage/avatars/Manohar.png",
-      quote: "Solvemed is likely to succeed because of its unique combination of scientists, programmers and clinicians working on the problem.",
-      titles: ["Neurologist"],
-      sm: false,
-    },
-    {
-      name: "Dr. James Neffendorf, M.D.",
-      description: "Consultant Ophthalmologist and Vitreoretinal Surgeon (Locum) at King’s College Hospital NHS Foundation Trust",
-      avatar: "/images/homePage/avatars/Neffendorf.png",
-      quote: "The Solvemed AI penlight/pupillometer has the potential to modernise pupillary assessment and improve patient care.",
-      titles: ["Ophthalmologist"],
-      sm: false,
-    },
-    {
-      name: "Dr. Gregg J. Berdy",
-      description:
-        "President of Ophthalmology Associates, ran the FDA’s pivotal Xalatan trial. Anterior segment surgeon, elected to membership in the prestigious Castroviejo Corneal Society.",
-      avatar: "/images/homePage/avatars/Berdy.png",
-      quote:
-        "Nobody tracks pupils accurately. Industry-wide standardised pupillary measurements are the future of care. There is high demand for a smartphone-enabled, reliable, scalable noninvasive diagnostic. This would be adopted across the entire industry.",
-      titles: ["Ophthalmologist"],
-      sm: true,
-    },
-  ];
+
+  const swiperRef = useRef(null);
+
+  const slideNext = () => {
+    if (swiperRef.current && swiperRef.current.swiper) {
+      swiperRef.current.swiper.slideNext();
+    }
+  };
+
+  const slidePrev = () => {
+    if (swiperRef.current && swiperRef.current.swiper) {
+      swiperRef.current.swiper.slidePrev();
+    }
+  };
+
+  // swipper desktop
 
   return (
     <Box
@@ -73,18 +87,7 @@ const TeamCarousel = () => {
     >
       {isMobileView ? (
         <Box>
-          <Swiper
-            slidesPerView={1.15}
-            spaceBetween={20}
-            navigation
-            pagination={{
-              clickable: true,
-            }}
-            modules={[Pagination]}
-            className="mySwiper"
-            slidesOffsetBefore={0}
-            slidesOffsetAfter={0}
-          >
+          <Swiper slidesPerView={1.15} spaceBetween={20} className="mySwiper1" slidesOffsetBefore={0} slidesOffsetAfter={0}>
             {teamData.map((e, idx) => {
               return (
                 <SwiperSlide key={idx}>
@@ -95,7 +98,6 @@ const TeamCarousel = () => {
                     pr={0}
                     pt={"16px"}
                     mt={3}
-                    mb={5}
                     border={"1px solid #F5F5F7"}
                     boxShadow={"0px 8px 32px rgba(27, 37, 74, 0.08)"}
                     borderRadius={"22px"}
@@ -158,33 +160,18 @@ const TeamCarousel = () => {
         <Box width={"100%"} mt={10}>
           <Swiper
             spaceBetween={20}
-            pagination={{
-              clickable: true,
-            }}
-            navigation
-            modules={[Pagination]}
             className="mySwiper"
             slidesOffsetBefore={50}
             slidesOffsetAfter={50}
+            onSwiper={(swiper) => {
+              swiperRef.current = swiper;
+            }}
+            pagination={false}
+            navigation={{
+              prevEl: ".swiper-button-prev1",
+              nextEl: ".swiper-button-next1",
+            }}
             breakpoints={{
-              // when window width is >= 320px
-              320: {
-                slidesPerView: 1.17,
-              },
-              // when window width is >= 480px
-              480: {
-                slidesPerView: 1.3,
-                spaceBetween: 20,
-              },
-              // when window width is >= 640px
-              600: {
-                slidesPerView: 1.5,
-                spaceBetween: 20,
-              },
-              900: {
-                slidesPerView: 1.8,
-                spaceBetween: 20,
-              },
               1200: {
                 slidesPerView: 1.8,
               },
@@ -197,7 +184,7 @@ const TeamCarousel = () => {
               return (
                 <SwiperSlide key={idx}>
                   <Box
-                    style={{ maxWidth: "781px", minHeight: "603px", padding: "72px" }}
+                    style={{ maxWidth: "781px", minHeight: "603px", padding: "72px", paddingBottom: 0 }}
                     mb={4}
                     border={"1px solid #F5F5F7"}
                     boxShadow={"0px 8px 32px rgba(27, 37, 74, 0.08)"}
@@ -244,6 +231,15 @@ const TeamCarousel = () => {
               );
             })}
           </Swiper>
+
+          <Box display={"flex"} mt={5} width={"100%"} justifyContent={"flex-end"} alignItems={"flex-end"} pr={"131px"}>
+            <Box className="swiper-button-prev1" style={{ cursor: "pointer" }} onClick={() => slidePrev()} mr={2}>
+              <Image src={"/images/icons/buttonLeft.svg"} alt="Previous" width={"48px"} height={"48px"} />
+            </Box>
+            <Box className="swiper-button-next1" style={{ cursor: "pointer" }} onClick={() => slideNext()}>
+              <Image src={"/images/icons/buttonRight.svg"} alt="Next" width={"48px"} height={"48px"} />
+            </Box>
+          </Box>
         </Box>
       )}
     </Box>

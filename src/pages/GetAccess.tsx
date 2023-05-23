@@ -275,6 +275,7 @@ const MailchimpForms = ({ status, message, onValidated }: any) => {
                           <MenuItem value="Ophthalmologist">Ophthalmologist</MenuItem>
                           <MenuItem value="Neuro-ophthalmologists">Neuro-ophthalmologists</MenuItem>
                           <MenuItem value="Optometrist">Optometrist</MenuItem>
+                          <MenuItem value="Optometrist">Other</MenuItem>
                         </Select>
                       </FormControl>
                     </Box>

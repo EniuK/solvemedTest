@@ -5,7 +5,7 @@ import Header from "./header";
 import { AnimatePresence, motion } from "framer-motion";
 import { useRouter } from "next/router";
 import MailchimpSubscribe from "../components/PopUp/PopUpMailchimp";
-
+import CookiePopUp from "../components/PopUp/cookiePopUp";
 const variants = {
   initial: {
     transition: {
@@ -33,6 +33,18 @@ const Layout = ({ children }: { children: ReactNode }) => {
   const isHomeRoute = asPath === "/";
   const shouldAdjustBgImage = isSmallViewport && !isHomeRoute;
   const [notify, setNotify] = useState(false);
+  const [cookieRefresh, setCookieRefresh] = useState(true);
+  const [showCookie, setShowCookie] = useState(false);
+  useEffect(() => {
+    const cookieVariable = localStorage.getItem("solvemed-cookie-consent");
+
+    if (cookieVariable) {
+      setShowCookie(false);
+    } else {
+      setShowCookie(true);
+    }
+  }, [cookieRefresh]);
+
   const closeNotify = () => {
     setNotify(false);
   };
@@ -67,6 +79,7 @@ const Layout = ({ children }: { children: ReactNode }) => {
   return (
     <Box>
       {notify ? <MailchimpSubscribe onClose={closeNotify} /> : null}
+      {showCookie && <CookiePopUp setUnlockScroll={() => setCookieRefresh(!cookieRefresh)} />}
 
       <Box
         style={{

@@ -12,6 +12,7 @@
     "@emotion/react": "^11.10.4",
     "@emotion/styled": "^11.10.4",
     "@mui/material": "^5.10.4",
+    "add": "^2.0.6",
     "animate.css": "^4.1.1",
     "aos": "^3.0.0-beta.6",
     "formik": "^2.2.9",
@@ -28,6 +29,7 @@
     "react-sticky": "^6.0.3",
     "slick-carousel": "^1.8.1",
     "swiper": "^9.2.4",
+    "yarn": "^1.22.19",
     "yup": "^0.32.11"
   },
   "devDependencies": {

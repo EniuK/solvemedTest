@@ -1,4 +1,4 @@
-import { Box, Link, Typography, Divider, Input, Button, useMediaQuery } from "@mui/material";
+import { Box, Link, Typography, Divider, Button, useMediaQuery } from "@mui/material";
 import Image from "next/image";
 import { theme } from "../config/theme";
 import JoinNewsletterMailchimp from "./JoinNewsletter/JoinNewsletteMailchimp";
@@ -81,7 +81,7 @@ const Footer = () => {
                   </Link>
                 </Box>
               </Box>
-              <Box mt={5} display={"flex"} width={"100vw"} justifyContent={"center"} style={{ position: "fixed", bottom: 10, zIndex: 300 }} alignItems={"center"}>
+              <Box mt={5} display={"flex"} width={"100vw"} justifyContent={"center"} style={{ position: "fixed", bottom: 10, zIndex: 600 }} alignItems={"center"}>
                 <Box
                   borderRadius={"100px"}
                   boxShadow={"0px 8px 32px rgba(27, 37, 74, 0.08)"}

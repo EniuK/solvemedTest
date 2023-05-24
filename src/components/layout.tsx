@@ -54,13 +54,7 @@ const Layout = ({ children }: { children: ReactNode }) => {
       setNotify(true);
     }, 30000);
   };
-  //   const popupAlreadyShown = localstorage.getItem... === 'true'
 
-  // const popupAlreadyShownInSession = sessionStorage.getItem === 'true'
-
-  // if (!popupAlreadyShown && !popupAlreadyShownInSession) {
-  //     wykonaj kod
-  // }
   useEffect(() => {
     const isVariableSet = sessionStorage.getItem("solvemed-email-popup-shown");
     const secondVariable = localStorage.getItem("solvemed-email-popup");
@@ -96,6 +90,8 @@ const Layout = ({ children }: { children: ReactNode }) => {
 
           <AnimatePresence mode="wait" initial={true}>
             <motion.main key={asPath} variants={variants} initial="initial" animate="animate" exit="exit">
+              <Box marginTop={20} />
+
               {children}
 
               <motion.div

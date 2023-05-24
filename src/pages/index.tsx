@@ -172,7 +172,7 @@ const Home: NextPage = () => {
                   </Typography>
                 </Box>
               </Box>
-              <Box mt={100} ml={"131.53px"}>
+              <Box mt={100} mb={100} ml={"131.53px"}>
                 <Box textAlign={"left"}>
                   <Typography variant="fin64">mPenlight</Typography>
                   <Box textAlign={"left"} maxWidth={"25%"}>

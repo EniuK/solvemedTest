@@ -4,21 +4,19 @@
   align-items: center;
   margin-bottom: 145px;
   flex-wrap: wrap;
-  position: relative;
-  height: 35px;
-
-
-
-  
+  position: fixed;
+  height: 100px;
+padding: 0 55px;
+justify-content: space-between;
+align-items: center;
+width: 100%;
+background-color: white;
+top: 0;
+z-index: 600;
 }
 
-.logoLinkContainer {
 
-  position: absolute;
 
-  display: flex;
-  width: "10%";
-}
 
 .menuListItemLink {
   position: relative;
@@ -45,4 +43,24 @@
   background-color: transparent;
 }
 
-
+@media (max-width: 900px) {
+  .header {
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+top:0;
+margin: 0;
+padding: 0 16px;
+flex-wrap: nowrap;
+  }
+  .logoLinkContainer {
+top: 0;
+ padding-left: 16px;
+    width: 60%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: "10%";
+    height: 100%;
+  }
+}

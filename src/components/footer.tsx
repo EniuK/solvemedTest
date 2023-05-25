@@ -206,7 +206,7 @@ const Footer = () => {
             width={isLargeviewport ? "100vw" : "100%"}
             ml={isLargeviewport ? -35 : -11}
             pl={isLargeviewport ? 0 : 6}
-            style={{ position: "fixed", bottom: 0, justifyContent: "flex-end", alignItems: "flex-end", zIndex: 10 }}
+            style={{ position: "fixed", bottom: 0, justifyContent: "flex-end", alignItems: "flex-end", zIndex: 600 }}
             mb={-2}
             justifyContent={"flex-end"}
             alignItems={"flex-end"}

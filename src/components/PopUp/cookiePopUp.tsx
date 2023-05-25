@@ -1,5 +1,4 @@
-import { Box, Typography, Button, useMediaQuery, TextField } from "@mui/material";
-import Image from "next/image";
+import { Box, Button } from "@mui/material";
 
 import PopUpWrapper from "./PopUpWrapper";
 

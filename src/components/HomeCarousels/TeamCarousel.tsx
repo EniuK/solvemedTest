@@ -18,6 +18,7 @@ const teamData = [
       "If an App could be developed allowing pupil measurements to be made using a smartphone then this would be hugely valuable and I predict would very quickly become part of standard clinical practice.",
     titles: ["Neuro-opthalmologist"],
     sm: false,
+    msm: false,
   },
   {
     name: "Professor Sanjay Manohar, M.D.",
@@ -26,6 +27,7 @@ const teamData = [
     quote: "Solvemed is likely to succeed because of its unique combination of scientists, programmers and clinicians working on the problem.",
     titles: ["Neurologist"],
     sm: false,
+    msm: false,
   },
   {
     name: "Dr. James Neffendorf, M.D.",
@@ -34,6 +36,7 @@ const teamData = [
     quote: "The Solvemed AI penlight/pupillometer has the potential to modernise pupillary assessment and improve patient care.",
     titles: ["Ophthalmologist"],
     sm: false,
+    msm: false,
   },
   {
     name: "Dr. Gregg J. Berdy",
@@ -44,9 +47,21 @@ const teamData = [
       "Nobody tracks pupils accurately. Industry-wide standardised pupillary measurements are the future of care. There is high demand for a smartphone-enabled, reliable, scalable noninvasive diagnostic. This would be adopted across the entire industry.",
     titles: ["Ophthalmologist"],
     sm: true,
+    msm: false,
+  },
+  {
+    name: "Dr Simon Raby",
+    description: "Clinical Director Oxford Major Trauma Centre",
+    avatar: "/images/homePage/avatars/Simon.png",
+    quote:
+      "With accurate, repeatable assessment of pupil size, this application could improve diagnosis of life-threatening complications of traumatic brain injury. This could reduce time to surgery, improve tertiary neurosciences services and deliver patient centred care.",
+    titles: ["Intensivist"],
+    sm: false,
+    msm: true,
   },
 ];
-
+// sm - zmienna na cos malego
+// msm - super maly napis, duze paddingi etc
 const TeamCarousel = () => {
   const isMobileView = useMediaQuery(theme.breakpoints.down("md"));
   const desktop = useMediaQuery(theme.breakpoints.up("lg"));
@@ -132,7 +147,7 @@ const TeamCarousel = () => {
                         {e.name}
                       </Typography>
                     </Box>
-                    <Box width={"100%"} mt={2} pr={10} fontFamily="SuisseIntl" lineHeight={"150%"} fontWeight={300} color={"#5E5E5E"} fontSize={"12px"}>
+                    <Box width={e.msm ? "63%" : "100%"} mt={2} pr={10} fontFamily="SuisseIntl" lineHeight={"150%"} fontWeight={300} color={"#5E5E5E"} fontSize={"12px"}>
                       {e.description}
                     </Box>
                     <Box mt={3}> &rdquo;</Box>
@@ -209,13 +224,13 @@ const TeamCarousel = () => {
                       })}
                     </Box>
                     <Box>
-                      <Image src={e.avatar} alt={e.name} width={"100px"} height={"100px"} priority />
+                      <Image src={e.avatar} style={e.msm ? { borderRadius: "50%" } : {}} alt={e.name} width={"100px"} height={"100px"} priority />
                     </Box>
                     <Box width={"100%"} fontFamily="FinancierDisplay" fontWeight={400} lineHeight={"130%"} letterSpacing={"-0.01em"} mt={2} fontSize={"21px"}>
                       {e.name}
                     </Box>
                     <Box flexGrow={1} style={e.sm ? { marginBottom: -10 } : {}}>
-                      <Box width={"55%"} height={"40%"} lineHeight={"150%"} mt={2} fontFamily="SuisseIntl" fontWeight={300} color={"#5E5E5E"} fontSize={"14px"}>
+                      <Box width={e.msm ? "25%" : "55%"} height={"40%"} lineHeight={"150%"} mt={2} fontFamily="SuisseIntl" fontWeight={300} color={"#5E5E5E"} fontSize={"14px"}>
                         {e.description}
                       </Box>
 

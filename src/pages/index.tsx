@@ -35,12 +35,24 @@ const logosMobile = [
 
 const Home: NextPage = () => {
   const isMobileView = useMediaQuery(theme.breakpoints.down("md"));
+  // const [distanceFromTop, setDistanceFromTop] = useState(0);
+  // console.log(distanceFromTop);
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     const element = document.getElementById("fixedElement");
+  //     if (element) {
+  //       const { top } = element.getBoundingClientRect();
+  //       const scrollTop = window.scrollY || window.pageYOffset;
+  //       setDistanceFromTop(356 + scrollTop);
+  //     }
+  //   };
 
-  const [elementheight, setElementHeight] = useState("");
-  // start text
+  //   window.addEventListener("scroll", handleScroll);
 
-  //end test
-
+  //   return () => {
+  //     window.removeEventListener("scroll", handleScroll);
+  //   };
+  // }, []);
   // gradient text handler
   const gradientText1 = ["practitioners", "students", "nurses", "researchers"];
 
@@ -99,14 +111,19 @@ const Home: NextPage = () => {
         </Box>
         {isMobileView ? (
           // mobile
-          // mobile
           <div>
             <StickyContainer>
               <Sticky>
                 {({ style }: any) => (
-                  <div style={{ ...style, zIndex: 3, display: "flex", justifyContent: "center", alignItems: "center" }}>
+                  <div id="fixedElement" style={{ ...style, zIndex: 3, display: "flex", justifyContent: "center", alignItems: "center" }}>
                     <LazyLoadComponent visibleByDefault={true}>
-                      <Box mt={-7} width={"264.63px"} height={"567.63px"} zIndex={3}>
+                      <Box
+                        mt={3}
+                        width={"264.63px"}
+                        height={"567.63px"}
+                        // style={distanceFromTop < 900 && distanceFromTop > 356 ? { position: "fixed", bottom: -200 } : { position: "sticky" }}
+                        zIndex={3}
+                      >
                         <video controls={false} autoPlay muted loop playsInline width="100%" height={"100%"}>
                           <source src={"https://strapi-s3-solvemed-public-images.s3.amazonaws.com/iPhone+animation+looped.mov"} type="video/mp4" />
                         </video>
@@ -151,7 +168,7 @@ const Home: NextPage = () => {
                 {({ style }: any) => (
                   <div style={{ ...style, zIndex: 3, display: "flex", justifyContent: "center", alignItems: "center" }}>
                     <LazyLoadComponent visibleByDefault={true}>
-                      <Box mt={-7} maxWidth={"426.92px"} maxHeight={"750px"} zIndex={3}>
+                      <Box mt={3} maxWidth={"426.92px"} maxHeight={"750px"} zIndex={3}>
                         <video controls={false} autoPlay muted loop playsInline width="100%" height={"100%"} style={{ zIndex: 3 }}>
                           <source src={"https://strapi-s3-solvemed-public-images.s3.amazonaws.com/iPhone+animation+looped.mov"} type="video/mp4" />
                         </video>

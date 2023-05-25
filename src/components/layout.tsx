@@ -68,8 +68,6 @@ const Layout = ({ children }: { children: ReactNode }) => {
     }
   }, []);
 
-  // scroll up
-
   return (
     <Box>
       {notify ? <MailchimpSubscribe onClose={closeNotify} /> : null}

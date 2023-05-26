@@ -5,6 +5,7 @@ import { theme } from "../../config/theme";
 import AOS from "aos";
 import SwiperCore, { Navigation, Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
+import styles from "./TeamCarousel.module.css";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -98,13 +99,16 @@ const TeamCarousel = () => {
       data-aos-easing="ease-out"
       data-aos-once="true"
       data-aos-anchor-placement="center"
+      marginLeft={"-16px"}
+      paddingLeft={"32px"}
+      paddingRight={"40px"}
     >
       {isMobileView ? (
         <Box>
-          <Swiper slidesPerView={1.2} modules={[Pagination]} pagination={true} className="mySwiper1" slidesOffsetBefore={0} slidesOffsetAfter={0}>
+          <Swiper slidesPerView={1.3} style={{ width: "100vw" }} modules={[Pagination]} pagination={true} className="mySwiper1" slidesOffsetBefore={0} slidesOffsetAfter={0}>
             {teamData.map((e, idx) => {
               return (
-                <SwiperSlide key={idx}>
+                <SwiperSlide className={styles.mySwiper12} key={idx}>
                   <Box
                     minHeight={"452px"}
                     maxWidth={"301px"}

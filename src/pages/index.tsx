@@ -338,7 +338,7 @@ const Home: NextPage = () => {
             )}
           </Box>
         </Box>
-        <Box style={isMobileView ? { marginLeft: "16px" } : { marginLeft: "131.53px" }}>
+        <Box style={isMobileView ? {} : { marginLeft: "131.53px" }}>
           <TeamCarousel />
         </Box>
         <Box pt={30} pb={30}>

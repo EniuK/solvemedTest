@@ -3,8 +3,7 @@ import Image from "next/image";
 import React, { useEffect, useRef, useState } from "react";
 import { theme } from "../../config/theme";
 import AOS from "aos";
-
-import SwiperCore, { Navigation } from "swiper";
+import SwiperCore, { Navigation, Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
@@ -65,7 +64,7 @@ const teamData = [
 const TeamCarousel = () => {
   const isMobileView = useMediaQuery(theme.breakpoints.down("md"));
   const desktop = useMediaQuery(theme.breakpoints.up("lg"));
-  SwiperCore.use([Navigation]);
+  SwiperCore.use([Navigation, Pagination]);
 
   useEffect(() => {
     AOS.init();
@@ -102,17 +101,19 @@ const TeamCarousel = () => {
     >
       {isMobileView ? (
         <Box>
-          <Swiper slidesPerView={1.15} spaceBetween={20} className="mySwiper1" slidesOffsetBefore={0} slidesOffsetAfter={0}>
+          <Swiper slidesPerView={1.2} modules={[Pagination]} pagination={true} className="mySwiper1" slidesOffsetBefore={0} slidesOffsetAfter={0}>
             {teamData.map((e, idx) => {
               return (
                 <SwiperSlide key={idx}>
                   <Box
                     minHeight={"452px"}
+                    maxWidth={"301px"}
                     p={3}
                     position={"relative"}
                     pr={0}
                     pt={"16px"}
                     mt={3}
+                    mb={5}
                     border={"1px solid #F5F5F7"}
                     boxShadow={"0px 8px 32px rgba(27, 37, 74, 0.08)"}
                     borderRadius={"22px"}
@@ -142,12 +143,12 @@ const TeamCarousel = () => {
                       </Box>
                     </Box>
 
-                    <Box width={"100%"} mt={4} mr={6}>
+                    <Box width={"90%"} mt={4} mr={6}>
                       <Typography fontFamily="FinancierDisplay" fontSize={"18px"} fontWeight={400} lineHeight={"130%"} letterSpacing={"-0.01em"}>
                         {e.name}
                       </Typography>
                     </Box>
-                    <Box width={e.msm ? "63%" : "100%"} mt={2} pr={10} fontFamily="SuisseIntl" lineHeight={"150%"} fontWeight={300} color={"#5E5E5E"} fontSize={"12px"}>
+                    <Box width={e.msm ? "90%" : "90%"} mt={2} pr={5} fontFamily="SuisseIntl" lineHeight={"150%"} fontWeight={300} color={"#5E5E5E"} fontSize={"12px"}>
                       {e.description}
                     </Box>
                     <Box mt={3}> &rdquo;</Box>
@@ -172,16 +173,17 @@ const TeamCarousel = () => {
           </Swiper>
         </Box>
       ) : (
-        <Box width={"100%"} mt={10}>
+        <Box width={"100%"} mt={5}>
           <Swiper
             spaceBetween={20}
             className="mySwiper"
             slidesOffsetBefore={50}
             slidesOffsetAfter={50}
+            modules={[Pagination]}
             onSwiper={(swiper) => {
               swiperRef.current = swiper;
             }}
-            pagination={false}
+            pagination={true}
             navigation={{
               prevEl: ".swiper-button-prev1",
               nextEl: ".swiper-button-next1",
@@ -200,7 +202,8 @@ const TeamCarousel = () => {
                 <SwiperSlide key={idx}>
                   <Box
                     style={{ maxWidth: "781px", minHeight: "603px", padding: "72px", paddingBottom: 0 }}
-                    mb={4}
+                    mt={10}
+                    mb={10}
                     border={"1px solid #F5F5F7"}
                     boxShadow={"0px 8px 32px rgba(27, 37, 74, 0.08)"}
                     borderRadius={"14px"}
@@ -247,7 +250,7 @@ const TeamCarousel = () => {
             })}
           </Swiper>
 
-          <Box display={"flex"} mt={5} width={"100%"} justifyContent={"flex-end"} alignItems={"flex-end"} pr={"131px"}>
+          <Box display={"flex"} width={"100%"} justifyContent={"flex-end"} alignItems={"flex-end"} pr={"131px"}>
             <Box className="swiper-button-prev1" style={{ cursor: "pointer" }} onClick={() => slidePrev()} mr={2}>
               <Image src={"/images/icons/buttonLeft.svg"} alt="Previous" width={"48px"} height={"48px"} />
             </Box>

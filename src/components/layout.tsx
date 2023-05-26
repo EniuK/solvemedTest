@@ -52,18 +52,18 @@ const Layout = ({ children }: { children: ReactNode }) => {
   const popUpTimer = () => {
     setTimeout(() => {
       setNotify(true);
-    }, 30000);
+    }, 1000);
   };
 
   useEffect(() => {
     const isVariableSet = sessionStorage.getItem("solvemed-email-popup-shown");
     const secondVariable = localStorage.getItem("solvemed-email-popup");
 
-    if (!secondVariable && !isVariableSet) {
+    if (secondVariable !== "true" && isVariableSet !== "true") {
       popUpTimer();
 
       sessionStorage.setItem("solvemed-email-popup-shown", "true");
-    } else if (isVariableSet && !secondVariable) {
+    } else if (isVariableSet === "true" && secondVariable !== "true") {
       popUpTimer();
     }
   }, []);

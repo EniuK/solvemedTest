@@ -1,6 +1,7 @@
-import { Box, Link, Typography, Divider, Button, useMediaQuery } from "@mui/material";
+import { Box, Typography, Link, Divider, Button, useMediaQuery, MenuItem } from "@mui/material";
 import Image from "next/image";
 import { theme } from "../config/theme";
+import FooterLinks from "./FooterLinks";
 import JoinNewsletterMailchimp from "./JoinNewsletter/JoinNewsletteMailchimp";
 
 const menuItems = [
@@ -28,11 +29,11 @@ const Footer = () => {
                   </Box>
                   <Box alignItems={"flex-end"} justifyContent={"flex-end"} width={"50%"} display={"flex"}>
                     <Link href="https://www.linkedin.com/company/solvemed-group/" target="_blank" rel="noopener">
-                      <Image src="/images/icons/linkedin.png" alt="linkedin" width="40px" height="40px" />
+                      <Image src="/images/icons/linkedin.svg" alt="linkedin" width="40px" height="40px" />
                     </Link>
 
                     <Link href="https://twitter.com/solvemed" ml={3} target="_blank" rel="noopener">
-                      <Image src="/images/icons/twitter.png" alt="twitter" width="40px" height="40px" />
+                      <Image src="/images/icons/twitter.svg" alt="twitter" width="40px" height="40px" />
                     </Link>
                   </Box>
                 </Box>
@@ -163,11 +164,7 @@ const Footer = () => {
                   {menuItems.map((e, idx) => {
                     return (
                       <Box key={idx} width={"20%"} mr={3} display={"flex"} justifyContent={"flex-end"} alignItems={"flex-end"} textAlign={"right"}>
-                        <Link underline="none" href={e.link}>
-                          <Typography fontSize={"14px"} fontFamily="SuisseIntl" textAlign={"center"}>
-                            {e.title}
-                          </Typography>
-                        </Link>
+                        <FooterLinks el={e} />
                       </Box>
                     );
                   })}

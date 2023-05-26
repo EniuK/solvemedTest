@@ -13,7 +13,7 @@ const AppCards = () => {
   const isMobileView = useMediaQuery(theme.breakpoints.down("lg"));
   const istabletView = useMediaQuery(theme.breakpoints.down("md"));
   const swiperRef1 = useRef(null);
-  SwiperCore.use([Navigation]);
+  SwiperCore.use([Navigation, Pagination]);
 
   useEffect(() => {
     AOS.init();
@@ -81,7 +81,7 @@ const AppCards = () => {
         mt={"40px"}
       >
         <Swiper
-          slidesPerView={istabletView ? 1.13 : isMobileView ? 2 : 3.4}
+          slidesPerView={istabletView ? 1.15 : isMobileView ? 2 : 3.4}
           onSwiper={(swiper) => {
             swiperRef1.current = swiper;
           }}
@@ -92,7 +92,8 @@ const AppCards = () => {
           className="mySwiper"
           slidesOffsetBefore={!isMobileView ? 70 : 0}
           slidesOffsetAfter={!isMobileView ? 70 : 0}
-          pagination={false}
+          modules={[Pagination]}
+          pagination={true}
         >
           {appData.map((e, idx) => {
             return (
@@ -103,6 +104,7 @@ const AppCards = () => {
                   style={istabletView ? { width: "301px", height: "417px" } : {}}
                   key={idx}
                   mb={10}
+                  mt={5}
                   bgcolor={"rgba(255, 255, 255, 1)"}
                   border={"1px solid #F5F5F7"}
                   boxShadow={"0px 8px 32px rgba(27, 37, 74, 0.08)"}
@@ -117,6 +119,7 @@ const AppCards = () => {
                       justifyContent={"flex-start"}
                       textAlign={"left"}
                       alignItems="flex-start"
+                      width={"90%"}
                     >
                       {e.title}
                     </Box>

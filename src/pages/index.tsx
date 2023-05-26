@@ -135,7 +135,18 @@ const Home: NextPage = () => {
               <Box zIndex={-1} position={"absolute"} top={300}>
                 <Image src={"/images/bg/homegradient1.png"} width={"767.36px"} height={"756.02px"} alt={"gradient"} priority />
               </Box>
-              <Box mt={150} mb={100} textAlign={"center"} position={"relative"} data-aos="fade-up" data-aos-duration="1000" data-aos-once="true" width={{ xs: "100%" }}>
+              <Box
+                mt={150}
+                mb={100}
+                textAlign={"center"}
+                position={"relative"}
+                data-aos="fade-up"
+                data-aos-duration="1000"
+                data-aos-once="true"
+                data-aos-delay="1000"
+                data-aos-anchor-placement="center"
+                width={{ xs: "100%" }}
+              >
                 <Typography variant="fin64">
                   Forget about forgetting <br /> your penlight.
                 </Typography>
@@ -168,8 +179,8 @@ const Home: NextPage = () => {
                 {({ style }: any) => (
                   <div style={{ ...style, zIndex: 3, display: "flex", justifyContent: "center", alignItems: "center" }}>
                     <LazyLoadComponent visibleByDefault={true}>
-                      <Box mt={3} maxWidth={"426.92px"} maxHeight={"750px"} zIndex={3}>
-                        <video controls={false} autoPlay muted loop playsInline width="100%" height={"100%"} style={{ zIndex: 3 }}>
+                      <Box mt={15} maxWidth={"426.92px"} maxHeight={"750px"} zIndex={3}>
+                        <video controls={false} autoPlay muted loop playsInline width="100%" height={"629.65px"} style={{ zIndex: 3 }}>
                           <source src={"https://strapi-s3-solvemed-public-images.s3.amazonaws.com/iPhone+animation+looped.mov"} type="video/mp4" />
                         </video>
                       </Box>
@@ -180,7 +191,17 @@ const Home: NextPage = () => {
               <Box zIndex={-1} position={"absolute"} top={350} left={"20%"}>
                 <Image src={"/images/bg/homegradient1.png"} width={"767.36px"} height={"756.02px"} alt={"gradient"} priority />
               </Box>
-              <Box mt={100} textAlign={"center"} position={"relative"} data-aos="fade-up" data-aos-duration="1000" data-aos-once="true" width={{ xs: "100%" }} mb={100}>
+              <Box
+                mt={100}
+                textAlign={"center"}
+                position={"relative"}
+                data-aos="fade-up"
+                data-aos-duration="1000"
+                data-aos-once="true"
+                data-aos-delay="1000"
+                width={{ xs: "100%" }}
+                mb={100}
+              >
                 <Typography variant="fin64">Forget about forgetting your penlight.</Typography>
                 <br />
                 <Box mt={3}>
@@ -366,7 +387,7 @@ const Home: NextPage = () => {
             <AppCards />
           </Box>
         </Box>
-        <Box pt={30} pl={6} pr={6} pb={15}>
+        <Box pt={10} pl={6} pr={6} pb={15}>
           {isMobileView ? (
             <Box
               mt={10}
@@ -409,7 +430,6 @@ const Home: NextPage = () => {
             </Box>
           ) : (
             <Box
-              mt={10}
               pl={15}
               pr={15}
               width={"100%"}

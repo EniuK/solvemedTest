@@ -99,19 +99,17 @@ const TeamCarousel = () => {
       data-aos-easing="ease-out"
       data-aos-once="true"
       data-aos-anchor-placement="center"
-      marginLeft={"-16px"}
-      paddingLeft={"32px"}
-      paddingRight={"40px"}
     >
       {isMobileView ? (
-        <Box>
-          <Swiper slidesPerView={1.3} modules={[Pagination]} pagination={true} className="mySwiper1">
+        <Box width={"100%"} display={"flex"} pl={"16px"}>
+          <Swiper slidesPerView={1.23} slidesOffsetBefore={0} slidesOffsetAfter={0} modules={[Pagination]} pagination={true} className="mySwiper1">
             {teamData.map((e, idx) => {
               return (
-                <SwiperSlide className={styles.mySwiper12} key={idx}>
+                <SwiperSlide key={idx}>
                   <Box
                     minHeight={"452px"}
-                    maxWidth={"320px"}
+                    maxWidth={"356px"}
+                    width={"301px"}
                     p={3}
                     position={"relative"}
                     pr={0}

@@ -3,9 +3,9 @@ import { Form, Formik } from "formik";
 import { NextPage } from "next";
 import Head from "next/head";
 import { contactSchema, emailFailStatus } from "../utils/helpers";
-import styles from "./contact.module.css";
 import { motion } from "framer-motion";
 import { theme } from "../config/theme";
+import Image from "next/image";
 
 const initialValues = {
   name: "",
@@ -30,6 +30,9 @@ const Contact: NextPage<any> = () => {
       </div>
 
       <Box textAlign="center" px={"16px"}>
+        <Box position={"absolute"} width={"100%"} px={"16px"}>
+          <Image src={"/images/team/gradient1.png"} width={"705px"} height={"705px"} alt={"gradient"}></Image>
+        </Box>
         <Typography
           component={motion.p}
           style={isMobileView ? { fontSize: "48px", fontFamily: "FinancierDisplay", lineHeight: "150%" } : { fontSize: "64px", fontFamily: "FinancierDisplay", lineHeight: "150%" }}

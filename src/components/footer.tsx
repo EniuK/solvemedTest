@@ -71,13 +71,13 @@ const Footer = () => {
                   </Box>
                 </Box>
                 <Box pl={1}>
-                  <Link href="#" underline="none" color="primary.light" fontFamily={"SuisseIntl"} fontWeight={400} fontSize={"12px"} mr="29px">
+                  <Link href="/PrivacyPolicy" target={"_blank"} underline="none" color="primary.light" fontFamily={"SuisseIntl"} fontWeight={400} fontSize={"12px"} mr="29px">
                     Privacy Policy
                   </Link>
-                  <Link href="#" underline="none" color="primary.light" fontFamily={"SuisseIntl"} fontWeight={400} fontSize={"12px"} mr="29px">
+                  <Link href="/TermsOfUse" target={"_blank"} underline="none" color="primary.light" fontFamily={"SuisseIntl"} fontWeight={400} fontSize={"12px"} mr="29px">
                     Terms of Use
                   </Link>
-                  <Link href="#" underline="none" color="primary.light" fontFamily={"SuisseIntl"} fontWeight={400} fontSize={"12px"}>
+                  <Link href="/CookiePolicy" target={"_blank"} underline="none" color="primary.light" fontFamily={"SuisseIntl"} fontWeight={400} fontSize={"12px"}>
                     Cookie Policy
                   </Link>
                 </Box>
@@ -143,13 +143,13 @@ const Footer = () => {
               </Box>
 
               <Box mt={5} justifyContent={"flex-start"} alignItems={"flex-start"} width={"100%"}>
-                <Link href="#" underline="none" color="primary.light" fontFamily={"SuisseIntl"} fontWeight={400} fontSize={"12px"} mr="29px">
+                <Link href="/PrivacyPolicy" target={"_blank"} underline="none" color="primary.light" fontFamily={"SuisseIntl"} fontWeight={400} fontSize={"12px"} mr="29px">
                   Privacy Policy
                 </Link>
-                <Link href="#" underline="none" color="primary.light" fontFamily={"SuisseIntl"} fontWeight={400} fontSize={"12px"} mr="29px">
+                <Link href="/TermsOfUse" target={"_blank"} underline="none" color="primary.light" fontFamily={"SuisseIntl"} fontWeight={400} fontSize={"12px"} mr="29px">
                   Terms of Use
                 </Link>
-                <Link href="#" underline="none" color="primary.light" fontFamily={"SuisseIntl"} fontWeight={400} fontSize={"12px"}>
+                <Link href="/CookiePolicy" target={"_blank"} underline="none" color="primary.light" fontFamily={"SuisseIntl"} fontWeight={400} fontSize={"12px"}>
                   Cookie Policy
                 </Link>
               </Box>

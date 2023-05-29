@@ -102,7 +102,7 @@ const TeamCarousel = () => {
     >
       {isMobileView ? (
         <Box width={"100%"} display={"flex"} pl={"16px"}>
-          <Swiper slidesPerView={1.23} slidesOffsetBefore={0} slidesOffsetAfter={0} modules={[Pagination]} pagination={true} className="mySwiper1">
+          <Swiper slidesPerView={isMobileView ? 1.15 : 1.15} slidesOffsetBefore={0} slidesOffsetAfter={0} modules={[Pagination]} pagination={true} className="mySwiper1">
             {teamData.map((e, idx) => {
               return (
                 <SwiperSlide key={idx}>

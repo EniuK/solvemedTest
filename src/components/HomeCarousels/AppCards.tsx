@@ -135,6 +135,7 @@ const AppCards = () => {
                       lineHeight={"140%"}
                       pr={istabletView ? 0 : 3}
                       mt={2}
+                      width={"90%"}
                     >
                       {e.description}
                     </Box>

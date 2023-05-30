@@ -104,7 +104,7 @@ const TeamCarousel = () => {
       data-aos-anchor-placement="center"
     >
       {isMobileView ? (
-        <Box width={"100%"} display={"flex"} pl={"16px"}>
+        <Box ml={"-16px"} width={"100%"} display={"flex"}>
           <Swiper
             style={{ width: "100%", maxWidth: "301px" }}
             slidesPerView={1.3}

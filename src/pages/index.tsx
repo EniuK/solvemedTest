@@ -79,7 +79,7 @@ const Home: NextPage = () => {
         </Head>
       </div>
       <Box>
-        <Box>
+        <Box mt={-10}>
           <Typography
             component={motion.p}
             variant={"fin100"}

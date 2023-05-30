@@ -105,19 +105,11 @@ const TeamCarousel = () => {
     >
       {isMobileView ? (
         <Box ml={"-16px"} width={"100%"} display={"flex"}>
-          <Swiper
-            style={{ width: "100%", maxWidth: "301px" }}
-            slidesPerView={1.3}
-            slidesOffsetBefore={0}
-            slidesOffsetAfter={0}
-            modules={[Pagination]}
-            pagination={true}
-            className="mySwiper"
-          >
+          <Swiper slidesPerView={1.3} slidesOffsetBefore={0} slidesOffsetAfter={0} modules={[Pagination]} pagination={true} className="mySwiper">
             {teamData.map((e, idx) => {
               return (
                 <LazyLoadComponent key={idx}>
-                  <SwiperSlide style={{ maxWidth: "301px" }}>
+                  <SwiperSlide style={{ width: "100%", maxWidth: "301px" }}>
                     <Box
                       minHeight={"452px"}
                       maxWidth={"356px"}

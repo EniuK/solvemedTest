@@ -105,7 +105,7 @@ const TeamCarousel = () => {
           <Swiper slidesPerView={isMobileView ? 1.15 : 1.15} slidesOffsetBefore={0} slidesOffsetAfter={0} modules={[Pagination]} pagination={true} className="mySwiper1">
             {teamData.map((e, idx) => {
               return (
-                <SwiperSlide key={idx}>
+                <SwiperSlide key={idx} style={{ width: "80%" }}>
                   <Box
                     minHeight={"452px"}
                     maxWidth={"356px"}

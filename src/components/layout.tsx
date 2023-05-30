@@ -52,7 +52,7 @@ const Layout = ({ children }: { children: ReactNode }) => {
   const popUpTimer = () => {
     setTimeout(() => {
       setNotify(true);
-    }, 1000);
+    }, 30000);
   };
 
   useEffect(() => {

@@ -117,14 +117,8 @@ const Home: NextPage = () => {
                 {({ style }: any) => (
                   <div id="fixedElement" style={{ ...style, zIndex: 3, display: "flex", justifyContent: "center", alignItems: "center" }}>
                     <LazyLoadComponent visibleByDefault={true}>
-                      <Box
-                        mt={3}
-                        width={"264.63px"}
-                        height={"567.63px"}
-                        // style={distanceFromTop < 900 && distanceFromTop > 356 ? { position: "fixed", bottom: -200 } : { position: "sticky" }}
-                        zIndex={3}
-                      >
-                        <video controls={false} autoPlay muted loop playsInline width="100%" height={"100%"}>
+                      <Box mt={25} width={"264.63px"} height={"567.63px"} zIndex={3}>
+                        <video controls={false} poster={"/images/homePage/phone.png"} autoPlay muted loop playsInline width="100%" height={"100%"}>
                           <source src={"https://strapi-s3-solvemed-public-images.s3.amazonaws.com/iPhone+animation+looped.mov"} type="video/mp4" />
                         </video>
                       </Box>
@@ -179,8 +173,8 @@ const Home: NextPage = () => {
                 {({ style }: any) => (
                   <div style={{ ...style, zIndex: 3, display: "flex", justifyContent: "center", alignItems: "center" }}>
                     <LazyLoadComponent visibleByDefault={true}>
-                      <Box mt={15} maxWidth={"426.92px"} maxHeight={"750px"} zIndex={3}>
-                        <video controls={false} autoPlay muted loop playsInline width="100%" height={"629.65px"} style={{ zIndex: 3 }}>
+                      <Box mt={30} maxWidth={"426.92px"} maxHeight={"750px"} zIndex={3}>
+                        <video controls={false} poster={"/images/homePage/phone.png"} autoPlay muted loop playsInline width="100%" height={"629.65px"} style={{ zIndex: 3 }}>
                           <source src={"https://strapi-s3-solvemed-public-images.s3.amazonaws.com/iPhone+animation+looped.mov"} type="video/mp4" />
                         </video>
                       </Box>

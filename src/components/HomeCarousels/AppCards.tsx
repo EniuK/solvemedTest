@@ -101,6 +101,7 @@ const AppCards = () => {
                 <Box
                   overflow={"hidden"}
                   maxWidth={"356px"}
+                  width={"301px"}
                   style={istabletView ? { width: "301px", height: "417px" } : {}}
                   key={idx}
                   mb={10}

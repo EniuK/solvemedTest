@@ -105,7 +105,7 @@ const TeamCarousel = () => {
     >
       {isMobileView ? (
         <Box width={"100%"} display={"flex"} pl={"16px"}>
-          <Swiper slidesPerView={isMobileView ? 1.15 : 1.15} slidesOffsetBefore={0} slidesOffsetAfter={0} modules={[Pagination]} pagination={true} className="mySwiper1">
+          <Swiper slidesPerView={1.3} slidesOffsetBefore={0} slidesOffsetAfter={0} modules={[Pagination]} pagination={true} className="mySwiper">
             {teamData.map((e, idx) => {
               return (
                 <LazyLoadComponent key={idx}>
@@ -113,6 +113,7 @@ const TeamCarousel = () => {
                     <Box
                       minHeight={"452px"}
                       maxWidth={"356px"}
+                      overflow={"hidden"}
                       width={"301px"}
                       p={3}
                       position={"relative"}

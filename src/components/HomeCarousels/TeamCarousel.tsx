@@ -5,10 +5,11 @@ import { theme } from "../../config/theme";
 import AOS from "aos";
 import SwiperCore, { Navigation, Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
-import styles from "./TeamCarousel.module.css";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import styles from "./TeamCarousel.module.css";
+
 import { LazyLoadComponent } from "react-lazy-load-image-component";
 
 const teamData = [
@@ -108,7 +109,7 @@ const TeamCarousel = () => {
             {teamData.map((e, idx) => {
               return (
                 <LazyLoadComponent key={idx}>
-                  <SwiperSlide style={{ width: "301px", maxWidth: "356px" }} className={styles.slideMobile}>
+                  <SwiperSlide className={styles.slideMobile}>
                     <Box
                       minHeight={"452px"}
                       maxWidth={"356px"}

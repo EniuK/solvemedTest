@@ -35,24 +35,7 @@ const logosMobile = [
 
 const Home: NextPage = () => {
   const isMobileView = useMediaQuery(theme.breakpoints.down("md"));
-  // const [distanceFromTop, setDistanceFromTop] = useState(0);
-  // console.log(distanceFromTop);
-  // useEffect(() => {
-  //   const handleScroll = () => {
-  //     const element = document.getElementById("fixedElement");
-  //     if (element) {
-  //       const { top } = element.getBoundingClientRect();
-  //       const scrollTop = window.scrollY || window.pageYOffset;
-  //       setDistanceFromTop(356 + scrollTop);
-  //     }
-  //   };
 
-  //   window.addEventListener("scroll", handleScroll);
-
-  //   return () => {
-  //     window.removeEventListener("scroll", handleScroll);
-  //   };
-  // }, []);
   // gradient text handler
   const gradientText1 = ["practitioners", "students", "nurses", "researchers"];
 
@@ -65,7 +48,7 @@ const Home: NextPage = () => {
         const nextIndex = (currentIndex + 1) % gradientText1.length;
         return gradientText1[nextIndex];
       });
-    }, 5000);
+    }, 3000);
 
     return () => {
       clearInterval(interval);
@@ -117,7 +100,7 @@ const Home: NextPage = () => {
                 {({ style }: any) => (
                   <div id="fixedElement" style={{ ...style, zIndex: 3, display: "flex", justifyContent: "center", alignItems: "center" }}>
                     <LazyLoadComponent visibleByDefault={true}>
-                      <Box mt={25} width={"264.63px"} height={"567.63px"} zIndex={3}>
+                      <Box mt={18} width={"264.63px"} height={"567.63px"} zIndex={3}>
                         <video controls={false} poster={"/images/homePage/phone.png"} autoPlay muted loop playsInline width="100%" height={"100%"}>
                           <source src={"https://strapi-s3-solvemed-public-images.s3.amazonaws.com/iPhone+animation+looped.mov"} type="video/mp4" />
                         </video>
@@ -130,7 +113,7 @@ const Home: NextPage = () => {
                 <Image src={"/images/bg/homegradient1.png"} width={"767.36px"} height={"756.02px"} alt={"gradient"} priority />
               </Box>
               <Box
-                mt={150}
+                mt={100}
                 mb={100}
                 textAlign={"center"}
                 position={"relative"}
@@ -173,7 +156,7 @@ const Home: NextPage = () => {
                 {({ style }: any) => (
                   <div style={{ ...style, zIndex: 3, display: "flex", justifyContent: "center", alignItems: "center" }}>
                     <LazyLoadComponent visibleByDefault={true}>
-                      <Box mt={30} maxWidth={"426.92px"} maxHeight={"750px"} zIndex={3}>
+                      <Box mt={25} maxWidth={"426.92px"} maxHeight={"750px"} zIndex={3}>
                         <video controls={false} poster={"/images/homePage/phone.png"} autoPlay muted loop playsInline width="100%" height={"629.65px"} style={{ zIndex: 3 }}>
                           <source src={"https://strapi-s3-solvemed-public-images.s3.amazonaws.com/iPhone+animation+looped.mov"} type="video/mp4" />
                         </video>

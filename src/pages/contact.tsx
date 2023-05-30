@@ -86,7 +86,7 @@ const Contact: NextPage<any> = () => {
                       onChange={handleChange}
                       error={touched.name && Boolean(errors.name)}
                       helperText={touched.name && Boolean(errors.name) && <Typography variant="h6">Please fill in your name</Typography>}
-                      style={{ width: "100%", marginBottom: 70 }}
+                      style={{ width: "100%", marginBottom: 50 }}
                       InputProps={{
                         style: { paddingBottom: 10 },
                       }}
@@ -118,7 +118,7 @@ const Contact: NextPage<any> = () => {
                           <Typography variant="h6">Please fill in your email address</Typography>
                         ))
                       }
-                      style={{ width: "100%", marginBottom: 70 }}
+                      style={{ width: "100%", marginBottom: 50 }}
                       InputProps={{
                         style: { paddingBottom: 10 },
                       }}

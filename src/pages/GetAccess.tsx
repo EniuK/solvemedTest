@@ -6,6 +6,7 @@ import { theme } from "../config/theme";
 import { useEffect, useState } from "react";
 import React from "react";
 import MailchimpSubscribe from "react-mailchimp-subscribe";
+import Link from "next/link";
 
 const MailchimpForms = ({ status, message, onValidated }: any) => {
   const isMobileView = useMediaQuery(theme.breakpoints.down("md"));
@@ -197,6 +198,15 @@ const MailchimpForms = ({ status, message, onValidated }: any) => {
               </Button>
             </Box>
           </Box>
+          <Box width={"100%"} px={"27px"} mt={5} textAlign={"left"} fontSize={"12px"} lineHeight="160%" color={"#595D62"} letterSpacing={"0.02em"}>
+            Please be informed that when you click the Send button Solvemed Group Sp. z o.o. will process your personal data in accordance with our{" "}
+            <Link href="/PrivacyPolicy">
+              <a target="_blank" style={{ color: "black", textDecoration: "underline", fontFamily: "SuisseIntl" }}>
+                Privacy Policy
+              </a>
+            </Link>{" "}
+            for the purpose of providing you with appropriate information.
+          </Box>
         </>
       ) : (
         <>
@@ -318,7 +328,16 @@ const MailchimpForms = ({ status, message, onValidated }: any) => {
                   </Box>
                 </Button>
               </Box>
-              <Box mt={20}>
+              <Box width={"70%"} mt={5} textAlign={"left"} fontSize={"12px"} lineHeight="160%" color={"#595D62"} letterSpacing={"0.02em"}>
+                Please be informed that when you click the Send button Solvemed Group Sp. z o.o. will process your personal data in accordance with our{" "}
+                <Link href="/PrivacyPolicy">
+                  <a target="_blank" style={{ color: "black", textDecoration: "underline", fontFamily: "SuisseIntl" }}>
+                    Privacy Policy
+                  </a>
+                </Link>{" "}
+                for the purpose of providing you with appropriate information.
+              </Box>
+              <Box mt={10}>
                 {status === "sending" && <Box style={{ color: "blue" }}>sending...</Box>}
                 {status === "error" && errorMessage && <Box style={{ color: "red" }}>invalid email address</Box>}
                 {status === "error" ? null : <>{errorMessage && status !== "sending" ? <Box style={{ color: "red" }}>invalid email address</Box> : null}</>}

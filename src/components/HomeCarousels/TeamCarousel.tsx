@@ -104,8 +104,8 @@ const TeamCarousel = () => {
       data-aos-anchor-placement="center"
     >
       {isMobileView ? (
-        <Box ml={"-8px"} width={"100vw"} display={"flex"}>
-          <Swiper slidesPerView={1.3} slidesOffsetBefore={0} slidesOffsetAfter={0} modules={[Pagination]} pagination={true} className="mySwiper">
+        <Box ml={"16px"} width={"100vw"} display={"flex"}>
+          <Swiper slidesPerView={1.25} slidesOffsetBefore={0} slidesOffsetAfter={0} modules={[Pagination]} pagination={true} className="mySwiper">
             {teamData.map((e, idx) => {
               return (
                 <LazyLoadComponent key={idx}>

@@ -98,9 +98,9 @@ const Home: NextPage = () => {
             <StickyContainer>
               <Sticky>
                 {({ style }: any) => (
-                  <div id="fixedElement" style={{ ...style, zIndex: 3, display: "flex", justifyContent: "center", alignItems: "center" }}>
+                  <div id="fixedElement" style={{ ...style, zIndex: 3, marginTop: "40px", display: "flex", justifyContent: "center", alignItems: "center" }}>
                     <LazyLoadComponent visibleByDefault={true}>
-                      <Box mt={18} width={"264.63px"} height={"567.63px"} zIndex={3}>
+                      <Box mt={12} width={"264.63px"} height={"567.63px"} zIndex={3}>
                         <video controls={false} poster={"/images/homePage/phone.png"} autoPlay muted loop playsInline width="100%" height={"100%"}>
                           <source src={"https://strapi-s3-solvemed-public-images.s3.amazonaws.com/iPhone+animation+looped.mov"} type="video/mp4" />
                         </video>
@@ -113,7 +113,7 @@ const Home: NextPage = () => {
                 <Image src={"/images/bg/homegradient1.png"} width={"767.36px"} height={"756.02px"} alt={"gradient"} priority />
               </Box>
               <Box
-                mt={100}
+                mt={60}
                 mb={100}
                 textAlign={"center"}
                 position={"relative"}

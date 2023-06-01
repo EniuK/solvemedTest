@@ -8,54 +8,65 @@ const policyFakedata = [
     title: "General information ",
     items: [
       {
-        text: "Privacy policy outlines the rules for processing and protection of personal data of Users when using Administrators websites",
+        text: "For the sake of your comfort and respecting your right to privacy, this Privacy Policy is intended to clearly inform you, (the User), about the information we (Solvemed) obtain and to outline the principles and purposes for which we process this information.",
       },
       {
-        text: "A User, for the needs of this policy is defined as a person contacting and/or ordering services provided by the Administrator.",
+        text: "Our commitment is to process the entrusted data in a secure and lawful manner.        ",
       },
       {
-        text: "Solvemed Group sp. z o. o., NIP: 7831824049, REGON: 387028665, bwith its registered office in Poznań at ul. Święty Marcin 29/8; 61-806, Poland, e-mail: ws@solvemed.ai is an Administrator of Personal Data according to the Regulation (EU) 2016/679 of the European Parliament and of the Council of 27 April 2016 on the protection of natural persons with regard to the processing of personal data and on the free movement of such data, and repealing Directive 95/46/WE (General Data Protection Regulation)L 119/40 PL Dziennik Urzędowy Unii Europejskiej 4.5.2016.",
-      },
-      {
-        text: "Contact regarding the processing of personal data by the Administrator: ws@solvemed.ai",
-      },
-      {
-        text: "The scope, purpose and period of data processing is outlined in further parts of this Privacy Policy",
+        text: "By using our website, two categories of information may be collected: Personal Data and Cookies.        ",
       },
     ],
   },
   {
-    title: "The purpose of collecting and processing of personal data by the Administrator",
+    title: "Personal Data    ",
     items: [
       {
-        text: "The user entrusts the Administrator with the processing of personal data in order to use the WWW services and for the processing of User`s queries and orders made using Administrator`s contact form, including sending of personalised business information to the User.",
+        text: "Personal Data, in accordance with art. 4(1) of GDPR is any data that identifies a specific natural person and any information about that identified person.         ",
       },
       {
-        text: "The user providing a contact phone number agrees to be contacted by Administrator by phone in order to enable the Administrator to provide services outlined in point 1 above.",
+        text: "Purpose and scope of processed data. In order to enable you to contact us via the contact form provided on the website, we process your: name and surname, e-mail address. If you are a medical practitioner and you are contacting to access our application (App), in order to better manage the distribution of our medical device, we additionally ask for your specialization and the type of device you use.",
       },
       {
-        text: "The User providing an email address agrees to be contacted by Administrator by email in order to enable the Administrator to provide services outlined in point 1 above.",
+        text: "Data Controller is Solvemed Group sp. z o. o. with its registered office in Poznań, ul. Święty Marcin 29/8; 61-806, Poland. Registered in National Court Register (KRS) under number 859939; NIP 7831824049; e-mail: ws@solvemed.ai;",
       },
       {
-        text: "User’s consent by providing the information is voluntary, whereas lack of such consent may cause the Administrator to not be able to process queries/orders placed using the contact form.",
+        text: "Basis and timeframes of data processing. We process data on the basis of your consent, for the period of correspondence and 5 years after its termination. If the contact results in the establishment of cooperation (provision of the App), personal data will be processed on the basis of the agreement (Terms of use) for the period of use of the application and 5 years after its termination. The legal basis and the duration of data processing may change if there is a legitimate legal reason.",
       },
       {
-        text: "In an event of establishing cooperation between User and Administrator access to personal data may need to be granted to sub-contractors and affiliated partners of the Administrator. This will be clearly communicated to the User and access granted only with User’s permission.",
+        text: "Your rights. As a user, you have the right to:",
+        listItems: [
+          "request access to and obtain a copy of your personal data;",
+          "rectify (amend) your data;",
+          "have the processing restricted;",
+          "revoke consent to data processing;",
+          "lodge a complaint to the President of the Office for Personal Data Protection.",
+        ],
+        additionalInfo: "For more information on your rights, see art. 12–23 GDPR.",
+      },
+      {
+        text: "Due to Solvemed's global operations, your data may be transferred between Solvemed group companies in different jurisdictions (including outside the EU), which does not affect the security or standard of data protection.",
       },
     ],
   },
   {
-    title: "The scope of data processing by Administrator",
+    title: "Cookies",
     items: [
       {
-        text: "Data gathered based on this Privacy Policy consist of all or some of the following:",
+        text: "Cookies are small text files that are stored on your computer or smartphone when you view our website. ",
       },
       {
-        text: "User data:",
-        listItems: ["Name and surname", "Email address", "Telephone number", "Professional specialisation"],
+        text: "What kind of cookies we use? There are different types of cookies. They can be divided into two groups:",
+        listItems: [
+          "Necessary for the use of the website (to ensure the stability of its operation) are applied by default when you enter our website (in accordance with the Telecommunications Law);",
+          "Others - used for analytical purposes, only if you agree to it, such as: number of users, session statistics (entries, exits), approximate geolocation, information about the browser and device on which the site is visited, form interactions, video interactions, page scrolls so-called scroll, site searches, outbound clicks and page views (page loads).",
+        ],
       },
       {
-        text: "The processing of above data includes creating backup copies of data.",
+        text: "For what purpose do we use cookies? We use cookies files to gather general and anonymous statistical data via Google Analytics tools (cookies administrator: Google Inc. USA) in order to ensure the proper working of the website service, adjusting content to User’s preferences, and optimising the use of service`s websites. The cookies files allow the identification of the basic parameters of the user’s device (e.g. device type, screen resolution, location by country) and proper viewing of the website according to user’s requirements.",
+      },
+      {
+        text: "Can I revoke consent or delete cookies? You can change the settings of cookies files anytime by setting conditions of access and keeping of cookies files data in browser settings. The settings may be adjusted in such way as to block automatic processing of cookies by the browser or/and notifying the user each time cookies are placed on User’s device. Detailed information on use and processing of cookies is available in program (browser) settings. You can also delete cookies using browser functions at any time.",
       },
     ],
   },
@@ -104,7 +115,7 @@ const PrivacyPolicy: NextPage<any> = () => {
                   <Box width={"100%"}>
                     {el.items.map((item, indx) => {
                       return (
-                        <Box key={item.text}>
+                        <Box key={item.text} mt={2}>
                           <Box display={"flex"}>
                             <Box>
                               {indx + 1}
@@ -128,6 +139,7 @@ const PrivacyPolicy: NextPage<any> = () => {
                               })}
                             </ul>
                           )}
+                          {item?.additionalInfo && <Box>{item.additionalInfo}</Box>}
                         </Box>
                       );
                     })}

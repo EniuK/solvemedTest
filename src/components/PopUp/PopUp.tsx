@@ -3,6 +3,8 @@ import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { theme } from "../../config/theme";
 import PopUpWrapper from "./PopUpWrapper";
+import Link from "next/link";
+
 const PopUp = ({ onClose, status, message, onValidated }: any) => {
   const boxRef = useRef(null);
   const isSmallViewport = useMediaQuery(theme.breakpoints.down("sm"));
@@ -185,6 +187,14 @@ const PopUp = ({ onClose, status, message, onValidated }: any) => {
             )}
           </Box>
         )}
+        <Box width={isSmallViewport ? "80%" : "70%"} textAlign={"left"} fontSize={"12px"} lineHeight="160%" color={"#595D62"} letterSpacing={"0.02em"}>
+          by joining, you agree to the{" "}
+          <Link href="/PrivacyPolicy">
+            <a target="_blank" style={{ color: "black", textDecoration: "underline", fontFamily: "SuisseIntl" }}>
+              Privacy Policy
+            </a>
+          </Link>{" "}
+        </Box>
         {status === "sending" && <Box style={{ color: "blue" }}>sending...</Box>}
         {status === "error" && errorMessage && <Box style={{ color: "red" }}>invalid email address</Box>}
         {status === "error" ? null : <>{errorMessage && status !== "sending" ? <Box style={{ color: "red" }}>invalid email address</Box> : null}</>}

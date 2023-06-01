@@ -1,6 +1,7 @@
 import { Box, Button, TextField, Typography, useMediaQuery } from "@mui/material";
 import { useEffect, useState } from "react";
 import { theme } from "../../config/theme";
+import Link from "next/link";
 
 const NewsLetter = ({ status, message, onValidated }: any) => {
   const isSmallViewport = useMediaQuery(theme.breakpoints.down("sm"));
@@ -112,6 +113,14 @@ const NewsLetter = ({ status, message, onValidated }: any) => {
         )}
       </Box>
       <Box display={"flex"} alignItems={"flex-start"} justifyContent={"flex-start"} width={"100%"}>
+        <Box textAlign={"left"} mt={3} fontSize={"12px"} lineHeight="160%" color={"#595D62"} letterSpacing={"0.02em"}>
+          by joining, you agree to the{" "}
+          <Link href="/PrivacyPolicy">
+            <a target="_blank" style={{ color: "black", textDecoration: "underline", fontFamily: "SuisseIntl" }}>
+              Privacy Policy
+            </a>
+          </Link>{" "}
+        </Box>
         {status === "sending" && <Box style={{ color: "blue" }}>sending...</Box>}
         {status === "error" && errorMessage && <Box style={{ color: "red" }}>invalid email address</Box>}
         {status === "error" ? null : <>{errorMessage && status !== "sending" ? <Box style={{ color: "red" }}>invalid email address</Box> : null}</>}

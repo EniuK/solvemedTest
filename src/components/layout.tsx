@@ -72,7 +72,6 @@ const Layout = ({ children }: { children: ReactNode }) => {
     <Box>
       {notify ? <MailchimpSubscribe onClose={closeNotify} /> : null}
       {showCookie && <CookiePopUp setUnlockScroll={() => setCookieRefresh(!cookieRefresh)} />}
-
       <Box
         style={{
           width: "100%",

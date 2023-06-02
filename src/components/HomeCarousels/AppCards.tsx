@@ -103,7 +103,6 @@ const AppCards = () => {
                   maxWidth={"356px"}
                   width={"301px"}
                   style={istabletView ? { width: "301px", height: "417px" } : {}}
-                  key={idx}
                   mb={10}
                   mt={5}
                   bgcolor={"rgba(255, 255, 255, 1)"}

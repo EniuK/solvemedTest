@@ -101,7 +101,7 @@ const Home: NextPage = () => {
                   <div id="fixedElement" style={{ ...style, zIndex: 3, marginTop: "40px", display: "flex", justifyContent: "center", alignItems: "center" }}>
                     <LazyLoadComponent visibleByDefault={true}>
                       <Box mt={12} width={"264.63px"} height={"567.63px"} zIndex={3}>
-                        <video controls={false} poster={"/images/homePage/phone.png"} autoPlay muted loop playsInline width="100%" height={"100%"}>
+                        <video controls={false} poster={"/images/homePage/phoneMobile.png"} autoPlay muted loop playsInline width="100%" height={"100%"}>
                           <source src={"https://strapi-s3-solvemed-public-images.s3.amazonaws.com/iPhone+animation+looped.mov"} type="video/mp4" />
                         </video>
                       </Box>

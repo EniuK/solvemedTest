@@ -109,7 +109,7 @@ const TeamCarousel = () => {
             {teamData.map((e, idx) => {
               return (
                 <LazyLoadComponent key={idx}>
-                  <SwiperSlide style={{ maxWidth: "312.174px" }}>
+                  <SwiperSlide>
                     <Box
                       minHeight={"452px"}
                       width={"274px"}

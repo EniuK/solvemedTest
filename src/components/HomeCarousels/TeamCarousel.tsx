@@ -108,73 +108,70 @@ const TeamCarousel = () => {
           <Swiper slidesPerView={1.33} slidesOffsetBefore={0} slidesOffsetAfter={0} modules={[Pagination]} pagination={true} className="mySwiper">
             {teamData.map((e, idx) => {
               return (
-                <LazyLoadComponent key={idx}>
-                  <SwiperSlide>
-                    <Box
-                      minHeight={"452px"}
-                      width={"274px"}
-                      overflow={"hidden"}
-                      p={3}
-                      position={"relative"}
-                      pr={0}
-                      pt={"16px"}
-                      mt={3}
-                      mb={5}
-                      border={"1px solid #F5F5F7"}
-                      boxShadow={"0px 8px 32px rgba(27, 37, 74, 0.08)"}
-                      borderRadius={"22px"}
-                    >
-                      <Box width={"100%"} display={"flex"} justifyContent={"space-between"} alignItems={"flex-start"}>
-                        <Box>
-                          <Image src={e.avatar} alt={e.name} width={"72px"} height={"72px"} priority />
-                        </Box>
-                        <Box mr={"16px"}>
-                          {e.titles.map((title) => {
-                            return (
-                              <Box
-                                bgcolor={"rgba(103, 71, 242, 0.07)"}
-                                p={0.5}
-                                pl={2}
-                                pr={2}
-                                borderRadius={10}
-                                fontWeight={500}
-                                fontSize={"12px"}
-                                key={title}
-                                color={"rgba(103, 71, 242, 1)"}
-                              >
-                                {title}
-                              </Box>
-                            );
-                          })}
-                        </Box>
+                <SwiperSlide key={idx}>
+                  <Box
+                    minHeight={"452px"}
+                    maxWidth={"274px"}
+                    overflow={"hidden"}
+                    p={3}
+                    position={"relative"}
+                    pr={0}
+                    mt={3}
+                    mb={5}
+                    border={"1px solid #F5F5F7"}
+                    boxShadow={"0px 8px 32px rgba(27, 37, 74, 0.08)"}
+                    borderRadius={"22px"}
+                  >
+                    <Box width={"100%"} pt={"16px"} display={"flex"} justifyContent={"space-between"} alignItems={"flex-start"}>
+                      <Box>
+                        <Image src={e.avatar} alt={e.name} width={"72px"} height={"72px"} priority />
                       </Box>
-
-                      <Box width={"90%"} mt={4} mr={6}>
-                        <Typography fontFamily="FinancierDisplay" fontSize={"18px"} fontWeight={400} lineHeight={"130%"} letterSpacing={"-0.01em"}>
-                          {e.name}
-                        </Typography>
-                      </Box>
-                      <Box width={e.msm ? "90%" : "90%"} mt={2} pr={5} fontFamily="SuisseIntl" lineHeight={"150%"} fontWeight={300} color={"#5E5E5E"} fontSize={"12px"}>
-                        {e.description}
-                      </Box>
-                      <Box mt={3}> &rdquo;</Box>
-                      <Box
-                        width={"80%"}
-                        lineHeight={"150%"}
-                        display={"flex"}
-                        sx={{ flexGrow: 1 }}
-                        justifyContent={"flex-end"}
-                        alignItems={"flex-end"}
-                        fontFamily="SuisseIntl"
-                        fontWeight={400}
-                        mr={6}
-                        fontSize={"15px"}
-                      >
-                        {e.quote}
+                      <Box mr={"16px"}>
+                        {e.titles.map((title) => {
+                          return (
+                            <Box
+                              bgcolor={"rgba(103, 71, 242, 0.07)"}
+                              p={0.5}
+                              pl={2}
+                              pr={2}
+                              borderRadius={10}
+                              fontWeight={500}
+                              fontSize={"12px"}
+                              key={title}
+                              color={"rgba(103, 71, 242, 1)"}
+                            >
+                              {title}
+                            </Box>
+                          );
+                        })}
                       </Box>
                     </Box>
-                  </SwiperSlide>
-                </LazyLoadComponent>
+
+                    <Box width={"90%"} mt={4} mr={6}>
+                      <Typography fontFamily="FinancierDisplay" fontSize={"18px"} fontWeight={400} lineHeight={"130%"} letterSpacing={"-0.01em"}>
+                        {e.name}
+                      </Typography>
+                    </Box>
+                    <Box width={e.msm ? "90%" : "90%"} mt={2} pr={5} fontFamily="SuisseIntl" lineHeight={"150%"} fontWeight={300} color={"#5E5E5E"} fontSize={"12px"}>
+                      {e.description}
+                    </Box>
+                    <Box mt={3}> &rdquo;</Box>
+                    <Box
+                      width={"80%"}
+                      lineHeight={"150%"}
+                      display={"flex"}
+                      sx={{ flexGrow: 1 }}
+                      justifyContent={"flex-end"}
+                      alignItems={"flex-end"}
+                      fontFamily="SuisseIntl"
+                      fontWeight={400}
+                      mr={6}
+                      fontSize={"15px"}
+                    >
+                      {e.quote}
+                    </Box>
+                  </Box>
+                </SwiperSlide>
               );
             })}
           </Swiper>

@@ -316,7 +316,9 @@ const Home: NextPage = () => {
           </Box>
         </Box>
         <Box style={isMobileView ? {} : { marginLeft: "131.53px" }}>
-          <TeamCarousel />
+          <LazyLoadComponent visibleByDefault={true}>
+            <TeamCarousel />
+          </LazyLoadComponent>
         </Box>
         <Box pt={30} pb={30}>
           {isMobileView ? (

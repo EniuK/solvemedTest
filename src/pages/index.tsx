@@ -3,7 +3,7 @@ import Head from "next/head";
 import { Box, Typography, Button, useMediaQuery, Link } from "@mui/material";
 import "animate.css";
 import { motion } from "framer-motion";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import CardWithShadow from "../components/cardHomePage/CardWithShadow";
 import AiCards from "../components/cardHomePage/AiCards";
 import TeamCarousel from "../components/HomeCarousels/TeamCarousel";

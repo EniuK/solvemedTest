@@ -5,7 +5,7 @@ import Head from "next/head";
 import { contactSchema, emailFailStatus } from "../utils/helpers";
 import { motion } from "framer-motion";
 import { theme } from "../config/theme";
-import Image from "next/image";
+import Image from "next/legacy/image";
 
 const initialValues = {
   name: "",

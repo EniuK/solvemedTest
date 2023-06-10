@@ -1,7 +1,7 @@
 import { Box, Grid, Link, Typography, useMediaQuery } from "@mui/material";
 import type { NextPage } from "next";
 import Head from "next/head";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import React, { useEffect } from "react";
 import { useState } from "react";
 import TeamMemberModal from "../components/TeamMemberModal/TeamMemberModal";

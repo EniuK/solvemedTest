@@ -72,88 +72,42 @@ const MailchimpForms = ({ status, message, onValidated }: any) => {
     }
   }, [name, surrname, specialization, email, open]);
 
-  return (
-    <>
-      {isMobileView ? (
-        <>
-          <form className="mc__form" onSubmit={(e) => handleSubmit(e)}>
-            <Box px={"20px"} display={"flex"} justifyContent={"center"} alignItems={"center"} flexDirection={"row"} width={"100%"}>
-              <Box width={"100%"} display={"flex"} flexDirection={"column"}>
-                <Box mt={5} width={"100%"} display={"flex"} justifyContent={"center"} flexDirection={"row"}>
-                  <Box style={{ width: "45%" }} mr={2}>
-                    <TextField
-                      style={{ width: "90%" }}
-                      variant="standard"
-                      name="MERGE1"
-                      label="Name"
-                      value={name}
-                      onChange={(e) => setName(e.target.value)}
-                      InputProps={{
-                        style: { paddingBottom: 10 },
-                      }}
-                      InputLabelProps={{
-                        sx: {
+  return <>
+    {isMobileView ? (
+      <>
+        <form className="mc__form" onSubmit={(e) => handleSubmit(e)}>
+          <Box px={"20px"} display={"flex"} justifyContent={"center"} alignItems={"center"} flexDirection={"row"} width={"100%"}>
+            <Box width={"100%"} display={"flex"} flexDirection={"column"}>
+              <Box mt={5} width={"100%"} display={"flex"} justifyContent={"center"} flexDirection={"row"}>
+                <Box style={{ width: "45%" }} mr={2}>
+                  <TextField
+                    style={{ width: "90%" }}
+                    variant="standard"
+                    name="MERGE1"
+                    label="Name"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    InputProps={{
+                      style: { paddingBottom: 10 },
+                    }}
+                    InputLabelProps={{
+                      sx: {
+                        color: "#9B9B9B",
+                        "&.Mui-focused": {
                           color: "#9B9B9B",
-                          "&.Mui-focused": {
-                            color: "#9B9B9B",
-                          },
                         },
-                      }}
-                    />
-                  </Box>
-                  <Box style={{ width: "45%" }}>
-                    <TextField
-                      variant="standard"
-                      style={{ width: "90%" }}
-                      name="LNAME"
-                      label="Surname"
-                      value={surrname}
-                      onChange={(e) => setSurrname(e.target.value)}
-                      InputProps={{
-                        style: { paddingBottom: 10 },
-                      }}
-                      InputLabelProps={{
-                        sx: {
-                          color: "#9B9B9B",
-                          "&.Mui-focused": {
-                            color: "#9B9B9B",
-                          },
-                        },
-                      }}
-                    />
-                  </Box>
+                      },
+                    }}
+                  />
                 </Box>
-
-                <Box width={"100%"} textAlign={"left"} mt={8} display={"flex"} justifyContent={"center"}>
-                  <FormControl variant="standard" style={{ width: "90%" }}>
-                    <InputLabel id="specialization-label">Specialization</InputLabel>
-                    <Select
-                      style={{ paddingBottom: 10 }}
-                      labelId="specialization-label"
-                      id="specialization-select"
-                      value={specialization}
-                      name={"MERGE6"}
-                      onChange={(e) => setSpecialization(e.target.value)}
-                    >
-                      <MenuItem value="Neurologists">Neurologists</MenuItem>
-                      <MenuItem value="Intensivist">Intensivist</MenuItem>
-                      <MenuItem value="Nurse">Nurse</MenuItem>
-                      <MenuItem value="Anesthesiologists">Anesthesiologists</MenuItem>
-                      <MenuItem value="Ophthalmologist">Ophthalmologist</MenuItem>
-                      <MenuItem value="Neuro-ophthalmologists">Neuro-ophthalmologists</MenuItem>
-                      <MenuItem value="Optometrist">Optometrist</MenuItem>
-                      <MenuItem value="Optometrist">Other</MenuItem>
-                    </Select>
-                  </FormControl>
-                </Box>
-                <Box width={"100%"} mt={8} display={"flex"} justifyContent={"center"}>
+                <Box style={{ width: "45%" }}>
                   <TextField
                     variant="standard"
-                    name="EMAIL"
                     style={{ width: "90%" }}
-                    label="Enter your email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
+                    name="LNAME"
+                    label="Surname"
+                    value={surrname}
+                    onChange={(e) => setSurrname(e.target.value)}
                     InputProps={{
                       style: { paddingBottom: 10 },
                     }}
@@ -168,135 +122,136 @@ const MailchimpForms = ({ status, message, onValidated }: any) => {
                   />
                 </Box>
               </Box>
-            </Box>
-          </form>
-          <Box width={"100%"} mt={5} display={"flex"} height={"50px"} justifyContent={"center"} alignItems={"center"}>
-            <Box pl={"16px"} width={"70%"} height={"100%"} display={"flex"} flexDirection={"column"} justifyContent={"center"} alignItems={"center"}>
-              {status === "sending" && <Box style={{ color: "blue" }}>sending...</Box>}
-              {status === "error" && errorMessage && <Box style={{ color: "red" }}>Invalid email adress</Box>}
-              {status === "error" ? null : <>{errorMessage && status !== "sending" ? <Box style={{ color: "red" }}>Invalid email adress</Box> : null}</>}
-              {emptyValue && <Box style={{ color: "red" }}>Please fill all values</Box>}
-              {status === "success" && errorMessage === false && emptyValue === false && (
-                <Box width={"100%"} color={"#1E8800"} display={"flex"} justifyContent={"center"} alignItems={"center"}>
-                  Request send successfully!
-                </Box>
-              )}
-            </Box>
-            <Box display={"flex"} height={"100%"} justifyContent={"center"} alignItems={"flex-end"} width={"30%"}>
-              <Button
-                color="secondary"
-                disabled={open}
-                onClick={(e) => handleSubmit(e)}
-                style={{ textTransform: "none" }}
-                sx={{ backgroundColor: "black" }}
-                variant="contained"
-                size="large"
-              >
-                <Box pt={0.5} pb={0.5}>
-                  Send
-                </Box>
-              </Button>
-            </Box>
-          </Box>
-          <Box width={"100%"} px={"27px"} mt={5} textAlign={"left"} fontSize={"12px"} lineHeight="160%" color={"#595D62"} letterSpacing={"0.02em"}>
-            Please be informed that when you click the Send button Solvemed Group Sp. z o.o. will process your personal data in accordance with our{" "}
-            <Link href="/PrivacyPolicy">
-              <a target="_blank" style={{ color: "black", textDecoration: "underline", fontFamily: "SuisseIntl" }}>
-                Privacy Policy
-              </a>
-            </Link>{" "}
-            for the purpose of providing you with appropriate information.
-          </Box>
-        </>
-      ) : (
-        <>
-          <Box width={"100%"} display={"flex"} justifyContent={"center"} alignItems={"center"}>
-            <Box width={"60%"} onClick={(e) => e.preventDefault()}>
-              <video poster="/images/GetAccess/phones.png" preload="none" controls={false} autoPlay loop muted playsInline width="100%" height={"100%"}>
-                <source src={"/images/GetAccess/animation.mov"} type="video/mp4" />
-              </video>
-            </Box>
-            <Box width={"40%"} pr={5}>
-              <form className="mc__form" onSubmit={(e) => handleSubmit(e)}>
-                <Box display={"flex"} justifyContent={"center"} pr={10} alignItems={"center"} flexDirection={"row"}>
-                  <Box mt={10} width={"100%"} display={"flex"} justifyContent={"flex-start"} alignItems={"flex-start"} flexDirection={"column"}>
-                    <Box width={"100%"} display={"flex"} justifyContent={"flex-start"} alignItems={"flex-start"} flexDirection={"row"}>
-                      <Box style={{ width: "49%" }} mr={4}>
-                        <TextField
-                          style={{ width: "100%" }}
-                          variant="standard"
-                          name="MERGE1"
-                          label="Name"
-                          value={name}
-                          onChange={(e) => setName(e.target.value)}
-                          InputProps={{
-                            style: { paddingBottom: 10 },
-                          }}
-                          InputLabelProps={{
-                            sx: {
-                              color: "#9B9B9B",
-                              "&.Mui-focused": {
-                                color: "#9B9B9B",
-                              },
-                            },
-                          }}
-                        />
-                      </Box>
-                      <Box style={{ width: "50%" }}>
-                        <TextField
-                          variant="standard"
-                          style={{ width: "100%" }}
-                          name="LNAME"
-                          label="Surname"
-                          value={surrname}
-                          onChange={(e) => setSurrname(e.target.value)}
-                          InputProps={{
-                            style: { paddingBottom: 10 },
-                          }}
-                          InputLabelProps={{
-                            sx: {
-                              color: "#9B9B9B",
-                              "&.Mui-focused": {
-                                color: "#9B9B9B",
-                              },
-                            },
-                          }}
-                        />
-                      </Box>
-                    </Box>
 
-                    <Box textAlign={"left"} width={"100%"} mt={8}>
-                      <FormControl variant="standard" style={{ width: "100%" }}>
-                        <InputLabel id="specialization-label" style={{ color: "#9B9B9B" }}>
-                          Specialization
-                        </InputLabel>
-                        <Select
-                          style={{ paddingBottom: 10 }}
-                          labelId="specialization-label"
-                          id="specialization-select"
-                          value={specialization}
-                          name={"MERGE6"}
-                          onChange={(e) => setSpecialization(e.target.value)}
-                        >
-                          <MenuItem value="Neurologists">Neurologists</MenuItem>
-                          <MenuItem value="Intensivist">Intensivist</MenuItem>
-                          <MenuItem value="Nurse">Nurse</MenuItem>
-                          <MenuItem value="Anesthesiologists">Anesthesiologists</MenuItem>
-                          <MenuItem value="Ophthalmologist">Ophthalmologist</MenuItem>
-                          <MenuItem value="Neuro-ophthalmologists">Neuro-ophthalmologists</MenuItem>
-                          <MenuItem value="Optometrist">Optometrist</MenuItem>
-                          <MenuItem value="Optometrist">Other</MenuItem>
-                        </Select>
-                      </FormControl>
+              <Box width={"100%"} textAlign={"left"} mt={8} display={"flex"} justifyContent={"center"}>
+                <FormControl variant="standard" style={{ width: "90%" }}>
+                  <InputLabel id="specialization-label">Specialization</InputLabel>
+                  <Select
+                    style={{ paddingBottom: 10 }}
+                    labelId="specialization-label"
+                    id="specialization-select"
+                    value={specialization}
+                    name={"MERGE6"}
+                    onChange={(e) => setSpecialization(e.target.value)}
+                  >
+                    <MenuItem value="Neurologists">Neurologists</MenuItem>
+                    <MenuItem value="Intensivist">Intensivist</MenuItem>
+                    <MenuItem value="Nurse">Nurse</MenuItem>
+                    <MenuItem value="Anesthesiologists">Anesthesiologists</MenuItem>
+                    <MenuItem value="Ophthalmologist">Ophthalmologist</MenuItem>
+                    <MenuItem value="Neuro-ophthalmologists">Neuro-ophthalmologists</MenuItem>
+                    <MenuItem value="Optometrist">Optometrist</MenuItem>
+                    <MenuItem value="Optometrist">Other</MenuItem>
+                  </Select>
+                </FormControl>
+              </Box>
+              <Box width={"100%"} mt={8} display={"flex"} justifyContent={"center"}>
+                <TextField
+                  variant="standard"
+                  name="EMAIL"
+                  style={{ width: "90%" }}
+                  label="Enter your email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  InputProps={{
+                    style: { paddingBottom: 10 },
+                  }}
+                  InputLabelProps={{
+                    sx: {
+                      color: "#9B9B9B",
+                      "&.Mui-focused": {
+                        color: "#9B9B9B",
+                      },
+                    },
+                  }}
+                />
+              </Box>
+            </Box>
+          </Box>
+        </form>
+        <Box width={"100%"} mt={5} display={"flex"} height={"50px"} justifyContent={"center"} alignItems={"center"}>
+          <Box pl={"16px"} width={"70%"} height={"100%"} display={"flex"} flexDirection={"column"} justifyContent={"center"} alignItems={"center"}>
+            {status === "sending" && <Box style={{ color: "blue" }}>sending...</Box>}
+            {status === "error" && errorMessage && <Box style={{ color: "red" }}>Invalid email adress</Box>}
+            {status === "error" ? null : <>{errorMessage && status !== "sending" ? <Box style={{ color: "red" }}>Invalid email adress</Box> : null}</>}
+            {emptyValue && <Box style={{ color: "red" }}>Please fill all values</Box>}
+            {status === "success" && errorMessage === false && emptyValue === false && (
+              <Box width={"100%"} color={"#1E8800"} display={"flex"} justifyContent={"center"} alignItems={"center"}>
+                Request send successfully!
+              </Box>
+            )}
+          </Box>
+          <Box display={"flex"} height={"100%"} justifyContent={"center"} alignItems={"flex-end"} width={"30%"}>
+            <Button
+              color="secondary"
+              disabled={open}
+              onClick={(e) => handleSubmit(e)}
+              style={{ textTransform: "none" }}
+              sx={{ backgroundColor: "black" }}
+              variant="contained"
+              size="large"
+            >
+              <Box pt={0.5} pb={0.5}>
+                Send
+              </Box>
+            </Button>
+          </Box>
+        </Box>
+        <Box width={"100%"} px={"27px"} mt={5} textAlign={"left"} fontSize={"12px"} lineHeight="160%" color={"#595D62"} letterSpacing={"0.02em"}>
+          Please be informed that when you click the Send button Solvemed Group Sp. z o.o. will process your personal data in accordance with our{" "}
+          <Link
+            href="/PrivacyPolicy"
+            target="_blank"
+            style={{ color: "black", textDecoration: "underline", fontFamily: "SuisseIntl" }}>
+            
+              Privacy Policy
+            
+          </Link>{" "}
+          for the purpose of providing you with appropriate information.
+        </Box>
+      </>
+    ) : (
+      <>
+        <Box width={"100%"} display={"flex"} justifyContent={"center"} alignItems={"center"}>
+          <Box width={"60%"} onClick={(e) => e.preventDefault()}>
+            <video poster="/images/GetAccess/phones.png" preload="none" controls={false} autoPlay loop muted playsInline width="100%" height={"100%"}>
+              <source src={"/images/GetAccess/animation.mov"} type="video/mp4" />
+            </video>
+          </Box>
+          <Box width={"40%"} pr={5}>
+            <form className="mc__form" onSubmit={(e) => handleSubmit(e)}>
+              <Box display={"flex"} justifyContent={"center"} pr={10} alignItems={"center"} flexDirection={"row"}>
+                <Box mt={10} width={"100%"} display={"flex"} justifyContent={"flex-start"} alignItems={"flex-start"} flexDirection={"column"}>
+                  <Box width={"100%"} display={"flex"} justifyContent={"flex-start"} alignItems={"flex-start"} flexDirection={"row"}>
+                    <Box style={{ width: "49%" }} mr={4}>
+                      <TextField
+                        style={{ width: "100%" }}
+                        variant="standard"
+                        name="MERGE1"
+                        label="Name"
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                        InputProps={{
+                          style: { paddingBottom: 10 },
+                        }}
+                        InputLabelProps={{
+                          sx: {
+                            color: "#9B9B9B",
+                            "&.Mui-focused": {
+                              color: "#9B9B9B",
+                            },
+                          },
+                        }}
+                      />
                     </Box>
-                    <Box width={"100%"} mt={8}>
+                    <Box style={{ width: "50%" }}>
                       <TextField
                         variant="standard"
-                        name="EMAIL"
                         style={{ width: "100%" }}
-                        label="Enter your email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
+                        name="LNAME"
+                        label="Surname"
+                        value={surrname}
+                        onChange={(e) => setSurrname(e.target.value)}
                         InputProps={{
                           style: { paddingBottom: 10 },
                         }}
@@ -311,49 +266,98 @@ const MailchimpForms = ({ status, message, onValidated }: any) => {
                       />
                     </Box>
                   </Box>
+
+                  <Box textAlign={"left"} width={"100%"} mt={8}>
+                    <FormControl variant="standard" style={{ width: "100%" }}>
+                      <InputLabel id="specialization-label" style={{ color: "#9B9B9B" }}>
+                        Specialization
+                      </InputLabel>
+                      <Select
+                        style={{ paddingBottom: 10 }}
+                        labelId="specialization-label"
+                        id="specialization-select"
+                        value={specialization}
+                        name={"MERGE6"}
+                        onChange={(e) => setSpecialization(e.target.value)}
+                      >
+                        <MenuItem value="Neurologists">Neurologists</MenuItem>
+                        <MenuItem value="Intensivist">Intensivist</MenuItem>
+                        <MenuItem value="Nurse">Nurse</MenuItem>
+                        <MenuItem value="Anesthesiologists">Anesthesiologists</MenuItem>
+                        <MenuItem value="Ophthalmologist">Ophthalmologist</MenuItem>
+                        <MenuItem value="Neuro-ophthalmologists">Neuro-ophthalmologists</MenuItem>
+                        <MenuItem value="Optometrist">Optometrist</MenuItem>
+                        <MenuItem value="Optometrist">Other</MenuItem>
+                      </Select>
+                    </FormControl>
+                  </Box>
+                  <Box width={"100%"} mt={8}>
+                    <TextField
+                      variant="standard"
+                      name="EMAIL"
+                      style={{ width: "100%" }}
+                      label="Enter your email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      InputProps={{
+                        style: { paddingBottom: 10 },
+                      }}
+                      InputLabelProps={{
+                        sx: {
+                          color: "#9B9B9B",
+                          "&.Mui-focused": {
+                            color: "#9B9B9B",
+                          },
+                        },
+                      }}
+                    />
+                  </Box>
                 </Box>
-              </form>
-              <Box width={"90%"} mt={5} display={"flex"} justifyContent={"flex-end"} alignItems={"flex-end"}>
-                <Button
-                  color="secondary"
-                  onClick={(e) => handleSubmit(e)}
-                  disabled={open}
-                  style={{ textTransform: "none" }}
-                  sx={{ backgroundColor: "black" }}
-                  variant="contained"
-                  size="large"
-                >
-                  <Box pt={0.5} pb={0.5}>
-                    Send
-                  </Box>
-                </Button>
               </Box>
-              <Box width={"70%"} mt={5} textAlign={"left"} fontSize={"12px"} lineHeight="160%" color={"#595D62"} letterSpacing={"0.02em"}>
-                Please be informed that when you click the Send button Solvemed Group Sp. z o.o. will process your personal data in accordance with our{" "}
-                <Link href="/PrivacyPolicy">
-                  <a target="_blank" style={{ color: "black", textDecoration: "underline", fontFamily: "SuisseIntl" }}>
-                    Privacy Policy
-                  </a>
-                </Link>{" "}
-                for the purpose of providing you with appropriate information.
-              </Box>
-              <Box mt={10}>
-                {status === "sending" && <Box style={{ color: "blue" }}>sending...</Box>}
-                {status === "error" && errorMessage && <Box style={{ color: "red" }}>invalid email address</Box>}
-                {status === "error" ? null : <>{errorMessage && status !== "sending" ? <Box style={{ color: "red" }}>invalid email address</Box> : null}</>}
-                {emptyValue && <Box style={{ color: "red" }}>Please fill all values</Box>}
-                {status === "success" && errorMessage === false && emptyValue === false && (
-                  <Box width={"100%"} ml={-4.5} color={"black"} display={"flex"} justifyContent={"center"} alignItems={"center"}>
-                    {message}
-                  </Box>
-                )}
-              </Box>
+            </form>
+            <Box width={"90%"} mt={5} display={"flex"} justifyContent={"flex-end"} alignItems={"flex-end"}>
+              <Button
+                color="secondary"
+                onClick={(e) => handleSubmit(e)}
+                disabled={open}
+                style={{ textTransform: "none" }}
+                sx={{ backgroundColor: "black" }}
+                variant="contained"
+                size="large"
+              >
+                <Box pt={0.5} pb={0.5}>
+                  Send
+                </Box>
+              </Button>
+            </Box>
+            <Box width={"70%"} mt={5} textAlign={"left"} fontSize={"12px"} lineHeight="160%" color={"#595D62"} letterSpacing={"0.02em"}>
+              Please be informed that when you click the Send button Solvemed Group Sp. z o.o. will process your personal data in accordance with our{" "}
+              <Link
+                href="/PrivacyPolicy"
+                target="_blank"
+                style={{ color: "black", textDecoration: "underline", fontFamily: "SuisseIntl" }}>
+                
+                  Privacy Policy
+                
+              </Link>{" "}
+              for the purpose of providing you with appropriate information.
+            </Box>
+            <Box mt={10}>
+              {status === "sending" && <Box style={{ color: "blue" }}>sending...</Box>}
+              {status === "error" && errorMessage && <Box style={{ color: "red" }}>invalid email address</Box>}
+              {status === "error" ? null : <>{errorMessage && status !== "sending" ? <Box style={{ color: "red" }}>invalid email address</Box> : null}</>}
+              {emptyValue && <Box style={{ color: "red" }}>Please fill all values</Box>}
+              {status === "success" && errorMessage === false && emptyValue === false && (
+                <Box width={"100%"} ml={-4.5} color={"black"} display={"flex"} justifyContent={"center"} alignItems={"center"}>
+                  {message}
+                </Box>
+              )}
             </Box>
           </Box>
-        </>
-      )}
-    </>
-  );
+        </Box>
+      </>
+    )}
+  </>;
 };
 
 const MailchimpGetAccessContainer = () => {

@@ -142,7 +142,7 @@ const AppCards = () => {
                   </Box>
 
                   <Box mb={-1}>
-                    <Image src={e.src} width={"356px"} height={"360px"} alt={e.title} priority />
+                    <Image src={e.src} width={356} height={360} alt={e.title} priority />
                   </Box>
                 </Box>
               </SwiperSlide>
@@ -153,10 +153,10 @@ const AppCards = () => {
       {!istabletView && (
         <Box display={"flex"} width={"100%"} justifyContent={"flex-end"} alignItems={"flex-end"} pr={"131px"}>
           <Box className="swiper-button-prevApp" style={{ cursor: "pointer" }} onClick={() => slidePrev1()} mr={2} width={"48px"} height={"48px"}>
-            <Image src={"/images/icons/buttonLeft.svg"} alt="Previous" width={"48px"} height={"48px"} />
+            <Image src={"/images/icons/buttonLeft.svg"} alt="Previous" width={48} height={48} />
           </Box>
           <Box className="swiper-button-nextApp" style={{ cursor: "pointer" }} onClick={() => slideNext1()} width={"48px"} height={"48px"}>
-            <Image src={"/images/icons/buttonRight.svg"} alt="Next" width={"48px"} height={"48px"} />
+            <Image src={"/images/icons/buttonRight.svg"} alt="Next" width={48} height={48} />
           </Box>
         </Box>
       )}

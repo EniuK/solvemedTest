@@ -10,53 +10,53 @@ const AiCards = () => {
     {
       title: "Critical Care",
       src: "/images/homePage/aiCards/medic.png",
-      w: "77px",
-      h: "100px",
+      w: 77,
+      h: 100,
     },
     {
       title: "Anaesthesiology",
       src: "/images/homePage/aiCards/syringe.png",
-      w: "160.18px",
-      h: "96.3px",
+      w: 160.18,
+      h: 96.3,
     },
     {
       title: "Nursing",
       src: "/images/homePage/aiCards/pill.png",
-      w: "100px",
-      h: "100px",
+      w: 100,
+      h: 100,
     },
 
     {
       title: "Neurology",
       src: "/images/homePage/aiCards/brain.png",
-      w: "120.62px",
-      h: "100px",
+      w: 120.62,
+      h: 100,
     },
     {
       title: "Opthalmology",
       src: "/images/homePage/aiCards/eye.png",
-      w: "116.39px",
-      h: "100px",
+      w: 116.39,
+      h: 100,
       op: 0.6,
     },
     {
       title: "Optometry",
       src: "/images/homePage/aiCards/glasses.png",
-      w: "137.04px",
-      h: "80px",
+      w: 137.04,
+      h: 80,
       op: 0.6,
     },
     {
       title: "Neuro-ophthalmology",
       src: "/images/homePage/aiCards/eyev2.png",
-      w: "150.05px",
-      h: "97.23px",
+      w: 150.05,
+      h: 97.23,
     },
     {
       title: "Sport Medicine",
       src: "/images/homePage/aiCards/sport.png",
-      w: "146.73px",
-      h: "90px",
+      w: 146.73,
+      h: 90,
     },
   ];
 
@@ -64,53 +64,53 @@ const AiCards = () => {
     {
       title: "Critical Care",
       src: "/images/homePage/aiCards/medic.png",
-      w: "46.2px",
-      h: "60px",
+      w: 46.2,
+      h: 60,
     },
     {
       title: "Anaesthesiology",
       src: "/images/homePage/aiCards/syringe.png",
-      w: "96.11px",
-      h: "57.78px",
+      w: 96.11,
+      h: 57.78,
     },
     {
       title: "Nursing",
       src: "/images/homePage/aiCards/pill.png",
-      w: "60px",
-      h: "60px",
+      w: 60,
+      h: 60,
     },
 
     {
       title: "Neurology",
       src: "/images/homePage/aiCards/brain.png",
-      w: "72.37px",
-      h: "60px",
+      w: 72.37,
+      h: 60,
     },
     {
       title: "Opthalmology",
       src: "/images/homePage/aiCards/eye.png",
-      w: "69.83px",
-      h: "60px",
+      w: 69.83,
+      h: 60,
       op: 0.6,
     },
     {
       title: "Optometry",
       src: "/images/homePage/aiCards/glasses.png",
-      w: "102.78px",
-      h: "60px",
+      w: 102.78,
+      h: 60,
       op: 0.6,
     },
     {
       title: "Neuro-ophthalmology",
       src: "/images/homePage/aiCards/eyev2.png",
-      w: "92.6px",
-      h: "60px",
+      w: 92.6,
+      h: 60,
     },
     {
       title: "Sport Medicine",
       src: "/images/homePage/aiCards/sport.png",
-      w: "97.82px",
-      h: "60px",
+      w: 97.82,
+      h: 60,
     },
   ];
   useEffect(() => {
@@ -124,7 +124,7 @@ const AiCards = () => {
   return (
     <Box width={"100%"}>
       <Box style={{ position: "absolute", margin: "0 auto 100px", rotate: "180deg", left: "20%", zIndex: -2 }} marginBottom={isMobileView ? 0 : 100}>
-        <Image src={"/images/bg/medicalSpecialities.png"} width={"880px"} height={"843px"} alt={"gradientBackground"} priority />
+        <Image src={"/images/bg/medicalSpecialities.png"} width={880} height={843} alt={"gradientBackground"} priority />
       </Box>
       {isMobileView ? (
         <Box width={"100%"} display={"flex"} alignItems={"center"} justifyContent={"center"} flexWrap={"wrap"}>

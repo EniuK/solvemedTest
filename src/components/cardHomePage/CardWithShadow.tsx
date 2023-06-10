@@ -145,7 +145,7 @@ const CardWithShadow = () => {
                     width={"162px"}
                   >
                     <Box height={"10%"}>
-                      <Image src={element.src} width="24px" height={"24px"} alt={element.title} priority />
+                      <Image src={element.src} width={24} height={24} alt={element.title} priority />
                     </Box>
                     <Box display={"flex"} height={"90%"} alignItems={"flex-start"} justifyContent={"flex-end"} flexDirection={"column"}>
                       <Box mt={2}>
@@ -190,7 +190,7 @@ const CardWithShadow = () => {
                       border={"1px solid #F5F5F7"}
                       boxShadow={"0px 8px 32px rgba(27, 37, 74, 0.08)"}
                     >
-                      <Image src={element.src} width="32px" height={"32px"} alt={element.title} priority />
+                      <Image src={element.src} width={32} height={32} alt={element.title} priority />
                       <Box mt={3}>
                         <Typography style={{ fontWeight: 300, fontFamily: "FinancierDisplay", fontSize: "28px", color: "rgba(10, 9, 14, 1)" }}>{element.title}</Typography>
                       </Box>

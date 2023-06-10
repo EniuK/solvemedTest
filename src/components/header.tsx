@@ -94,7 +94,7 @@ const Header = () => {
     >
       <div className={styles.header}>
         <Box mb={5} width={isMobileView ? "50%" : ""} zIndex={700} onClick={() => setOpen(false)}>
-          <Link href="/" passHref>
+          <Link href="/" passHref legacyBehavior>
             <a className={styles.logoLinkContainer}>
               <motion.svg width="234" height="35" viewBox="0 0 234 35" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <motion.path
@@ -205,7 +205,7 @@ const Header = () => {
                         {menuItems.map((item) => {
                           return (
                             <Box key={item.title} mt={3}>
-                              <Link href={item.link} prefetch={false}>
+                              <Link href={item.link} prefetch={false} legacyBehavior>
                                 <MenuItem onClick={handleMenuOpen} dense>
                                   <Typography style={{ fontFamily: "SuisseIntl", fontWeight: 100, fontSize: "20px", lineHeight: "150%" }}>
                                     <a>{item.title}</a>
@@ -258,7 +258,7 @@ const Header = () => {
 
               return (
                 <Box key={item.title} mt={1.5}>
-                  <Link href={item.link} passHref prefetch={false}>
+                  <Link href={item.link} passHref prefetch={false} legacyBehavior>
                     <MenuItem onClick={handleMenuClose} classes={{ root: styles.disableHover }} dense disableRipple>
                       <a className={`${styles.menuListItemLink} ${isCurrentPath ? styles.menuListItemLinkActive : ""}`}>{item.title.toUpperCase()}</a>
                     </MenuItem>

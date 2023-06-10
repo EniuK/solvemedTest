@@ -29,11 +29,11 @@ const Footer = () => {
                   </Box>
                   <Box alignItems={"flex-end"} justifyContent={"flex-end"} width={"50%"} display={"flex"}>
                     <Link href="https://www.linkedin.com/company/solvemed-group/" target="_blank" rel="noopener">
-                      <Image src="/images/icons/linkedin.svg" alt="linkedin" width="40px" height="40px" />
+                      <Image src="/images/icons/linkedin.svg" alt="linkedin" width={40} height={40} />
                     </Link>
 
                     <Link href="https://twitter.com/solvemed" ml={3} target="_blank" rel="noopener">
-                      <Image src="/images/icons/twitter.svg" alt="twitter" width="40px" height="40px" />
+                      <Image src="/images/icons/twitter.svg" alt="twitter" width={40} height={40} />
                     </Link>
                   </Box>
                 </Box>
@@ -162,7 +162,7 @@ const Footer = () => {
                     <Link style={{ textDecoration: "none" }} href="https://twitter.com/solvemed" target="_blank" rel="noopener">
                       <Box display={"flex"} justifyContent={"center"} alignItems={"center"}>
                         <Box mr={1}>
-                          <Image src="/images/icons/twitter.svg" alt="twitter" width="40px" height="40px" />
+                          <Image src="/images/icons/twitter.svg" alt="twitter" width={40} height={40} />
                         </Box>
                         <Box pb={1} fontSize={"15px"} fontStyle={"SuisseIntl"} fontWeight={300}>
                           Twitter
@@ -174,7 +174,7 @@ const Footer = () => {
                     <Link style={{ textDecoration: "none" }} href="https://www.linkedin.com/company/solvemed-group/" target="_blank" rel="noopener">
                       <Box display={"flex"} justifyContent={"center"} alignItems={"center"}>
                         <Box mr={1}>
-                          <Image src="/images/icons/linkedin.svg" alt="linkedin" width="40px" height="40px" />
+                          <Image src="/images/icons/linkedin.svg" alt="linkedin" width={40} height={40} />
                         </Box>
                         <Box pb={1} fontSize={"15px"} fontStyle="SuisseIntl" fontWeight={300}>
                           Linkedin

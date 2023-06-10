@@ -124,7 +124,7 @@ const TeamCarousel = () => {
                   >
                     <Box width={"100%"} pt={"16px"} display={"flex"} justifyContent={"space-between"} alignItems={"flex-start"}>
                       <Box>
-                        <Image src={e.avatar} alt={e.name} width={"72px"} height={"72px"} priority />
+                        <Image src={e.avatar} alt={e.name} width={72} height={72} priority />
                       </Box>
                       <Box mr={"16px"}>
                         {e.titles.map((title) => {
@@ -231,7 +231,7 @@ const TeamCarousel = () => {
                       })}
                     </Box>
                     <Box>
-                      <Image src={e.avatar} style={e.msm ? { borderRadius: "50%" } : {}} alt={e.name} width={"100px"} height={"100px"} priority />
+                      <Image src={e.avatar} style={e.msm ? { borderRadius: "50%" } : {}} alt={e.name} width={100} height={100} priority />
                     </Box>
                     <Box width={"100%"} fontFamily="FinancierDisplay" fontWeight={400} lineHeight={"130%"} letterSpacing={"-0.01em"} mt={2} fontSize={"21px"}>
                       {e.name}
@@ -256,10 +256,10 @@ const TeamCarousel = () => {
 
           <Box display={"flex"} width={"100%"} justifyContent={"flex-end"} alignItems={"flex-end"} pr={"131px"}>
             <Box className="swiper-button-prev1" style={{ cursor: "pointer" }} onClick={() => slidePrev()} mr={2}>
-              <Image src={"/images/icons/buttonLeft.svg"} alt="Previous" width={"48px"} height={"48px"} />
+              <Image src={"/images/icons/buttonLeft.svg"} alt="Previous" width={48} height={48} />
             </Box>
             <Box className="swiper-button-next1" style={{ cursor: "pointer" }} onClick={() => slideNext()}>
-              <Image src={"/images/icons/buttonRight.svg"} alt="Next" width={"48px"} height={"48px"} />
+              <Image src={"/images/icons/buttonRight.svg"} alt="Next" width={48} height={48} />
             </Box>
           </Box>
         </Box>

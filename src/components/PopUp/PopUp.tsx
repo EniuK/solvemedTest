@@ -189,7 +189,7 @@ const PopUp = ({ onClose, status, message, onValidated }: any) => {
         )}
         <Box width={isSmallViewport ? "80%" : "70%"} textAlign={"left"} fontSize={"12px"} lineHeight="160%" color={"#595D62"} letterSpacing={"0.02em"}>
           by joining, you agree to the{" "}
-          <Link href="/PrivacyPolicy">
+          <Link href="/PrivacyPolicy" legacyBehavior>
             <a target="_blank" style={{ color: "black", textDecoration: "underline", fontFamily: "SuisseIntl" }}>
               Privacy Policy
             </a>

@@ -115,7 +115,7 @@ const NewsLetter = ({ status, message, onValidated }: any) => {
       <Box display={"flex"} alignItems={"flex-start"} justifyContent={"flex-start"} width={"100%"}>
         <Box textAlign={"left"} mt={3} fontSize={"12px"} lineHeight="160%" color={"#595D62"} letterSpacing={"0.02em"}>
           by joining, you agree to the{" "}
-          <Link href="/PrivacyPolicy">
+          <Link href="/PrivacyPolicy" legacyBehavior>
             <a target="_blank" style={{ color: "black", textDecoration: "underline", fontFamily: "SuisseIntl" }}>
               Privacy Policy
             </a>

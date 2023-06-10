@@ -1,7 +1,7 @@
 import { Box, Grid, Link, Typography, useMediaQuery } from "@mui/material";
 import type { NextPage } from "next";
 import Head from "next/head";
-import Image from "next/legacy/image";
+import Image from "next/image";
 import React, { useEffect } from "react";
 import { useState } from "react";
 import TeamMemberModal from "../components/TeamMemberModal/TeamMemberModal";
@@ -168,7 +168,7 @@ const Team: NextPage = () => {
       data-aos-anchor-placement="top"
     >
       <Box style={{ width: 140, height: 140, borderRadius: 70, backgroundColor: "#F0F6FA", position: "relative" }}>
-        <Image style={{ borderRadius: 70 }} src={member.photo} layout="fill" alt={member.name} priority />
+        <Image src={member.photo} alt={member.name} priority fill sizes="100vw" />
       </Box>
 
       <Typography fontFamily={"FinancierDisplay"} lineHeight={"130%"} fontSize={"22px"} fontWeight="600" mt="30px">
@@ -203,13 +203,29 @@ const Team: NextPage = () => {
       <Box display="flex" flexDirection="row" alignItems="center" justifyContent="flex-start" mt="auto">
         {member.linkedinUrl && (
           <Link href={member.linkedinUrl} target="_blank" rel="noopener" underline="none" display="flex" flexDirection="row" alignItems="center">
-            <Image src="/images/icons/linkedin.png" alt="linkedin" width="40" height="40" />
+            <Image
+              src="/images/icons/linkedin.png"
+              alt="linkedin"
+              width="40"
+              height="40"
+              style={{
+                maxWidth: "100%",
+                height: "auto"
+              }} />
           </Link>
         )}
 
         {member.twitterUrl && (
           <Link href={member.twitterUrl} ml={1} target="_blank" rel="noopener" underline="none" display="flex" flexDirection="row" alignItems="center">
-            <Image src="/images/icons/twitter.png" alt="twitter" width="40" height="40" />
+            <Image
+              src="/images/icons/twitter.png"
+              alt="twitter"
+              width="40"
+              height="40"
+              style={{
+                maxWidth: "100%",
+                height: "auto"
+              }} />
           </Link>
         )}
       </Box>
@@ -285,9 +301,27 @@ const Team: NextPage = () => {
           {isMobileView ? (
             <Box width={"100%"} display={"flex"} flexDirection={"column"}>
               <Box width={"100%"} display={"flex"} justifyContent={"center"} alignItems={"center"} mb={10} pr={8}>
-                <Image src="/images/team/brain.png" width={"650px"} height={"454px"} alt="Brain" priority />
+                <Image
+                  src="/images/team/brain.png"
+                  width={"650px"}
+                  height={"454px"}
+                  alt="Brain"
+                  priority
+                  style={{
+                    maxWidth: "100%",
+                    height: "auto"
+                  }} />
                 <Box position={"absolute"} width={"100%"} height={"100%"} display={"flex"} justifyContent={"center"} alignItems={"center"}>
-                  <Image src={"/images/team/brainGradient.png"} width={"650px"} height={"454px"} alt={"bg"} priority />
+                  <Image
+                    src={"/images/team/brainGradient.png"}
+                    width={"650px"}
+                    height={"454px"}
+                    alt={"bg"}
+                    priority
+                    style={{
+                      maxWidth: "100%",
+                      height: "auto"
+                    }} />
                 </Box>
               </Box>
               <Box width={"100%"}>
@@ -353,9 +387,27 @@ const Team: NextPage = () => {
                 alignItems={"center"}
                 mr={4}
               >
-                <Image src="/images/team/brain.png" width={"650px"} height={"454px"} alt="Brain" priority />
+                <Image
+                  src="/images/team/brain.png"
+                  width={"650px"}
+                  height={"454px"}
+                  alt="Brain"
+                  priority
+                  style={{
+                    maxWidth: "100%",
+                    height: "auto"
+                  }} />
                 <Box position={"absolute"} width={"100%"} height={"100%"} display={"flex"} justifyContent={"center"} alignItems={"center"}>
-                  <Image src={"/images/team/brainGradient.png"} width={"650px"} height={"454px"} alt={"bg"} priority />
+                  <Image
+                    src={"/images/team/brainGradient.png"}
+                    width={"650px"}
+                    height={"454px"}
+                    alt={"bg"}
+                    priority
+                    style={{
+                      maxWidth: "100%",
+                      height: "auto"
+                    }} />
                 </Box>
               </Box>
               <Box width={"40%"}>
@@ -426,7 +478,15 @@ const Team: NextPage = () => {
           {weComeFrom.map((item) => (
             <Grid item key={item.id} alignSelf="center" justifyContent="center" md={1} xs={1} sm={1}>
               <Box display="flex" justifyContent="center" alignItems="center">
-                <Image src={item.image} alt={item.id} width={item.width} height={item.height} layout="fixed" objectFit="scale-down" priority />
+                <Image
+                  src={item.image}
+                  alt={item.id}
+                  width={item.width}
+                  height={item.height}
+                  priority
+                  style={{
+                    objectFit: "scale-down"
+                  }} />
               </Box>
             </Grid>
           ))}
@@ -441,7 +501,17 @@ const Team: NextPage = () => {
             {investors.map((item) => (
               <Grid item key={item.id} md={1} xs={1} sm={1}>
                 <Box marginBottom={0} display="flex" justifyContent="center" alignItems="center">
-                  <Image src={item.image} alt={item.id} width={item.width} height={item.height} objectFit="contain" priority />
+                  <Image
+                    src={item.image}
+                    alt={item.id}
+                    width={item.width}
+                    height={item.height}
+                    priority
+                    style={{
+                      maxWidth: "100%",
+                      height: "auto",
+                      objectFit: "contain"
+                    }} />
                 </Box>
               </Grid>
             ))}

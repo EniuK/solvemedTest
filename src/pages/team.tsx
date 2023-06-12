@@ -168,7 +168,7 @@ const Team: NextPage = () => {
       data-aos-anchor-placement="top"
     >
       <Box style={{ width: 140, height: 140, borderRadius: 70, backgroundColor: "#F0F6FA", position: "relative" }}>
-        <Image src={member.photo} alt={member.name} priority fill sizes="100vw" />
+        <Image src={member.photo} alt={member.name} priority layout="fill" sizes="100vw" style={{ borderRadius: 70 }} />
       </Box>
 
       <Typography fontFamily={"FinancierDisplay"} lineHeight={"130%"} fontSize={"22px"} fontWeight="600" mt="30px">
@@ -210,8 +210,9 @@ const Team: NextPage = () => {
               height="40"
               style={{
                 maxWidth: "100%",
-                height: "auto"
-              }} />
+                height: "auto",
+              }}
+            />
           </Link>
         )}
 
@@ -224,8 +225,9 @@ const Team: NextPage = () => {
               height="40"
               style={{
                 maxWidth: "100%",
-                height: "auto"
-              }} />
+                height: "auto",
+              }}
+            />
           </Link>
         )}
       </Box>
@@ -309,8 +311,9 @@ const Team: NextPage = () => {
                   priority
                   style={{
                     maxWidth: "100%",
-                    height: "auto"
-                  }} />
+                    height: "auto",
+                  }}
+                />
                 <Box position={"absolute"} width={"100%"} height={"100%"} display={"flex"} justifyContent={"center"} alignItems={"center"}>
                   <Image
                     src={"/images/team/brainGradient.png"}
@@ -320,8 +323,9 @@ const Team: NextPage = () => {
                     priority
                     style={{
                       maxWidth: "100%",
-                      height: "auto"
-                    }} />
+                      height: "auto",
+                    }}
+                  />
                 </Box>
               </Box>
               <Box width={"100%"}>
@@ -395,8 +399,9 @@ const Team: NextPage = () => {
                   priority
                   style={{
                     maxWidth: "100%",
-                    height: "auto"
-                  }} />
+                    height: "auto",
+                  }}
+                />
                 <Box position={"absolute"} width={"100%"} height={"100%"} display={"flex"} justifyContent={"center"} alignItems={"center"}>
                   <Image
                     src={"/images/team/brainGradient.png"}
@@ -406,8 +411,9 @@ const Team: NextPage = () => {
                     priority
                     style={{
                       maxWidth: "100%",
-                      height: "auto"
-                    }} />
+                      height: "auto",
+                    }}
+                  />
                 </Box>
               </Box>
               <Box width={"40%"}>
@@ -485,8 +491,9 @@ const Team: NextPage = () => {
                   height={item.height}
                   priority
                   style={{
-                    objectFit: "scale-down"
-                  }} />
+                    objectFit: "scale-down",
+                  }}
+                />
               </Box>
             </Grid>
           ))}
@@ -510,8 +517,9 @@ const Team: NextPage = () => {
                     style={{
                       maxWidth: "100%",
                       height: "auto",
-                      objectFit: "contain"
-                    }} />
+                      objectFit: "contain",
+                    }}
+                  />
                 </Box>
               </Grid>
             ))}

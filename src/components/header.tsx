@@ -185,7 +185,7 @@ const Header = () => {
             <Box zIndex={300}>
               {open ? (
                 <Box onClick={handleMenuClose} width={20} height={34.5} justifyContent="center" mt={1}>
-                  <Image src={"/images/icons/closeicon2.png"} width={"15px"} height={"15px"} alt={"close"} />
+                  <Image src={"/images/icons/closeicon2.png"} width={15} height={15} alt={"close"} />
                 </Box>
               ) : (
                 <Stack justifyContent="center" width={20} height={34.5} onClick={handleMenuOpen}>
@@ -221,7 +221,7 @@ const Header = () => {
                       <Box mt={-1} alignItems={"center"} justifyContent={"flex-start"} pl={"16px"} width={"100vw"} display={"flex"}>
                         <Box height={"40px"} display={"flex"} justifyContent={"center"} alignItems={"center"} flexDirection={"row"}>
                           <Link href="https://www.linkedin.com/company/solvemed-group/" target="_blank" rel="noopener">
-                            <Image src="/images/icons/linkedin.svg" alt="linkedin" width="40px" height="40px" />
+                            <Image src="/images/icons/linkedin.svg" alt="linkedin" width={40} height={40} />
                           </Link>
                           <Box ml={2} style={{ fontFamily: "SuisseIntl", fontWeight: 100, fontSize: "15px", lineHeight: "24px" }}>
                             Linkedin
@@ -229,7 +229,7 @@ const Header = () => {
                         </Box>
                         <Box height={"40px"} display={"flex"} justifyContent={"center"} alignItems={"center"} flexDirection={"row"} ml={3}>
                           <Link href="https://twitter.com/solvemed" target="_blank" rel="noopener">
-                            <Image src="/images/icons/twitter.svg" alt="twitter" width="40px" height="40px" />
+                            <Image src="/images/icons/twitter.svg" alt="twitter" width={40} height={40} />
                           </Link>
                           <Box ml={2} style={{ fontFamily: "SuisseIntl", fontWeight: 100, fontSize: "15px", lineHeight: "24px", letterSpacing: "0.03em" }}>
                             Twitter

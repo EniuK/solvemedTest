@@ -124,7 +124,7 @@ const AiCards = () => {
   return (
     <Box width={"100%"}>
       <Box style={{ position: "absolute", margin: "0 auto 100px", rotate: "180deg", left: "20%", zIndex: -2 }} marginBottom={isMobileView ? 0 : 100}>
-        <Image src={"/images/bg/medicalSpecialities.png"} width={880} height={843} alt={"gradientBackground"} priority />
+        <Image src={"/images/bg/medicalSpecialities.png"} width={isMobileView ? 300 : 880} height={isMobileView ? 600 : 843} alt={"gradientBackground"} priority />
       </Box>
       {isMobileView ? (
         <Box width={"100%"} display={"flex"} alignItems={"center"} justifyContent={"center"} flexWrap={"wrap"}>

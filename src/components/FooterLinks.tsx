@@ -3,9 +3,9 @@ import Link from "next/link";
 import styles from "./link.module.css";
 const FooterLinks = ({ el }: any) => {
   return (
-    <Link href={el.link} passHref prefetch={true}>
+    <Link href={el.link} className={styles.links} passHref prefetch={true}>
       <MenuItem dense disableRipple>
-        <a className={styles.links}>{el.title.toUpperCase()}</a>
+        {el.title.toUpperCase()}
       </MenuItem>
     </Link>
   );

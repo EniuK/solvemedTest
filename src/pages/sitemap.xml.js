@@ -1,37 +1,39 @@
-export default async (req, res) => {
-  try {
-    let xml = '<?xml version="1.0" encoding="UTF-8"?>\n';
-    xml += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n';
+function generateSiteMap(urls) {
+  return `<?xml version="1.0" encoding="UTF-8"?>
+    <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+      ${urls
+        .map((url) => {
+          return `
+          <url>
+            <loc>${url}</loc>
+          </url>
+        `;
+        })
+        .join("")}
+    </urlset>
+  `;
+}
 
-    xml += "<url>\n";
-    xml += "  <loc>https://www.solvemed.ai/</loc>\n";
-    xml += "</url>\n";
+export async function getServerSideProps({ res }) {
+  const urls = [
+    "https://www.solvemed.ai/",
+    "https://www.solvemed.ai/GetAccess",
+    "https://www.solvemed.ai/Careers",
+    "https://www.solvemed.ai/Contact",
+    "https://www.solvemed.ai/Team",
+  ];
 
-    xml += "<url>\n";
-    xml += "  <loc>https://www.solvemed.ai/GetAccess</loc>\n";
-    xml += "</url>\n";
+  const sitemap = generateSiteMap(urls);
 
-    xml += "<url>\n";
-    xml += "  <loc>https://www.solvemed.ai/Careers</loc>\n";
-    xml += "</url>\n";
+  res.setHeader("Content-Type", "text/xml");
+  res.write(sitemap);
+  res.end();
 
-    xml += "<url>\n";
-    xml += "  <loc>https://www.solvemed.ai/Contact</loc>\n";
-    xml += "</url>\n";
+  return {
+    props: {},
+  };
+}
 
-    xml += "<url>\n";
-    xml += "  <loc>https://www.solvemed.ai/Team</loc>\n";
-    xml += "</url>\n";
-
-    xml += "</urlset>";
-
-    res.statusCode = 200;
-    res.setHeader("Content-Type", "application/xml");
-    res.write(xml);
-    res.end();
-  } catch (e) {
-    console.error(e);
-    res.statusCode = 500;
-    res.end();
-  }
-};
+export default function Sitemap() {
+  return null;
+}

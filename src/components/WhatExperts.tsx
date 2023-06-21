@@ -1,4 +1,5 @@
 import { Box, Typography } from "@mui/material";
+import TeamCarousel from "./HomeCarousels/TeamCarousel";
 
 const WhatExperts = ({ isMobileView }: { isMobileView: boolean }) => {
   return (
@@ -30,6 +31,7 @@ const WhatExperts = ({ isMobileView }: { isMobileView: boolean }) => {
           </Typography>
         )}
       </Box>
+      <TeamCarousel />
     </Box>
   );
 };

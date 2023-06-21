@@ -30,7 +30,7 @@ const Header = () => {
 
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-      const isScrollingUp = currentScrollY < prevScrollY + 2;
+      const isScrollingUp = currentScrollY < prevScrollY + 1;
 
       setMenuVisible(isScrollingUp);
       setPrevScrollY(currentScrollY);

@@ -177,7 +177,7 @@ const TeamCarousel = () => {
           </Swiper>
         </Box>
       ) : (
-        <Box width={"100%"} mt={5}>
+        <Box width={"100vw"} mt={5}>
           <Swiper
             spaceBetween={20}
             className="mySwiper"

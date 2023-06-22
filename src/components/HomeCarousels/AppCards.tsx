@@ -109,7 +109,7 @@ const AppCards = () => {
                   boxShadow={"0px 8px 32px rgba(27, 37, 74, 0.08)"}
                   borderRadius={"28px"}
                 >
-                  <Box width={"100%"} minHeight={"137px"} p={"24px"} pb={0}>
+                  <Box width={"100%"} minHeight={isMobileView ? "116px" : "137px"} p={"24px"} pb={0}>
                     <Box
                       fontSize={isMobileView ? "20px" : "24px"}
                       display={"flex"}

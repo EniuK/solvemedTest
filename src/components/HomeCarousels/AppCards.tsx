@@ -141,7 +141,7 @@ const AppCards = () => {
                   </Box>
 
                   <Box mb={-1}>
-                    <Image src={e.src} width={isMobileView ? 301 : 356} height={isMobileView ? 301 : 360} alt={e.title} priority />
+                    <Image src={e.src} width={isMobileView ? 140 : 356} height={isMobileView ? 301 : 360} alt={e.title} priority />
                   </Box>
                 </Box>
               </SwiperSlide>
